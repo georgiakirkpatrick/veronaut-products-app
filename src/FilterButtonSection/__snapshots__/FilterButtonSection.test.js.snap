@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilterButtonSection renders the UI as expected 1`] = `
+<div
+  className="FilterButtonSection"
+>
+  <div
+    className="FilterButtonSection__button-section"
+  >
+    <button>
+      Filter
+    </button>
+    <button>
+      Sort
+    </button>
+  </div>
+  <ul
+    className="FilterButtonSection__tag-section"
+  />
+</div>
+`;

@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+}
+
+.FilterButtonSection {
+    width: 100%;
+}
+
+.FilterButtonSection div {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.FilterButtonSection__button-section {
+    justify-content: space-between;
+}
+
+.FilterButtonSection__button-section button {
+    font-size: 18px;
+    height: 50px;
+    width: 48%;
+    /* padding: .5em 3em .5em; */
+    background-color: white;
+    border-color: black;
+    border-width: 2px;
+}
+
+.FilterButtonSection__tag-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
+    margin: 1em 0 0;
+}
+
+.FilterButtonSection__tag-section li {
+    font-size: 16px;
+    padding: .5em 1em .5em;
+    margin: 0 10px 10px 0;
+    background-color: #e2e2e2;
+    border-width: 0;
+    border-radius: 50px;
+}

@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer renders the UI as expected 1`] = `
+<footer>
+  <nav
+    className="Footer__page-link-list"
+  >
+    <ul>
+      <li
+        className="Footer__page-link"
+      >
+        <a
+          href="/about"
+        >
+          About
+        </a>
+      </li>
+      <li
+        className="Footer__page-link"
+      >
+        <a
+          href="/recommend-a-brand"
+        >
+          Recommend a brand
+        </a>
+      </li>
+      <li
+        className="Footer__page-link"
+      >
+        <a
+          href="/contact"
+        >
+          Contact
+        </a>
+      </li>
+      <li
+        className="Footer__page-link"
+      >
+        <a
+          href="/press-and-media"
+        >
+          Press and media
+        </a>
+      </li>
+      <li
+        className="Footer__page-link"
+      >
+        <a
+          href="/for-brands"
+        >
+          For brands
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <ul
+    className="Footer__social-link-list"
+  >
+    <li
+      className="Footer__social-link"
+    >
+      <a
+        href="https://www.instagram.com/shewantspockets/"
+      >
+        Instagram
+      </a>
+    </li>
+    <li
+      className="Footer__social-link"
+    >
+      <a
+        href="https://www.youtube.com/shewantspockets"
+      >
+        YouTube
+      </a>
+    </li>
+  </ul>
+  <form
+    className="NewsletterSignUp"
+  >
+    <label
+      htmlFor="newsletter"
+    >
+      Want updates?
+    </label>
+    <input
+      id="newsletter"
+      name="newsletter"
+      type="text"
+    />
+    <button
+      type="button"
+    >
+      Submit
+    </button>
+  </form>
+</footer>
+`;

@@ -1,0 +1,15 @@
+
+
+.Category {
+    height: 250px;
+    width: 160px;
+}
+
+.Category img {
+    height: 75%;
+}
+
+.Category p {
+    font-size: 16px;
+}
+

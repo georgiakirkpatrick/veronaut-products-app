@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FooterSocialLink renders the UI as expected 1`] = `
+<li
+  className="Footer__social-link"
+>
+  <a />
+</li>
+`;

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Principle renders the UI as expected 1`] = `
+<li
+  className="Principle"
+>
+  <h3 />
+  <p />
+</li>
+`;

@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewsletterSignup renders the UI as expected 1`] = `
+<form
+  className="NewsletterSignUp"
+>
+  <label
+    htmlFor="newsletter"
+  >
+    Want updates?
+  </label>
+  <input
+    id="newsletter"
+    name="newsletter"
+    type="text"
+  />
+  <button
+    type="button"
+  >
+    Submit
+  </button>
+</form>
+`;

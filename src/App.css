@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none; 
+}
+
+main {
+    width: 100vw;
+}
+
+main a:link {
+    color: gray;
+}    
+    
+main a:hover {
+    color: purple;
+}
+    
+main a:active {
+    color: plum;
+}

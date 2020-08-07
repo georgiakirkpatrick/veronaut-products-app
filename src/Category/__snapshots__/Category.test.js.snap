@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Category renders the UI as expected 1`] = `
+<li>
+  <a
+    className="main-link"
+    href="www.google.com"
+  >
+    <div
+      className="Category"
+    >
+      <img
+        alt="alternate text"
+        src="www.google.com"
+      />
+      <p>
+        tops
+      </p>
+    </div>
+  </a>
+</li>
+`;

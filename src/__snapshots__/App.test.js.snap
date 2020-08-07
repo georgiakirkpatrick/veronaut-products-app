@@ -1,0 +1,734 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders the UI as expected 1`] = `
+<div
+  className="App"
+>
+  <nav
+    className="Header"
+  >
+    <div
+      className="Header__top"
+    >
+      <div
+        className="Header__item"
+      >
+        <button
+          className="Header__hamburger"
+          id="hamburger"
+          onClick={[Function]}
+          type="button"
+        >
+          <div
+            className="line-1"
+          />
+          <div
+            className="line-2"
+          />
+          <div
+            className="line-3"
+          />
+        </button>
+      </div>
+      <div
+        className="Header__logo Header__item"
+      >
+        <h4>
+          SWP
+        </h4>
+      </div>
+      <div
+        className="Header__search-user Header__item"
+      >
+        <button
+          href="www.shewantspockets.com"
+        >
+          <svg
+            aria-hidden="true"
+            className="svg-inline--fa fa-search fa-w-16 fa-lg "
+            data-icon="search"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            style={Object {}}
+            viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"
+              fill="currentColor"
+              style={Object {}}
+            />
+          </svg>
+        </button>
+        <button
+          href="www.shewantspockets.com"
+        >
+          <svg
+            aria-hidden="true"
+            className="svg-inline--fa fa-user-circle fa-w-16 fa-lg "
+            data-icon="user-circle"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            style={Object {}}
+            viewBox="0 0 496 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 96c48.6 0 88 39.4 88 88s-39.4 88-88 88-88-39.4-88-88 39.4-88 88-88zm0 344c-58.7 0-111.3-26.6-146.5-68.2 18.8-35.4 55.6-59.8 98.5-59.8 2.4 0 4.8.4 7.1 1.1 13 4.2 26.6 6.9 40.9 6.9 14.3 0 28-2.7 40.9-6.9 2.3-.7 4.7-1.1 7.1-1.1 42.9 0 79.7 24.4 98.5 59.8C359.3 421.4 306.7 448 248 448z"
+              fill="currentColor"
+              style={Object {}}
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <ul
+      className="Header__menu"
+      id="menu"
+    >
+      <li>
+        <a
+          href="/category"
+        >
+          Categories
+        </a>
+      </li>
+      <li>
+        <a
+          href="/brand"
+        >
+          Brands
+        </a>
+      </li>
+      <li>
+        <a
+          href="/principles"
+        >
+          Principles
+        </a>
+      </li>
+      <li>
+        <a
+          href="/about"
+        >
+          About
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <nav
+    className="MenuSideDrawer"
+  >
+    <ul>
+      <li>
+        <a
+          href="/"
+        >
+          Home
+        </a>
+      </li>
+      <li>
+        <a
+          href="/category"
+        >
+          Categories
+        </a>
+      </li>
+      <li>
+        <a
+          href="/brand"
+        >
+          Brands
+        </a>
+      </li>
+      <li>
+        <a
+          href="/principles"
+        >
+          Principles
+        </a>
+      </li>
+      <li>
+        <a
+          href="/about"
+        >
+          About
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <main
+    style={
+      Object {
+        "marginTop": "56px",
+      }
+    }
+  >
+    <section
+      className="LandingPage"
+    >
+      <div
+        className="LandingPage__hero"
+      >
+        <img
+          alt="KowTow Faculty Pant in Sand"
+          src="https://cdn.shopify.com/s/files/1/0767/5207/products/KOWTOW_Faculty_Pant_Sand_Canvas_1456_web_1186x1186.jpg?v=1581027100"
+        />
+        <div
+          className="LandingPage__hero-title"
+        >
+          <header>
+            <h1>
+              Your guide to the best-designed clothes with upstanding supply chains.
+            </h1>
+          </header>
+          <button>
+            Our Principles
+          </button>
+        </div>
+      </div>
+      <div>
+        <ul
+          className="PrincipleList"
+        >
+          <li
+            className="Principle"
+          >
+            <h3>
+              Good design
+            </h3>
+            <p>
+              We value versatile styles that bring out our best selves in the office and at happy hour.  That hold up on our bike commutes and school pick-ups.  Our ideal clothing is bra-friendly, easy care, and has pockets.
+            </p>
+          </li>
+          <li
+            className="Principle"
+          >
+            <h3>
+              Ethical
+            </h3>
+            <p>
+              We report which brands have the most transparent supply chains, and which brands prioritize worker safety, living wages, and freedom of association (the right to join a union).
+            </p>
+          </li>
+          <li
+            className="Principle"
+          >
+            <h3>
+              Sustainable
+            </h3>
+            <p>
+              We feature clothing made with natural and cellulose-based fibers, with exceptions for a few categories like outerwear and swimwear.  While we include thoughtfully-sourced wool products, we exclude leather and fur.
+            </p>
+          </li>
+        </ul>
+        <a
+          href="/principles"
+        >
+          <p
+            className="ReadMoreLink"
+          >
+            <span>
+              Learn more about our selection criteria
+               
+            </span>
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-arrow-right fa-w-14 "
+              data-icon="arrow-right"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 448 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </p>
+        </a>
+      </div>
+      <section
+        className="LandingcategoryList__section"
+      >
+        <header>
+          <h3>
+            Use filters to narrow your search
+          </h3>
+        </header>
+        <p>
+          Search by design feature, size, brand, fiber, and other details to find the fashion you're looking for.
+        </p>
+        <ul
+          className="LandingCategoryList__list"
+        >
+          <li>
+            <a
+              className="main-link"
+              href="www.google.com"
+            >
+              <div
+                className="Category"
+              >
+                <img
+                  alt="Analina Shirt Dress in Blue Depths"
+                  src="https://cdn.shopify.com/s/files/1/0767/5207/products/9754_Analina_Blue_Depths_3480_web_1186x1186.jpg?v=1580429686"
+                />
+                <p>
+                  Dresses
+                </p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a
+              className="main-link"
+              href="www.google.com"
+            >
+              <div
+                className="Category"
+              >
+                <img
+                  alt="Colombe Ribbed Dress in Black"
+                  src="https://cdn.shopify.com/s/files/1/0767/5207/products/200602-Amout-Vert_-July-Catalog_13481_web_500x750.jpg?v=1594245275"
+                />
+                <p>
+                  Lingerie, Loungewear, and Shapewear
+                </p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a
+              className="main-link"
+              href="www.google.com"
+            >
+              <div
+                className="Category"
+              >
+                <img
+                  alt="Rene Sweatshirt"
+                  src="https://cdn.shopify.com/s/files/1/0767/5207/products/200602-Amout-Vert_-July-Catalog_15108_1186x1186.jpg?v=1594243616"
+                />
+                <p>
+                  Tops
+                </p>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <a
+          href="/all-categories"
+        >
+          <p
+            className="ReadMoreLink"
+          >
+            <span>
+              More categories
+               
+            </span>
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-arrow-right fa-w-14 "
+              data-icon="arrow-right"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 448 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </p>
+        </a>
+      </section>
+      <section
+        className="LandingBrandList__section"
+      >
+        <header>
+          <h3>
+            Discover new brands
+          </h3>
+        </header>
+        <p>
+          She Wants Pockets curates clothing from 
+           from 
+          . Explore our brand fact sheets and impartial supply-chain reviews to make an informed decision when you vote with your money.
+        </p>
+        <div
+          className="LandingBrandList__list"
+        >
+          <a
+            href="www.google.com"
+          >
+            <div
+              className="Brand"
+            >
+              <img
+                alt="A 5'10\\" model is wearing a size 2 The Relaxed Air Shirt in Blue / White Stripe"
+                src="https://res.cloudinary.com/everlane/image/upload/c_scale/c_fill,dpr_1.0,f_auto,q_auto,w_auto:100:1200/v1/i/1bc014ee_3f92.jpg"
+              />
+              <p>
+                Everlane
+              </p>
+            </div>
+          </a>
+        </div>
+        <a
+          href="/all-categories"
+        >
+          <p
+            className="ReadMoreLink"
+          >
+            <span>
+              All brand reviews
+               
+            </span>
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-arrow-right fa-w-14 "
+              data-icon="arrow-right"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 448 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </p>
+        </a>
+      </section>
+      <section>
+        <header>
+          <h3>
+            Save your favorite brands and styles
+          </h3>
+        </header>
+        <p>
+          Create an account and save items to buy later.
+        </p>
+        <form>
+          <label
+            htmlFor="email-signup"
+          >
+            Email address
+          </label>
+          <input
+            id="email-signup"
+            name="email-signup"
+            type="text"
+          />
+          <button
+            type="button"
+          >
+            Create account
+          </button>
+        </form>
+      </section>
+    </section>
+    <section
+      className="ProductListPage"
+    >
+      <header>
+        <h1>
+          Dresses
+        </h1>
+      </header>
+      <div
+        className="FilterButtonSection"
+      >
+        <div
+          className="FilterButtonSection__button-section"
+        >
+          <button>
+            Filter
+          </button>
+          <button>
+            Sort
+          </button>
+        </div>
+        <ul
+          className="FilterButtonSection__tag-section"
+        />
+      </div>
+      <ul
+        className="ProductListPage__product-list"
+      >
+        <li
+          className="Product"
+        >
+          <div
+            className="Product__cropped"
+          >
+            <img
+              alt="Jennie Dress - Short-sleeved maxi dress"
+              src="https://res.cloudinary.com/dwunpjzlo/image/upload/c_fill,d_placeholder_dark.png,fl_progressive:semi,h_1514,q_auto:best,w_1080/v1591191901/website/product/y8saioc8gylnginsrz7q.jpg"
+            />
+          </div>
+          <h2
+            className="Product__brand"
+          >
+            Sézane
+          </h2>
+          <p
+            className="Product__title"
+          >
+            Jennie Dress
+          </p>
+          <p
+            className="Product__price"
+          >
+            210
+          </p>
+        </li>
+        <li
+          className="Product"
+        >
+          <div
+            className="Product__cropped"
+          >
+            <img
+              alt="Renata Dress in Willow Marsala silk"
+              src="https://cdn.shopify.com/s/files/1/0767/5207/products/0039_RENATA_DRESS_MARSALA_2237_web_1186x1186.jpg?v=1594246043"
+            />
+          </div>
+          <h2
+            className="Product__brand"
+          >
+            Amour Vert
+          </h2>
+          <p
+            className="Product__title"
+          >
+            Renata Dress
+          </p>
+          <p
+            className="Product__price"
+          >
+            228
+          </p>
+        </li>
+        <li
+          className="Product"
+        >
+          <div
+            className="Product__cropped"
+          >
+            <img
+              alt="Jennie Dress - Short-sleeved maxi dress"
+              src="https://res.cloudinary.com/dwunpjzlo/image/upload/c_fill,d_placeholder_dark.png,fl_progressive:semi,h_1514,q_auto:best,w_1080/v1591191901/website/product/y8saioc8gylnginsrz7q.jpg"
+            />
+          </div>
+          <h2
+            className="Product__brand"
+          >
+            Sézane
+          </h2>
+          <p
+            className="Product__title"
+          >
+            Jennie Dress
+          </p>
+          <p
+            className="Product__price"
+          >
+            210
+          </p>
+        </li>
+        <li
+          className="Product"
+        >
+          <div
+            className="Product__cropped"
+          >
+            <img
+              alt="Renata Dress in Willow Marsala silk"
+              src="https://cdn.shopify.com/s/files/1/0767/5207/products/0039_RENATA_DRESS_MARSALA_2237_web_1186x1186.jpg?v=1594246043"
+            />
+          </div>
+          <h2
+            className="Product__brand"
+          >
+            Amour Vert
+          </h2>
+          <p
+            className="Product__title"
+          >
+            Renata Dress
+          </p>
+          <p
+            className="Product__price"
+          >
+            228
+          </p>
+        </li>
+        <li
+          className="Product"
+        >
+          <div
+            className="Product__cropped"
+          >
+            <img
+              alt="Jennie Dress - Short-sleeved maxi dress"
+              src="https://res.cloudinary.com/dwunpjzlo/image/upload/c_fill,d_placeholder_dark.png,fl_progressive:semi,h_1514,q_auto:best,w_1080/v1591191901/website/product/y8saioc8gylnginsrz7q.jpg"
+            />
+          </div>
+          <h2
+            className="Product__brand"
+          >
+            Sézane
+          </h2>
+          <p
+            className="Product__title"
+          >
+            Jennie Dress
+          </p>
+          <p
+            className="Product__price"
+          >
+            210
+          </p>
+        </li>
+        <li
+          className="Product"
+        >
+          <div
+            className="Product__cropped"
+          >
+            <img
+              alt="Renata Dress in Willow Marsala silk"
+              src="https://cdn.shopify.com/s/files/1/0767/5207/products/0039_RENATA_DRESS_MARSALA_2237_web_1186x1186.jpg?v=1594246043"
+            />
+          </div>
+          <h2
+            className="Product__brand"
+          >
+            Amour Vert
+          </h2>
+          <p
+            className="Product__title"
+          >
+            Renata Dress
+          </p>
+          <p
+            className="Product__price"
+          >
+            228
+          </p>
+        </li>
+      </ul>
+    </section>
+    <footer>
+      <nav
+        className="Footer__page-link-list"
+      >
+        <ul>
+          <li
+            className="Footer__page-link"
+          >
+            <a
+              href="/about"
+            >
+              About
+            </a>
+          </li>
+          <li
+            className="Footer__page-link"
+          >
+            <a
+              href="/recommend-a-brand"
+            >
+              Recommend a brand
+            </a>
+          </li>
+          <li
+            className="Footer__page-link"
+          >
+            <a
+              href="/contact"
+            >
+              Contact
+            </a>
+          </li>
+          <li
+            className="Footer__page-link"
+          >
+            <a
+              href="/press-and-media"
+            >
+              Press and media
+            </a>
+          </li>
+          <li
+            className="Footer__page-link"
+          >
+            <a
+              href="/for-brands"
+            >
+              For brands
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <ul
+        className="Footer__social-link-list"
+      >
+        <li
+          className="Footer__social-link"
+        >
+          <a
+            href="https://www.instagram.com/shewantspockets/"
+          >
+            Instagram
+          </a>
+        </li>
+        <li
+          className="Footer__social-link"
+        >
+          <a
+            href="https://www.youtube.com/shewantspockets"
+          >
+            YouTube
+          </a>
+        </li>
+      </ul>
+      <form
+        className="NewsletterSignUp"
+      >
+        <label
+          htmlFor="newsletter"
+        >
+          Want updates?
+        </label>
+        <input
+          id="newsletter"
+          name="newsletter"
+          type="text"
+        />
+        <button
+          type="button"
+        >
+          Submit
+        </button>
+      </form>
+    </footer>
+  </main>
+</div>
+`;

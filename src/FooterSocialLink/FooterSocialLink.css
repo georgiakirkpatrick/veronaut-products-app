@@ -1,0 +1,12 @@
+.Footer__social-link {
+    background-color: aliceblue;
+    list-style: none;
+}
+
+.Footer__social-link a {
+    text-decoration: none;
+}
+
+.Footer__social-link img {
+    height: 30px;
+}

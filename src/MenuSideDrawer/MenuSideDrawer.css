@@ -1,0 +1,42 @@
+.MenuSideDrawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 70vw;
+    max-width: 400px;
+    background-color: rgb(255, 255, 255);
+    z-index: 2;
+    transform: translateX(-107%);
+    transition: transform 0.3s ease-out;
+}
+
+.MenuSideDrawer ul {
+    height: 100%;
+    width: 100%;
+    color: black;
+    box-shadow: 0 0 7px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 2;
+}
+
+.MenuSideDrawer a {
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    color: black
+}
+.MenuSideDrawer a:hover {
+    color: gray;
+}
+
+.MenuSideDrawer li {
+    list-style: none;
+}
+
+.MenuSideDrawer.open {
+    transform: translateX(0);
+}

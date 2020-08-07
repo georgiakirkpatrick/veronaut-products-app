@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FooterSocialLinkList render the UI as expected 1`] = `
+<ul
+  className="Footer__social-link-list"
+>
+  <li
+    className="Footer__social-link"
+  >
+    <a
+      href="https://www.instagram.com/shewantspockets/"
+    >
+      Instagram
+    </a>
+  </li>
+</ul>
+`;

@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Product renders the UI as expected 1`] = `
+<li
+  className="Product"
+>
+  <div
+    className="Product__cropped"
+  >
+    <img
+      alt="Woman in dress"
+      src="www.google.com"
+    />
+  </div>
+  <h2
+    className="Product__brand"
+  >
+    Sezane
+  </h2>
+  <p
+    className="Product__title"
+  >
+    long-sleeved dress
+  </p>
+  <p
+    className="Product__price"
+  >
+    98
+  </p>
+</li>
+`;

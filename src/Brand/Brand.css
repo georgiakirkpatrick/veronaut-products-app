@@ -1,0 +1,12 @@
+.Brand {
+    height: 250px;
+    width: 160px;
+}
+
+.Brand img {
+    height: 75%;
+}
+
+.Brand p {
+    font-size: 16px;
+}
