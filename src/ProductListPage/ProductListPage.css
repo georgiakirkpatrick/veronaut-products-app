@@ -3,7 +3,31 @@
 }
 
 .ProductListPage {
+    
     padding: 0 15px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* .ProductListPage > header */
+
+.ProductListPage > header > h1 {
+    padding: 0 0 25px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.ProductListPage > ul {
+    font-weight: 500;
+}
+
+.ProductListPage > ul > p {
+    padding: 0 0 25px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.ProductListPage__no-products {
+    height: 80vh;
 }
 
 .ProductListPage__product-list {

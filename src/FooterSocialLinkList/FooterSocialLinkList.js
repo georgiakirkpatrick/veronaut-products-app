@@ -2,7 +2,7 @@ import React from 'react';
 import FooterSocialLink from '../FooterSocialLink/FooterSocialLink';
 import './FooterSocialLinkList.css';
 
-function FooterSocialLinkList(props) {
+const FooterSocialLinkList = props => {
     const generateSocialLinks = props.socialLinks.map(link => (
         <FooterSocialLink
             key={link.id}

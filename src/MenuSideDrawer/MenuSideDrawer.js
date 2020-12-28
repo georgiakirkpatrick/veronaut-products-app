@@ -1,4 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Dropdown from '../Dropdown/Dropdown';
+import '../FontAwesomeIcons/FontAwesomeIcons'
 import './MenuSideDrawer.css';
 
 const MenuSideDrawer = props => {
@@ -10,12 +14,56 @@ const MenuSideDrawer = props => {
 
     return (
         <nav className={drawerClasses.join(' ')}>
+            <button className='close-button' type='button' onClick={props.close} >
+                <FontAwesomeIcon icon='times' className='times-icon' size='lg' />
+            </button>
+
             <ul>
-                <li><a href='/'>Home</a></li>
-                <li><a href='/category'>Categories</a></li>
-                <li><a href='/brand'>Brands</a></li>
-                <li><a href='/principles'>Principles</a></li>
-                <li><a href='/about'>About</a></li>
+                <li>
+                    <Link 
+                        to='/'
+                        // onClick={closeMobileMenu}
+                    >
+                        Home
+                    </Link>
+                </li>
+
+                <li>
+                    <Link 
+                        to='/category'
+                        // onClick={closeMobileMenu}
+                    >
+                        Categories <FontAwesomeIcon icon='caret-down' />
+                    </Link>
+                    {dropdown && <Dropdown />}
+                </li>
+
+                <li>
+                    <Link 
+                        to='/brand' 
+                        // onClick={closeMobileMenu}
+                    >
+                        Brands
+                    </Link>
+                </li>
+
+                <li>
+                    <Link 
+                        to='/principles' 
+                        // onClick={closeMobileMenu}
+                    >
+                        Principles
+                    </Link>
+                </li>
+
+                <li>
+                    <Link 
+                        to='/about' 
+                        // onClick={closeMobileMenu}
+                    >
+                        About
+                    </Link>
+                </li>
             </ul>
         </nav>
     );

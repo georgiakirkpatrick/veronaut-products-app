@@ -4,7 +4,7 @@ import FooterSocialLinkList from '../FooterSocialLinkList/FooterSocialLinkList';
 import NewsletterSignUp from '../NewsletterSignUp/NewsletterSignUp';
 import './Footer.css';
 
-function Footer() {
+const Footer = () => {
     const footerLinks = [
         {
             id: 1,

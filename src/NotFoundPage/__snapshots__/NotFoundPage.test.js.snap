@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFoundPage render the UI as expected 1`] = `
+<h1>
+  That page does not exist.
+</h1>
+`;

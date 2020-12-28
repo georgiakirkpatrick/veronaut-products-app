@@ -1,0 +1,9 @@
+.TextBlock {
+    padding: 60px 40px;
+    font-size: 24px;
+    line-height: 1.2;
+}
+
+.TextBlock > p > .bold {
+    font-weight: bold;
+}

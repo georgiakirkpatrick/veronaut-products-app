@@ -1,15 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Category.css';
 
-function Category(props) {
+const Category = props => {
     return (
-        <li key={props.id}>
-            <a href='www.google.com' className='main-link'>
-                <div className='Category'>
+        <li className='Category' key={props.id}>
+            <Link to={`/category/${props.id}/slug`} className='main-link'>
+                <div className='Category__cropped'>
                     <img src={props.pathToImage} alt={props.imgAlt} />
-                    <p>{props.categoryName}</p>
                 </div>
-            </a>
+                <h2 className='Category__title'>{props.categoryName}</h2>
+            </Link>
         </li>
     )
 }

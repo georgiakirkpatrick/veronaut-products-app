@@ -4,12 +4,13 @@
 
 .Product {
     width: 46%;
+    height: 325px;
 }   
 
 .Product__cropped {
-    border-color: black;
+    /* border-color: black;
     border-width: 2px;
-    border-style: solid;
+    border-style: solid; */
     width: 100%;
     height: 200px;
     object-fit: cover;
@@ -18,5 +19,17 @@
 }
 
 .Product__cropped img {
-    height: 200px;
+    height: 220px;
+}
+
+.Product__brand-and-title {
+    text-align: center;
+    padding: 5px 0;
+    font-size: 16px;
+    line-height: 1.2;
+}
+
+.Product__price {
+    text-align: center;
+    font-size: 16px;
 }

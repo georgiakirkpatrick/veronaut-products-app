@@ -2,7 +2,7 @@ import React from 'react';
 import FooterPageLink from '../FooterPageLink/FooterPageLink';
 import './FooterPageLinkList.css';
 
-function FooterPageLinkList(props) {
+const FooterPageLinkList = props => {
     const generateFooterLinks = props.footerLinks.map(link => (
         <FooterPageLink 
             key={link.id}

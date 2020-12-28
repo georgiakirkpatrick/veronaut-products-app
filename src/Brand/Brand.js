@@ -1,7 +1,7 @@
 import React from 'react';
 import './Brand.css';
 
-function Brand(props) {
+const Brand = props => {
     return (
         <a href={props.brandLink}>
             <div className='Brand'>

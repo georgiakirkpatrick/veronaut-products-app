@@ -1,0 +1,46 @@
+.empty {
+    height: 0;
+}
+
+.FormCheckboxSection {
+    width: 100%;
+    padding: 5px;
+    margin: 2px 0;
+    background-color: rgb(238, 238, 238);
+}
+
+.FormCheckboxSection p {
+   font-size: 16px;
+   font-weight: 500;
+   padding: 10px;
+}
+
+.FormCheckboxSection_option {
+    padding: 10px;
+}
+
+.FormCheckboxSection_option label {
+    padding: 0 10px;
+}
+
+.FormCheckboxSection__options-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.FormCheckboxSection__options-container .categories {
+    height: 40vh
+}
+
+.FormCheckboxSection__options-container .fibers {
+    height: 45vh
+}
+
+.FormCheckboxSection__options-container .sizes {
+    height: 55vh;
+}
+
+/* .FormCheckboxSection_petite-container {
+    height: 200px;
+}     */

@@ -1,12 +1,21 @@
 import React from 'react'
 import './FilterButtonSection.css'
 
-function FilterButtonSection(props) {
-    const generateTags = props.selectedFilterOptions.map(option => (
-        <li key={option.id} className='FilterButtonSection__tag'>
-            {option.name}
+const FilterButtonSection = props => {
+
+    const tagsNoFiltersSelected = <li key={props.defaultFilter} className='FilterButtonSection__tag'>
+        {props.defaultFilter}
+    </li>
+
+    const tagsWithFiltersSelected = props.selectedFilters.map(filter => (
+        <li key={filter.id} className='FilterButtonSection__tag'>
+            {filter.name}
         </li>
     ))
+
+    const generateTags = props.selectedFilterOptions.length === 0
+        ? tagsNoFiltersSelected
+        : tagsWithFiltersSelected
             
     return (
         <div className='FilterButtonSection'>

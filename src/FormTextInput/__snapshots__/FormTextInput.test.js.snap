@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormTextInput render the UI as expected 1`] = `
+<div
+  className="FormText"
+>
+  <label />
+  <input />
+</div>
+`;

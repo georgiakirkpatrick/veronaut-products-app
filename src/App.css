@@ -8,13 +8,32 @@ a {
     text-decoration: none; 
 }
 
-main {
-    width: 100vw;
+button {
+    display: inline-block;
+    border: none;
+    padding: 1rem 2rem;
+    margin: 0;
+    text-decoration: none;
+    background: #fff;
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: 250ms ease-in-out, 
+                transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
 
-main a:link {
+main {
+    width: 100vw;
+    margin-top: 10vh;
+}
+
+/* main a:link {
     color: gray;
-}    
+}     */
     
 main a:hover {
     color: purple;
@@ -22,4 +41,10 @@ main a:hover {
     
 main a:active {
     color: plum;
+}
+
+@media screen and (min-width: 768px) {
+    main {
+        margin-top: 15vh;
+    }
 }

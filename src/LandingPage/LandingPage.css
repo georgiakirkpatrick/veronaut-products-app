@@ -1,24 +1,29 @@
+.LandingPage__hero {
+    position: relative;
+    height: 90vh
+}
+
 .LandingPage__hero button {
     font-size: 18px;
     height: 50px;
     width: 60%;
-    background-color: rgba(255, 255, 255, 0);
-    border-color: black;
-    border-width: 2px;
+    background-color: rgb(255, 255, 255);
+    color: inherit;
+    border: solid rgba(0, 0, 0) 2px;
     border-radius: 1px;
     font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
     font-size: 16px;
     font-weight: bold;
+    padding: 0;
 }
 
 .LandingPage h1 {
     font-size: 20px;
 }
 
-.LandingPage__hero {
-    position: relative;
-    height: 90vh
+.LandingPage > .PrincipleList {
+    background-color: rgb(236, 236, 236);
 }
 
 .LandingPage__hero-title {
@@ -34,7 +39,7 @@
 .LandingPage__hero header {
     color: rgb(27, 27, 27);
     font-family: 'Poppins', sans-serif;
-    margin: 0 0 1em;
+    /* margin: 0 0 1em; */
 }
 
 .LandingPage__hero img {
@@ -43,4 +48,10 @@
     object-fit: cover;
     overflow: hidden;
     object-position: 50% 0 ;
+}
+
+@media screen and (min-width: 768px) {
+    .LandingPage__hero {
+        height: 90vh
+    }
 }

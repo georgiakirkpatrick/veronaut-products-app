@@ -3,6 +3,5 @@
 exports[`Backdrop renders the UI as expected 1`] = `
 <div
   className="Backdrop"
-  onClick={[Function]}
 />
 `;

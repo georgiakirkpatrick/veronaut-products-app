@@ -1,0 +1,61 @@
+.NewAccount {
+    /* position: relative; */
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    font: arial;
+    height: 90vh;
+}
+
+.NewAccount > a {
+    position: absolute;
+    bottom: 20px;
+    color: rgb(67, 67, 67);
+    font-size: 16px;
+}
+
+.NewAccount > button {
+    margin: 0;
+    width: 100%;
+}
+
+.NewAccount > header {
+    text-align: left;
+    padding: 4vh 0 4vh;
+    width: 50%;
+}
+
+.NewAccount > header > h2 {
+    text-align: left;
+}
+
+.NewAccount__fieldset {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    border: none;
+    padding: 5vh 0;
+}
+
+.NewAccount__fieldset > div {
+    margin: 5px;
+    color: rgb(67, 67, 67);
+}
+
+.NewAccount__fieldset > div > input {
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-bottom: solid 1px grey;
+    padding: 2px;
+}
+
+.NewAccount__fields {
+    display: block;
+    width: 100%;
+}

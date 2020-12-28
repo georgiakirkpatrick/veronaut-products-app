@@ -1,12 +1,19 @@
 import React from 'react';
+import FormButton from '../FormButton/FormButton'
 import './NewsletterSignUp.css';
 
-function NewsletterSignUp() {
+const NewsletterSignUp = () => {
     return (
         <form className='NewsletterSignUp'>
-            <label htmlFor='newsletter'>Want updates?</label>
-            <input type='text' name='newsletter' id='newsletter'></input>
-            <button type='button'>Submit</button>
+            <p>Want updates?</p>
+            <fieldset>
+                <label htmlFor='newsletter'>Email </label>
+                <input type='text' name='newsletter' id='newsletter'></input>
+            </fieldset>
+            <FormButton
+                buttonText='SUBMIT'
+                click={() => {}}
+            />
         </form>
     )
 }

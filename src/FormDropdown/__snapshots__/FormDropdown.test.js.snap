@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormDropdown render the UI as expected 1`] = `
+<div>
+  <label />
+</div>
+`;

@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewProductForm render the UI as expected 1`] = `
+<form
+  
+>
+  <div
+    className="NewProductForm"
+  >
+    <h2
+      className="FormTitle"
+    >
+      Add a Product
+    </h2>
+    <button
+      className="FormButton"
+      type="button"
+    >
+      booty
+    </button>
+  </div>
+</form>
+`;

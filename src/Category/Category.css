@@ -1,12 +1,33 @@
-
-
 .Category {
-    height: 250px;
-    width: 160px;
+    width: 46%;
+    height: 275px;
 }
 
-.Category img {
-    height: 75%;
+.Category__cropped {
+    /* border-color: black; */
+     /* border-width: 2px; */
+    /* border-style: solid; */
+    /* border-radius: 5px; */
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    overflow: hidden;
+    object-position: 50% 10px ;
+}
+
+.Category__cropped img {
+    height: 220px;
+}
+
+.Category__title {
+    color: black;
+    /* display: block; */
+    font-size: 16px;
+    margin-block-start: 0.3em;
+    margin-block-end: 0.3em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
 }
 
 .Category p {

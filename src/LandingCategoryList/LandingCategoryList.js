@@ -3,7 +3,7 @@ import Category from '../Category/Category';
 import ReadMoreLink from '../ReadMoreLink/ReadMoreLink';
 import './LandingCategoryList.css';
 
-function LandingCategoryList(props) {
+const LandingCategoryList = props => {
     const generateCategoryList = props.categories.map(category => (
         <Category 
             key={category.id}
@@ -16,16 +16,12 @@ function LandingCategoryList(props) {
     ))
 
     return (
-        <section className='LandingcategoryList__section'>
+        <section className='LandingCategoryList__section'>
             <header>
-                <h3>
-                    Use filters to narrow your search
-                </h3>
+                <h2>
+                    Categories
+                </h2>
             </header>
-            <p>
-                Search by design feature, size, brand, fiber, and other details to find 
-                the fashion you're looking for.
-            </p>
             <ul className='LandingCategoryList__list'>
                 {generateCategoryList}
             </ul>

@@ -1,9 +1,14 @@
 import React from 'react';
 import './Backdrop.css'
 
-const Backdrop = props => (
-    <div className='Backdrop' onClick={props.click}></div>
-)
+const Backdrop = props => {
+    return (
+        <div 
+            onClick={props.handleClick} 
+            className={props.mobMenuOpen ? 'Backdrop active' : 'Backdrop'} 
+        />
+    )
+}
 
 Backdrop.defaultProps = {
     click: () => {}

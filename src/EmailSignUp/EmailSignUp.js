@@ -1,21 +1,27 @@
 import React from 'react';
+import FormButton from '../FormButton/FormButton'
 import './EmailSignUp.css';
 
-function EmailSignUp() {
+const EmailSignUp = () => {
     return (
-        <section>
+        <section className='EmailSignUp'>
             <header>
-                <h3>
-                    Save your favorite brands and styles
-                </h3>
+                <h2>
+                    Save your favorite products
+                </h2>
             </header>
             <p>
                 Create an account and save items to buy later.
             </p>
             <form>
-                <label htmlFor='email-signup'>Email address</label>
-                <input type='text' name='email-signup' id='email-signup'></input>
-                <button type='button'>Create account</button>
+                <fieldset>
+                    <label htmlFor='email-signup'>Email </label>
+                    <input type='text' name='email-signup' id='email-signup'></input>
+                </fieldset>
+                <FormButton
+                    buttonText='CREATE ACCOUNT'
+                    click={() => {}}
+                />
             </form>
         </section>
     )

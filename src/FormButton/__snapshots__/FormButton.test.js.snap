@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormButton render the UI as expected 1`] = `
+<button
+  className="FormButton"
+  type="button"
+/>
+`;

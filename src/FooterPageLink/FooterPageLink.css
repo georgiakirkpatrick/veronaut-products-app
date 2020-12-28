@@ -1,3 +1,7 @@
 .Footer__page-link {
-    color: white;
+    padding: 3px 0;
+}
+
+.Footer__page-link a {
+    color: black;
 }

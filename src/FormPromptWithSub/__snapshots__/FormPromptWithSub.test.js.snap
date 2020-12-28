@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormPromptWithSub render the UI as expected 1`] = `
+Array [
+  <p
+    className="FormPromptWithSub_prompt"
+  />,
+  <p />,
+]
+`;

@@ -1,3 +1,30 @@
 .NewsletterSignUp {
-    color: white;
+    padding: 10px 0;
+}
+
+.NewsletterSignUp > p {
+    font-weight: 600;
+}
+
+.NewsletterSignUp > fieldset {
+    position: relative;
+    width: 100%;
+    border: none;
+    padding: 2px 0 20px;
+}
+
+.NewsletterSignUp > fieldset > label {
+    display: block;
+    padding: 3px 0 0;
+}
+
+.NewsletterSignUp > fieldset > input {
+    background-color: rgb(236, 236, 236);
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-bottom: solid 1px grey;
+    padding: 5px;
+    width: 100%;
+    font-size: 16px;
 }

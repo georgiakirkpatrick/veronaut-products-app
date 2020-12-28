@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormTitle render the UI as expected 1`] = `
+<h2
+  className="FormTitle"
+/>
+`;

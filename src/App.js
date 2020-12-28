@@ -1,56 +1,187 @@
-import React, { Component } from 'react';
-import './FontAwesomeIcons/FontAwesomeIcons';
+import React, { useState } from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import '@fortawesome/react-fontawesome';
-import Header from './Header/Header';
-import MenuSideDrawer from './MenuSideDrawer/MenuSideDrawer';
-import Backdrop from './Backdrop/Backdrop';
+import './FontAwesomeIcons/FontAwesomeIcons';
+import Footer from './Footer/Footer'
+import ForgotPassword from './ForgotPassword/ForgotPassword';
+import Header from './Header/Header'
 import LandingPage from './LandingPage/LandingPage';
+import LandingBrandList from './LandingBrandList/LandingBrandList';
+import LandingCategoryList from './LandingCategoryList/LandingCategoryList'
+import Login from './Login/Login'
+import ProductDetail from './ProductDetail/ProductDetail'
 import ProductListPage from './ProductListPage/ProductListPage'
-import Footer from './Footer/Footer';
+import PrincipleList from './PrincipleList/PrincipleList';
+import NewProductForm from './NewProductForm/NewProductForm';
+import NotFoundPage from './NotFoundPage/NotFoundPage';
+import NewAccount from './NewAccount/NewAccount'
 import data from './DATA'
 import './App.css';
 
-// pages: LandingPage, ProductListPage
+const App = () => {
+  const [ loginInfo, setLoginInfo ] = useState({ user: null, token: null });
+  // const isLoggedIn = () => !!loginInfo.token;
 
-class App extends Component {
-  state = {
-    menuSideDrawerOpen: false
-  }
-  
-  hamburgerToggleClickHandler = () => {
-    console.log('hamburger was clicked')
+  const fullPrinciples = (
+    [
+      {
+          id: 1,
+          title: 'Good design', 
+          description: 'Clothing and accessories should be flattering, versatile, functional, and built to last.'
+      },
+      {
+          id: 2,
+          title: 'Transparent',
+          description: 'Product listings should include information about who, where, and how products are manufactured throughout the supply chain.'
+      },
+      {
+          id: 3,
+          title: 'Ethical',
+          description: 'Clothing and accessories should be made in workplaces that prioritize employee safety, living wages, and freedom of association (the right to join a union).'
+      },
+      {
+          id: 4,
+          title: 'Sustainable',
+          description: 'Fashion products should be made with renewable, non-polluting resources whenever possible.  Production should minimize waste.'
+      }
+    ]
+  )
 
-    this.setState((prevState) => {
-      return {menuSideDrawerOpen: !prevState.menuSideDrawerOpen};
-    });
-  }
-
-  backdropClickHandler = () => {
-    this.setState({ menuSideDrawerOpen: false })
-  }
-
-  render() {
-    let backdrop;
-
-    if (this.state.menuSideDrawerOpen) {
-      backdrop = <Backdrop click={this.backdropClickHandler} />;
+  const principles = [
+    {
+        id: 1,
+        title: 'Good design', 
+        description: 'Clothing and accessories should be flattering, versatile, functional, and built to last.'
+    },
+    {
+        id: 2,
+        title: 'Transparent',
+        description: 'Product listings should include information about who, where, and how products are manufactured throughout the supply chain.'
+    },
+    {
+        id: 3,
+        title: 'Ethical',
+        description: 'Clothing and accessories should be made in workplaces that prioritize employee safety, living wages, and freedom of association (the right to join a union).'
+    },
+    {
+        id: 4,
+        title: 'Sustainable',
+        description: 'Fashion products should be made with renewable, non-polluting resources whenever possible.  Production should minimize waste.'
     }
+  ]
 
-    return (
+  return (
+    <Router>
       <div className='App'>
-        <Header click={this.hamburgerToggleClickHandler}/>
-        <MenuSideDrawer show={this.state.menuSideDrawerOpen} />
-        {backdrop}
-        <main style={{marginTop: '56px'}}>
-          <LandingPage />
-          <ProductListPage products={data.productList} selectedFilters={data.selectedFilterOptions} />
-          <Footer />
+        <main>
+          <Switch>
+            <Route path='/' exact render={(routeProps) => (
+              <>
+                <Header />
+                <LandingPage />
+                <Footer />
+              </>
+            )}/>
+            
+            <Route path='/about' render={routeProps => (
+              <>  
+                <Header />
+                <PrincipleList 
+                  principles={principles}
+                />
+                <Footer />
+              </>  
+            )} />
+            {/* <Route path='/account' render={routeProps => (
+              <NewAccount 
+                history={routeProps.history}
+                loginInfo={loginInfo}
+                setLoginInfo={setLoginInfo}
+              />
+            )} /> */}
+            <Route path='/add-product' render={routeProps => (
+              <NewProductForm 
+                history={routeProps.history}
+                loginInfo={loginInfo}
+                setLoginInfo={setLoginInfo}
+              />
+            )}/>
+            <Route path='/brand' component={LandingBrandList} />
+            <Route path='/category' exact render={(routeProps) => (
+              <>
+                <Header />
+                <LandingCategoryList 
+                  {...routeProps}
+                  categories={data.categories} 
+                />
+                <Footer />
+              </>
+            )}/>
+            <Route path='/category/:categoryId/:slug' render={routeProps => (
+              <ProductListPage
+                routeProps={routeProps}
+                history={routeProps.history}
+              />
+            )} />
+            <Route path='/create-account' render={routeProps => (
+              <NewAccount 
+                history={routeProps.history}
+                loginInfo={loginInfo}
+                setLoginInfo={setLoginInfo}
+              />
+            )} />
+            <Route path='/forgot-password' render={routeProps => (
+              <ForgotPassword 
+                history={routeProps.history}
+              />
+            )} />
+            <Route path='/login' render={routeProps => (
+              <Login 
+                history={routeProps.history}
+                loginInfo={loginInfo}
+                setLoginInfo={setLoginInfo}
+              />
+            )} />
+            <Route path='/principles' render={(routeProps) => (
+              <>
+                <Header />
+                <PrincipleList
+                  {...routeProps}
+                  principles={fullPrinciples}
+
+                />
+                <Footer />
+              </>
+            )}/>
+
+            <Route 
+              path='/product/:productId/:slug'
+              render={(routeProps) => (
+              <>
+                <Header />
+                <ProductDetail
+                  routeProps={routeProps}
+                />
+                <Footer />
+              </>
+            )}/>
+
+            <Route render={(routeProps) => (
+              <>
+                <Header />
+                <NotFoundPage
+                  {...routeProps}
+                />
+                <Footer />
+              </>
+            )}/>
+          </Switch>
         </main>
       </div>
-    )
-  }
-}
-  
+    </Router>
+  )
+}  
+
 App.defaultProps = {
   data: []
 }

@@ -1,3 +1,5 @@
 footer {
-    background-color: lightgray;
+    background-color: rgb(236, 236, 236);
+    padding: 20px 10px;
+    color: black;
 }

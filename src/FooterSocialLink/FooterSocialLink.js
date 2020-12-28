@@ -1,14 +1,13 @@
 import React from 'react';
-import './FooterSocialLink.css';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import '../FontAwesomeIcons/FontAwesomeIcons';
+import { Link } from 'react-router-dom'
+import './FooterSocialLink.css'
 
-function FooterSocialLink(props) {
+const FooterSocialLink = props => {
     return (
         <li className='Footer__social-link' key={props.id}>
-            <a href={props.pathToProfile}>
+            <Link to={props.pathToProfile}>
                 {props.platform}
-            </a>
+            </Link>
         </li>
     )
 };

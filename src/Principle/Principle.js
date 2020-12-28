@@ -3,7 +3,7 @@ import './Principle.css';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
-function Principle(props) {
+const Principle = props => {
     return (
         <li className='Principle' key={props.id}>
             {/* <FontAwesomeIcon icon={props.icon} /> */}

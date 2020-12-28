@@ -1,4 +1,16 @@
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faBars, faArrowRight, faSearch, faUserCircle } from '@fortawesome/free-solid-svg-icons'
+import { faAngleLeft, faAngleRight, faArrowLeft, faArrowRight, faBars, faCaretDown, faSearch, faTimes, faUserCircle } from '@fortawesome/free-solid-svg-icons'
+import { faHeart } from '@fortawesome/free-regular-svg-icons'
 
-library.add(faBars, faArrowRight, faSearch, faUserCircle);
+library.add(
+    faAngleLeft,
+    faAngleRight,
+    faArrowLeft,
+    faArrowRight,
+    faBars,
+    faCaretDown,
+    faHeart,
+    faSearch, 
+    faTimes,
+    faUserCircle
+)

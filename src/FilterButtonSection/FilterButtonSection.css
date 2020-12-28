@@ -15,16 +15,24 @@
 
 .FilterButtonSection__button-section {
     justify-content: space-between;
+    margin: 16px 0;
 }
 
 .FilterButtonSection__button-section button {
     font-size: 18px;
     height: 50px;
     width: 48%;
-    /* padding: .5em 3em .5em; */
-    background-color: white;
-    border-color: black;
-    border-width: 2px;
+    padding: 0;
+    background-color: rgba(255, 255, 255, 0);
+    border: solid black 2px;
+    color: #000;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out, 
+                transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
 }
 
 .FilterButtonSection__tag-section {
@@ -42,7 +50,7 @@
 .FilterButtonSection__tag-section li {
     font-size: 16px;
     padding: .5em 1em .5em;
-    margin: 0 10px 10px 0;
+    margin: 0 10px 16px 0;
     background-color: #e2e2e2;
     border-width: 0;
     border-radius: 50px;
