@@ -1,6 +1,6 @@
-import React from 'react';
-import FooterSocialLink from '../FooterSocialLink/FooterSocialLink';
-import './FooterSocialLinkList.css';
+import React from 'react'
+import FooterSocialLink from '../FooterSocialLink/FooterSocialLink'
+import './FooterSocialLinkList.css'
 
 const FooterSocialLinkList = props => {
     const generateSocialLinks = props.socialLinks.map(link => (
@@ -10,17 +10,17 @@ const FooterSocialLinkList = props => {
             pathToProfile={link.pathToProfile}
             platform={link.platform}
         />
-    ));
+    ))
 
     return (
         <ul className='Footer__social-link-list'>
             {generateSocialLinks}
         </ul>
     ) 
-};
+}
 
 FooterSocialLinkList.defaultProps = {
     socialLinks: []
 }
 
-export default FooterSocialLinkList;
+export default FooterSocialLinkList

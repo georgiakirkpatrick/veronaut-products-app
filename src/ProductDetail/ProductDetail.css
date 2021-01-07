@@ -2,12 +2,11 @@
     padding: 10px;
 }
 
-.ProductDetail__basic-info {
+.ProductDetail > section {
     position: relative
 }
 
 .ProductDetail__button-like {
-    /* margin: 10px; */
     border-radius: 15px;
     width: 100%;
     background-color: rgb(238, 238, 238);
@@ -31,8 +30,8 @@
 }
 
 .ProductDetail__carousel {
-    width: 100vw;
-    overflow: hidden;
+    width: 100%;
+    overflow: scroll;
 }
 
 .ProductDetail__color-list {
@@ -44,11 +43,40 @@
     padding: 0 10px 0 0;
 }
 
-.ProductDetail__heart {
+.ProductDetail__heart, 
+.ProductDetail__section-button {
     margin: 0;
-    padding: 5px;
+    padding: 0;
     color: #000;
     width: 30px;
+}
+
+.ProductDetail__fabric {
+    box-sizing: content-box;
+    width: 100%;
+    overflow: hidden;
+}
+
+.ProductDetail__fabric-list {
+    width: 150%;
+    box-sizing: content-box;
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
+}
+
+.ProductDetail__carousel-item {
+    box-sizing: content-box;
+    margin: 0 10px 0 0;
+    width: 300px;
+}
+
+.ProductDetail__section.active {
+    display: initial;
+}
+
+.ProductDetail__section {
+    display: none;
 }
 
 .ProductDetail__images {
@@ -63,9 +91,15 @@
 }
 
 .ProductDetail__info-section {
-    
+    width: 70%;
 }
 
 .ProductDetail__product-name {
     font-size: 20px;
+}
+
+.ProductDetail__section-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }

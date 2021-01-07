@@ -3,5 +3,7 @@
 exports[`FormTitle render the UI as expected 1`] = `
 <h2
   className="FormTitle"
-/>
+>
+  
+</h2>
 `;

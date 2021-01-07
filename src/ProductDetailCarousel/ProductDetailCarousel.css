@@ -1,0 +1,24 @@
+.ProductDetailCarousel {
+    width: 100%;
+    overflow: scroll;
+}
+
+.ProductDetailCarousel__items {
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
+}
+
+.ProductDetailCarousel__items > img {
+    width: 80vw;
+    padding: 0 10px 0 0;
+}
+
+.ProductDetailCarousel__items > div {
+    padding: 0 10px 0 0;
+    width: 300px;
+}
+
+#section-carousel > .ProductDetailCarousel__items {
+    width: 150%;
+}

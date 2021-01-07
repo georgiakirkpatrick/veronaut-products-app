@@ -4,7 +4,16 @@ exports[`FormTextInput render the UI as expected 1`] = `
 <div
   className="FormText"
 >
-  <label />
-  <input />
+  <label
+    htmlFor={1}
+  >
+    
+  </label>
+  <input
+    defaultValue={1}
+    id={1}
+    name=""
+    type="text"
+  />
 </div>
 `;

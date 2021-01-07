@@ -1,10 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FormPromptWithSub render the UI as expected 1`] = `
-Array [
+<div
+  className="FormPromptWithSub"
+>
   <p
-    className="FormPromptWithSub_prompt"
-  />,
-  <p />,
-]
+    className="FormPromptWithSub__prompt"
+  >
+    
+  </p>
+  <p
+    className="FormPromptWithSub__subtitle"
+  >
+    
+  </p>
+</div>
 `;

@@ -1,9 +1,3 @@
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
-
 .close-button {
     position: absolute;
     top: 0;
@@ -16,17 +10,17 @@
     border: none;
 }
 
-.NewProductForm_not-permitted {
+.NewProductForm__not-permitted {
     height: 80vh;
     width: 95vw;
 }
 
-.NewProductForm_big-text {
+.NewProductForm__big-text {
     font-size: 30px;
     padding: 20px 10px;
 }
 
-.NewProductForm_button-like {
+.NewProductForm__button-like {
     margin: 10px;
     border-radius: 15px;
     width: 90%;
@@ -39,12 +33,12 @@
     text-align: center;
 }
 
-.NewProductForm_prompt {
+.NewProductForm__prompt {
     font-weight: bold;
     padding: 0 0 10px;
 }
 
-.NewProductForm_fieldset {
+.NewProductForm__fieldset {
     position: relative;
     width: 100%;
     padding: 10px;
@@ -53,7 +47,7 @@
     border: none;
 }
 
-.NewProductForm_pop-up .NewProductForm_brand-pop-up {
+.NewProductForm__pop-up .NewProductForm__brand-pop-up {
     position: fixed;
     top: 10vh;
     left: 0;
@@ -68,11 +62,11 @@
     overflow-y: scroll;
 }
 
-.NewProductForm_pop-up.active, .NewProductForm_brand-pop-up.active {
+.NewProductForm__pop-up.active, .NewProductForm__brand-pop-up.active {
     transform: translateX(0);
 }
 
-.NewProductForm_remove {
+.NewProductForm__remove {
     position: absolute;
     right: 12px;
     text-align: right;

@@ -1,6 +1,5 @@
 import React from 'react'
 import FormButton from '../FormButton/FormButton'
-// import formData from '../FORM_DATA'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './FormPopUp.css'
 
@@ -10,7 +9,7 @@ const FormPopUp = props => {
             id={props.id}
         >
             <button
-                className='close-button' 
+                className='FormPopUp__close-button' 
                 type='button'
                 onClick={props.close}
             >
@@ -22,10 +21,17 @@ const FormPopUp = props => {
             {props.children}
             <FormButton 
                 buttonText={props.buttonText}
-                click={props.submit}
+                handleClick={props.submit}
             />
         </section>
     )
+}
+
+FormPopUp.defaultProps = {
+    id: 1,
+    close: () => {},
+    title: '',
+    children: ''
 }
 
 export default FormPopUp

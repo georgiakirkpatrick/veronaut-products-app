@@ -1,30 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`EmailSignUp renders the UI as expected 1`] = `
-<section>
+<section
+  className="EmailSignUp"
+>
   <header>
-    <h3>
-      Save your favorite brands and styles
-    </h3>
+    <h2>
+      Save your favorite products
+    </h2>
   </header>
   <p>
     Create an account and save items to buy later.
   </p>
   <form>
-    <label
-      htmlFor="email-signup"
-    >
-      Email address
-    </label>
-    <input
-      id="email-signup"
-      name="email-signup"
-      type="text"
-    />
+    <fieldset>
+      <label
+        htmlFor="email-signup"
+      >
+        Email 
+      </label>
+      <input
+        id="email-signup"
+        name="email-signup"
+        type="text"
+      />
+    </fieldset>
     <button
+      className="FormButton"
+      onClick={[Function]}
       type="button"
     >
-      Create account
+      CREATE ACCOUNT
     </button>
   </form>
 </section>

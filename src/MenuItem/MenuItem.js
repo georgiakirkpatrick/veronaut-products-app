@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { BrowserRouter as Router, Link } from 'react-router-dom'
 import './MenuItem.css'
 
 const MenuItem = props => {
@@ -12,6 +12,7 @@ const MenuItem = props => {
         : <div className='empty' />
     
     return (
+    <Router>
         <Link
             className={`MenuItem__${props.itemType}`}
             to={props.to}
@@ -21,7 +22,17 @@ const MenuItem = props => {
             <span>{props.children}</span>
             {rightIcon}
         </Link>
+    </Router>
     )
+}
+
+MenuItem.defaultProps = {
+    leftIcon: '',
+    rightIcon: '',
+    itemType: 'primary',
+    to: '/',
+    goToMenu: 'main',
+    setActiveMenu: () => {}
 }
 
 export default MenuItem

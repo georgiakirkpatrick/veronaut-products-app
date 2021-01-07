@@ -1,7 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import LandingCategoryList from './LandingCategoryList';
-import renderer from 'react-test-renderer';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import LandingCategoryList from './LandingCategoryList'
+import renderer from 'react-test-renderer'
 
 const categories = [
     {

@@ -4,6 +4,10 @@ exports[`FooterSocialLink renders the UI as expected 1`] = `
 <li
   className="Footer__social-link"
 >
-  <a />
+  <a
+    href="http://instagram.com/veronaut"
+  >
+    Instagram
+  </a>
 </li>
 `;

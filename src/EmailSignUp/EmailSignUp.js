@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 import FormButton from '../FormButton/FormButton'
-import './EmailSignUp.css';
+import './EmailSignUp.css'
 
 const EmailSignUp = () => {
     return (
@@ -10,21 +10,24 @@ const EmailSignUp = () => {
                     Save your favorite products
                 </h2>
             </header>
+
             <p>
                 Create an account and save items to buy later.
             </p>
+
             <form>
                 <fieldset>
                     <label htmlFor='email-signup'>Email </label>
                     <input type='text' name='email-signup' id='email-signup'></input>
                 </fieldset>
+
                 <FormButton
                     buttonText='CREATE ACCOUNT'
-                    click={() => {}}
+                    handleClick={() => {}}
                 />
             </form>
         </section>
     )
-};
+}
 
-export default EmailSignUp;
+export default EmailSignUp

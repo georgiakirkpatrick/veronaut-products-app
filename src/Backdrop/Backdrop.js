@@ -11,7 +11,8 @@ const Backdrop = props => {
 }
 
 Backdrop.defaultProps = {
-    click: () => {}
+    handleClick: () => {},
+    mobMenuOpen: true
 }
 
 export default Backdrop;

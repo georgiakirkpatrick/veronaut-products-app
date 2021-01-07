@@ -9,4 +9,8 @@ const FormTitle = props => {
     )
 }
 
+FormTitle.defaultProps = {
+    titleText: ''
+}
+
 export default FormTitle

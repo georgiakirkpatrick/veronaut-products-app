@@ -1,17 +1,11 @@
 import React from 'react'
 import Product from '../Product/Product'
-// import FilterButtonSection from '../FilterButtonSection/FilterButtonSection'
 import Footer from '../Footer/Footer'
 import Header from '../Header/Header'
 import data from '../DATA'
 import './ProductListPage.css'
-// { useState }
 
 const ProductListPage = props => {
-    // selectedFilters is updated when filters are added by the user.
-    // const [selectedFilters, setSelectedFilters] = useState([])    
-    // const handleFilterSubmit = submittedFilters => setSelectedFilters([...selectedFilters, ...submittedFilters])
-
     // selectedCategoryId is defined by the Route path.
     const selectedCategoryId = Number(props.routeProps.match.params.categoryId)
 
@@ -61,8 +55,6 @@ const ProductListPage = props => {
                         {categoryInfo.engName}
                     </h1>
                 </header>
-
-                {/* <FilterButtonSection defaultFilter={selectedCategoryId} selectedFilters={data.selectedFilterOptions}/> */}
                 
                 <ul className='ProductListPage__product-list'>
                     {results}

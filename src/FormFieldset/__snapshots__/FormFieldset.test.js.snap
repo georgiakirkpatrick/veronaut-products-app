@@ -4,6 +4,7 @@ exports[`FormFieldset render the UI as expected 1`] = `
 <fieldset
   className="FormFieldset"
 >
-  <legend />
+  <div />
+  
 </fieldset>
 `;

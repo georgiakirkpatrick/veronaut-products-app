@@ -1,11 +1,22 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './Category.css';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import './Category.css'
 
 const Category = props => {
+    const makeCategorySlug = () => {
+        const categoryName = props.categoryName
+        return categoryName
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .replace(/\s+/g, '-')
+            .toLowerCase()
+    }
+
+    const slug = makeCategorySlug()
+
     return (
         <li className='Category' key={props.id}>
-            <Link to={`/category/${props.id}/slug`} className='main-link'>
+            <Link to={`/category/${props.id}/${slug}`} className='main-link'>
                 <div className='Category__cropped'>
                     <img src={props.pathToImage} alt={props.imgAlt} />
                 </div>
@@ -16,12 +27,10 @@ const Category = props => {
 }
 
 Category.defaultProps = {
-    key: 7676,
-    id: 7676,
-    pathToImage: 'www.google.com',
+    id: 1,
+    pathToImage: 'https://media.sezane.com/image/upload/c_fill,d_placeholder_dark.png,fl_progressive:semi,h_816,q_auto:best,w_582/avhc13dzwkv0pzgbmf7g.jpg',
     imgAlt: 'alternate text',
-    categoryName: 'tops',
-    categoryLink: 'www.google.com'
+    categoryName: 'Dresses',
 }
 
-export default Category;
+export default Category

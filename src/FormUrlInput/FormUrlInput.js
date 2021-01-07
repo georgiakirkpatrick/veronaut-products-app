@@ -9,11 +9,19 @@ const FormUrlInput = props => {
                 type='url'
                 id={props.id} 
                 name={props.name}
-                defaultValue={props.value} 
-                onChange={props.change}  
+                defaultValue={props.currentValue} 
+                onChange={props.handleChange}  
             />
         </div>
     )
+}
+
+FormUrlInput.defaultProps = {
+    id: 1,
+    prompt: '',
+    name: '',
+    currentValue: '',
+    onChange: () => {}
 }
 
 export default FormUrlInput

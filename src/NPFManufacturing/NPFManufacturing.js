@@ -9,82 +9,81 @@ import NPFFooter from '../NPFFooter/NPFFooter'
 import FormTextInput from '../FormTextInput/FormTextInput'
 import FormUrlInput from '../FormUrlInput/FormUrlInput'
 import formData from '../FORM_DATA'
-import './NPFManufacturing.css'
 import FormFieldset from '../FormFieldset/FormFieldset';
 
 const NPFManufacturing = props => {
     const sewingChangeInput = event => {
-        const sewingFactory = {...props.manuState.sewFact}
+        const sewingFactory = {...props.sewFact}
         sewingFactory[event.target.name] = event.target.value
-        props.manuState.setSewFact(sewingFactory)
+        props.setSewFact(sewingFactory)
     }
 
     const sewingPopUpStatus = () => {
-        if (props.manuState.sewFactPopUp === true) {
+        if (props.sewFactPopUp === true) {
             return 'FormPopUp__pop-up active'
         }
         return 'FormPopUp__pop-up'
     }
 
     const handleSewingClose = () => { 
-        props.manuState.setSewFactPopUp(false)
+        props.setSewFactPopUp(false)
     }
 
     const newSewingChangeInput = event => {
-        const newSewFactFields = {...props.manuState.newSewFact}
+        const newSewFactFields = {...props.newSewFact}
         newSewFactFields[event.target.name] = event.target.value
-        props.manuState.setNewSewFact(newSewFactFields)
+        props.setNewSewFact(newSewFactFields)
     }
 
     // CUTTING FACTORY
     const cuttingChangeInput = event => {
-        const cuttingFactory = {...props.manuState.cutFact}
+        const cuttingFactory = {...props.cutFact}
         cuttingFactory[event.target.name] = event.target.value
-        props.manuState.setCutFact(cuttingFactory)
+        props.setCutFact(cuttingFactory)
     }
 
     const cuttingPopUpStatus = () => {
-        if (props.manuState.cutFactPopUp === true) {
+        if (props.cutFactPopUp === true) {
             return 'FormPopUp__pop-up active'
         }
         return 'FormPopUp__pop-up'
     }
 
     const handleCuttingClose = () => {
-        props.manuState.setCutFactPopUp(false)
+        props.setCutFactPopUp(false)
     }
 
     const newCuttingChangeInput = event => {
-        const newCutFactFields = {...props.manuState.newCutFact}
+        const newCutFactFields = {...props.newCutFact}
         newCutFactFields[event.target.name] = event.target.value
-        props.manuState.setNewCutFact(newCutFactFields)
+        props.setNewCutFact(newCutFactFields)
     }
 
     const certPopUpStatus = () => {
-        if (props.manuState.certPopUp === true) {
+        if (props.certPopUp === true) {
             return 'FormPopUp__pop-up active'
         }
         return 'FormPopUp__pop-up'
     }
 
     const handleCertClose = () => {
-        props.manuState.setCertPopUp(false)
+        props.setCertPopUp(false)
     }
 
     const certificationChange = event => {
-        props.manuState.setCertChecks({...props.manuState.certChecks, [event.target.id]: !props.manuState.certChecks[event.target.id]})
+        props.setCertChecks({...props.certChecks, [event.target.id]: !props.certChecks[event.target.id]})
     }
 
     const newCertChangeInput = event => {
-        const newCertFields = {...props.manuState.newCert}
+        const newCertFields = {...props.newCert}
         newCertFields[event.target.name] = event.target.value
-        props.manuState.setNewCert(newCertFields)
+        props.setNewCert(newCertFields)
     }
 
     // ADDITIONAL NOTES
     const additionalNotesChange = event => {
         const newNotes = event.target.value
-        props.manuState.setAdditionalNotes(newNotes)
+        props.setAdditionalNotes(newNotes)
     }
 
     return (
@@ -102,19 +101,19 @@ const NPFManufacturing = props => {
                         id={formData.manufacturing.location.name}
                         name={formData.manufacturing.location.name}
                         prompt={formData.manufacturing.location.prompt}
-                        value={props.manuState.sewFact.location}
+                        currentValue={props.sewFact.location}
                         options={props.countries}
-                        change={event => sewingChangeInput(event)} 
+                        handleChange={event => sewingChangeInput(event)} 
                     />
                     <FormDropdown
                         id={formData.manufacturing.factory.name}
                         name={formData.manufacturing.factory.name}
                         prompt={formData.manufacturing.factory.prompt}
-                        value={props.manuState.sewFact.factory}
+                        currentValue={props.sewFact.factory}
                         options={props.factories}
-                        change={event => sewingChangeInput(event)} 
+                        handleChange={event => sewingChangeInput(event)} 
                     />
-                    <FormButton buttonText={formData.manufacturing.buttonText[0]} click={() => props.manuState.setSewFactPopUp(true)} />
+                    <FormButton buttonText={formData.manufacturing.buttonText[0]} click={() => props.setSewFactPopUp(true)} />
                 </FormFieldset>
 
                 <FormPopUp
@@ -129,29 +128,29 @@ const NPFManufacturing = props => {
                         id={formData.manufacturing.addSewing.factoryName.id}
                         name={formData.manufacturing.addSewing.factoryName.name}
                         prompt={formData.manufacturing.addSewing.factoryName.prompt} 
-                        value={props.manuState.newSewFact.sewingFactoryName}
-                        change={event => newSewingChangeInput(event)} 
+                        currentValue={props.newSewFact.sewingFactoryName}
+                        handleChange={event => newSewingChangeInput(event)} 
                     />
                     <FormDropdown
                         id={formData.manufacturing.addSewing.factoryLocation.id}
                         name={formData.manufacturing.addSewing.factoryLocation.id}
                         prompt={formData.manufacturing.addSewing.factoryLocation.prompt}
-                        value={props.manuState.newSewFact.sewingFactoryLocation}
+                        currentValue={props.newSewFact.sewingFactoryLocation}
                         options={props.countries}
-                        change={event => newSewingChangeInput(event)} 
+                        handleChange={event => newSewingChangeInput(event)} 
                     />
                     <FormUrlInput 
                         id={formData.manufacturing.addSewing.factoryWebsite.id} 
                         name={formData.manufacturing.addSewing.factoryWebsite.id} 
                         prompt={formData.manufacturing.addSewing.factoryWebsite.prompt}
-                        value={props.manuState.newSewFact.sewingFactoryWebsite}
-                        change={event => newSewingChangeInput(event)}
+                        currentValue={props.newSewFact.sewingFactoryWebsite}
+                        handleChange={event => newSewingChangeInput(event)}
                     />
                     <FormTextInput
                         id={formData.manufacturing.addSewing.factoryNotes.id}
                         prompt={formData.manufacturing.addSewing.factoryNotes.prompt}
-                        value={props.manuState.newSewFact.sewingFactoryNotes}
-                        change={event => newSewingChangeInput(event)}
+                        currentValue={props.newSewFact.sewingFactoryNotes}
+                        handleChange={event => newSewingChangeInput(event)}
                     />
                 </FormPopUp>
                 
@@ -163,19 +162,19 @@ const NPFManufacturing = props => {
                         id={formData.manufacturing.location.name}
                         name={formData.manufacturing.location.name}
                         prompt={formData.manufacturing.location.prompt}
-                        value={props.manuState.cutFact.location}
+                        currentValue={props.cutFact.location}
                         options={props.countries}
-                        change={event => cuttingChangeInput(event)} 
+                        handleChange={event => cuttingChangeInput(event)} 
                     />
                     <FormDropdown
                         id={formData.manufacturing.factory.name}
                         name={formData.manufacturing.factory.name}
                         prompt={formData.manufacturing.factory.prompt}
-                        value={props.manuState.cutFact.factory}
+                        currentValue={props.cutFact.factory}
                         options={props.factories}
-                        change={event => cuttingChangeInput(event)} 
+                        handleChange={event => cuttingChangeInput(event)} 
                     />
-                    <FormButton buttonText={formData.manufacturing.buttonText[0]} click={() => props.manuState.setCutFactPopUp(true)}/>
+                    <FormButton buttonText={formData.manufacturing.buttonText[0]} click={() => props.setCutFactPopUp(true)}/>
                 </FormFieldset>
 
                 <FormPopUp
@@ -185,35 +184,38 @@ const NPFManufacturing = props => {
                     click={() => handleCuttingClose()}
                     buttonText={formData.manufacturing.addCutting.submitButton}
                 >
-                    <FormPromptWithSub prompt={formData.manufacturing.addCutting.prompt} promptSubtitle='' />
+                    <FormPromptWithSub 
+                        prompt={formData.manufacturing.addCutting.prompt} 
+                        promptSubtitle='' 
+                    />
                     <FormTextInput 
                         id={formData.manufacturing.addCutting.factoryName.id}
                         name={formData.manufacturing.addCutting.factoryName.id}
                         prompt={formData.manufacturing.addCutting.factoryName.prompt} 
-                        value={props.manuState.newCutFact.cuttingFactoryName}
-                        change={event => newCuttingChangeInput(event)}
+                        currentValue={props.newCutFact.cuttingFactoryName}
+                        handleChange={event => newCuttingChangeInput(event)}
                     />
                     <FormDropdown
                         id={formData.manufacturing.addCutting.factoryLocation.id}
                         name={formData.manufacturing.addCutting.factoryLocation.id}
                         prompt={formData.manufacturing.addCutting.factoryLocation.prompt}
-                        value={props.manuState.newCutFact.cuttingFactoryLocation}
+                        currentValue={props.newCutFact.cuttingFactoryLocation}
                         options={props.countries}
-                        change={event => newCuttingChangeInput(event)}
+                        handleChange={event => newCuttingChangeInput(event)}
                     />
                     <FormUrlInput
                         id={formData.manufacturing.addCutting.factoryWebsite.id}
                         name={formData.manufacturing.addCutting.factoryWebsite.id}
                         prompt={formData.manufacturing.addCutting.factoryWebsite.prompt}
-                        value={props.manuState.newCutFact.cuttingFactoryWebsite}
-                        change={event => newCuttingChangeInput(event)}
+                        currentValue={props.newCutFact.cuttingFactoryWebsite}
+                        handleChange={event => newCuttingChangeInput(event)}
                     />
                     <FormTextInput
                         id={formData.manufacturing.addCutting.factoryNotes.id}
                         name={formData.manufacturing.addCutting.factoryNotes.id}
                         prompt={formData.manufacturing.addCutting.factoryNotes.prompt}
-                        value={props.manuState.newCutFact.cuttingFactoryNotes}
-                        change={event => newCuttingChangeInput(event)}
+                        currentValue={props.newCutFact.cuttingFactoryNotes}
+                        handleChange={event => newCuttingChangeInput(event)}
                     />
                 </FormPopUp>
 
@@ -223,10 +225,13 @@ const NPFManufacturing = props => {
                 >
                     <FormCheckboxSection  
                         options={formData.manufacturing.certifications.options} 
-                        check={props.manuState.certChecks}
-                        change={event => certificationChange(event)}
+                        selectedOptions={props.certChecks}
+                        handleChange={event => certificationChange(event)}
                     />
-                    <FormButton buttonText={formData.manufacturing.buttonText[1]} click={() => props.manuState.setCertPopUp(true)} />
+                    <FormButton 
+                        buttonText={formData.manufacturing.buttonText[1]} 
+                        click={() => props.setCertPopUp(true)} 
+                    />
                 </FormFieldset>
 
                 <FormPopUp
@@ -241,15 +246,15 @@ const NPFManufacturing = props => {
                         id='newCertName'
                         name='newCertName'
                         prompt={formData.manufacturing.newCertification.certName.prompt} 
-                        value={props.manuState.newCert.newCertName}
-                        change={event => newCertChangeInput(event)} 
+                        currentValue={props.newCert.newCertName}
+                        handleChange={event => newCertChangeInput(event)} 
                     />
                     <FormUrlInput
                         id='newCertWebsite'
                         name='newCertWebsite'
                         prompt={formData.manufacturing.newCertification.certWebsite.prompt}
-                        value={props.manuState.newCert.newCertWebsite}
-                        change={event => newCertChangeInput(event)}
+                        currentValue={props.newCert.newCertWebsite}
+                        handleChange={event => newCertChangeInput(event)}
                     />
                 </FormPopUp>
 
@@ -260,14 +265,60 @@ const NPFManufacturing = props => {
                     <FormTextInput
                         id={formData.manufacturing.additionalNotes.id}
                         name={formData.manufacturing.additionalNotes.id}
-                        value={props.manuState.additionalNotes}
-                        change={event => additionalNotesChange(event)}
+                        currentValue={props.additionalNotes}
+                        handleChange={event => additionalNotesChange(event)}
                     />
                 </FormFieldset>
             </FormPage>
-            <NPFFooter buttons='prevNext' previousButton={() => props.setPage(props.currentPage - 1)} nextButton={() => props.setPage(props.currentPage + 1)} />
+
+            <NPFFooter 
+                buttons='prevNext' previousButton={() => props.setPage(props.currentPage - 1)} 
+                nextButton={() => props.setPage(props.currentPage + 1)} 
+            />
         </div>
     )  
 }
 
-export default NPFManufacturing;
+NPFManufacturing.defaultProps = {
+    sewFact: {
+        location: '', 
+        factory: ''
+    },
+    setSewFact: () => {},
+    sewFactPopUp: false,
+    setSewFactPopUp: () => {},
+    newSewFact: {
+        sewingFactoryName: '',
+        sewingFactoryLocation: '',
+        sewingFactoryWebsite: '',
+        sewingFactoryNotes: ''
+    },
+    setNewSewFact: () => {},
+    cutFact: {
+        location: '', 
+        factory: ''
+    },
+    setCutFact: () => {},
+    cutFactPopUp: false,
+    setCutFactPopUp: () => {},
+    newCutFact: {
+        cuttingFactoryName: '',
+        cuttingFactoryLocation: '',
+        cuttingFactoryWebsite: '',
+        cuttingFactoryNotes: ''
+    },
+    setNewCutFact: () => {},
+    certChecks: {},
+    setCertChecks: () => {},
+    certPopUp: false,
+    setCertPopUp: () => {},
+    newCert: {
+        newCertName: '',
+        newCertWebsite: ''
+    },
+    setNewCert: () => {},
+    additionalNotes: '',
+    setAdditionalNotes:  () => {}
+}
+
+export default NPFManufacturing

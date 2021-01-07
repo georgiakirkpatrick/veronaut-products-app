@@ -1,0 +1,640 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NPFNotions render the UI as expected 1`] = `
+<div
+  id="notions"
+>
+  <section
+    className="FormPage"
+  >
+    <h1>
+      Notions
+    </h1>
+    <form>
+      <div
+        className="FormPromptWithSub"
+      >
+        <p
+          className="FormPromptWithSub__prompt"
+        >
+          If the product includes notions succh as zippers or buttons, list them here.
+        </p>
+        <p
+          className="FormPromptWithSub__subtitle"
+        >
+          If the product does not include notions, skip this section.
+        </p>
+      </div>
+      <fieldset
+        className="FormFieldset"
+      >
+        <div />
+        <div
+          className="FormDropdown"
+        >
+          <label
+            htmlFor="notion-type0"
+          >
+            Notion type
+          </label>
+          <select
+            name="notionTypeId"
+            onChange={[Function]}
+            value=""
+          >
+            <option
+              id="1"
+            >
+              Brass zipper
+            </option>
+            <option
+              id="2"
+            >
+              Shell buttons
+            </option>
+          </select>
+        </div>
+        <button
+          className="FormButton"
+          onClick={[Function]}
+          type="button"
+        >
+          ADD A NOTION TYPE
+        </button>
+        <div
+          className="FormDropdown"
+        >
+          <label
+            htmlFor="notion-location-id0"
+          >
+            Location of notion manufacturing
+          </label>
+          <select
+            name="notionLocationId"
+            onChange={[Function]}
+            value=""
+          />
+        </div>
+        <div
+          className="FormDropdown"
+        >
+          <label
+            htmlFor="notion-factory-id0"
+          >
+            Notion manufacturer
+          </label>
+          <select
+            name="notionFactoryId"
+            onChange={[Function]}
+            value=""
+          >
+            <option
+              id={1}
+            >
+              Dynotex
+            </option>
+            <option
+              id={2}
+            >
+              Spooltown
+            </option>
+          </select>
+        </div>
+        <button
+          className="FormButton"
+          onClick={[Function]}
+          type="button"
+        >
+          ADD A FACTORY
+        </button>
+        <div
+          className="FormDropdown"
+        >
+          <label
+            htmlFor="notion-materialypeId0"
+          >
+            Notion material type
+          </label>
+          <select
+            name="notionMaterialTypeId"
+            onChange={[Function]}
+            value=""
+          >
+            <option
+              id="1"
+            >
+              brass
+            </option>
+            <option
+              id="2"
+            >
+              shell
+            </option>
+          </select>
+        </div>
+        <button
+          className="FormButton"
+          onClick={[Function]}
+          type="button"
+        >
+          ADD A MATERIAL TYPE
+        </button>
+        <div
+          className="FormDropdown"
+        >
+          <label
+            htmlFor="notion-material-origin-id0"
+          >
+            Origin of notion material
+          </label>
+          <select
+            name="notionMaterialOriginId"
+            onChange={[Function]}
+            value=""
+          />
+        </div>
+        <p>
+          Does the fabric have any of the following certifications?
+        </p>
+        <div
+          className="FormCheckboxSection"
+        >
+          <div
+            className="empty"
+          />
+          <div
+            className="FormCheckboxSection__options-container"
+          >
+            <div
+              className="FormCheckboxSection__option"
+            >
+              <input
+                id={1}
+                name={1}
+                onChange={[Function]}
+                type="checkbox"
+              />
+              <label
+                htmlFor={1}
+              >
+                BlueSign
+              </label>
+            </div>
+            <div
+              className="FormCheckboxSection__option"
+            >
+              <input
+                id={2}
+                name={2}
+                onChange={[Function]}
+                type="checkbox"
+              />
+              <label
+                htmlFor={2}
+              >
+                OEKO-TEX
+              </label>
+            </div>
+          </div>
+        </div>
+        <button
+          className="FormButton"
+          onClick={[Function]}
+          type="button"
+        >
+          ADD A CERTIFICATION
+        </button>
+        <div
+          className="FormText"
+        >
+          <label
+            htmlFor="notionNotes0"
+          >
+            If the brand offers additional information about notion materials or manufacturing, include them here.
+          </label>
+          <input
+            defaultValue=""
+            id="notionNotes0"
+            name="notionNotes"
+            onChange={[Function]}
+            type="text"
+          />
+        </div>
+      </fieldset>
+      <button
+        className="FormButton"
+        onClick={[Function]}
+        type="button"
+      >
+        ADD ANOTHER NOTION
+      </button>
+      <section
+        className="FormPopUp__pop-up"
+        id="notionTypePopUp"
+      >
+        <button
+          className="FormPopUp__close-button"
+          onClick={[Function]}
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            className="svg-inline--fa fa-times fa-w-11 fa-lg "
+            data-icon="times"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            style={Object {}}
+            viewBox="0 0 352 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+              fill="currentColor"
+              style={Object {}}
+            />
+          </svg>
+        </button>
+        <h1>
+          Add a Notion Type
+        </h1>
+        <div
+          className="FormText"
+        >
+          <label
+            htmlFor="notionTypeName"
+          >
+            Notion type name
+          </label>
+          <input
+            defaultValue=""
+            id="notionTypeName"
+            name="notionTypeName"
+            onChange={[Function]}
+            type="text"
+          />
+        </div>
+        <button
+          className="FormButton"
+          onClick={[Function]}
+          type="button"
+        >
+          SUBMIT NOTION TYPE
+        </button>
+      </section>
+      <section
+        className="FormPopUp__pop-up"
+        id="notionMaterialPopUp"
+      >
+        <button
+          className="FormPopUp__close-button"
+          onClick={[Function]}
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            className="svg-inline--fa fa-times fa-w-11 fa-lg "
+            data-icon="times"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            style={Object {}}
+            viewBox="0 0 352 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+              fill="currentColor"
+              style={Object {}}
+            />
+          </svg>
+        </button>
+        <h1>
+          Add a Material
+        </h1>
+        <div
+          className="FormText"
+        >
+          <label
+            htmlFor="notionFactoryName"
+          >
+            Factory name
+          </label>
+          <input
+            defaultValue=""
+            id="notionFactoryName"
+            name="notionFactoryName"
+            onChange={[Function]}
+            type="text"
+          />
+        </div>
+        <div
+          className="FormDropdown"
+        >
+          <label
+            htmlFor="notionFactoryLocation"
+          >
+            Location
+          </label>
+          <select
+            name="notionFactoryLocation"
+            onChange={[Function]}
+            value=""
+          />
+        </div>
+        <div
+          className="FormUrlInput"
+        >
+          <label
+            htmlFor="sewingFactoryWebsite"
+          >
+            Website
+          </label>
+          <input
+            defaultValue=""
+            id="sewingFactoryWebsite"
+            name="sewingFactoryWebsite"
+            onChange={[Function]}
+            type="url"
+          />
+        </div>
+        <div
+          className="FormText"
+        >
+          <label
+            htmlFor="sewingFactoryNotes"
+          >
+            Notes
+          </label>
+          <input
+            defaultValue=""
+            id="sewingFactoryNotes"
+            name="sewingFactoryNotes"
+            onChange={[Function]}
+            type="text"
+          />
+        </div>
+        <button
+          className="FormButton"
+          onClick={[Function]}
+          type="button"
+        >
+          SUBMIT MATERIAL
+        </button>
+      </section>
+      <section
+        className="FormPopUp__pop-up"
+        id="notionFactoryPopUp"
+      >
+        <button
+          className="FormPopUp__close-button"
+          onClick={[Function]}
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            className="svg-inline--fa fa-times fa-w-11 fa-lg "
+            data-icon="times"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            style={Object {}}
+            viewBox="0 0 352 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+              fill="currentColor"
+              style={Object {}}
+            />
+          </svg>
+        </button>
+        <h1>
+          Add a Factory
+        </h1>
+        <div
+          className="FormPromptWithSub"
+        >
+          <p
+            className="FormPromptWithSub__prompt"
+          >
+            Add a notion producer
+          </p>
+          <p
+            className="FormPromptWithSub__subtitle"
+          >
+            
+          </p>
+        </div>
+        <div
+          className="FormText"
+        >
+          <label
+            htmlFor="notionFactoryName"
+          >
+            Factory name
+          </label>
+          <input
+            defaultValue=""
+            id="notionFactoryName"
+            name="notionFactoryName"
+            onChange={[Function]}
+            type="text"
+          />
+        </div>
+        <div
+          className="FormDropdown"
+        >
+          <label
+            htmlFor="notionFactoryLocation"
+          >
+            Location
+          </label>
+          <select
+            name="notionFactoryLocation"
+            onChange={[Function]}
+            value=""
+          />
+        </div>
+        <div
+          className="FormUrlInput"
+        >
+          <label
+            htmlFor="sewingFactoryWebsite"
+          >
+            Website
+          </label>
+          <input
+            defaultValue=""
+            id="sewingFactoryWebsite"
+            name="sewingFactoryWebsite"
+            onChange={[Function]}
+            type="url"
+          />
+        </div>
+        <div
+          className="FormText"
+        >
+          <label
+            htmlFor="sewingFactoryNotes"
+          >
+            Notes
+          </label>
+          <input
+            defaultValue=""
+            id="sewingFactoryNotes"
+            name="sewingFactoryNotes"
+            onChange={[Function]}
+            type="text"
+          />
+        </div>
+        <button
+          className="FormButton"
+          onClick={[Function]}
+          type="button"
+        >
+          SUBMIT FACTORY
+        </button>
+      </section>
+      <section
+        className="FormPopUp__pop-up"
+        id={1}
+      >
+        <button
+          className="FormPopUp__close-button"
+          onClick={[Function]}
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            className="svg-inline--fa fa-times fa-w-11 fa-lg "
+            data-icon="times"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            style={Object {}}
+            viewBox="0 0 352 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+              fill="currentColor"
+              style={Object {}}
+            />
+          </svg>
+        </button>
+        <h1>
+          New Certification
+        </h1>
+        <div
+          className="FormPromptWithSub"
+        >
+          <p
+            className="FormPromptWithSub__prompt"
+          >
+            Add a certification
+          </p>
+          <p
+            className="FormPromptWithSub__subtitle"
+          >
+            
+          </p>
+        </div>
+        <div
+          className="FormText"
+        >
+          <label
+            htmlFor="certName"
+          >
+            Certification name
+          </label>
+          <input
+            defaultValue=""
+            id="certName"
+            name="newCertName"
+            onChange={[Function]}
+            type="text"
+          />
+        </div>
+        <div
+          className="FormUrlInput"
+        >
+          <label
+            htmlFor="certWebsite"
+          >
+            Website
+          </label>
+          <input
+            defaultValue=""
+            id="certWebsite"
+            name="newCertWebsite"
+            onChange={[Function]}
+            type="url"
+          />
+        </div>
+        <button
+          className="FormButton"
+          onClick={[Function]}
+          type="button"
+        >
+          SUBMIT CERTIFICATION
+        </button>
+      </section>
+    </form>
+  </section>
+  <footer
+    className="NPFFooter"
+  >
+    <button
+      className="NPFFooter_previous"
+      onClick={[Function]}
+    >
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-arrow-left fa-w-14 NPFFooter_arrow"
+        data-icon="arrow-left"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        style={Object {}}
+        viewBox="0 0 448 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+      <span>
+        PREVIOUS
+      </span>
+    </button>
+    <button
+      className="NPFFooter_next"
+      onClick={[Function]}
+    >
+      <span>
+        NEXT
+      </span>
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-arrow-right fa-w-14 NPFFooter_arrow"
+        data-icon="arrow-right"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        style={Object {}}
+        viewBox="0 0 448 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+    </button>
+  </footer>
+</div>
+`;

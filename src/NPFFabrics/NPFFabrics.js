@@ -10,7 +10,6 @@ import FormPromptWithSub from '../FormPromptWithSub/FormPromptWithSub'
 import FormTextInput from '../FormTextInput/FormTextInput'
 import FormUrlInput from '../FormUrlInput/FormUrlInput'
 import formData from '../FORM_DATA'
-import './NPFFabrics.css'
 
 const NPFFabrics = props => {
     const fabChange = event => {
@@ -58,30 +57,30 @@ const NPFFabrics = props => {
                 id={id + 'NewFactName'}
                 name='factoryName'
                 prompt='Name'
-                value={props.fabState.newFact.factoryName}
-                change={event => change(event)} 
+                currentValue={props.fabState.newFact.factoryName}
+                handleChange={event => change(event)} 
             />
             <FormDropdown
                 id={id + 'NewFactLocation'}
                 name='factoryLocation'
                 prompt='Location'
-                value={props.fabState.newFact.factoryLocation}
+                currentValue={props.fabState.newFact.factoryLocation}
                 options={props.countries}
-                change={event => change(event)} 
+                handleChange={event => change(event)} 
             />
             <FormUrlInput
                 id={id + 'NewFactWebsite'}
                 name='factoryWebsite'
                 prompt='Website'
-                value={props.fabState.newFact.factoryWebsite}
-                change={event => change(event)}
+                currentValue={props.fabState.newFact.factoryWebsite}
+                handleChange={event => change(event)}
             />
             <FormTextInput 
                 id={id + 'NewFactNotes'}
                 name='factoryNotes'
                 prompt='Notes'
-                value={props.fabState.newFact.factoryNotes}
-                change={event => change(event)} 
+                currentValue={props.fabState.newFact.factoryNotes}
+                handleChange={event => change(event)} 
             />
         </FormPopUp>
     )
@@ -115,30 +114,30 @@ const NPFFabrics = props => {
                 id={id + 'NewMillName'}
                 name='factoryName'
                 prompt='Name'
-                value={props.fabState.newFact.factoryName}
-                change={event => change(event)} 
+                currentValue={props.fabState.newFact.factoryName}
+                handleChange={event => change(event)} 
             />
             <FormDropdown
                 id={id + 'NewMillLocation'}
                 name='factoryLocation'
                 prompt='Location'
-                value={props.fabState.newFact.factoryLocation}
+                currentValue={props.fabState.newFact.factoryLocation}
                 options={props.countries}
-                change={event => change(event)} 
+                handleChange={event => change(event)} 
             />
             <FormUrlInput
                 id={id + 'NewMillWebsite'}
                 name='factoryWebsite'
                 prompt='Website'
-                value={props.fabState.newFact.factoryWebsite}
-                change={event => change(event)}
+                currentValue={props.fabState.newFact.factoryWebsite}
+                handleChange={event => change(event)}
             />
             <FormTextInput 
                 id={id + 'NewMillNotes'}
                 name='factoryNotes'
                 prompt='Notes'
-                value={props.fabState.newFact.factoryNotes}
-                change={event => change(event)} 
+                currentValue={props.fabState.newFact.factoryNotes}
+                handleChange={event => change(event)} 
             />
         </FormPopUp>
     )
@@ -172,15 +171,15 @@ const NPFFabrics = props => {
                 id={id + 'NewCertName'}
                 name='newCertName'
                 prompt='Name'
-                value={props.fabState.newCert.newCertName}
-                change={event => change(event)} 
+                currentValue={props.fabState.newCert.newCertName}
+                handleChange={event => change(event)} 
             />
             <FormUrlInput
                 id={id + 'NewCertWebsite'}
                 name='newCertWebsite'
                 prompt='Website'
-                value={id.newCertWebsite}
-                change={event => change(event)}
+                currentValue={id.newCertWebsite}
+                handleChange={event => change(event)}
             />
         </FormPopUp>
     )
@@ -197,18 +196,18 @@ const NPFFabrics = props => {
                         id='dyeFinLocation'
                         name='dyeFinLocation'
                         prompt='Dyeing and finishing location'
-                        value={props.fabState.fabFact.dyeFinLocation}
+                        currentValue={props.fabState.fabFact.dyeFinLocation}
                         options={props.countries}
-                        change={event => fabChange(event)} 
+                        handleChange={event => fabChange(event)} 
                     />
 
                     <FormDropdown 
                         id='dyeFinFactory'
                         name='dyeFinFactory'
                         prompt='Dyeing and finishing factory'
-                        value={props.fabState.fabFact.dyeFinFactory}
+                        currentValue={props.fabState.fabFact.dyeFinFactory}
                         options={props.factories}
-                        change={event => fabChange(event)} 
+                        handleChange={event => fabChange(event)} 
                     />
 
                     <FormButton 
@@ -222,18 +221,18 @@ const NPFFabrics = props => {
                         id='wovKnitLocation'
                         name='wovKnitLocation'
                         prompt='Knitting or weaving location'
-                        value={props.fabState.fabFact.wovKnitLocation}
+                        currentValue={props.fabState.fabFact.wovKnitLocation}
                         options={props.countries}
-                        change={event => fabChange(event)} 
+                        handleChange={event => fabChange(event)} 
                     />
 
                     <FormDropdown 
                         id='wovKnitFactory'
                         name='wovKnitFactory'
                         prompt='Fabric mill (knitting or weaving)'
-                        value={props.fabState.fabFact.wovKnitFactory}
+                        currentValue={props.fabState.fabFact.wovKnitFactory}
                         options={props.factories}
-                        change={event => fabChange(event)} 
+                        handleChange={event => fabChange(event)} 
                     />
 
                     <FormButton 
@@ -250,8 +249,8 @@ const NPFFabrics = props => {
 
                     <FormCheckboxSection
                         options={formData.manufacturing.certifications.options} 
-                        check={props.fabState.certChecks}
-                        change={event => certChange(event)}
+                        selectedOptions={props.fabState.certChecks}
+                        handleChange={event => certChange(event)}
                     />
 
                     <FormButton
@@ -266,6 +265,45 @@ const NPFFabrics = props => {
             <NPFFooter buttons='prevNext' previousButton={() => props.setPage(props.currentPage - 1)} nextButton={() => props.setPage(props.currentPage + 1)} />
         </div>
     )    
+}
+
+NPFFabrics.defaultProps = {
+    fabFact: {
+        dyeFinLocation: '',
+        dyeFinFactory: '',
+        dyeFinNotes: '',
+        wovKnitLocation: '',
+        wovKnitFactory: '',
+        wovKnitNotes: ''
+    },
+    setFabFact: () => {},
+    factPopUp: false,
+    setFactPopUp: () => {},
+    newFact: {
+        factoryName: '',
+        factoryLocation: '',
+        factoryWebsite: '',
+        factoryNotes: ''
+    },
+    setNewFact: () => {},
+    certChecks: {},
+    setCertChecks: () => {},
+    certPopUp: false,
+    setCertPopUp: () => {},
+    newCert: {
+        newCertName: '',
+        newCertWebsite: ''
+    },
+    setNewCert: () => {},
+    millPopUp: false,
+    setMillPopUp: () => {},
+    newMill: {
+        millName: '',
+        millLocation: '',
+        millWebsite: '',
+        millNotes: ''
+    },
+    setNewMill: () => {},
 }
 
 export default NPFFabrics

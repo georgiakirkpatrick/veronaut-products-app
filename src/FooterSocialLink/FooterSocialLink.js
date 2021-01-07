@@ -1,15 +1,20 @@
-import React from 'react';
-import { Link } from 'react-router-dom'
+import React from 'react'
 import './FooterSocialLink.css'
 
 const FooterSocialLink = props => {
     return (
         <li className='Footer__social-link' key={props.id}>
-            <Link to={props.pathToProfile}>
+            <a href={props.pathToProfile}>
                 {props.platform}
-            </Link>
+            </a>
         </li>
     )
-};
+}
 
-export default FooterSocialLink;
+FooterSocialLink.defaultProps = {
+    id: 1,
+    pathToProfile: 'http://instagram.com/veronaut',
+    platform: 'Instagram'
+}
+
+export default FooterSocialLink

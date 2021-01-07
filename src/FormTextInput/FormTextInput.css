@@ -1,12 +1,5 @@
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
-
 .FormText {
     width: 100%;
-    /* margin-top: 10px; */
 }
 
 .FormText > input {

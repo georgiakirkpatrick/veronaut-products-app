@@ -3,7 +3,6 @@ import FormCheckboxSection from '../FormCheckboxSection/FormCheckboxSection'
 import FormPage from '../FormPage/FormPage'
 import FormPromptWithSub from '../FormPromptWithSub/FormPromptWithSub'
 import NPFFooter from '../NPFFooter/NPFFooter'
-import './NPFFabricsQuestion.css'
 
 const NPFFabricsQuestion = props => {
     const primCheckOption = [
@@ -40,8 +39,8 @@ const NPFFabricsQuestion = props => {
                 <FormCheckboxSection 
                     prompt='The primary fabric (or material) is required.'
                     options={primCheckOption}
-                    check={{'primary-fabric': props.primCheck}}
-                    change={() => props.setPrimCheck(props.primCheck)}
+                    selectedOptions={{'primary-fabric': props.primCheck}}
+                    handleChange={() => props.setPrimCheck(props.primCheck)}
                 />
 
                 <FormPromptWithSub 
@@ -51,8 +50,8 @@ const NPFFabricsQuestion = props => {
                 <FormCheckboxSection 
                     prompt='Does this product include a secondary fabric?'
                     options={secCheckOption}
-                    check={{'secondary-fabric': props.secCheck}}
-                    change={() => props.setSecCheck(!props.secCheck)}
+                    selectedOptions={{'secondary-fabric': props.secCheck}}
+                    handleChange={() => props.setSecCheck(!props.secCheck)}
                 />
 
                 <FormPromptWithSub 
@@ -62,13 +61,17 @@ const NPFFabricsQuestion = props => {
                 <FormCheckboxSection 
                     prompt='Does this product include a lining fabric?'
                     options={linCheckOption}
-                    check={{'lining-fabric': props.linCheck}}
-                    change={() => props.setLinCheck(!props.linCheck)}
+                    selectedOptions={{'lining-fabric': props.linCheck}}
+                    handleChange={() => props.setLinCheck(!props.linCheck)}
                 />
             </FormPage>
             <NPFFooter buttons='prevNext' previousButton={() => props.setPage(props.currentPage - 1)} nextButton={() => props.setPage(props.currentPage + 1)} />
         </div>
     )    
+}
+
+NPFFabricsQuestion.defaultProps = {
+    
 }
 
 export default NPFFabricsQuestion

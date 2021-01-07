@@ -1,12 +1,12 @@
-import React from 'react';
-import Category from '../Category/Category';
-import ReadMoreLink from '../ReadMoreLink/ReadMoreLink';
-import './LandingCategoryList.css';
+import React from 'react'
+import Category from '../Category/Category'
+import ReadMoreLink from '../ReadMoreLink/ReadMoreLink'
+import './LandingCategoryList.css'
 
 const LandingCategoryList = props => {
     const generateCategoryList = props.categories.map(category => (
         <Category 
-            key={category.id}
+            key={category.key}
             id={category.id}
             pathToImage={category.picPath}
             imgAlt={category.imgAlt}
@@ -37,4 +37,4 @@ LandingCategoryList.defaultProps = {
     categories: []
 }
 
-export default LandingCategoryList;
+export default LandingCategoryList

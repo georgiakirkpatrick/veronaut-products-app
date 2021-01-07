@@ -1,22 +1,11 @@
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
-
 .FormUrlInput {
     width: 100%;
     margin-top: 10px;
 }
 
-.FormUrlInput > input {
-    display: block;
+.FormUrlInput input {
     width: 100%;
     margin: 2px 0px 10px;
     padding: 10px;
     font: inherit;
-}
-
-.FormUrlInput > label {
-    text-align: left;
 }

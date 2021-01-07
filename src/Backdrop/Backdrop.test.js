@@ -1,7 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Backdrop from './Backdrop';
-import renderer from 'react-test-renderer';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import Backdrop from './Backdrop'
+import renderer from 'react-test-renderer'
 
 describe ('Backdrop', () => {
     it ('renders without crashing', () => {

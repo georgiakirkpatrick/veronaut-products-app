@@ -2,11 +2,18 @@
 
 exports[`FormUrlInput render the UI as expected 1`] = `
 <div
-  className="FormText"
+  className="FormUrlInput"
 >
-  <label />
+  <label
+    htmlFor={1}
+  >
+    
+  </label>
   <input
-    type="text"
+    defaultValue=""
+    id={1}
+    name=""
+    type="url"
   />
 </div>
 `;

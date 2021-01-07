@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
 import Footer from './Footer';
 
-describe('Footer', () => {
+describe ('Footer', () => {
     it ('renders without crashing', () => {
         const div = document.createElement('div');
-        ReactDOM.render(<Footer />, div);
+        ReactDOM.render(
+            <Footer />, div);
         ReactDOM.unmountComponentAtNode(div);
     });
 

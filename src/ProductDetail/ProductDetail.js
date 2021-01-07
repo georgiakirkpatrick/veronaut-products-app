@@ -1,11 +1,58 @@
-import React from 'react'
+import React, { useState } from 'react'
+import ProductDetailCarousel from '../ProductDetailCarousel/ProductDetailCarousel'
+import ProductDetailSection from '../ProductDetailSection/ProductDetailSection'
 import data from '../DATA'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../FontAwesomeIcons/FontAwesomeIcons';
 import './ProductDetail.css'
 
 const ProductDetail = props => {
-    console.log('props.routeProps', props.routeProps)
+    const [careOpen, setCareOpen] = useState(false)
+    const [designOpen, setDesignOpen] = useState(false)
+    const [fabricOpen, setFabricOpen] = useState(false)
+    const [notionsOpen, setNotionsOpen] = useState(false)
+    const [productionOpen, setProductionOpen] = useState(false)
+
+    const handleOpenCare = () => {
+        setCareOpen(true)
+    }
+
+    const handleCloseCare = () => {
+        setCareOpen(false)
+    }
+
+    const handleOpenDesign = () => {
+        setDesignOpen(true)
+    }
+
+    const handleCloseDesign = () => {
+        setDesignOpen(false)
+    }
+
+    const handleOpenFabric = () => {
+        setFabricOpen(true)
+    }
+
+    const handleCloseFabric = () => {
+        setFabricOpen(false)
+    }
+
+    const handleOpenNotions = () => {
+        setNotionsOpen(true)
+    }
+
+    const handleCloseNotions = () => {
+        setNotionsOpen(false)
+    }
+
+    const handleOpenProduction = () => {
+        setProductionOpen(true)
+    }
+
+    const handleCloseProduction = () => {
+        setProductionOpen(false)
+    }
+
     const selectedProductId = Number(props.routeProps.match.params.productId)
 
     const productInfo = data.productList.find(product => 
@@ -15,8 +62,6 @@ const ProductDetail = props => {
     const allProductImages = data.productImages.filter(image =>
         image.product_id === selectedProductId
     )
-
-    console.log('allProductImages', allProductImages)
 
     const displayAllImages = allProductImages.map(image => (
         <img
@@ -43,11 +88,18 @@ const ProductDetail = props => {
 
     return (
         <div className='ProductDetail'>
-            <div className='ProductDetail__carousel'>
+
+            <ProductDetailCarousel
+                id='image-carousel'
+            >
+                {displayAllImages}
+            </ProductDetailCarousel>
+
+            {/* <div className='ProductDetail__carousel'>
                 <div className='ProductDetail__images'>
                     {displayAllImages}
                 </div>
-            </div>
+            </div> */}
 
             <section className='ProductDetail__basic-info'>
                 <header>
@@ -55,6 +107,7 @@ const ProductDetail = props => {
                         {productInfo.productTitle}
                     </h2>
                 </header>
+
                 <div className='ProductDetail__button-section'>
                     <button className='ProductDetail__heart' type='button'>
                         <FontAwesomeIcon icon={['far', 'heart']} />
@@ -63,6 +116,7 @@ const ProductDetail = props => {
                         BUY
                     </div>
                 </div>
+
                 <div className='ProductDetail__info-section'>
                     <p>
                         {productInfo.brand}
@@ -80,6 +134,7 @@ const ProductDetail = props => {
                         Color options:
                     </p>
                 </div>
+
                 <div className='ProductDetail__color-list'>
                     <div className='ProductDetail__color'>
                         <img 
@@ -95,6 +150,304 @@ const ProductDetail = props => {
                     </div>
                 </div>
             </section>
+            
+            <ProductDetailSection
+                id='product-detail-design'
+                sectionTitle='Design details'
+                sectionOpen={designOpen}
+                handleSectionClose={handleCloseDesign}
+                handleSectionOpen={handleOpenDesign}
+            >
+                <p>
+                    Neckline: v-neck
+                </p>
+
+                <p>
+                    Sleeve length: three-quarter-length sleeves
+                </p>
+
+                <p>
+                    Office-friendly: yes
+                </p>
+
+                <p>
+                    Length: below the knee
+                </p>
+
+                <p>
+                    Dress style: wrap dress
+                </p>
+            </ProductDetailSection>
+
+            <ProductDetailSection
+                id='product-detail-care'
+                sectionTitle='Care instructions'
+                sectionOpen={careOpen}
+                handleSectionClose={handleCloseCare}
+                handleSectionOpen={handleOpenCare}
+            >
+                <p>
+                    Wash: hand wash in cold water
+                </p>
+
+                <p>
+                    Dry: not provided 
+                </p>
+            </ProductDetailSection>
+
+            <ProductDetailSection
+                id='product-detail-production'
+                sectionTitle='Production'
+                sectionOpen={productionOpen}
+                handleSectionClose={handleCloseProduction}
+                handleSectionOpen={handleOpenProduction}
+            >
+                <h4>
+                    Garment sewing and finishing
+                </h4>
+
+                <p>
+                    Country: China
+                </p>
+
+                <p>
+                    Factory: not disclosed
+                </p>
+
+                <h4>
+                    Fabric cutting
+                </h4>
+
+                <p>
+                    Country: not disclosed
+                </p>
+
+                <p>
+                    Factory: not disclosed
+                </p>
+
+                <p>
+                    Product certifications: OEKO-TEX Standard 100
+                </p>
+
+                <p>
+                    Production notes: OEKO-TEX certification number CQ 1217/1IFTH
+                </p>
+            </ProductDetailSection>
+            
+            <ProductDetailSection
+                sectionTitle='Fabric'
+                sectionOpen={fabricOpen}
+                handleSectionClose={handleCloseFabric}
+                handleSectionOpen={handleOpenFabric}
+            >
+                <ProductDetailCarousel
+                    id='section-carousel'
+                >
+                    <div className='ProductDetail__carousel-item'>
+                        <h4>
+                            Primary fabric
+                        </h4>
+
+                        <p>
+                            Fabric type: not listed
+                        </p>
+
+                        <h5>
+                            Dyeing and finishing
+                        </h5>
+
+                        <p>
+                            Country: 
+                        </p>
+
+                        <p>
+                            Factory: 
+                        </p>
+
+                        <h5>
+                            Fabric mill
+                        </h5>
+
+                        <p>
+                            Country: 
+                        </p>
+
+                        <p>
+                            Factory: 
+                        </p>
+
+                        <p>
+                            Fabric certifications: none listed
+                        </p>
+
+                        <h5>
+                            Fiber(s)
+                        </h5>
+
+                        <h6>
+                            Silk
+                        </h6>
+
+                        <p>
+                            Fiber origin: not disclosed
+                        </p>
+
+                        <p>
+                            Fiber producer: not disclosed
+                        </p>
+
+                        <p>
+                            Fiber certifications: none listed
+                        </p>
+                    </div>
+
+                    <div className='ProductDetail__carousel-item'>
+                        <h4>
+                            Secondary fabric
+                        </h4>
+
+                        <p>
+                            Fabric type: not listed
+                        </p>
+
+                        <h5>
+                            Dyeing and finishing
+                        </h5>
+
+                        <p>
+                            Country: China
+                        </p>
+
+                        <p>
+                            Factory: not disclosed
+                        </p>
+
+                        <h5>
+                            Fabric mill
+                        </h5>
+
+                        <p>
+                            Country: not disclosed
+                        </p>
+
+                        <p>
+                            Factory: not disclosed
+                        </p>
+
+                        <p>
+                            Fabric certifications: none listed
+                        </p>
+
+                        <h5>
+                            Fiber(s)
+                        </h5>
+
+                        <h6>
+                            Silk
+                        </h6>
+
+                        <p>
+                            Fiber origin: not disclosed
+                        </p>
+
+                        <p>
+                            Fiber producer: not disclosed
+                        </p>
+
+                        <p>
+                            Fiber certifications: none listed
+                        </p>
+                    </div>
+                </ProductDetailCarousel>
+            </ProductDetailSection>
+
+            <ProductDetailSection
+                sectionTitle='Notions'
+                sectionOpen={notionsOpen}
+                handleSectionClose={handleCloseNotions}
+                handleSectionOpen={handleOpenNotions}
+            >
+                <ProductDetailCarousel
+                    id='section-carousel'
+                >
+                    <div className='ProductDetail__carousel-item'>
+                        <h4>
+                            Primary fabric
+                        </h4>
+
+                        <p>
+                            Fabric type: not listed
+                        </p>
+
+                        <h5>
+                            Dyeing and finishing
+                        </h5>
+
+                        <p>
+                            Country: 
+                        </p>
+
+                        <p>
+                            Factory: 
+                        </p>
+
+                        <h5>
+                            Fabric mill
+                        </h5>
+
+                        <p>
+                            Country: 
+                        </p>
+
+                        <p>
+                            Factory: 
+                        </p>
+
+                        <p>
+                            Fabric certifications: none listed
+                        </p>
+                    </div>
+
+                    <div className='ProductDetail__carousel-item'>
+                        <h4>
+                            Primary fabric
+                        </h4>
+
+                        <p>
+                            Fabric type: not listed
+                        </p>
+
+                        <h5>
+                            Dyeing and finishing
+                        </h5>
+
+                        <p>
+                            Country: 
+                        </p>
+
+                        <p>
+                            Factory: 
+                        </p>
+
+                        <h5>
+                            Fabric mill
+                        </h5>
+
+                        <p>
+                            Country: 
+                        </p>
+
+                        <p>
+                            Factory: 
+                        </p>
+
+                        <p>
+                            Fabric certifications: none listed
+                        </p>
+                    </div>
+                </ProductDetailCarousel>
+            </ProductDetailSection>
         </div>
     )
 }

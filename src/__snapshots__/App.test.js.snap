@@ -43,60 +43,20 @@ exports[`App renders the UI as expected 1`] = `
           href="/"
           onClick={[Function]}
         >
-          <h4>
-            SWP
-          </h4>
+          <h1>
+            VERONAUT
+          </h1>
         </a>
         <div
           className="Header__search-user Header__item"
-        >
-          <button
-            href="www.shewantspockets.com"
-          >
-            <svg
-              aria-hidden="true"
-              className="svg-inline--fa fa-search fa-w-16 fa-lg "
-              data-icon="search"
-              data-prefix="fas"
-              focusable="false"
-              role="img"
-              style={Object {}}
-              viewBox="0 0 512 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"
-                fill="currentColor"
-                style={Object {}}
-              />
-            </svg>
-          </button>
-          <button
-            href="www.shewantspockets.com"
-          >
-            <svg
-              aria-hidden="true"
-              className="svg-inline--fa fa-user-circle fa-w-16 fa-lg "
-              data-icon="user-circle"
-              data-prefix="fas"
-              focusable="false"
-              role="img"
-              style={Object {}}
-              viewBox="0 0 496 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 96c48.6 0 88 39.4 88 88s-39.4 88-88 88-88-39.4-88-88 39.4-88 88-88zm0 344c-58.7 0-111.3-26.6-146.5-68.2 18.8-35.4 55.6-59.8 98.5-59.8 2.4 0 4.8.4 7.1 1.1 13 4.2 26.6 6.9 40.9 6.9 14.3 0 28-2.7 40.9-6.9 2.3-.7 4.7-1.1 7.1-1.1 42.9 0 79.7 24.4 98.5 59.8C359.3 421.4 306.7 448 248 448z"
-                fill="currentColor"
-                style={Object {}}
-              />
-            </svg>
-          </button>
-        </div>
+        />
       </div>
       <div
         className="Backdrop"
         onClick={[Function]}
+      />
+      <div
+        className="Header__desktop-menu"
       />
       <div
         className="Header__menu"
@@ -124,48 +84,146 @@ exports[`App renders the UI as expected 1`] = `
             />
           </svg>
         </button>
-        <ul>
-          <li>
+        <div
+          className="Header__menu-primary"
+        >
+          <div
+            onClick={[Function]}
+          >
             <a
+              className="MenuItem__primary"
               href="/"
               onClick={[Function]}
             >
-              Home
+              <div
+                className="empty"
+              />
+              <span>
+                Home
+              </span>
+              <div
+                className="empty"
+              />
             </a>
-          </li>
-          <li>
+          </div>
+          <div
+            className="Header__primary-item"
+          >
             <a
-              href="/brand"
+              className="MenuItem__primary"
+              href="/"
               onClick={[Function]}
             >
-              Brands
+              <div
+                className="empty"
+              />
+              <span>
+                Categories
+              </span>
+              <span
+                className="MenuItem__icon-right"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="svg-inline--fa fa-angle-right fa-w-8 fa-lg "
+                  data-icon="angle-right"
+                  data-prefix="fas"
+                  focusable="false"
+                  role="img"
+                  style={Object {}}
+                  viewBox="0 0 256 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                    fill="currentColor"
+                    style={Object {}}
+                  />
+                </svg>
+              </span>
             </a>
-          </li>
-          <li>
+          </div>
+          <div
+            className="Header__primary-item"
+            onClick={[Function]}
+          >
             <a
-              href="/principles"
-              onClick={[Function]}
-            >
-              Principles
-            </a>
-          </li>
-          <li>
-            <a
+              className="MenuItem__primary"
               href="/about"
               onClick={[Function]}
             >
-              About
+              <div
+                className="empty"
+              />
+              <span>
+                About
+              </span>
+              <div
+                className="empty"
+              />
             </a>
-          </li>
-          <li>
+          </div>
+          <div
+            className="Header__primary-item"
+            onClick={[Function]}
+          >
             <a
+              className="MenuItem__primary"
               href="/add-product"
               onClick={[Function]}
             >
-              Add Product
+              <div
+                className="empty"
+              />
+              <span>
+                Add a Product
+              </span>
+              <div
+                className="empty"
+              />
             </a>
-          </li>
-        </ul>
+          </div>
+          <div
+            className="Header__primary-item"
+            onClick={[Function]}
+          >
+            <a
+              className="MenuItem__primary"
+              href="/create-account"
+              onClick={[Function]}
+            >
+              <div
+                className="empty"
+              />
+              <span>
+                Create an account
+              </span>
+              <div
+                className="empty"
+              />
+            </a>
+          </div>
+          <div
+            className="Header__primary-item"
+            onClick={[Function]}
+          >
+            <a
+              className="MenuItem__primary"
+              href="/login"
+              onClick={[Function]}
+            >
+              <div
+                className="empty"
+              />
+              <span>
+                Log in
+              </span>
+              <div
+                className="empty"
+              />
+            </a>
+          </div>
+        </div>
       </div>
     </nav>
     <section
@@ -186,178 +244,30 @@ exports[`App renders the UI as expected 1`] = `
               Your guide to the best-designed clothes with upstanding supply chains.
             </h1>
           </header>
-          <button>
-            Our Principles
-          </button>
         </div>
       </div>
-      <nav
-        className="Header"
+      <div
+        className="TextBlock"
       >
-        <div
-          className="Header__top"
-        >
-          <div
-            className="Header__item"
+        <p>
+          <span>
+            It is tough to be a responsible consumer when it comes to fashion.
+          </span>
+          <br />
+          <span
+            className="bold"
           >
-            <button
-              className="Header__hamburger"
-              onClick={[Function]}
-              type="button"
-            >
-              <svg
-                aria-hidden="true"
-                className="svg-inline--fa fa-bars fa-w-14 fa-lg "
-                data-icon="bars"
-                data-prefix="fas"
-                focusable="false"
-                role="img"
-                style={Object {}}
-                viewBox="0 0 448 512"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"
-                  fill="currentColor"
-                  style={Object {}}
-                />
-              </svg>
-            </button>
-          </div>
-          <a
-            className="Header__logo Header__item"
-            href="/"
-            onClick={[Function]}
-          >
-            <h4>
-              SWP
-            </h4>
-          </a>
-          <div
-            className="Header__search-user Header__item"
-          >
-            <button
-              href="www.shewantspockets.com"
-            >
-              <svg
-                aria-hidden="true"
-                className="svg-inline--fa fa-search fa-w-16 fa-lg "
-                data-icon="search"
-                data-prefix="fas"
-                focusable="false"
-                role="img"
-                style={Object {}}
-                viewBox="0 0 512 512"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"
-                  fill="currentColor"
-                  style={Object {}}
-                />
-              </svg>
-            </button>
-            <button
-              href="www.shewantspockets.com"
-            >
-              <svg
-                aria-hidden="true"
-                className="svg-inline--fa fa-user-circle fa-w-16 fa-lg "
-                data-icon="user-circle"
-                data-prefix="fas"
-                focusable="false"
-                role="img"
-                style={Object {}}
-                viewBox="0 0 496 512"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 96c48.6 0 88 39.4 88 88s-39.4 88-88 88-88-39.4-88-88 39.4-88 88-88zm0 344c-58.7 0-111.3-26.6-146.5-68.2 18.8-35.4 55.6-59.8 98.5-59.8 2.4 0 4.8.4 7.1 1.1 13 4.2 26.6 6.9 40.9 6.9 14.3 0 28-2.7 40.9-6.9 2.3-.7 4.7-1.1 7.1-1.1 42.9 0 79.7 24.4 98.5 59.8C359.3 421.4 306.7 448 248 448z"
-                  fill="currentColor"
-                  style={Object {}}
-                />
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div
-          className="Backdrop"
-          onClick={[Function]}
-        />
-        <div
-          className="Header__menu"
-        >
-          <button
-            className="close-button"
-            onClick={[Function]}
-            type="button"
-          >
-            <svg
-              aria-hidden="true"
-              className="svg-inline--fa fa-times fa-w-11 fa-lg "
-              data-icon="times"
-              data-prefix="fas"
-              focusable="false"
-              role="img"
-              style={Object {}}
-              viewBox="0 0 352 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
-                fill="currentColor"
-                style={Object {}}
-              />
-            </svg>
-          </button>
-          <ul>
-            <li>
-              <a
-                href="/"
-                onClick={[Function]}
-              >
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                href="/brand"
-                onClick={[Function]}
-              >
-                Brands
-              </a>
-            </li>
-            <li>
-              <a
-                href="/principles"
-                onClick={[Function]}
-              >
-                Principles
-              </a>
-            </li>
-            <li>
-              <a
-                href="/about"
-                onClick={[Function]}
-              >
-                About
-              </a>
-            </li>
-            <li>
-              <a
-                href="/add-product"
-                onClick={[Function]}
-              >
-                Add Product
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      <div>
-        <ul
-          className="PrincipleList"
-        >
+            Veronaut helps you make an informed decision.
+          </span>
+        </p>
+      </div>
+      <section
+        className="PrincipleList"
+      >
+        <h2>
+          Principles
+        </h2>
+        <ul>
           <li
             className="Principle"
           >
@@ -365,7 +275,17 @@ exports[`App renders the UI as expected 1`] = `
               Good design
             </h3>
             <p>
-              We value versatile styles that bring out our best selves in the office and at happy hour.  That hold up on our bike commutes and school pick-ups.  Our ideal clothing is bra-friendly, easy care, and has pockets.
+              Clothing and accessories should be flattering, versatile, functional, and built to last.
+            </p>
+          </li>
+          <li
+            className="Principle"
+          >
+            <h3>
+              Transparent
+            </h3>
+            <p>
+              Product listings should include information about who, where, and how products are manufactured throughout the supply chain.
             </p>
           </li>
           <li
@@ -375,7 +295,7 @@ exports[`App renders the UI as expected 1`] = `
               Ethical
             </h3>
             <p>
-              We report which brands have the most transparent supply chains, and which brands prioritize worker safety, living wages, and freedom of association (the right to join a union).
+              Clothing and accessories should be made in workplaces that prioritize employee safety, living wages, and freedom of association (the right to join a union).
             </p>
           </li>
           <li
@@ -385,18 +305,18 @@ exports[`App renders the UI as expected 1`] = `
               Sustainable
             </h3>
             <p>
-              We feature clothing made with natural and cellulose-based fibers, with exceptions for a few categories like outerwear and swimwear.  While we include thoughtfully-sourced wool products, we exclude leather and fur.
+              Fashion products should be made with renewable, non-polluting resources whenever possible.  Production should minimize waste.
             </p>
           </li>
         </ul>
         <a
+          className="ReadMoreLink"
           href="/principles"
+          onClick={[Function]}
         >
-          <p
-            className="ReadMoreLink"
-          >
+          <p>
             <span>
-              Learn more about our selection criteria
+              Read more about our principles
                
             </span>
             <svg
@@ -418,342 +338,94 @@ exports[`App renders the UI as expected 1`] = `
             </svg>
           </p>
         </a>
-      </div>
-      <footer>
-        <nav
-          className="Footer__page-link-list"
-        >
-          <ul>
-            <li
-              className="Footer__page-link"
-            >
-              <a
-                href="/about"
-              >
-                About
-              </a>
-            </li>
-            <li
-              className="Footer__page-link"
-            >
-              <a
-                href="/recommend-a-brand"
-              >
-                Recommend a brand
-              </a>
-            </li>
-            <li
-              className="Footer__page-link"
-            >
-              <a
-                href="/contact"
-              >
-                Contact
-              </a>
-            </li>
-            <li
-              className="Footer__page-link"
-            >
-              <a
-                href="/press-and-media"
-              >
-                Press and media
-              </a>
-            </li>
-            <li
-              className="Footer__page-link"
-            >
-              <a
-                href="/for-brands"
-              >
-                For brands
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <ul
-          className="Footer__social-link-list"
-        >
-          <li
-            className="Footer__social-link"
-          >
-            <a
-              href="https://www.instagram.com/shewantspockets/"
-            >
-              Instagram
-            </a>
-          </li>
-          <li
-            className="Footer__social-link"
-          >
-            <a
-              href="https://www.youtube.com/shewantspockets"
-            >
-              YouTube
-            </a>
-          </li>
-        </ul>
-        <form
-          className="NewsletterSignUp"
-        >
-          <label
-            htmlFor="newsletter"
-          >
-            Want updates?
-          </label>
-          <input
-            id="newsletter"
-            name="newsletter"
-            type="text"
-          />
-          <button
-            type="button"
-          >
-            Submit
-          </button>
-        </form>
-      </footer>
-      <nav
-        className="Header"
-      >
-        <div
-          className="Header__top"
-        >
-          <div
-            className="Header__item"
-          >
-            <button
-              className="Header__hamburger"
-              onClick={[Function]}
-              type="button"
-            >
-              <svg
-                aria-hidden="true"
-                className="svg-inline--fa fa-bars fa-w-14 fa-lg "
-                data-icon="bars"
-                data-prefix="fas"
-                focusable="false"
-                role="img"
-                style={Object {}}
-                viewBox="0 0 448 512"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"
-                  fill="currentColor"
-                  style={Object {}}
-                />
-              </svg>
-            </button>
-          </div>
-          <a
-            className="Header__logo Header__item"
-            href="/"
-            onClick={[Function]}
-          >
-            <h4>
-              SWP
-            </h4>
-          </a>
-          <div
-            className="Header__search-user Header__item"
-          >
-            <button
-              href="www.shewantspockets.com"
-            >
-              <svg
-                aria-hidden="true"
-                className="svg-inline--fa fa-search fa-w-16 fa-lg "
-                data-icon="search"
-                data-prefix="fas"
-                focusable="false"
-                role="img"
-                style={Object {}}
-                viewBox="0 0 512 512"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"
-                  fill="currentColor"
-                  style={Object {}}
-                />
-              </svg>
-            </button>
-            <button
-              href="www.shewantspockets.com"
-            >
-              <svg
-                aria-hidden="true"
-                className="svg-inline--fa fa-user-circle fa-w-16 fa-lg "
-                data-icon="user-circle"
-                data-prefix="fas"
-                focusable="false"
-                role="img"
-                style={Object {}}
-                viewBox="0 0 496 512"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 96c48.6 0 88 39.4 88 88s-39.4 88-88 88-88-39.4-88-88 39.4-88 88-88zm0 344c-58.7 0-111.3-26.6-146.5-68.2 18.8-35.4 55.6-59.8 98.5-59.8 2.4 0 4.8.4 7.1 1.1 13 4.2 26.6 6.9 40.9 6.9 14.3 0 28-2.7 40.9-6.9 2.3-.7 4.7-1.1 7.1-1.1 42.9 0 79.7 24.4 98.5 59.8C359.3 421.4 306.7 448 248 448z"
-                  fill="currentColor"
-                  style={Object {}}
-                />
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div
-          className="Backdrop"
-          onClick={[Function]}
-        />
-        <div
-          className="Header__menu"
-        >
-          <button
-            className="close-button"
-            onClick={[Function]}
-            type="button"
-          >
-            <svg
-              aria-hidden="true"
-              className="svg-inline--fa fa-times fa-w-11 fa-lg "
-              data-icon="times"
-              data-prefix="fas"
-              focusable="false"
-              role="img"
-              style={Object {}}
-              viewBox="0 0 352 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
-                fill="currentColor"
-                style={Object {}}
-              />
-            </svg>
-          </button>
-          <ul>
-            <li>
-              <a
-                href="/"
-                onClick={[Function]}
-              >
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                href="/brand"
-                onClick={[Function]}
-              >
-                Brands
-              </a>
-            </li>
-            <li>
-              <a
-                href="/principles"
-                onClick={[Function]}
-              >
-                Principles
-              </a>
-            </li>
-            <li>
-              <a
-                href="/about"
-                onClick={[Function]}
-              >
-                About
-              </a>
-            </li>
-            <li>
-              <a
-                href="/add-product"
-                onClick={[Function]}
-              >
-                Add Product
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+      </section>
       <section
-        className="LandingcategoryList__section"
+        className="LandingCategoryList__section"
       >
         <header>
-          <h3>
-            Use filters to narrow your search
-          </h3>
+          <h2>
+            Categories
+          </h2>
         </header>
-        <p>
-          Search by design feature, size, brand, fiber, and other details to find the fashion you're looking for.
-        </p>
         <ul
           className="LandingCategoryList__list"
         >
-          <li>
+          <li
+            className="Category"
+          >
             <a
               className="main-link"
-              href="/category/4/slug"
+              href="/category/4/dresses"
               onClick={[Function]}
             >
               <div
-                className="Category"
+                className="Category__cropped"
               >
                 <img
                   alt="Analina Shirt Dress in Blue Depths"
                   src="https://cdn.shopify.com/s/files/1/0767/5207/products/9754_Analina_Blue_Depths_3480_web_1186x1186.jpg?v=1580429686"
                 />
-                <p>
-                  Dresses
-                </p>
               </div>
+              <h2
+                className="Category__title"
+              >
+                Dresses
+              </h2>
             </a>
           </li>
-          <li>
+          <li
+            className="Category"
+          >
             <a
               className="main-link"
-              href="/category/1860/slug"
+              href="/category/4/dresses"
               onClick={[Function]}
             >
               <div
-                className="Category"
+                className="Category__cropped"
               >
                 <img
-                  alt="Colombe Ribbed Dress in Black"
-                  src="https://cdn.shopify.com/s/files/1/0767/5207/products/200602-Amout-Vert_-July-Catalog_13481_web_500x750.jpg?v=1594245275"
+                  alt="Analina Shirt Dress in Blue Depths"
+                  src="https://cdn.shopify.com/s/files/1/0767/5207/products/9754_Analina_Blue_Depths_3480_web_1186x1186.jpg?v=1580429686"
                 />
-                <p>
-                  Lingerie, Loungewear, and Shapewear
-                </p>
               </div>
+              <h2
+                className="Category__title"
+              >
+                Dresses
+              </h2>
             </a>
           </li>
-          <li>
+          <li
+            className="Category"
+          >
             <a
               className="main-link"
-              href="/category/1861/slug"
+              href="/category/4/dresses"
               onClick={[Function]}
             >
               <div
-                className="Category"
+                className="Category__cropped"
               >
                 <img
-                  alt="Rene Sweatshirt"
-                  src="https://cdn.shopify.com/s/files/1/0767/5207/products/200602-Amout-Vert_-July-Catalog_15108_1186x1186.jpg?v=1594243616"
+                  alt="Analina Shirt Dress in Blue Depths"
+                  src="https://cdn.shopify.com/s/files/1/0767/5207/products/9754_Analina_Blue_Depths_3480_web_1186x1186.jpg?v=1580429686"
                 />
-                <p>
-                  Tops
-                </p>
               </div>
+              <h2
+                className="Category__title"
+              >
+                Dresses
+              </h2>
             </a>
           </li>
         </ul>
         <a
+          className="ReadMoreLink"
           href="/all-categories"
+          onClick={[Function]}
         >
-          <p
-            className="ReadMoreLink"
-          >
+          <p>
             <span>
               More categories
                
@@ -778,499 +450,41 @@ exports[`App renders the UI as expected 1`] = `
           </p>
         </a>
       </section>
-      <footer>
-        <nav
-          className="Footer__page-link-list"
-        >
-          <ul>
-            <li
-              className="Footer__page-link"
-            >
-              <a
-                href="/about"
-              >
-                About
-              </a>
-            </li>
-            <li
-              className="Footer__page-link"
-            >
-              <a
-                href="/recommend-a-brand"
-              >
-                Recommend a brand
-              </a>
-            </li>
-            <li
-              className="Footer__page-link"
-            >
-              <a
-                href="/contact"
-              >
-                Contact
-              </a>
-            </li>
-            <li
-              className="Footer__page-link"
-            >
-              <a
-                href="/press-and-media"
-              >
-                Press and media
-              </a>
-            </li>
-            <li
-              className="Footer__page-link"
-            >
-              <a
-                href="/for-brands"
-              >
-                For brands
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <ul
-          className="Footer__social-link-list"
-        >
-          <li
-            className="Footer__social-link"
-          >
-            <a
-              href="https://www.instagram.com/shewantspockets/"
-            >
-              Instagram
-            </a>
-          </li>
-          <li
-            className="Footer__social-link"
-          >
-            <a
-              href="https://www.youtube.com/shewantspockets"
-            >
-              YouTube
-            </a>
-          </li>
-        </ul>
-        <form
-          className="NewsletterSignUp"
-        >
-          <label
-            htmlFor="newsletter"
-          >
-            Want updates?
-          </label>
-          <input
-            id="newsletter"
-            name="newsletter"
-            type="text"
-          />
-          <button
-            type="button"
-          >
-            Submit
-          </button>
-        </form>
-      </footer>
-      <nav
-        className="Header"
-      >
-        <div
-          className="Header__top"
-        >
-          <div
-            className="Header__item"
-          >
-            <button
-              className="Header__hamburger"
-              onClick={[Function]}
-              type="button"
-            >
-              <svg
-                aria-hidden="true"
-                className="svg-inline--fa fa-bars fa-w-14 fa-lg "
-                data-icon="bars"
-                data-prefix="fas"
-                focusable="false"
-                role="img"
-                style={Object {}}
-                viewBox="0 0 448 512"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"
-                  fill="currentColor"
-                  style={Object {}}
-                />
-              </svg>
-            </button>
-          </div>
-          <a
-            className="Header__logo Header__item"
-            href="/"
-            onClick={[Function]}
-          >
-            <h4>
-              SWP
-            </h4>
-          </a>
-          <div
-            className="Header__search-user Header__item"
-          >
-            <button
-              href="www.shewantspockets.com"
-            >
-              <svg
-                aria-hidden="true"
-                className="svg-inline--fa fa-search fa-w-16 fa-lg "
-                data-icon="search"
-                data-prefix="fas"
-                focusable="false"
-                role="img"
-                style={Object {}}
-                viewBox="0 0 512 512"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"
-                  fill="currentColor"
-                  style={Object {}}
-                />
-              </svg>
-            </button>
-            <button
-              href="www.shewantspockets.com"
-            >
-              <svg
-                aria-hidden="true"
-                className="svg-inline--fa fa-user-circle fa-w-16 fa-lg "
-                data-icon="user-circle"
-                data-prefix="fas"
-                focusable="false"
-                role="img"
-                style={Object {}}
-                viewBox="0 0 496 512"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 96c48.6 0 88 39.4 88 88s-39.4 88-88 88-88-39.4-88-88 39.4-88 88-88zm0 344c-58.7 0-111.3-26.6-146.5-68.2 18.8-35.4 55.6-59.8 98.5-59.8 2.4 0 4.8.4 7.1 1.1 13 4.2 26.6 6.9 40.9 6.9 14.3 0 28-2.7 40.9-6.9 2.3-.7 4.7-1.1 7.1-1.1 42.9 0 79.7 24.4 98.5 59.8C359.3 421.4 306.7 448 248 448z"
-                  fill="currentColor"
-                  style={Object {}}
-                />
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div
-          className="Backdrop"
-          onClick={[Function]}
-        />
-        <div
-          className="Header__menu"
-        >
-          <button
-            className="close-button"
-            onClick={[Function]}
-            type="button"
-          >
-            <svg
-              aria-hidden="true"
-              className="svg-inline--fa fa-times fa-w-11 fa-lg "
-              data-icon="times"
-              data-prefix="fas"
-              focusable="false"
-              role="img"
-              style={Object {}}
-              viewBox="0 0 352 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
-                fill="currentColor"
-                style={Object {}}
-              />
-            </svg>
-          </button>
-          <ul>
-            <li>
-              <a
-                href="/"
-                onClick={[Function]}
-              >
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                href="/brand"
-                onClick={[Function]}
-              >
-                Brands
-              </a>
-            </li>
-            <li>
-              <a
-                href="/principles"
-                onClick={[Function]}
-              >
-                Principles
-              </a>
-            </li>
-            <li>
-              <a
-                href="/about"
-                onClick={[Function]}
-              >
-                About
-              </a>
-            </li>
-            <li>
-              <a
-                href="/add-product"
-                onClick={[Function]}
-              >
-                Add Product
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
       <section
-        className="LandingBrandList__section"
+        className="EmailSignUp"
       >
         <header>
-          <h3>
-            Discover new brands
-          </h3>
-        </header>
-        <p>
-          She Wants Pockets curates clothing from 
-           from 
-          . Explore our brand fact sheets and impartial supply-chain reviews to make an informed decision when you vote with your money.
-        </p>
-        <div
-          className="LandingBrandList__list"
-        >
-          <a
-            href="www.google.com"
-          >
-            <div
-              className="Brand"
-            >
-              <img
-                alt="A 5'10\\" model is wearing a size 2 The Relaxed Air Shirt in Blue / White Stripe"
-                src="https://res.cloudinary.com/everlane/image/upload/c_scale/c_fill,dpr_1.0,f_auto,q_auto,w_auto:100:1200/v1/i/1bc014ee_3f92.jpg"
-              />
-              <p>
-                Everlane
-              </p>
-            </div>
-          </a>
-        </div>
-        <a
-          href="/all-categories"
-        >
-          <p
-            className="ReadMoreLink"
-          >
-            <span>
-              All brand reviews
-               
-            </span>
-            <svg
-              aria-hidden="true"
-              className="svg-inline--fa fa-arrow-right fa-w-14 "
-              data-icon="arrow-right"
-              data-prefix="fas"
-              focusable="false"
-              role="img"
-              style={Object {}}
-              viewBox="0 0 448 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
-                fill="currentColor"
-                style={Object {}}
-              />
-            </svg>
-          </p>
-        </a>
-      </section>
-      <footer>
-        <nav
-          className="Footer__page-link-list"
-        >
-          <ul>
-            <li
-              className="Footer__page-link"
-            >
-              <a
-                href="/about"
-              >
-                About
-              </a>
-            </li>
-            <li
-              className="Footer__page-link"
-            >
-              <a
-                href="/recommend-a-brand"
-              >
-                Recommend a brand
-              </a>
-            </li>
-            <li
-              className="Footer__page-link"
-            >
-              <a
-                href="/contact"
-              >
-                Contact
-              </a>
-            </li>
-            <li
-              className="Footer__page-link"
-            >
-              <a
-                href="/press-and-media"
-              >
-                Press and media
-              </a>
-            </li>
-            <li
-              className="Footer__page-link"
-            >
-              <a
-                href="/for-brands"
-              >
-                For brands
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <ul
-          className="Footer__social-link-list"
-        >
-          <li
-            className="Footer__social-link"
-          >
-            <a
-              href="https://www.instagram.com/shewantspockets/"
-            >
-              Instagram
-            </a>
-          </li>
-          <li
-            className="Footer__social-link"
-          >
-            <a
-              href="https://www.youtube.com/shewantspockets"
-            >
-              YouTube
-            </a>
-          </li>
-        </ul>
-        <form
-          className="NewsletterSignUp"
-        >
-          <label
-            htmlFor="newsletter"
-          >
-            Want updates?
-          </label>
-          <input
-            id="newsletter"
-            name="newsletter"
-            type="text"
-          />
-          <button
-            type="button"
-          >
-            Submit
-          </button>
-        </form>
-      </footer>
-      <section>
-        <header>
-          <h3>
-            Save your favorite brands and styles
-          </h3>
+          <h2>
+            Save your favorite products
+          </h2>
         </header>
         <p>
           Create an account and save items to buy later.
         </p>
         <form>
-          <label
-            htmlFor="email-signup"
-          >
-            Email address
-          </label>
-          <input
-            id="email-signup"
-            name="email-signup"
-            type="text"
-          />
+          <fieldset>
+            <label
+              htmlFor="email-signup"
+            >
+              Email 
+            </label>
+            <input
+              id="email-signup"
+              name="email-signup"
+              type="text"
+            />
+          </fieldset>
           <button
+            className="FormButton"
+            onClick={[Function]}
             type="button"
           >
-            Create account
+            CREATE ACCOUNT
           </button>
         </form>
       </section>
     </section>
     <footer>
-      <nav
-        className="Footer__page-link-list"
-      >
-        <ul>
-          <li
-            className="Footer__page-link"
-          >
-            <a
-              href="/about"
-            >
-              About
-            </a>
-          </li>
-          <li
-            className="Footer__page-link"
-          >
-            <a
-              href="/recommend-a-brand"
-            >
-              Recommend a brand
-            </a>
-          </li>
-          <li
-            className="Footer__page-link"
-          >
-            <a
-              href="/contact"
-            >
-              Contact
-            </a>
-          </li>
-          <li
-            className="Footer__page-link"
-          >
-            <a
-              href="/press-and-media"
-            >
-              Press and media
-            </a>
-          </li>
-          <li
-            className="Footer__page-link"
-          >
-            <a
-              href="/for-brands"
-            >
-              For brands
-            </a>
-          </li>
-        </ul>
-      </nav>
       <ul
         className="Footer__social-link-list"
       >
@@ -1296,20 +510,27 @@ exports[`App renders the UI as expected 1`] = `
       <form
         className="NewsletterSignUp"
       >
-        <label
-          htmlFor="newsletter"
-        >
+        <p>
           Want updates?
-        </label>
-        <input
-          id="newsletter"
-          name="newsletter"
-          type="text"
-        />
+        </p>
+        <fieldset>
+          <label
+            htmlFor="newsletter"
+          >
+            Email 
+          </label>
+          <input
+            id="newsletter"
+            name="newsletter"
+            type="text"
+          />
+        </fieldset>
         <button
+          className="FormButton"
+          onClick={[Function]}
           type="button"
         >
-          Submit
+          SUBMIT
         </button>
       </form>
     </footer>

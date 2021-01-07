@@ -4,14 +4,19 @@ import './FormPromptWithSub.css'
 const FormPromptWithSub = props => {
     return (
         <div className='FormPromptWithSub'>
-            <p className='FormPromptWithSub_prompt'>
+            <p className='FormPromptWithSub__prompt'>
                 {props.prompt}
             </p>
-            <p className='FormPromptWithSub_subtitle'>
+            <p className='FormPromptWithSub__subtitle'>
                 {props.promptSubtitle}
             </p>
         </div>
     )
+}
+
+FormPromptWithSub.defaultProps = {
+    prompt: '',
+    promptSubtitle: ''
 }
 
 export default FormPromptWithSub

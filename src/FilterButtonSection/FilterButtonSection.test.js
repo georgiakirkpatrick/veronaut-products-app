@@ -1,7 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import renderer from 'react-test-renderer';
-import FilterButtonSection from './FilterButtonSection';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import renderer from 'react-test-renderer'
+import FilterButtonSection from './FilterButtonSection'
 
 describe ('FilterButtonSection', () => {
     it ('renders without crashing', () => {

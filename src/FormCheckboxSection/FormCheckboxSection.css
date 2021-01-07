@@ -15,11 +15,11 @@
    padding: 10px;
 }
 
-.FormCheckboxSection_option {
+.FormCheckboxSection__option {
     padding: 10px;
 }
 
-.FormCheckboxSection_option label {
+.FormCheckboxSection__option label {
     padding: 0 10px;
 }
 
@@ -40,7 +40,3 @@
 .FormCheckboxSection__options-container .sizes {
     height: 55vh;
 }
-
-/* .FormCheckboxSection_petite-container {
-    height: 200px;
-}     */

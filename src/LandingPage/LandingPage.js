@@ -1,11 +1,11 @@
 import React from 'react'
-import Footer from '../Footer/Footer'
+import { BrowserRouter as Router } from 'react-router-dom'
 import LandingCategoryList from '../LandingCategoryList/LandingCategoryList'
 import PrincipleList from '../PrincipleList/PrincipleList'
 import EmailSignUp from '../EmailSignUp/EmailSignUp'
 import TextBlock from '../TextBlock/TextBlock'
-import './LandingPage.css'
 import ReadMoreLink from '../ReadMoreLink/ReadMoreLink'
+import './LandingPage.css'
 
 const LandingPage = () => {
     const principles = [
@@ -33,32 +33,28 @@ const LandingPage = () => {
 
     const categories = [
         {
-            id: 5,
+            key: 1,
+            id: 4,
             picPath: 'https://cdn.shopify.com/s/files/1/0767/5207/products/9754_Analina_Blue_Depths_3480_web_1186x1186.jpg?v=1580429686',
             imgAlt: 'Analina Shirt Dress in Blue Depths',
             name: 'Dresses',
-            path: 'category=dresses'
+            slug: 'dresses'
         },
         {
-            id: 6,
-            picPath: 'https://cdn.shopify.com/s/files/1/0767/5207/products/200602-Amout-Vert_-July-Catalog_13481_web_500x750.jpg?v=1594245275',
-            imgAlt: 'Colombe Ribbed Dress in Black',
-            name: 'Coats and Jackets',
-            path: 'category=lingerie-loungewear-shapewear'
-        },
-        {
-            id: 7,
-            picPath: 'https://cdn.shopify.com/s/files/1/0767/5207/products/200602-Amout-Vert_-July-Catalog_15108_1186x1186.jpg?v=1594243616',
-            imgAlt: 'Rene Sweatshirt',
-            name: 'Tops',
-            path: 'category=tops'
-        },
-        {
-            id: 8,
+            key: 2,
+            id: 4,
             picPath: 'https://cdn.shopify.com/s/files/1/0767/5207/products/9754_Analina_Blue_Depths_3480_web_1186x1186.jpg?v=1580429686',
             imgAlt: 'Analina Shirt Dress in Blue Depths',
-            name: 'Pants',
-            path: 'category=dresses'
+            name: 'Dresses',
+            slug: 'dresses'
+        },
+        {
+            key: 3,
+            id: 4,
+            picPath: 'https://cdn.shopify.com/s/files/1/0767/5207/products/9754_Analina_Blue_Depths_3480_web_1186x1186.jpg?v=1580429686',
+            imgAlt: 'Analina Shirt Dress in Blue Depths',
+            name: 'Dresses',
+            slug: 'dresses'
         }
     ]
 
@@ -83,10 +79,13 @@ const LandingPage = () => {
     
 
     return (
-        <>
+        <Router>
             <section className='LandingPage'>
                 <div className='LandingPage__hero'>
-                    <img src='https://cdn.shopify.com/s/files/1/0767/5207/products/KOWTOW_Faculty_Pant_Sand_Canvas_1456_web_1186x1186.jpg?v=1581027100' alt='KowTow Faculty Pant in Sand' />
+                    <img 
+                        src='https://cdn.shopify.com/s/files/1/0767/5207/products/KOWTOW_Faculty_Pant_Sand_Canvas_1456_web_1186x1186.jpg?v=1581027100' 
+                        alt='KowTow Faculty Pant in Sand' 
+                    />
 
                     <div className='LandingPage__hero-title'>
                         <header>
@@ -108,8 +107,8 @@ const LandingPage = () => {
 
                 <EmailSignUp />
             </section>
-        </>
+        </Router>
     )
 }
 
-export default LandingPage;
+export default LandingPage

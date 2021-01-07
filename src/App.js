@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import '@fortawesome/react-fontawesome';
 import './FontAwesomeIcons/FontAwesomeIcons';
+import Account from './Account/Account'
+import AllCategories from './AllCategories/AllCategories'
 import Footer from './Footer/Footer'
 import ForgotPassword from './ForgotPassword/ForgotPassword';
 import Header from './Header/Header'
 import LandingPage from './LandingPage/LandingPage';
-import LandingBrandList from './LandingBrandList/LandingBrandList';
-import LandingCategoryList from './LandingCategoryList/LandingCategoryList'
 import Login from './Login/Login'
 import ProductDetail from './ProductDetail/ProductDetail'
 import ProductListPage from './ProductListPage/ProductListPage'
@@ -15,12 +15,10 @@ import PrincipleList from './PrincipleList/PrincipleList';
 import NewProductForm from './NewProductForm/NewProductForm';
 import NotFoundPage from './NotFoundPage/NotFoundPage';
 import NewAccount from './NewAccount/NewAccount'
-import data from './DATA'
 import './App.css';
 
 const App = () => {
   const [ loginInfo, setLoginInfo ] = useState({ user: null, token: null });
-  // const isLoggedIn = () => !!loginInfo.token;
 
   const fullPrinciples = (
     [
@@ -78,7 +76,9 @@ const App = () => {
             <Route path='/' exact render={(routeProps) => (
               <>
                 <Header />
-                <LandingPage />
+                <LandingPage 
+                  {...routeProps}
+                />
                 <Footer />
               </>
             )}/>
@@ -88,34 +88,27 @@ const App = () => {
                 <Header />
                 <PrincipleList 
                   principles={principles}
+                  {...routeProps}
                 />
                 <Footer />
               </>  
             )} />
-            {/* <Route path='/account' render={routeProps => (
-              <NewAccount 
-                history={routeProps.history}
-                loginInfo={loginInfo}
-                setLoginInfo={setLoginInfo}
+            <Route path='/account' render={routeProps => (
+              <Account 
+                {...routeProps}
               />
-            )} /> */}
+            )} />
             <Route path='/add-product' render={routeProps => (
               <NewProductForm 
-                history={routeProps.history}
                 loginInfo={loginInfo}
                 setLoginInfo={setLoginInfo}
+                {...routeProps}
               />
             )}/>
-            <Route path='/brand' component={LandingBrandList} />
-            <Route path='/category' exact render={(routeProps) => (
-              <>
-                <Header />
-                <LandingCategoryList 
-                  {...routeProps}
-                  categories={data.categories} 
-                />
-                <Footer />
-              </>
+            <Route path='/all-categories' render={routeProps => (
+              <AllCategories
+                {...routeProps}
+              />
             )}/>
             <Route path='/category/:categoryId/:slug' render={routeProps => (
               <ProductListPage
@@ -180,7 +173,11 @@ const App = () => {
       </div>
     </Router>
   )
-}  
+}
+
+window.onbeforeunload = function () {
+  window.scrollTo(0,0);
+};
 
 App.defaultProps = {
   data: []

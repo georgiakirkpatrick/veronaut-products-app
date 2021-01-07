@@ -76,14 +76,10 @@ const formData = {
             }
         ],
         colorName: {
-            id: 'colorName',
-            name: 'colorName',
             prompt: 'Color name',
             explanation: 'What the brand calls the color'
         },
         colorDescription: {
-            id: 'colorDescription',
-            name: 'colorDescription',
             prompt: 'Color description',
             explanation: 'Select an option that best describes the color',
             options: [
@@ -115,14 +111,13 @@ const formData = {
             promptSubtitle: ''
         },
         colorSwatchUrlFieldset: {
-            id: 'colorSwatchUrl',
             name: 'colorSwatchUrl',
             prompt: 'Color swatch URL',
             explanation: `Right click on the color swatch, select 'Copy Image Address', and paste the address here.`
         },
         imageUrl: {
-            id: 'colorImageUrl',
-            name: 'colorImageUrls',
+            id: 'color-image-url',
+            name: 'colorImageUrl',
             prompt: 'Image URL for this color',
             explanation: `Right click on the image, select 'Copy Image Address', and paste the address here.`
         }
@@ -296,11 +291,9 @@ const formData = {
         id: 'new-product',
         pageTitle: 'New Product',
         careInstructions: {
-            id: 'care-instructions',
             prompt: 'Care instructions'
         },
-        category: {
-            id: 'category',
+        productCategory: {
             prompt: 'Category',
             options: [
                 {
@@ -386,8 +379,7 @@ const formData = {
                 }
             ]
         },
-        currency: {
-            id: 'currency',
+        productCurrency: {
             prompt: 'Currency'
         },
         dry: {
@@ -409,11 +401,11 @@ const formData = {
             ],
         },
         featureImageUrl: {
-            id: 'featureImageUrl',
+            id: 'feature-image-url',
             prompt: 'Feature image URL'
         },
         productName: {
-            id: 'productName',
+            id: 'product-name',
             prompt: 'Product name',
             explanation: `Enter the product name as it is listed on the brand's website`
         },
@@ -450,14 +442,12 @@ const formData = {
     },
 
     notions: {
-        id: 'notions',
         pageTitle: 'Notions',
         pagePrompts: {
             prompt: 'If the product includes notions succh as zippers or buttons, list them here.',
             promptSubtitle: 'If the product does not include notions, skip this section.'
         },
         notionType: {
-            id: 'notionId',
             prompt: 'Notion',
             explanation: '',
             buttonText: ['ADD A NOTION', 'ADD A FACTORY'],
@@ -518,71 +508,6 @@ const formData = {
         }    
     },
 
-    prohibitedFibers: {
-        pageTitle: 'Fibers',
-        pagePrompt: {
-                prompt: `Does the product contain any of following materials?`,
-                promptSubtitle: `Check all that apply and click 'next'.`
-            }, 
-        fiberOptions: [
-            {
-                text: 'Acetate',
-                id: 'acetate',
-                checked: false
-            },
-            {
-                text: 'Acrylic',
-                id: 'acrylic',
-                checked: false
-            },
-            {
-                text: 'Microfiber',
-                id: 'microfiber',
-                checked: false
-            },
-            {
-                text: 'Neoprene',
-                id: 'neoprene',
-                checked: false
-            },
-            {
-                text: 'Nylon',
-                id: 'nylon',
-                checked: false
-            },
-            {
-                text: 'Olefin',
-                id: 'olefin',
-                checked: false
-            },
-            {
-                text: 'Polyamide',
-                id: 'polyamide',
-                checked: false
-            },
-            {
-                text: 'Polyester',
-                id: 'polyester',
-                checked: false
-            },
-            {
-                text: 'Polyurethane',
-                id: 'polyurethane',
-                checked: false
-            },
-            {
-                text: 'Vinyl',
-                id: 'vinyl',
-                checked: false
-            },
-            {
-                text: 'None of these',
-                id: 'none',
-                checked: false
-            }
-        ]
-    },
-
     permittedCategories: {
         pageTitle: 'Category',
         pagePrompt: {
@@ -617,11 +542,10 @@ const formData = {
         message: 'Veronaut does accept products made with synthetic fabrics, with exceptions for outerwear, shoes, and swimwear',
         buttons: [
             {
-                link: '/',
+                link: '/about',
                 text: 'FIND OUT WHY'
             },
             {
-                link: '/',
                 text: 'SUBMIT A DIFFERENT PRODUCT'
             }
         ]
@@ -712,413 +636,64 @@ const formData = {
             }
         ]
     },
-    sizes: {
-        pageTitle: 'Sizes',
-        pagePrompt: {
-            prompt: 'Select all size options available on this product page.',
-            promptSubtitle: 'Include sold out sizes'
+
+    prohibitedFibers: [
+        {
+            text: 'Acetate',
+            id: 'acetate',
+            checked: false
         },
-        sizeSections: [
-            {
-                prompt: 'Standard US sizing',
-                checkboxOptions: [
-                    {
-                        text: '00, XXS',
-                        id: 'standard-00-XXS',
-                        checked: false
-
-                    },
-                    {
-                        text: '0, XS',
-                        id: 'standard-0-XS',
-                        checked: false
-
-                    },
-                    {
-                        text: '2, XS',
-                        id: 'standard-2-XS',
-                        checked: false
-
-                    },
-                    {
-                        text: '4, S',
-                        id: 'standard-4-S',
-                        checked: false
-
-                    },
-                    {
-                        text: '6, S',
-                        id: 'standard-6-S',
-                        checked: false
-
-                    },
-                    {
-                        text: '8, M',
-                        id: 'standard-8-M',
-                        checked: false
-
-                    },
-                    {
-                        text: '10, M',
-                        id: 'standard-10-M',
-                        checked: false
-
-                    },
-                    {
-                        text: '12, L',
-                        id: 'standard-12-L',
-                        checked: false
-
-                    },
-                    {
-                        text: '14, L',
-                        id: 'standard-14-L',
-                        checked: false
-
-                    },
-                    {
-                        text: '16, XL',
-                        id: 'standard-16-XL',
-                        checked: false
-
-                    },
-                    {
-                        text: '18, XL',
-                        id: 'standard-18-XL',
-                        checked: false
-
-                    },
-                    {
-                        text: '20, 2X',
-                        id: 'standard-20-2X',
-                        checked: false
-
-                    },
-                    {
-                        text: '22, 2X',
-                        id: 'standard-22-2X',
-                        checked: false
-
-                    },
-                    {
-                        text: '24, 3X',
-                        id: 'standard-24-3X',
-                        checked: false
-
-                    },
-                    {
-                        text: '26, 3X',
-                        id: 'standard-26-3X',
-                        checked: false
-
-                    },
-                    {
-                        text: '28, 4X',
-                        id: 'standard-28-4X',
-                        checked: false
-
-                    }
-                ]
-            },
-            {
-                prompt: 'Petite US sizing',
-                checkboxOptions: [
-                    {
-                        text: '00, XXS',
-                        id: 'petite-00-XXS',
-                        checked: false
-
-                    },
-                    {
-                        text: '0, XS',
-                        id: 'petite-0-XS',
-                        checked: false
-
-                    },
-                    {
-                        text: '2, XS',
-                        id: 'petite-2-XS',
-                        checked: false
-
-                    },
-                    {
-                        text: '4, S',
-                        id: 'petite-4-S',
-                        checked: false
-
-                    },
-                    {
-                        text: '6, S',
-                        id: 'petite-6-S',
-                        checked: false
-
-                    },
-                    {
-                        text: '8, M',
-                        id: 'petite-8-M',
-                        checked: false
-
-                    },
-                    {
-                        text: '10, M',
-                        id: 'petite-10-M',
-                        checked: false
-
-                    },
-                    {
-                        text: '12, L',
-                        id: 'petite-12-L',
-                        checked: false
-
-                    },
-                    {
-                        text: '14, L',
-                        id: 'petite-14-L',
-                        checked: false
-
-                    },
-                    {
-                        text: '16, XL',
-                        id: 'petite-16-XL',
-                        checked: false
-
-                    },
-                    {
-                        text: '18, XL',
-                        id: 'petite-18-XL',
-                        checked: false
-
-                    },
-                    {
-                        text: '20, 2X',
-                        id: 'petite-20-2X',
-                        checked: false
-
-                    },
-                    {
-                        text: '22, 2X',
-                        id: 'petite-22-2X',
-                        checked: false
-
-                    },
-                    {
-                        text: '24, 3X',
-                        id: 'petite-24-3X',
-                        checked: false
-
-                    },
-                    {
-                        text: '26, 3X',
-                        id: 'petite-26-3X',
-                        checked: false
-
-                    },
-                    {
-                        text: '28, 4X',
-                        id: 'petite-28-4X'
-                    }
-                ]
-            },
-            {
-                prompt: 'Tall US sizing',
-                checkboxOptions: [
-                    {
-                        text: '00, XXS',
-                        id: 'tall-00-XXS',
-                        checked: false
-
-                    },
-                    {
-                        text: '0, XS',
-                        id: 'tall-0-XS',
-                        checked: false
-
-                    },
-                    {
-                        text: '2, XS',
-                        id: 'tall-2-XS',
-                        checked: false
-
-                    },
-                    {
-                        text: '4, S',
-                        id: 'tall-4-S',
-                        checked: false
-
-                    },
-                    {
-                        text: '6, S',
-                        id: 'tall-6-S',
-                        checked: false
-
-                    },
-                    {
-                        text: '8, M',
-                        id: 'tall-8-M',
-                        checked: false
-
-                    },
-                    {
-                        text: '10, M',
-                        id: 'tall-10-M',
-                        checked: false
-
-                    },
-                    {
-                        text: '12, L',
-                        id: 'tall-12-L',
-                        checked: false
-
-                    },
-                    {
-                        text: '14, L',
-                        id: 'tall-14-L',
-                        checked: false
-
-                    },
-                    {
-                        text: '16, XL',
-                        id: 'tall-16-XL',
-                        checked: false
-
-                    },
-                    {
-                        text: '18, XL',
-                        id: 'tall-18-XL',
-                        checked: false
-
-                    },
-                    {
-                        text: '20, 2X',
-                        id: 'tall-20-2X',
-                        checked: false
-
-                    },
-                    {
-                        text: '22, 2X',
-                        id: 'tall-22-2X',
-                        checked: false
-
-                    },
-                    {
-                        text: '24, 3X',
-                        id: 'tall-24-3X',
-                        checked: false
-
-                    },
-                    {
-                        text: '26, 3X',
-                        id: 'tall-26-3X',
-                        checked: false
-
-                    },
-                    {
-                        text: '28, 4X',
-                        id: 'tall-28-4X'
-                    }
-                ]
-            },
-            {
-                prompt: 'Maternity US sizing',
-                checkboxOptions: [
-                    {
-                        text: '00, XXS',
-                        id: 'maternity-00-XXS',
-                        checked: false
-
-                    },
-                    {
-                        text: '0, XS',
-                        id: 'maternity-0-XS',
-                        checked: false
-
-                    },
-                    {
-                        text: '2, XS',
-                        id: 'maternity-2-XS',
-                        checked: false
-
-                    },
-                    {
-                        text: '4, S',
-                        id: 'maternity-4-S',
-                        checked: false
-
-                    },
-                    {
-                        text: '6, S',
-                        id: 'maternity-6-S',
-                        checked: false
-
-                    },
-                    {
-                        text: '8, M',
-                        id: 'maternity-8-M',
-                        checked: false
-
-                    },
-                    {
-                        text: '10, M',
-                        id: 'maternity-10-M',
-                        checked: false
-
-                    },
-                    {
-                        text: '12, L',
-                        id: 'maternity-12-L',
-                        checked: false
-
-                    },
-                    {
-                        text: '14, L',
-                        id: 'maternity-14-L',
-                        checked: false
-
-                    },
-                    {
-                        text: '16, XL',
-                        id: 'maternity-16-XL',
-                        checked: false
-
-                    },
-                    {
-                        text: '18, XL',
-                        id: 'maternity-18-XL',
-                        checked: false
-
-                    },
-                    {
-                        text: '20, 2X',
-                        id: 'maternity-20-2X',
-                        checked: false
-
-                    },
-                    {
-                        text: '22, 2X',
-                        id: 'maternity-22-2X',
-                        checked: false
-
-                    },
-                    {
-                        text: '24, 3X',
-                        id: 'maternity-24-3X',
-                        checked: false
-
-                    },
-                    {
-                        text: '26, 3X',
-                        id: 'maternity-26-3X',
-                        checked: false
-
-                    },
-                    {
-                        text: '28, 4X',
-                        id: 'maternity-28-4X'
-                    }
-                ]
-            }
-        ]
-    },
+        {
+            text: 'Acrylic',
+            id: 'acrylic',
+            checked: false
+        },
+        {
+            text: 'Microfiber',
+            id: 'microfiber',
+            checked: false
+        },
+        {
+            text: 'Neoprene',
+            id: 'neoprene',
+            checked: false
+        },
+        {
+            text: 'Nylon',
+            id: 'nylon',
+            checked: false
+        },
+        {
+            text: 'Olefin',
+            id: 'olefin',
+            checked: false
+        },
+        {
+            text: 'Polyamide',
+            id: 'polyamide',
+            checked: false
+        },
+        {
+            text: 'Polyester',
+            id: 'polyester',
+            checked: false
+        },
+        {
+            text: 'Polyurethane',
+            id: 'polyurethane',
+            checked: false
+        },
+        {
+            text: 'Vinyl',
+            id: 'vinyl',
+            checked: false
+        },
+        {
+            text: 'None of these',
+            id: 'none',
+            checked: false
+        }
+    ],
 
     formDropdown : {
         id: 'dog',

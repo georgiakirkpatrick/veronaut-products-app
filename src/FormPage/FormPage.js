@@ -14,4 +14,9 @@ const FormPage = props => {
     )
 }
 
-export default FormPage;
+FormPage.defaultProps = {
+    title: '',
+    children: ''
+}
+
+export default FormPage

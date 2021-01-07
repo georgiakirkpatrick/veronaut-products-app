@@ -1,0 +1,262 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LandingPage renders the UI as expected 1`] = `
+<section
+  className="LandingPage"
+>
+  <div
+    className="LandingPage__hero"
+  >
+    <img
+      alt="KowTow Faculty Pant in Sand"
+      src="https://cdn.shopify.com/s/files/1/0767/5207/products/KOWTOW_Faculty_Pant_Sand_Canvas_1456_web_1186x1186.jpg?v=1581027100"
+    />
+    <div
+      className="LandingPage__hero-title"
+    >
+      <header>
+        <h1>
+          Your guide to the best-designed clothes with upstanding supply chains.
+        </h1>
+      </header>
+    </div>
+  </div>
+  <div
+    className="TextBlock"
+  >
+    <p>
+      <span>
+        It is tough to be a responsible consumer when it comes to fashion.
+      </span>
+      <br />
+      <span
+        className="bold"
+      >
+        Veronaut helps you make an informed decision.
+      </span>
+    </p>
+  </div>
+  <section
+    className="PrincipleList"
+  >
+    <h2>
+      Principles
+    </h2>
+    <ul>
+      <li
+        className="Principle"
+      >
+        <h3>
+          Good design
+        </h3>
+        <p>
+          Clothing and accessories should be flattering, versatile, functional, and built to last.
+        </p>
+      </li>
+      <li
+        className="Principle"
+      >
+        <h3>
+          Transparent
+        </h3>
+        <p>
+          Product listings should include information about who, where, and how products are manufactured throughout the supply chain.
+        </p>
+      </li>
+      <li
+        className="Principle"
+      >
+        <h3>
+          Ethical
+        </h3>
+        <p>
+          Clothing and accessories should be made in workplaces that prioritize employee safety, living wages, and freedom of association (the right to join a union).
+        </p>
+      </li>
+      <li
+        className="Principle"
+      >
+        <h3>
+          Sustainable
+        </h3>
+        <p>
+          Fashion products should be made with renewable, non-polluting resources whenever possible.  Production should minimize waste.
+        </p>
+      </li>
+    </ul>
+    <a
+      className="ReadMoreLink"
+      href="/principles"
+      onClick={[Function]}
+    >
+      <p>
+        <span>
+          Read more about our principles
+           
+        </span>
+        <svg
+          aria-hidden="true"
+          className="svg-inline--fa fa-arrow-right fa-w-14 "
+          data-icon="arrow-right"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          style={Object {}}
+          viewBox="0 0 448 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+            fill="currentColor"
+            style={Object {}}
+          />
+        </svg>
+      </p>
+    </a>
+  </section>
+  <section
+    className="LandingCategoryList__section"
+  >
+    <header>
+      <h2>
+        Categories
+      </h2>
+    </header>
+    <ul
+      className="LandingCategoryList__list"
+    >
+      <li
+        className="Category"
+      >
+        <a
+          className="main-link"
+          href="/category/4/dresses"
+          onClick={[Function]}
+        >
+          <div
+            className="Category__cropped"
+          >
+            <img
+              alt="Analina Shirt Dress in Blue Depths"
+              src="https://cdn.shopify.com/s/files/1/0767/5207/products/9754_Analina_Blue_Depths_3480_web_1186x1186.jpg?v=1580429686"
+            />
+          </div>
+          <h2
+            className="Category__title"
+          >
+            Dresses
+          </h2>
+        </a>
+      </li>
+      <li
+        className="Category"
+      >
+        <a
+          className="main-link"
+          href="/category/4/dresses"
+          onClick={[Function]}
+        >
+          <div
+            className="Category__cropped"
+          >
+            <img
+              alt="Analina Shirt Dress in Blue Depths"
+              src="https://cdn.shopify.com/s/files/1/0767/5207/products/9754_Analina_Blue_Depths_3480_web_1186x1186.jpg?v=1580429686"
+            />
+          </div>
+          <h2
+            className="Category__title"
+          >
+            Dresses
+          </h2>
+        </a>
+      </li>
+      <li
+        className="Category"
+      >
+        <a
+          className="main-link"
+          href="/category/4/dresses"
+          onClick={[Function]}
+        >
+          <div
+            className="Category__cropped"
+          >
+            <img
+              alt="Analina Shirt Dress in Blue Depths"
+              src="https://cdn.shopify.com/s/files/1/0767/5207/products/9754_Analina_Blue_Depths_3480_web_1186x1186.jpg?v=1580429686"
+            />
+          </div>
+          <h2
+            className="Category__title"
+          >
+            Dresses
+          </h2>
+        </a>
+      </li>
+    </ul>
+    <a
+      className="ReadMoreLink"
+      href="/all-categories"
+      onClick={[Function]}
+    >
+      <p>
+        <span>
+          More categories
+           
+        </span>
+        <svg
+          aria-hidden="true"
+          className="svg-inline--fa fa-arrow-right fa-w-14 "
+          data-icon="arrow-right"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          style={Object {}}
+          viewBox="0 0 448 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+            fill="currentColor"
+            style={Object {}}
+          />
+        </svg>
+      </p>
+    </a>
+  </section>
+  <section
+    className="EmailSignUp"
+  >
+    <header>
+      <h2>
+        Save your favorite products
+      </h2>
+    </header>
+    <p>
+      Create an account and save items to buy later.
+    </p>
+    <form>
+      <fieldset>
+        <label
+          htmlFor="email-signup"
+        >
+          Email 
+        </label>
+        <input
+          id="email-signup"
+          name="email-signup"
+          type="text"
+        />
+      </fieldset>
+      <button
+        className="FormButton"
+        onClick={[Function]}
+        type="button"
+      >
+        CREATE ACCOUNT
+      </button>
+    </form>
+  </section>
+</section>
+`;

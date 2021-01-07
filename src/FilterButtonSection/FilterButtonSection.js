@@ -2,7 +2,6 @@ import React from 'react'
 import './FilterButtonSection.css'
 
 const FilterButtonSection = props => {
-
     const tagsNoFiltersSelected = <li key={props.defaultFilter} className='FilterButtonSection__tag'>
         {props.defaultFilter}
     </li>
@@ -31,6 +30,8 @@ const FilterButtonSection = props => {
 }
 
 FilterButtonSection.defaultProps = {
+    defaultFilter: 1,
+    selectedFilters: [],
     selectedFilterOptions: []
 }
 

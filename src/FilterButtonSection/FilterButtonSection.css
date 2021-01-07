@@ -1,7 +1,3 @@
-* {
-    box-sizing: border-box;
-}
-
 .FilterButtonSection {
     width: 100%;
 }
@@ -32,7 +28,6 @@
                 transform 150ms ease;
     -webkit-appearance: none;
     -moz-appearance: none;
-
 }
 
 .FilterButtonSection__tag-section {

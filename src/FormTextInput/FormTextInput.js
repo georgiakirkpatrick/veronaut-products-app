@@ -9,11 +9,19 @@ const FormTextInput = props => {
                 type='text' 
                 id={props.id} 
                 name={props.name} 
-                defaultValue={props.value} 
-                onChange={props.change} 
+                defaultValue={props.currentValue} 
+                onChange={props.handleChange} 
             />
         </div>
     )
+}
+
+FormTextInput.defaultProps = {
+    id: 1,
+    prompt: '',
+    name: '',
+    currentValue: 1,
+    change: () => {}
 }
 
 export default FormTextInput

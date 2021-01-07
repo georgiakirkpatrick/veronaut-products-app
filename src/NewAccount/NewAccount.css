@@ -1,5 +1,4 @@
 .NewAccount {
-    /* position: relative; */
     padding: 0 15px;
     display: flex;
     flex-direction: column;
@@ -21,13 +20,13 @@
     width: 100%;
 }
 
-.NewAccount > header {
+.NewAccount header {
     text-align: left;
     padding: 4vh 0 4vh;
     width: 50%;
 }
 
-.NewAccount > header > h2 {
+.NewAccount h2 {
     text-align: left;
 }
 

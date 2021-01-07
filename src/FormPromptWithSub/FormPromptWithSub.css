@@ -2,12 +2,12 @@
     display: block;
 }
 
-.FormPromptWithSub_prompt {
+.FormPromptWithSub__prompt {
     font-weight: bold;
     padding: 0 0 10px;
 }
 
-.FormPromptWithSub_subtitle {
+.FormPromptWithSub__subtitle {
     font-weight: 600;
     color: rgb(88, 88, 88)
 }

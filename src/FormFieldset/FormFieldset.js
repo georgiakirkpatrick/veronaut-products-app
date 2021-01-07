@@ -2,7 +2,7 @@ import React from 'react'
 import './FormFieldset.css'
 
 const FormFieldset = props => {
-    const prompt = props.prompt ?  <p className='FormPromptWithSub_prompt'>{props.prompt}</p> : <div className='empty' />
+    const prompt = props.prompt ?  <p>{props.prompt}</p> : <div />
 
     return (
         <fieldset className='FormFieldset'>
@@ -10,6 +10,11 @@ const FormFieldset = props => {
             {props.children}
         </fieldset>
     )
+}
+
+FormFieldset.defaultProps = {
+    prompt: '',
+    children: ''
 }
 
 export default FormFieldset

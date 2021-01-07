@@ -16,6 +16,12 @@ exports[`FilterButtonSection renders the UI as expected 1`] = `
   </div>
   <ul
     className="FilterButtonSection__tag-section"
-  />
+  >
+    <li
+      className="FilterButtonSection__tag"
+    >
+      1
+    </li>
+  </ul>
 </div>
 `;

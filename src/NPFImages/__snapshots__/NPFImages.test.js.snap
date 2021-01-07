@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NPFImages render the UI as expected 1`] = `
+<div>
+  <section
+    className="FormPage"
+  >
+    <h1>
+      Images
+    </h1>
+    <form>
+      <div
+        className="FormPromptWithSub"
+      >
+        <p
+          className="FormPromptWithSub__prompt"
+        >
+          Enter the color swatch URL and image URL(s) for each color
+        </p>
+        <p
+          className="FormPromptWithSub__subtitle"
+        >
+          
+        </p>
+      </div>
+      <fieldset
+        className="FormFieldset"
+      >
+        <div />
+        <div
+          className="FormPromptWithSub"
+        >
+          <p
+            className="FormPromptWithSub__prompt"
+          >
+            
+          </p>
+          <p
+            className="FormPromptWithSub__subtitle"
+          >
+            
+          </p>
+        </div>
+        <div
+          className="FormUrlInput"
+        >
+          <label
+            htmlFor="color-swatch-url-fieldset0"
+          >
+            Color swatch URL
+          </label>
+          <input
+            defaultValue=""
+            id="color-swatch-url-fieldset0"
+            name="colorSwatchUrl"
+            onChange={[Function]}
+            type="url"
+          />
+        </div>
+        <div
+          className="FormUrlInput"
+        >
+          <label
+            htmlFor="color-image-urls-0"
+          >
+            Image URL for this color
+          </label>
+          <input
+            defaultValue=""
+            id="color-image-urls-0"
+            name="colorImageUrls"
+            onChange={[Function]}
+            type="url"
+          />
+        </div>
+        <button
+          className="FormButton"
+          onClick={[Function]}
+          type="button"
+        >
+          ADD AN IMAGE FOR THIS COLOR
+        </button>
+      </fieldset>
+    </form>
+  </section>
+  <footer
+    className="NPFFooter"
+  >
+    <button
+      className="NPFFooter_previous"
+      onClick={[Function]}
+    >
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-arrow-left fa-w-14 NPFFooter_arrow"
+        data-icon="arrow-left"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        style={Object {}}
+        viewBox="0 0 448 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+      <span>
+        PREVIOUS
+      </span>
+    </button>
+    <button
+      className="NPFFooter_next"
+      onClick={[Function]}
+    >
+      <span>
+        NEXT
+      </span>
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-arrow-right fa-w-14 NPFFooter_arrow"
+        data-icon="arrow-right"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        style={Object {}}
+        viewBox="0 0 448 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+    </button>
+  </footer>
+</div>
+`;
