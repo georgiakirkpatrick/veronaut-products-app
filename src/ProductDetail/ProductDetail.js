@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import ProductDetailCarousel from '../ProductDetailCarousel/ProductDetailCarousel'
-import ProductDetailSection from '../ProductDetailSection/ProductDetailSection'
 import data from '../DATA'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../FontAwesomeIcons/FontAwesomeIcons';
+import ProductDetailCarousel from '../ProductDetailCarousel/ProductDetailCarousel'
+import ProductDetailSection from '../ProductDetailSection/ProductDetailSection'
 import './ProductDetail.css'
 
 const ProductDetail = props => {
@@ -71,21 +71,6 @@ const ProductDetail = props => {
         />
     ))
 
-    console.log('displayAllImages', displayAllImages)
-
-    // const imagesForColor = data.productList.filter(product =>
-    //     product.categoryId === selectedProductId
-    // )
-
-    const makeProductSlug = p => {
-        const brandProduct = `${p.brand} ${p.productTitle}`
-        return brandProduct
-            .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, "")
-            .replace(/\s+/g, '-')
-            .toLowerCase()
-    }
-
     return (
         <div className='ProductDetail'>
 
@@ -94,12 +79,6 @@ const ProductDetail = props => {
             >
                 {displayAllImages}
             </ProductDetailCarousel>
-
-            {/* <div className='ProductDetail__carousel'>
-                <div className='ProductDetail__images'>
-                    {displayAllImages}
-                </div>
-            </div> */}
 
             <section className='ProductDetail__basic-info'>
                 <header>
@@ -121,15 +100,19 @@ const ProductDetail = props => {
                     <p>
                         {productInfo.brand}
                     </p>
+
                     <p>
                         {productInfo.price}
                     </p>
+
                     <p>
                         Standard US sizes 0-12
                     </p>
+
                     <p>
                         Fibers: 100% silk
                     </p>
+
                     <p>
                         Color options:
                     </p>
@@ -142,6 +125,7 @@ const ProductDetail = props => {
                             alt='Black'
                         />
                     </div>
+
                     <div className='ProductDetail__color'>
                         <img 
                             src='https://media.sezane.com/image/upload/c_fill,d_placeholder_dark.png,fl_progressive:semi,h_60,q_auto:best,w_43/iwjijdgeeru16c6btswn.jpg'
@@ -450,6 +434,26 @@ const ProductDetail = props => {
             </ProductDetailSection>
         </div>
     )
+}
+
+ProductDetail.defaultProps = {
+    routeProps: {
+        match: {
+            params: {
+                productId: 4
+            }
+        }
+    },
+    productInfo: {
+        brand: "Sezane",
+        category: "Dresses",
+        categoryId: 4,
+        id: 1,
+        imgAlt: "Sezane Dahlia Dress",
+        pathToImg: "https://media.sezane.com/image/upload/c_fill,d_placeholder_dark.png,fl_progressive:semi,h_816,q_auto:best,w_582/avhc13dzwkv0pzgbmf7g.jpg",
+        price: 200,
+        productTitle: "Dahlia Dress"
+    }
 }
 
 export default ProductDetail

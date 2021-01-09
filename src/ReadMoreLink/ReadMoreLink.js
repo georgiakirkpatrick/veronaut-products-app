@@ -1,8 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import '../FontAwesomeIcons/FontAwesomeIcons';
-import './ReadMoreLink.css';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import '../FontAwesomeIcons/FontAwesomeIcons'
+import './ReadMoreLink.css'
 
 const ReadMoreLink = props => {
     return (
@@ -15,4 +15,9 @@ const ReadMoreLink = props => {
     )
 }
 
-export default ReadMoreLink;
+ReadMoreLink.defaultProps = {
+    link: '/',
+    text: ''
+}
+
+export default ReadMoreLink

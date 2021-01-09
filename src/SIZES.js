@@ -1,4 +1,4 @@
-const sizes = {
+const sizeData = {
     systems: [
         {
             id: 'us-sizes',
@@ -1969,4 +1969,4 @@ const sizes = {
 
 }
 
-export default sizes
+export default sizeData

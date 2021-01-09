@@ -1,9 +1,3 @@
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
-
 a {
     text-decoration: none; 
 }
@@ -31,10 +25,6 @@ main {
     margin-top: 10vh;
 }
 
-/* main a:link {
-    color: gray;
-}     */
-    
 main a:hover {
     color: purple;
 }

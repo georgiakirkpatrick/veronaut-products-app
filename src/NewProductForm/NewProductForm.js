@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import '@fortawesome/react-fontawesome'
+import countries from '../COUNTRIES'
+import currencies from '../CURRENCIES'
+import sizeData from '../SIZES'
 import Header from '../Header/Header'
 import FormPage from '../FormPage/FormPage'
 import FormButton from '../FormButton/FormButton'
 import NPFBrand from '../NPFBrand/NPFBrand'
 import NPFColors from '../NPFColors/NPFColors'
 import NPFFooter from '../NPFFooter/NPFFooter'
-import currencies from '../CURRENCIES'
-import countries from '../COUNTRIES'
 import formData from '../FORM_DATA'
 import NPFManufacturing from '../NPFManufacturing/NPFManufacturing'
 import NPFFabrics from '../NPFFabrics/NPFFabrics'
@@ -17,11 +19,8 @@ import NPFNotions from '../NPFNotions/NPFNotions'
 import NPFNewProduct from '../NPFNewProduct/NPFNewProduct'
 import NPFPermittedCategories from '../NPFPermittedCategories/NPFPermittedCategories'
 import NPFProhibFibers from '../NPFProhibFibers/NPFProhibFibers'
-import './NewProductForm.css'
-import { Link } from 'react-router-dom'
 import NPFSizes from '../NPFSizes/NPFSizes'
-import sizeData from '../SIZES'
-
+import './NewProductForm.css'
 
 const makeCountryOptions = countries.map(country => {
     return { id: `${country.value}`, text: `${country.text}` }
@@ -236,19 +235,14 @@ const NewProductForm = () => {
     const [pFiberChecks, setPFiberChecks] = useState(Object.fromEntries(initialPFiberChecks))
 
     // SIZES STATE
-    const womensDressSizes = sizeData.women.dressSizes
-    const standardPairs = womensDressSizes.standard.map(option => [option.id, false])
-    const petitePairs = womensDressSizes.petite.map(option => [option.id, false])
-    const tallPairs = womensDressSizes.tall.map(option => [option.id, false])
-    const maternityPairs = womensDressSizes.maternity.map(option => [option.id, false])
     const allSizeOptions = [
-        ...standardPairs,
-        ...petitePairs,
-        ...tallPairs,
-        ...maternityPairs
+        ...sizeData.women.dressSizes.standard.map(option => [option.id, false]),
+        ...sizeData.women.dressSizes.petite.map(option => [option.id, false]),
+        ...sizeData.women.dressSizes.tall.map(option => [option.id, false]),
+        ...sizeData.women.dressSizes.maternity.map(option => [option.id, false])
     ]
-    const objectifyAllSizes = Object.fromEntries(allSizeOptions)
-    const [selectedSizeOptions, setSelectedSizeOptions] = useState(objectifyAllSizes)
+
+    const [selectedSizeOptions, setSelectedSizeOptions] = useState(Object.fromEntries(allSizeOptions))
 
     // BRAND
     const brand = (
@@ -277,26 +271,9 @@ const NewProductForm = () => {
             setPage={setPage}
         />
     )
+
     // FABRICS
         // PRIMARY FABRIC PAGE
-        const primFabState = {
-            fabFact: primFabFact,
-            setFabFact: setPrimFabFact,
-            factPopUp: primFactPopUp,
-            setFactPopUp: setPrimFactPopUp,
-            newFact: newPrimFact,
-            setNewFact: setNewPrimFact,
-            certChecks: primCertChecks,
-            setCertChecks: setPrimCertChecks,
-            certPopUp: primCertPopUp,
-            setCertPopUp: setPrimCertPopUp,
-            newCert: newPrimCert,
-            setNewCert: setNewPrimCert,
-            millPopUp: primMillPopUp,
-            setMillPopUp: setPrimMillPopUp,
-            newMill: newPrimMill,
-            setNewMill: setNewPrimMill
-        }
 
         const factories = formData.manufacturing.factory.options
 
@@ -306,9 +283,24 @@ const NewProductForm = () => {
                 currentPage={currentPage}
                 setPage={setPage}
                 title='Primary Fabric'
-                fabState={primFabState}
                 countries={makeCountryOptions}
                 factories={factories}
+                fabFact= {primFabFact}
+                setFabFact= {setPrimFabFact}
+                factPopUp= {primFactPopUp}
+                setFactPopUp= {setPrimFactPopUp}
+                newFact= {newPrimFact}
+                setNewFact= {setNewPrimFact}
+                certChecks= {primCertChecks}
+                setCertChecks= {setPrimCertChecks}
+                certPopUp= {primCertPopUp}
+                setCertPopUp= {setPrimCertPopUp}
+                newCert= {newPrimCert}
+                setNewCert= {setNewPrimCert}
+                millPopUp= {primMillPopUp}
+                setMillPopUp= {setPrimMillPopUp}
+                newMill= {newPrimMill}
+                setNewMill= {setNewPrimMill}
             />
         )
 
@@ -399,7 +391,12 @@ const NewProductForm = () => {
                 </p>
                 <Link className='NewProductForm__button-like' to='/'>HOME</Link>
             </FormPage>
-            <NPFFooter buttons='prev' previousButton={() => setPage(currentPage - 1)} nextButton={() => setPage(currentPage + 1)} />
+
+            <NPFFooter 
+                buttons='prev' 
+                previousButton={() => setPage(currentPage - 1)} 
+                nextButton={() => setPage(currentPage + 1)} 
+            />
         </div>
     )
 
@@ -534,16 +531,10 @@ const NewProductForm = () => {
     )
 
     // SIZES
-    const sizeChange = event => {
-        setSelectedSizeOptions({...selectedSizeOptions, [event.target.id]: !selectedSizeOptions[event.target.id]})
-    }
-
     const sizes = (
         <NPFSizes
-            sizes={womensDressSizes}
-            selectedOptions={selectedSizeOptions}
+            selectedSizeOptions={selectedSizeOptions}
             setSelectedSizeOptions={setSelectedSizeOptions}
-            sizeChange={sizeChange}
             currentPage={currentPage}
             setPage={setPage}
         />

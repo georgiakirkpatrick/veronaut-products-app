@@ -37,7 +37,6 @@ const NPFImages = props => {
                             id={'color-swatch-url-fieldset' + index}
                             name='colorSwatchUrlFieldset'
                             prompt={formData.images.colorSwatchUrlFieldset.prompt}
-                            name={formData.images.colorSwatchUrlFieldset.name}
                             currentValue={colorFieldset.colorSwatchUrl}
                             handleChange={event => {
                                 changeSwatchInput(index, event)

@@ -1,11 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ReadMoreLink renders the UI as expected 1`] = `
-<a>
-  <p
-    className="ReadMoreLink"
-  >
+<a
+  className="ReadMoreLink"
+  href="/"
+  onClick={[Function]}
+>
+  <p>
     <span>
+      
        
     </span>
     <svg

@@ -1,18 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import LandingPage from './LandingPage'
 import renderer from 'react-test-renderer'
+import { BrowserRouter as Router } from 'react-router-dom'
+import LandingPage from './LandingPage'
 
 describe ('LandingPage', () => {
     it ('renders without crashing', () => {
         const div = document.createElement('div')
-        ReactDOM.render(<LandingPage />, div)
+        ReactDOM.render(<Router><LandingPage /></Router>, div)
         ReactDOM.unmountComponentAtNode(div)
     })
 
     it('renders the UI as expected', () => {
         const tree = renderer
-            .create(<LandingPage />)
+            .create(<Router><LandingPage /></Router>)
             .toJSON()
         expect(tree).toMatchSnapshot()    
     })

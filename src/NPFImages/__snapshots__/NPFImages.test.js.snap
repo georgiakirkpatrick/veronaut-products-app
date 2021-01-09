@@ -52,7 +52,7 @@ exports[`NPFImages render the UI as expected 1`] = `
           <input
             defaultValue=""
             id="color-swatch-url-fieldset0"
-            name="colorSwatchUrl"
+            name="colorSwatchUrlFieldset"
             onChange={[Function]}
             type="url"
           />

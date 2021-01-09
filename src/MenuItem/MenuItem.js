@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './MenuItem.css'
 
 const MenuItem = props => {
@@ -12,17 +12,15 @@ const MenuItem = props => {
         : <div className='empty' />
     
     return (
-    <Router>
-        <Link
-            className={`MenuItem__${props.itemType}`}
-            to={props.to}
-            onClick={() => props.goToMenu && props.setActiveMenu(props.goToMenu)}
-        >
-            {leftIcon}
-            <span>{props.children}</span>
-            {rightIcon}
-        </Link>
-    </Router>
+    <Link
+        className={`MenuItem__${props.itemType}`}
+        to={props.to}
+        onClick={() => props.goToMenu && props.setActiveMenu(props.goToMenu)}
+    >
+        {leftIcon}
+        <span>{props.children}</span>
+        {rightIcon}
+    </Link>
     )
 }
 

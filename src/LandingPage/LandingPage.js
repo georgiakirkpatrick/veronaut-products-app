@@ -1,5 +1,4 @@
 import React from 'react'
-import { BrowserRouter as Router } from 'react-router-dom'
 import LandingCategoryList from '../LandingCategoryList/LandingCategoryList'
 import PrincipleList from '../PrincipleList/PrincipleList'
 import EmailSignUp from '../EmailSignUp/EmailSignUp'
@@ -79,35 +78,33 @@ const LandingPage = () => {
     
 
     return (
-        <Router>
-            <section className='LandingPage'>
-                <div className='LandingPage__hero'>
-                    <img 
-                        src='https://cdn.shopify.com/s/files/1/0767/5207/products/KOWTOW_Faculty_Pant_Sand_Canvas_1456_web_1186x1186.jpg?v=1581027100' 
-                        alt='KowTow Faculty Pant in Sand' 
-                    />
-
-                    <div className='LandingPage__hero-title'>
-                        <header>
-                            <h1>
-                                Your guide to the best-designed clothes with upstanding supply chains.
-                            </h1>
-                        </header>
-                    </div>
-                </div>
-                
-                <TextBlock text={textBlock} />
-
-                <PrincipleList
-                    principles={principles}
-                    readMore={princReadMore}
+        <section className='LandingPage'>
+            <div className='LandingPage__hero'>
+                <img 
+                    src='https://cdn.shopify.com/s/files/1/0767/5207/products/KOWTOW_Faculty_Pant_Sand_Canvas_1456_web_1186x1186.jpg?v=1581027100' 
+                    alt='KowTow Faculty Pant in Sand' 
                 />
 
-                <LandingCategoryList categories={categories} />
+                <div className='LandingPage__hero-title'>
+                    <header>
+                        <h1>
+                            Your guide to the best-designed clothes with upstanding supply chains.
+                        </h1>
+                    </header>
+                </div>
+            </div>
+            
+            <TextBlock text={textBlock} />
 
-                <EmailSignUp />
-            </section>
-        </Router>
+            <PrincipleList
+                principles={principles}
+                readMore={princReadMore}
+            />
+
+            <LandingCategoryList categories={categories} />
+
+            <EmailSignUp />
+        </section>
     )
 }
 

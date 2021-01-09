@@ -65,13 +65,24 @@ const NPFFabricsQuestion = props => {
                     handleChange={() => props.setLinCheck(!props.linCheck)}
                 />
             </FormPage>
-            <NPFFooter buttons='prevNext' previousButton={() => props.setPage(props.currentPage - 1)} nextButton={() => props.setPage(props.currentPage + 1)} />
+
+            <NPFFooter 
+                buttons='prevNext' previousButton={() => props.setPage(props.currentPage - 1)} 
+                nextButton={() => props.setPage(props.currentPage + 1)} 
+            />
         </div>
     )    
 }
 
 NPFFabricsQuestion.defaultProps = {
-    
+    primCheck: false,
+    secCheck: false,
+    linCheck: false,
+    setPrimCheck: () => {},
+    setSecCheck: () => {},
+    setLinCheck: () => {},
+    currentPage: 0,
+    setPage: () => {}
 }
 
 export default NPFFabricsQuestion

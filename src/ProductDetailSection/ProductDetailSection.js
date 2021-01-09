@@ -9,11 +9,21 @@ const ProductDetailSection = props => {
             <hr></hr>
 
             <section>
-                <button className='ProductDetailSection__button' type='button' onClick={props.sectionOpen ? props.handleSectionClose : props.handleSectionOpen} >
+                <button 
+                    className='ProductDetailSection__button' 
+                    type='button' 
+                    onClick={props.sectionOpen 
+                        ? props.handleSectionClose 
+                        : props.handleSectionOpen} 
+                >
                     <FontAwesomeIcon icon={props.sectionOpen ? 'times' : 'angle-down'} />
                 </button>
 
-                <header onClick={props.sectionOpen ? props.handleSectionClose : props.handleSectionOpen}>
+                <header 
+                    onClick={props.sectionOpen 
+                        ? props.handleSectionClose 
+                        : props.handleSectionOpen}
+                >
                     <h3>
                         {props.sectionTitle}
                     </h3>
@@ -25,6 +35,14 @@ const ProductDetailSection = props => {
             </section>
         </>
     )
+}
+
+ProductDetailSection.defaultProps = {
+    id: '',
+    handleSectionClose: () => {},
+    handleSectionOpen: () => {},
+    sectionOpen: false,
+    sectionTitle: ''
 }
 
 export default ProductDetailSection

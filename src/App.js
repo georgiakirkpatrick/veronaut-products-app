@@ -1,24 +1,24 @@
 import React, { useState } from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import '@fortawesome/react-fontawesome';
-import './FontAwesomeIcons/FontAwesomeIcons';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import '@fortawesome/react-fontawesome'
+import './FontAwesomeIcons/FontAwesomeIcons'
 import Account from './Account/Account'
 import AllCategories from './AllCategories/AllCategories'
 import Footer from './Footer/Footer'
-import ForgotPassword from './ForgotPassword/ForgotPassword';
+import ForgotPassword from './ForgotPassword/ForgotPassword'
 import Header from './Header/Header'
-import LandingPage from './LandingPage/LandingPage';
+import LandingPage from './LandingPage/LandingPage'
 import Login from './Login/Login'
 import ProductDetail from './ProductDetail/ProductDetail'
 import ProductListPage from './ProductListPage/ProductListPage'
-import PrincipleList from './PrincipleList/PrincipleList';
-import NewProductForm from './NewProductForm/NewProductForm';
-import NotFoundPage from './NotFoundPage/NotFoundPage';
+import PrincipleList from './PrincipleList/PrincipleList'
+import NewProductForm from './NewProductForm/NewProductForm'
+import NotFoundPage from './NotFoundPage/NotFoundPage'
 import NewAccount from './NewAccount/NewAccount'
-import './App.css';
+import './App.css'
 
 const App = () => {
-  const [ loginInfo, setLoginInfo ] = useState({ user: null, token: null });
+  const [ loginInfo, setLoginInfo ] = useState({ user: null, token: null })
 
   const fullPrinciples = (
     [
@@ -73,16 +73,6 @@ const App = () => {
       <div className='App'>
         <main>
           <Switch>
-            <Route path='/' exact render={(routeProps) => (
-              <>
-                <Header />
-                <LandingPage 
-                  {...routeProps}
-                />
-                <Footer />
-              </>
-            )}/>
-            
             <Route path='/about' render={routeProps => (
               <>  
                 <Header />
@@ -98,7 +88,7 @@ const App = () => {
                 {...routeProps}
               />
             )} />
-            <Route path='/add-product' render={routeProps => (
+            <Route path='/add-product' exact render={routeProps => (
               <NewProductForm 
                 loginInfo={loginInfo}
                 setLoginInfo={setLoginInfo}
@@ -159,6 +149,16 @@ const App = () => {
               </>
             )}/>
 
+            <Route path='/' exact render={(routeProps) => (
+              <>
+                <Header />
+                <LandingPage 
+                  {...routeProps}
+                />
+                <Footer />
+              </>
+            )}/>
+
             <Route render={(routeProps) => (
               <>
                 <Header />
@@ -175,12 +175,9 @@ const App = () => {
   )
 }
 
-window.onbeforeunload = function () {
-  window.scrollTo(0,0);
-};
 
 App.defaultProps = {
   data: []
 }
 
-export default App;
+export default App

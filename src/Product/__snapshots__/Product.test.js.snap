@@ -4,28 +4,35 @@ exports[`Product renders the UI as expected 1`] = `
 <li
   className="Product"
 >
-  <div
-    className="Product__cropped"
+  <a
+    href="/product/0/"
+    onClick={[Function]}
   >
-    <img
-      alt="Woman in dress"
-      src="www.google.com"
-    />
-  </div>
-  <h2
-    className="Product__brand"
-  >
-    Sezane
-  </h2>
-  <p
-    className="Product__title"
-  >
-    long-sleeved dress
-  </p>
-  <p
-    className="Product__price"
-  >
-    98
-  </p>
+    <div
+      className="Product__cropped"
+    >
+      <img
+        alt=""
+        src=""
+      />
+    </div>
+    <p
+      className="Product__brand-and-title"
+    >
+      <span>
+        
+         
+      </span>
+      <span>
+        
+      </span>
+    </p>
+    <p
+      className="Product__price"
+    >
+      $
+      0
+    </p>
+  </a>
 </li>
 `;

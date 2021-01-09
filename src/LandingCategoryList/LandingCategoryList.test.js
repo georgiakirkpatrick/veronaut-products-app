@@ -1,7 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import LandingCategoryList from './LandingCategoryList'
 import renderer from 'react-test-renderer'
+import { BrowswerRouter as Router } from 'react-router-dom'
+import LandingCategoryList from './LandingCategoryList'
 
 const categories = [
     {
@@ -15,13 +16,13 @@ const categories = [
 describe ('LandingCategoryList', () => {
     it ('renders without crashing', () => {
         const div = document.createElement('div')
-        ReactDOM.render(<LandingCategoryList />, div)
+        ReactDOM.render(<Router><LandingCategoryList /></Router>, div)
         ReactDOM.unmountComponentAtNode(div)
     })
 
     it('renders the UI as expected', () => {
         const tree = renderer
-            .create(<LandingCategoryList categories={categories}/>)
+            .create(<Router><LandingCategoryList /></Router>)
             .toJSON()
         expect(tree).toMatchSnapshot()    
     })

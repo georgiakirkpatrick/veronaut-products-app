@@ -47,4 +47,10 @@ const NPFFooter = props => {
     )
 }
 
+NPFFooter.defaultProps = {
+    buttons: 'prev',
+    previousButton: () => {},
+    nextButton:  () => {}
+}
+
 export default NPFFooter

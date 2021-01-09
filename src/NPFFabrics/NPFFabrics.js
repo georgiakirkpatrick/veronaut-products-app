@@ -13,32 +13,32 @@ import formData from '../FORM_DATA'
 
 const NPFFabrics = props => {
     const fabChange = event => {
-        const fabFields = {...props.fabState.fabFact}
+        const fabFields = {...props.fabFact}
         fabFields[event.target.name] = event.target.value
-        props.fabState.setFabFact(fabFields)
+        props.setFabFact(fabFields)
     }
 
     const certChange = event => {
-        props.fabState.setCertChecks({...props.fabState.certChecks, [event.target.id]: !props.fabState.certChecks[event.target.id]})
+        props.setCertChecks({...props.certChecks, [event.target.id]: !props.certChecks[event.target.id]})
     }
 
     const handleClose = () => {
-        props.fabState.setCertPopUp(false)
-        props.fabState.setFactPopUp(false)
-        props.fabState.setMillPopUp(false)
+        props.setCertPopUp(false)
+        props.setFactPopUp(false)
+        props.setMillPopUp(false)
     }
 
     const factPopUpStatus = () => {
-        if (props.fabState.factPopUp === true) {
+        if (props.factPopUp === true) {
             return 'FormPopUp__pop-up active'
         }
         return 'FormPopUp__pop-up'
     }
 
     const newFactChange                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      = event => {
-        const newFields = {...props.fabState.newFact}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+        const newFields = {...props.newFact}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
         newFields[event.target.name] = event.target.value
-        props.fabState.setNewFact(newFields)
+        props.setNewFact(newFields)
     }
 
     const factPopUp = (id, status, change) => (
@@ -57,14 +57,14 @@ const NPFFabrics = props => {
                 id={id + 'NewFactName'}
                 name='factoryName'
                 prompt='Name'
-                currentValue={props.fabState.newFact.factoryName}
+                currentValue={props.newFact.factoryName}
                 handleChange={event => change(event)} 
             />
             <FormDropdown
                 id={id + 'NewFactLocation'}
                 name='factoryLocation'
                 prompt='Location'
-                currentValue={props.fabState.newFact.factoryLocation}
+                currentValue={props.newFact.factoryLocation}
                 options={props.countries}
                 handleChange={event => change(event)} 
             />
@@ -72,30 +72,30 @@ const NPFFabrics = props => {
                 id={id + 'NewFactWebsite'}
                 name='factoryWebsite'
                 prompt='Website'
-                currentValue={props.fabState.newFact.factoryWebsite}
+                currentValue={props.newFact.factoryWebsite}
                 handleChange={event => change(event)}
             />
             <FormTextInput 
                 id={id + 'NewFactNotes'}
                 name='factoryNotes'
                 prompt='Notes'
-                currentValue={props.fabState.newFact.factoryNotes}
+                currentValue={props.newFact.factoryNotes}
                 handleChange={event => change(event)} 
             />
         </FormPopUp>
     )
 
     const millPopUpStatus = () => {
-        if (props.fabState.millPopUp === true) {
+        if (props.millPopUp === true) {
             return 'FormPopUp__pop-up active'
         }
         return 'FormPopUp__pop-up'
     }
 
     const newMillChange = event => {
-        const newFields = {...props.fabState.newMill}
+        const newFields = {...props.newMill}
         newFields[event.target.name] = event.target.value
-        props.fabState.setNewMill(newFields)
+        props.setNewMill(newFields)
     }
 
     const millPopUp = (id, status, change) => (
@@ -114,14 +114,14 @@ const NPFFabrics = props => {
                 id={id + 'NewMillName'}
                 name='factoryName'
                 prompt='Name'
-                currentValue={props.fabState.newFact.factoryName}
+                currentValue={props.newFact.factoryName}
                 handleChange={event => change(event)} 
             />
             <FormDropdown
                 id={id + 'NewMillLocation'}
                 name='factoryLocation'
                 prompt='Location'
-                currentValue={props.fabState.newFact.factoryLocation}
+                currentValue={props.newFact.factoryLocation}
                 options={props.countries}
                 handleChange={event => change(event)} 
             />
@@ -129,30 +129,30 @@ const NPFFabrics = props => {
                 id={id + 'NewMillWebsite'}
                 name='factoryWebsite'
                 prompt='Website'
-                currentValue={props.fabState.newFact.factoryWebsite}
+                currentValue={props.newFact.factoryWebsite}
                 handleChange={event => change(event)}
             />
             <FormTextInput 
                 id={id + 'NewMillNotes'}
                 name='factoryNotes'
                 prompt='Notes'
-                currentValue={props.fabState.newFact.factoryNotes}
+                currentValue={props.newFact.factoryNotes}
                 handleChange={event => change(event)} 
             />
         </FormPopUp>
     )
 
     const certPopUpStatus = () => {
-        if (props.fabState.certPopUp === true) {
+        if (props.certPopUp === true) {
             return 'FormPopUp__pop-up active'
         }
         return 'FormPopUp__pop-up'
     }
 
     const newCertChange = event => {
-        const newCertFields = {...props.fabState.newCert}
+        const newCertFields = {...props.newCert}
         newCertFields[event.target.name] = event.target.value
-        props.fabState.setNewCert(newCertFields)
+        props.setNewCert(newCertFields)
     }
 
     const certPopUp = (id, status, change) => (
@@ -171,14 +171,14 @@ const NPFFabrics = props => {
                 id={id + 'NewCertName'}
                 name='newCertName'
                 prompt='Name'
-                currentValue={props.fabState.newCert.newCertName}
+                currentValue={props.newCert.newCertName}
                 handleChange={event => change(event)} 
             />
             <FormUrlInput
                 id={id + 'NewCertWebsite'}
                 name='newCertWebsite'
                 prompt='Website'
-                currentValue={id.newCertWebsite}
+                currentValue={props.newCert.newCertWebsite}
                 handleChange={event => change(event)}
             />
         </FormPopUp>
@@ -196,7 +196,7 @@ const NPFFabrics = props => {
                         id='dyeFinLocation'
                         name='dyeFinLocation'
                         prompt='Dyeing and finishing location'
-                        currentValue={props.fabState.fabFact.dyeFinLocation}
+                        currentValue={props.fabFact.dyeFinLocation}
                         options={props.countries}
                         handleChange={event => fabChange(event)} 
                     />
@@ -205,14 +205,14 @@ const NPFFabrics = props => {
                         id='dyeFinFactory'
                         name='dyeFinFactory'
                         prompt='Dyeing and finishing factory'
-                        currentValue={props.fabState.fabFact.dyeFinFactory}
+                        currentValue={props.fabFact.dyeFinFactory}
                         options={props.factories}
                         handleChange={event => fabChange(event)} 
                     />
 
                     <FormButton 
                         buttonText='ADD A FACTORY' 
-                        click={() => props.fabState.setFactPopUp(true)}
+                        click={() => props.setFactPopUp(true)}
                     />
 
                     {factPopUp(props.id, factPopUpStatus(), newFactChange)}
@@ -221,7 +221,7 @@ const NPFFabrics = props => {
                         id='wovKnitLocation'
                         name='wovKnitLocation'
                         prompt='Knitting or weaving location'
-                        currentValue={props.fabState.fabFact.wovKnitLocation}
+                        currentValue={props.fabFact.wovKnitLocation}
                         options={props.countries}
                         handleChange={event => fabChange(event)} 
                     />
@@ -230,14 +230,14 @@ const NPFFabrics = props => {
                         id='wovKnitFactory'
                         name='wovKnitFactory'
                         prompt='Fabric mill (knitting or weaving)'
-                        currentValue={props.fabState.fabFact.wovKnitFactory}
+                        currentValue={props.fabFact.wovKnitFactory}
                         options={props.factories}
                         handleChange={event => fabChange(event)} 
                     />
 
                     <FormButton 
                         buttonText='ADD A FABRIC MILL' 
-                        click={() => props.fabState.setMillPopUp(true)}
+                        click={() => props.setMillPopUp(true)}
                     />
 
                     {millPopUp(props.id, millPopUpStatus(), newMillChange)}
@@ -249,13 +249,13 @@ const NPFFabrics = props => {
 
                     <FormCheckboxSection
                         options={formData.manufacturing.certifications.options} 
-                        selectedOptions={props.fabState.certChecks}
+                        selectedOptions={props.certChecks}
                         handleChange={event => certChange(event)}
                     />
 
                     <FormButton
                         buttonText='ADD A CERTIFICATION'
-                        click={() => props.fabState.setCertPopUp(true)}
+                        click={() => props.setCertPopUp(true)}
                     />
 
                     {certPopUp(props.id, certPopUpStatus(), newCertChange)}

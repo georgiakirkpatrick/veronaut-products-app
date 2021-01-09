@@ -3,7 +3,6 @@ import './FormCheckboxSection.css'
 
 const FormCheckboxSection = props => {
     const selectedOptions = props.selectedOptions ? props.selectedOptions : Object.fromEntries(props.options.map((o) => [o.id, false]))
-
     const prompt = props.prompt ?  <p>{props.prompt}</p> : <div className='empty' />
     const options = props.options.map(option => {
         return (

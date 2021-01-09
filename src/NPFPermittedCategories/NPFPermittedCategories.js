@@ -41,8 +41,20 @@ const NPFPermittedCats = props => (
                 handleChange={event => props.handleChange(event)}
             />
         </FormPage>
-        <NPFFooter buttons='prevNext' previousButton={() => props.setPage(props.currentPage - 1)} nextButton={() => props.setPage(props.currentPage + 1)} />
+        <NPFFooter 
+            buttons='prevNext' 
+            previousButton={() => props.setPage(props.currentPage - 1)} 
+            nextButton={() => props.setPage(props.currentPage + 1)} 
+        />
     </div>
 )
+
+NPFPermittedCats.defaultProps = {
+    buttons: 'prev',
+    handleChange: () => {},
+    nextButton: () => {},
+    previousButton: () => {},
+    selectedOptions: []
+}
 
 export default NPFPermittedCats

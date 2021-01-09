@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { BrowserRouter as Router, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import FormTitle from '../FormTitle/FormTitle'
 import FormButton from '../FormButton/FormButton'
 import FormPromptWithSub from '../FormPromptWithSub/FormPromptWithSub'
@@ -8,13 +8,12 @@ import Header from '../Header/Header'
 import './ForgotPassword.css'
 
 const ForgotPassword = () => {
-  const [forgotEmail, setForgotEmail] = useState('')
+    const [forgotEmail, setForgotEmail] = useState('')
 
-  return (
-    <form
-        className='ForgotPassword'
-    >
-        <Router>
+    return (
+        <form
+            className='ForgotPassword'
+        >
             <Header />
             <header>
                 <FormTitle titleText='Forgot your password?' />
@@ -37,12 +36,11 @@ const ForgotPassword = () => {
                 buttonText='SEND EMAIL'
                 handleClick={() => {}}
             />
-                <Link to={`/login`} className='main-link'>
-                    Log in
-                </Link>
-        </Router>
-    </form>
-  )
+            <Link to={`/login`} className='main-link'>
+                Log in
+            </Link>
+        </form>
+    )
 }
 
 export default ForgotPassword

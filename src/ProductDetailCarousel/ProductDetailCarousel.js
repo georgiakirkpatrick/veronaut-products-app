@@ -1,5 +1,4 @@
 import React from 'react'
-import ProductListPage from '../ProductListPage/ProductListPage'
 import './ProductDetailCarousel.css'
 
 const ProductDetailCarousel = props => {
@@ -13,6 +12,10 @@ const ProductDetailCarousel = props => {
             </div>
         </div>
     )
+}
+
+ProductDetailCarousel.defaultProps = {
+    id: 0
 }
 
 export default ProductDetailCarousel

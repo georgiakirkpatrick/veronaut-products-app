@@ -6,7 +6,6 @@ import data from '../DATA'
 import './ProductListPage.css'
 
 const ProductListPage = props => {
-    // selectedCategoryId is defined by the Route path.
     const selectedCategoryId = Number(props.routeProps.match.params.categoryId)
 
     const categoryInfo = data.categories.find(category => 
@@ -36,7 +35,6 @@ const ProductListPage = props => {
             productTitle={product.productTitle} 
             price={product.price}
             productSlug={makeProductSlug(product)}
-            routeProps={props.routeProps}
         />
     ))
 
@@ -66,7 +64,14 @@ const ProductListPage = props => {
 }
 
 ProductListPage.defaultProps = {
-    products: []
+    products: [],
+    routeProps: {
+        match: {
+            params: {
+                categoryId: '4'
+            }
+        }
+    }
 }
 
 export default ProductListPage

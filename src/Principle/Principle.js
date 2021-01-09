@@ -1,7 +1,6 @@
 import React from 'react';
 import './Principle.css';
 
-
 const Principle = props => {
     return (
         <li className='Principle' key={props.id}>
@@ -12,8 +11,9 @@ const Principle = props => {
 }
 
 Principle.defaultProps = {
-    principleDescription: [],
-    principleTitle: []
+    id: 0,
+    description: [],
+    title: []
 }
 
 export default Principle;

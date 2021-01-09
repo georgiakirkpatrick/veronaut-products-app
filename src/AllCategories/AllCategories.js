@@ -1,5 +1,4 @@
 import React from 'react'
-import { BrowserRouter as Router } from 'react-router-dom'
 import Category from '../Category/Category'
 import Footer from '../Footer/Footer'
 import Header from '../Header/Header'
@@ -26,7 +25,7 @@ const AllCategories = () => {
     ))
 
     return (
-        <Router>
+        <>
             <Header />
             <section className='AllCategories'>
                 <header>
@@ -40,7 +39,7 @@ const AllCategories = () => {
                 </ul>
             </section>
             <Footer />
-        </Router> 
+        </>
     )
 }
 
