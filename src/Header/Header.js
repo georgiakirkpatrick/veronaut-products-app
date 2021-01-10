@@ -26,7 +26,7 @@ const Header = () => {
                         type='button' 
                         onClick={handleHamClick}
                     >
-                        <FontAwesomeIcon icon={'bars'} size='lg'/>
+                        <FontAwesomeIcon icon='bars' size='lg'/>
                     </button>
                 </div>
                 
@@ -73,7 +73,7 @@ const Header = () => {
                             <MenuItem
                                 to='#'
                                 itemType='primary'
-                                rightIcon={<FontAwesomeIcon icon={'angle-right'} size='lg'/>}
+                                rightIcon={<FontAwesomeIcon icon='angle-right' size='lg'/>}
                                 setActiveMenu={setActiveMenu}
                                 goToMenu='categories'
                             >

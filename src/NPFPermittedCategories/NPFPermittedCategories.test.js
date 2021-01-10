@@ -1,19 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import NPFPermittedCategoriess from './NPFPermittedCategoriess'
+import NPFPermittedCategories from './NPFPermittedCategories'
 import renderer from 'react-test-renderer'
 
-describe ('NPFPermittedCategoriess', () => {
+describe ('NPFPermittedCategories', () => {
     it ('renders without crashing', () => {
         const div = document.createElement('div')
-        ReactDOM.render(<NPFPermittedCategoriess />, div
+        ReactDOM.render(<NPFPermittedCategories />, div
         )
         ReactDOM.unmountComponentAtNode(div)
     })
 
     it('renders the UI as expected', () => {
         const tree = renderer
-            .create(<NPFPermittedCategoriess />)
+            .create(<NPFPermittedCategories />)
             .toJSON()
         expect(tree).toMatchSnapshot()    
     })

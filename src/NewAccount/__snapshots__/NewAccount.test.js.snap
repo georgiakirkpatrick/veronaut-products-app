@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ProductListPage renders the UI as expected 1`] = `
-Array [
+exports[`NewAccount renders the UI as expected 1`] = `
+<form
+  className="NewAccount"
+>
   <nav
     className="Header"
   >
@@ -222,205 +224,78 @@ Array [
         </div>
       </div>
     </div>
-  </nav>,
-  <section
-    className="ProductListPage"
+  </nav>
+  <header>
+    <h2
+      className="FormTitle"
+    >
+      Create an account
+    </h2>
+  </header>
+  <fieldset
+    className="NewAccount__fieldset"
   >
-    <header>
-      <h1>
-        Dresses
-      </h1>
-    </header>
-    <ul
-      className="ProductListPage__product-list"
+    <div
+      className="FormText"
     >
-      <li
-        className="Product"
+      <label
+        htmlFor="create-email"
       >
-        <a
-          href="/product/1/sezane-dahlia-dress"
-          onClick={[Function]}
-        >
-          <div
-            className="Product__cropped"
-          >
-            <img
-              alt="Sezane Dahlia Dress"
-              src="https://media.sezane.com/image/upload/c_fill,d_placeholder_dark.png,fl_progressive:semi,h_816,q_auto:best,w_582/avhc13dzwkv0pzgbmf7g.jpg"
-            />
-          </div>
-          <p
-            className="Product__brand-and-title"
-          >
-            <span>
-              Sezane
-               
-            </span>
-            <span>
-              Dahlia Dress
-            </span>
-          </p>
-          <p
-            className="Product__price"
-          >
-            $
-            200
-          </p>
-        </a>
-      </li>
-      <li
-        className="Product"
-      >
-        <a
-          href="/product/2/sezane-dahlia-dress"
-          onClick={[Function]}
-        >
-          <div
-            className="Product__cropped"
-          >
-            <img
-              alt="Sezane Dahlia Dress"
-              src="https://media.sezane.com/image/upload/c_fill,d_placeholder_dark.png,fl_progressive:semi,h_816,q_auto:best,w_582/avhc13dzwkv0pzgbmf7g.jpg"
-            />
-          </div>
-          <p
-            className="Product__brand-and-title"
-          >
-            <span>
-              Sezane
-               
-            </span>
-            <span>
-              Dahlia Dress
-            </span>
-          </p>
-          <p
-            className="Product__price"
-          >
-            $
-            200
-          </p>
-        </a>
-      </li>
-      <li
-        className="Product"
-      >
-        <a
-          href="/product/3/sezane-dahlia-dress"
-          onClick={[Function]}
-        >
-          <div
-            className="Product__cropped"
-          >
-            <img
-              alt="Sezane Dahlia Dress"
-              src="https://media.sezane.com/image/upload/c_fill,d_placeholder_dark.png,fl_progressive:semi,h_816,q_auto:best,w_582/avhc13dzwkv0pzgbmf7g.jpg"
-            />
-          </div>
-          <p
-            className="Product__brand-and-title"
-          >
-            <span>
-              Sezane
-               
-            </span>
-            <span>
-              Dahlia Dress
-            </span>
-          </p>
-          <p
-            className="Product__price"
-          >
-            $
-            200
-          </p>
-        </a>
-      </li>
-      <li
-        className="Product"
-      >
-        <a
-          href="/product/4/sezane-dahlia-dress"
-          onClick={[Function]}
-        >
-          <div
-            className="Product__cropped"
-          >
-            <img
-              alt="Sezane Dahlia Dress"
-              src="https://media.sezane.com/image/upload/c_fill,d_placeholder_dark.png,fl_progressive:semi,h_816,q_auto:best,w_582/avhc13dzwkv0pzgbmf7g.jpg"
-            />
-          </div>
-          <p
-            className="Product__brand-and-title"
-          >
-            <span>
-              Sezane
-               
-            </span>
-            <span>
-              Dahlia Dress
-            </span>
-          </p>
-          <p
-            className="Product__price"
-          >
-            $
-            200
-          </p>
-        </a>
-      </li>
-    </ul>
-  </section>,
-  <footer>
-    <ul
-      className="Footer__social-link-list"
+        Email
+      </label>
+      <input
+        defaultValue=""
+        id="create-email"
+        name="createEmail"
+        onChange={[Function]}
+        type="text"
+      />
+    </div>
+    <div
+      className="FormText"
     >
-      <li
-        className="Footer__social-link"
+      <label
+        htmlFor="create-password"
       >
-        <a
-          href="https://www.instagram.com/shewantspockets/"
-        >
-          Instagram
-        </a>
-      </li>
-      <li
-        className="Footer__social-link"
-      >
-        <a
-          href="https://www.youtube.com/shewantspockets"
-        >
-          YouTube
-        </a>
-      </li>
-    </ul>
-    <form
-      className="NewsletterSignUp"
+        Password
+      </label>
+      <input
+        defaultValue=""
+        id="create-password"
+        name="createPassword"
+        onChange={[Function]}
+        type="text"
+      />
+    </div>
+    <div
+      className="FormText"
     >
-      <p>
-        Want updates?
-      </p>
-      <fieldset>
-        <label
-          htmlFor="newsletter"
-        >
-          Email 
-        </label>
-        <input
-          id="newsletter"
-          name="newsletter"
-          type="text"
-        />
-      </fieldset>
-      <button
-        className="FormButton"
-        onClick={[Function]}
-        type="button"
+      <label
+        htmlFor="repeat-password"
       >
-        SUBMIT
-      </button>
-    </form>
-  </footer>,
-]
+        Repeat password
+      </label>
+      <input
+        defaultValue=""
+        id="repeat-password"
+        name="repeatPassword"
+        onChange={[Function]}
+        type="text"
+      />
+    </div>
+  </fieldset>
+  <button
+    className="FormButton"
+    onClick={[Function]}
+    type="button"
+  >
+    CREATE ACCOUNT
+  </button>
+  <a
+    href="/login"
+    onClick={[Function]}
+  >
+    Log in
+  </a>
+</form>
 `;

@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import renderer from 'react-test-renderer'
-import { BrowswerRouter as Router } from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 import NewAccount from './NewAccount'
 
 describe ('NewAccount', () => {
@@ -14,11 +14,7 @@ describe ('NewAccount', () => {
 
     it('renders the UI as expected', () => {
         const tree = renderer
-            .create(
-                <Router>
-                    <NewAccount />
-                </Router>
-            )
+            .create(<Router><NewAccount /></Router>)
             .toJSON()
         expect(tree).toMatchSnapshot()    
     })

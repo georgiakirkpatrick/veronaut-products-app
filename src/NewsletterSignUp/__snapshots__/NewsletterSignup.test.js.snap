@@ -4,20 +4,27 @@ exports[`NewsletterSignup renders the UI as expected 1`] = `
 <form
   className="NewsletterSignUp"
 >
-  <label
-    htmlFor="newsletter"
-  >
+  <p>
     Want updates?
-  </label>
-  <input
-    id="newsletter"
-    name="newsletter"
-    type="text"
-  />
+  </p>
+  <fieldset>
+    <label
+      htmlFor="newsletter"
+    >
+      Email 
+    </label>
+    <input
+      id="newsletter"
+      name="newsletter"
+      type="text"
+    />
+  </fieldset>
   <button
+    className="FormButton"
+    onClick={[Function]}
     type="button"
   >
-    Submit
+    SUBMIT
   </button>
 </form>
 `;

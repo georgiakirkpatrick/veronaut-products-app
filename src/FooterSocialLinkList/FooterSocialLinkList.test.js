@@ -12,7 +12,7 @@ describe('FooterSocialLinkList', () => {
 
     it ('render the UI as expected', () => {
         const tree = renderer
-            .create(<FooterSocialLinkList socialLinks={socialLinks} />)
+            .create(<FooterSocialLinkList />)
             .toJSON()
         expect(tree).toMatchSnapshot()
     })

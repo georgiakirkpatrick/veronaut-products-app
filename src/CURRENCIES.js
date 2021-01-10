@@ -1072,4 +1072,4 @@ const currencies = [
 	}
 ]
 
-export default currencies;
+export default currencies

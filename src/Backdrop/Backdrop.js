@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import './Backdrop.css'
 
 const Backdrop = props => {
@@ -15,4 +15,4 @@ Backdrop.defaultProps = {
     mobMenuOpen: true
 }
 
-export default Backdrop;
+export default Backdrop
