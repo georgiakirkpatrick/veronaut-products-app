@@ -17,9 +17,9 @@ const Category = props => {
     return (
         <li className='Category' key={props.id}>
             <Link to={`/category/${props.id}/${slug}`} className='main-link'>
-                <div className='Category__cropped'>
+                {/* <div className='Category__cropped'>
                     <img src={props.pathToImage} alt={props.imgAlt} />
-                </div>
+                </div> */}
                 <h2 className='Category__title'>{props.categoryName}</h2>
             </Link>
         </li>

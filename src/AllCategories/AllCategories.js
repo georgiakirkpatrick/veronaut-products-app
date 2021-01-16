@@ -4,29 +4,22 @@ import Footer from '../Footer/Footer'
 import Header from '../Header/Header'
 import './AllCategories.css'
 
-const AllCategories = () => {
-    const allCategories = [
-        {
-            id: 4,
-            pathToImage: 'https://media.sezane.com/image/upload/c_fill,d_placeholder_dark.png,fl_progressive:semi,h_816,q_auto:best,w_582/avhc13dzwkv0pzgbmf7g.jpg',
-            imgAlt: 'alternate text',
-            categoryName: 'Dresses',
-        }
-    ]
-
-    const categoryList = allCategories.map(category => (
-        <Category 
+const AllCategories = props => {
+    const categoryList = props.allCategories.map(category => (
+        <Category
             key={category.id}
             id={category.id}
-            pathToImage={category.pathToImage}
-            imgAlt={category.imgAlt}
-            categoryName={category.categoryName}
+            // pathToImage={category.pathToImage}
+            imgAlt={category.english_name}
+            categoryName={category.english_name}
         />
     ))
 
+    console.log('props.allCategories', props.allCategories)
+
     return (
         <>
-            <Header />
+            <Header allCategories={props.allCategories}/>
             <section className='AllCategories'>
                 <header>
                     <h1>

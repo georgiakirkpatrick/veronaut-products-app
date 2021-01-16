@@ -6,7 +6,7 @@ import FormTextInput from '../FormTextInput/FormTextInput'
 import Header from '../Header/Header'
 import './NewAccount.css'
 
-const NewAccount = () => {
+const NewAccount = props => {
   const [createEmail, setCreateEmail] = useState('')
   const [createPassword, setCreatePassword] = useState('')
   const [repeatPassword, setRepeatPassword] = useState('')
@@ -15,7 +15,7 @@ const NewAccount = () => {
     <form 
       className='NewAccount'
     >
-      <Header />
+      <Header allCategories={props.allCategories} />
       <header>
         <FormTitle titleText='Create an account' />
       </header> 

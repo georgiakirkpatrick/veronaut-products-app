@@ -7,8 +7,34 @@ import FormTextInput from '../FormTextInput/FormTextInput'
 import Header from '../Header/Header'
 import './ForgotPassword.css'
 
-const ForgotPassword = () => {
+const ForgotPassword = props => {
     const [forgotEmail, setForgotEmail] = useState('')
+
+    const handleSubmitBasicAuth = event => {
+        event.preventDefault()
+    
+        fetch('http://localhost:8000/api/auth/login', {
+            method: 'POST',
+            body: JSON.stringify({
+                email: forgotEmail,
+            }),
+            headers: {
+                'Content-type': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.status !== 200) {
+                console.log('There was a problem.  Status code: ' + response.status)
+            }
+            return response.json()
+        })
+        .then (responseJson => {
+            props.setLoginInfo(responseJson)
+        })
+        // .then make sure a user with that email/username exists.  If it does exist, send an email 
+        // to the user with a password reset link.  If it does not exist, return a message 
+        // saying so.
+    }
 
     return (
         <form
@@ -34,7 +60,7 @@ const ForgotPassword = () => {
             </fieldset>
             <FormButton 
                 buttonText='SEND EMAIL'
-                handleClick={() => {}}
+                handleClick={event => handleSubmitBasicAuth(event)}
             />
             <Link to={`/login`} className='main-link'>
                 Log in

@@ -4,6 +4,7 @@ import '@fortawesome/react-fontawesome'
 import countries from '../COUNTRIES'
 import currencies from '../CURRENCIES'
 import sizeData from '../SIZES'
+import Footer from '../Footer/Footer'
 import Header from '../Header/Header'
 import FormPage from '../FormPage/FormPage'
 import FormButton from '../FormButton/FormButton'
@@ -30,7 +31,7 @@ const makeCurrencyOptions = currencies.map(currency => {
     return { id: `${currency.code}`, text: `${currency.code} - ${currency.name_plural} (${currency.symbol_native})` }
 })
 
-const NewProductForm = () => {
+const NewProductForm = props => {
     const [currentPage, setPage] = useState(0)
 
     // BRAND STATE
@@ -575,8 +576,9 @@ const NewProductForm = () => {
 
     return (
         <div className='NewProductForm'>
-                <Header />
+            <Header allCategories={props.allCategories}/>
                 {formPages[currentPage]}
+            <Footer />
         </div>
     )
 }

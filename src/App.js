@@ -17,6 +17,26 @@ import NotFoundPage from './NotFoundPage/NotFoundPage'
 import NewAccount from './NewAccount/NewAccount'
 import './App.css'
 
+const getAllCategories = () => {
+  return fetch('https://polar-inlet-79605.herokuapp.com/api/categories', {
+      method: 'GET',
+      headers: {
+          'Content-type': 'application/json'
+      }
+  })
+  .then(response => {
+    return response.json()
+  })
+  .then(responseJson => {
+    console.log('responseJson', responseJson)
+    return responseJson
+  })
+}
+
+const allCategories = getAllCategories().then(categories => {
+  return categories
+})
+
 const App = () => {
   const [ loginInfo, setLoginInfo ] = useState({ user: null, token: null })
 
@@ -75,21 +95,22 @@ const App = () => {
           <Switch>
             <Route path='/about' render={routeProps => (
               <>  
-                <Header />
                 <PrincipleList 
+                  allCategories={allCategories}
                   principles={principles}
                   {...routeProps}
                 />
-                <Footer />
               </>  
             )} />
             <Route path='/account' render={routeProps => (
               <Account 
+                allCategories={allCategories}
                 {...routeProps}
               />
             )} />
             <Route path='/add-product' exact render={routeProps => (
-              <NewProductForm 
+              <NewProductForm
+                allCategories={allCategories}
                 loginInfo={loginInfo}
                 setLoginInfo={setLoginInfo}
                 {...routeProps}
@@ -97,17 +118,20 @@ const App = () => {
             )}/>
             <Route path='/all-categories' render={routeProps => (
               <AllCategories
+                allCategories={allCategories}
                 {...routeProps}
               />
             )}/>
             <Route path='/category/:categoryId/:slug' render={routeProps => (
               <ProductListPage
+                allCategories={allCategories}
                 routeProps={routeProps}
                 history={routeProps.history}
               />
             )} />
             <Route path='/create-account' render={routeProps => (
-              <NewAccount 
+              <NewAccount
+                allCategories={allCategories}
                 history={routeProps.history}
                 loginInfo={loginInfo}
                 setLoginInfo={setLoginInfo}
@@ -115,11 +139,13 @@ const App = () => {
             )} />
             <Route path='/forgot-password' render={routeProps => (
               <ForgotPassword 
+                allCategories={allCategories}
                 history={routeProps.history}
               />
             )} />
             <Route path='/login' render={routeProps => (
               <Login 
+                allCategories={allCategories}
                 history={routeProps.history}
                 loginInfo={loginInfo}
                 setLoginInfo={setLoginInfo}
@@ -129,6 +155,7 @@ const App = () => {
               <>
                 <Header />
                 <PrincipleList
+                  allCategories={allCategories}
                   {...routeProps}
                   principles={fullPrinciples}
 
@@ -143,6 +170,7 @@ const App = () => {
               <>
                 <Header />
                 <ProductDetail
+                  allCategories={allCategories}
                   routeProps={routeProps}
                 />
                 <Footer />
@@ -153,6 +181,7 @@ const App = () => {
               <>
                 <Header />
                 <LandingPage 
+                  allCategories={allCategories}
                   {...routeProps}
                 />
                 <Footer />
@@ -163,6 +192,7 @@ const App = () => {
               <>
                 <Header />
                 <NotFoundPage
+                  allCategories={allCategories}
                   {...routeProps}
                 />
                 <Footer />

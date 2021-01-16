@@ -1,6 +1,8 @@
-import React from 'react';
-import Principle from '../Principle/Principle';
-import './PrincipleList.css';
+import React from 'react'
+import Footer from '../Footer/Footer'
+import Header from '../Header/Header'
+import Principle from '../Principle/Principle'
+import './PrincipleList.css'
 
 const PrincipleList = props => {
     const generatePrinciples = props.principles.map(principle => (
@@ -14,6 +16,7 @@ const PrincipleList = props => {
     
     return (
         <>
+            <Header allCategories={props.allCategories}/>
             <section className='PrincipleList'>
                 <h2>
                     Principles
@@ -23,6 +26,7 @@ const PrincipleList = props => {
                 </ul>
                 {props.readMore}
             </section>
+            <Footer />
         </>
     )
 }

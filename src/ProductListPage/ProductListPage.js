@@ -46,7 +46,7 @@ const ProductListPage = props => {
 
     return (
         <>
-            <Header />
+            <Header allCategories={props.allCategories}/>
             <section className='ProductListPage'>
                 <header>
                     <h1>
