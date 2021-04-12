@@ -12,7 +12,6 @@ import sizeData from '../SIZES'
 
 const NPFBrand = props => {
     const { setBrandList } = props;
-    // Above is same as const setBrandList = props.setBrandList;
 
     useEffect(() => {
         const getRequestParams = {
@@ -39,16 +38,11 @@ const NPFBrand = props => {
     }, [setBrandList])
 
     const makeBrandOptions = () => {
-        console.log("makeBrandOptions was called")
-
         const brands = props.brandList.map(brand => ({
             id: brand.id,
             text: brand.english_name,
             value: brand.id
         }))
-
-        console.log("makeBrandOptions was called and brandList is ", props.brandList)
-
 
         brands.sort((a, b) => 
             a.text > b.text ? 1 : -1
@@ -96,12 +90,6 @@ const NPFBrand = props => {
         ]
     }
 
-    // const changeBrandCurrency = event => {
-    //     const values = {...props.newBrandFields}
-    //     values[event.target.name] = event.target.value
-    //     props.setNewBrandFields(values)
-    // }
-
     const changeFields = event => {
         const values = {...props.newBrandFields}
         values[event.target.name] = event.target.value
@@ -137,8 +125,8 @@ const NPFBrand = props => {
 
     const submitNewBrand = () => {
         const formattedBrand = () => {
-            if (props.newBrandFields.brandName) {
-                const val = props.newBrandFields.brandName.toLowerCase().split(" ")
+            if (props.newBrandFields.name) {
+                const val = props.newBrandFields.name.toLowerCase().split(" ")
                 
                 for (let i = 0; i < val.length; i++) {
                     val[i] = val[i][0].toUpperCase() + val[i].substr(1)
@@ -149,8 +137,8 @@ const NPFBrand = props => {
         }
 
         const formattedWebsite = () => {
-            if (props.newBrandFields.brandWebsite) {
-                const val = props.newBrandFields.brandName.toLowerCase()
+            if (props.newBrandFields.website) {
+                const val = props.newBrandFields.name.toLowerCase()
 
                 return val
             }
@@ -158,8 +146,8 @@ const NPFBrand = props => {
 
         const data = {
             "english_name": formattedBrand(),
-            "home_currency": props.newBrandFields.brandCurrency,
-            "size_system": Number(props.newBrandFields.brandSizeSystem),
+            "home_currency": props.newBrandFields.currency,
+            "size_system": Number(props.newBrandFields.sizeSystem),
             "website": formattedWebsite(),
             "approved_by_admin": false
         }
@@ -198,19 +186,28 @@ const NPFBrand = props => {
             `)
         } else if (missingFields.length === 0) {
             submitNewBrand()
+
+            props.setNewBrandFields({
+                name: '',
+                website: '',
+                currency: 0,
+                sizeSystem: 0
+            })
+
             handleBrandPopClose()
         }
     }
 
-    const nextButton = () => {props.setPage(props.currentPage + 1)}
 
-    // const nextButton = event => {
-    //     event.preventDefault()
+    const nextButton = event => {
+        event.preventDefault()
 
-    //     props.currentBrandId !== 0
-    //         ? props.setPage(props.currentPage + 1)
-    //         : alert("Please select a brand")
-    // }
+        props.currentBrandId !== 0
+            ? props.setPage(props.currentPage + 1)
+            : alert("Please select a brand")
+    }
+
+    // const nextButton = () => {props.setPage(props.currentPage + 1)}
 
     return (
         <div id='NPFBrand' className='relative'>
@@ -251,7 +248,7 @@ const NPFBrand = props => {
                 />
             </FormPage>
 
-            <FormPopUp 
+            <FormPopUp
                 id='add-brand'
                 status={newBrandPopUp()}
                 title='New Brand'
@@ -266,37 +263,36 @@ const NPFBrand = props => {
 
                 <FormTextInput
                     id='brandName'
-                    name='brandName'
+                    name='name'
                     prompt='Brand name'
-                    currentValue={props.newBrandFields['brandName']} 
+                    currentValue={props.newBrandFields['name']} 
                     handleChange={event => changeFields(event)}
                 />
 
                 <FormUrlInput 
                     id='brandWebsite'
-                    name='brandWebsite'
+                    name='website'
                     prompt='Brand website'
-                    currentValue={props.newBrandFields['brandWebsite']} 
+                    currentValue={props.newBrandFields['website']} 
                     handleChange={event => changeFields(event)}
                 />
 
                 <FormDropdown
                     id='brandCurrency'
-                    name='brandCurrency'
+                    name='currency'
                     prompt='Which currency does the brand list prices in?'
                     subprompt="If the brand offers multiple currency options on their website, select the currency of the brand's home country.  Not sure?  Select 'Not sure' from the dropdown."
-                    currentValue={props.newBrandFields['brandCurrency']} 
+                    currentValue={props.newBrandFields['currency']} 
                     handleChange={event => changeFields(event)}
                     options={makeCurrencyOptions()}
                 />
 
                 <FormDropdown
                     id='brandSizeSystem'
-                    name='brandSizeSystem'
+                    name='sizeSystem'
                     prompt='Which sizing system does the brand use?'
                     subprompt="Not sure?  Select 'Not sure' from the dropdown."
-
-                    currentValue={props.newBrandFields['brandSizeSystem']} 
+                    currentValue={props.newBrandFields['sizeSystem']} 
                     handleChange={event => changeFields(event)}
                     options={makeSizeSystemOptions()}
                 />
@@ -306,22 +302,23 @@ const NPFBrand = props => {
 }
 
 NPFBrand.defaultProps = {
+    currentPage: 0,
+    setPage: () => {},
     currentBrandId: 0,
     setCurrentBrandId: () => {},
-    newBrandFields: {
-        brandName: '',
-        brandWebsite: '',
-        brandCurrency: '',
-        brandSizeSystem: ''
-    },
-    setNewBrandFields: () => {},
+    brandList: [],
     brands: [],
     setBrands: () => {},
     brandPopUp: false,
     setBrandPopUp: () => {},
-    currentPage: 0,
+    newBrandFields:         {
+        name: '',
+        website: '',
+        currency: 0,
+        sizeSystem: 0
+    },
+    setNewBrandFields: () => {},
     setBrandId: () => {},
-    setPage: () => {},
     currencies: []
 }
 

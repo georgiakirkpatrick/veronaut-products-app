@@ -1,14 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NPFSizes renders the UI as expected 1`] = `
-<div>
+<div
+  className="NPFSizes"
+>
   <section
     className="FormPage"
   >
     <h1>
       Sizes
     </h1>
-    <form>
+    <form
+      id="form-page"
+    >
       <div
         className="FormPromptWithSub"
       >
@@ -27,7 +31,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
         className="FormCheckboxSection"
       >
         <p>
-          Standard US sizing
+          Standard France / Spain / Portugal / Netherlands sizing
         </p>
         <div
           className="FormCheckboxSection__options-container"
@@ -36,240 +40,375 @@ exports[`NPFSizes renders the UI as expected 1`] = `
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-standard-00-XXS"
-              name="dress-us-standard-00-XXS"
+              id={1}
+              name="sXXS"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-standard-00-XXS"
+              htmlFor={1}
             >
-              00, XXS
+              XXS
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-standard-0-xs"
-              name="dress-us-standard-0-xs"
+              id={2}
+              name="sXS"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-standard-0-xs"
+              htmlFor={2}
             >
-              0, XS
+              XS
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-standard-2-xs"
-              name="dress-us-standard-2-xs"
+              id={3}
+              name="sS"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-standard-2-xs"
+              htmlFor={3}
             >
-              2, XS
+              S
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-standard-4-s"
-              name="dress-us-standard-4-s"
+              id={4}
+              name="sM"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-standard-4-s"
+              htmlFor={4}
             >
-              4, S
+              M
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-standard-6-s"
-              name="dress-us-standard-6-s"
+              id={5}
+              name="sL"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-standard-6-s"
+              htmlFor={5}
             >
-              6, S
+              L
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-standard-8-m"
-              name="dress-us-standard-8-m"
+              id={6}
+              name="sXL"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-standard-8-m"
+              htmlFor={6}
             >
-              8, M
+              XL
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-standard-10-m"
-              name="dress-us-standard-10-m"
+              id={7}
+              name="s2X"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-standard-10-m"
+              htmlFor={7}
             >
-              10, M
+              2X
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-standard-12-l"
-              name="dress-us-standard-12-l"
+              id={8}
+              name="s3X"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-standard-12-l"
+              htmlFor={8}
             >
-              12, L
+              3X
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-standard-14-l"
-              name="dress-us-standard-14-l"
+              id={9}
+              name="s4X"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-standard-14-l"
+              htmlFor={9}
             >
-              14, L
+              4X
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-standard-16-XL"
-              name="dress-us-standard-16-XL"
+              id={26}
+              name="s00"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-standard-16-XL"
+              htmlFor={26}
             >
-              16, XL
+              00
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-standard-18-XL"
-              name="dress-us-standard-18-XL"
+              id={27}
+              name="s0"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-standard-18-XL"
+              htmlFor={27}
             >
-              18, XL
+              0
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-standard-20-2X"
-              name="dress-us-standard-20-2X"
+              id={28}
+              name="s2"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-standard-20-2X"
+              htmlFor={28}
             >
-              20, 2X
+              2
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-standard-22-2X"
-              name="dress-us-standard-22-2X"
+              id={29}
+              name="s4"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-standard-22-2X"
+              htmlFor={29}
             >
-              22, 2X
+              4
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-standard-24-3X"
-              name="dress-us-standard-24-3X"
+              id={30}
+              name="s6"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-standard-24-3X"
+              htmlFor={30}
             >
-              24, 3X
+              6
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-standard-26-3X"
-              name="dress-us-standard-26-3X"
+              id={31}
+              name="s8"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-standard-26-3X"
+              htmlFor={31}
             >
-              26, 3X
+              8
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-standard-28-4X"
-              name="dress-us-standard-28-4X"
+              id={32}
+              name="s10"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-standard-28-4X"
+              htmlFor={32}
             >
-              28, 4X
+              10
+            </label>
+          </div>
+          <div
+            className="FormCheckboxSection__option"
+          >
+            <input
+              id={33}
+              name="s12"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor={33}
+            >
+              12
+            </label>
+          </div>
+          <div
+            className="FormCheckboxSection__option"
+          >
+            <input
+              id={34}
+              name="s14"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor={34}
+            >
+              14
+            </label>
+          </div>
+          <div
+            className="FormCheckboxSection__option"
+          >
+            <input
+              id={35}
+              name="s16"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor={35}
+            >
+              16
+            </label>
+          </div>
+          <div
+            className="FormCheckboxSection__option"
+          >
+            <input
+              id={36}
+              name="s18"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor={36}
+            >
+              18
+            </label>
+          </div>
+          <div
+            className="FormCheckboxSection__option"
+          >
+            <input
+              id={37}
+              name="s20"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor={37}
+            >
+              20
+            </label>
+          </div>
+          <div
+            className="FormCheckboxSection__option"
+          >
+            <input
+              id={38}
+              name="s22"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor={38}
+            >
+              22
+            </label>
+          </div>
+          <div
+            className="FormCheckboxSection__option"
+          >
+            <input
+              id={39}
+              name="s24"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor={39}
+            >
+              24
+            </label>
+          </div>
+          <div
+            className="FormCheckboxSection__option"
+          >
+            <input
+              id={40}
+              name="s26"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor={40}
+            >
+              26
+            </label>
+          </div>
+          <div
+            className="FormCheckboxSection__option"
+          >
+            <input
+              id={41}
+              name="s28"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor={41}
+            >
+              28
             </label>
           </div>
         </div>
@@ -278,7 +417,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
         className="FormCheckboxSection"
       >
         <p>
-          Petite US sizing
+          Petite France / Spain / Portugal / Netherlands sizing
         </p>
         <div
           className="FormCheckboxSection__options-container"
@@ -287,240 +426,375 @@ exports[`NPFSizes renders the UI as expected 1`] = `
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-petite-00-XXS"
-              name="dress-us-petite-00-XXS"
+              id={106}
+              name="pXXS"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-petite-00-XXS"
+              htmlFor={106}
             >
-              00, XXS
+              XXS
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-petite-0-xs"
-              name="dress-us-petite-0-xs"
+              id={107}
+              name="pXS"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-petite-0-xs"
+              htmlFor={107}
             >
-              0, XS
+              XS
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-petite-2-xs"
-              name="dress-us-petite-2-xs"
+              id={108}
+              name="pS"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-petite-2-xs"
+              htmlFor={108}
             >
-              2, XS
+              S
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-petite-4-s"
-              name="dress-us-petite-4-s"
+              id={109}
+              name="pM"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-petite-4-s"
+              htmlFor={109}
             >
-              4, S
+              M
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-petite-6-s"
-              name="dress-us-petite-6-s"
+              id={110}
+              name="pL"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-petite-6-s"
+              htmlFor={110}
             >
-              6, S
+              L
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-petite-8-m"
-              name="dress-us-petite-8-m"
+              id={111}
+              name="pXL"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-petite-8-m"
+              htmlFor={111}
             >
-              8, M
+              XL
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-petite-10-m"
-              name="dress-us-petite-10-m"
+              id={112}
+              name="p2X"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-petite-10-m"
+              htmlFor={112}
             >
-              10, M
+              2X
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-petite-12-l"
-              name="dress-us-petite-12-l"
+              id={113}
+              name="p3X"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-petite-12-l"
+              htmlFor={113}
             >
-              12, L
+              3X
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-petite-14-l"
-              name="dress-us-petite-14-l"
+              id={114}
+              name="p4X"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-petite-14-l"
+              htmlFor={114}
             >
-              14, L
+              4X
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-petite-16-XL"
-              name="dress-us-petite-16-XL"
+              id={131}
+              name="p00"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-petite-16-XL"
+              htmlFor={131}
             >
-              16, XL
+              00
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-petite-18-XL"
-              name="dress-us-petite-18-XL"
+              id={132}
+              name="p0"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-petite-18-XL"
+              htmlFor={132}
             >
-              18, XL
+              0
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-petite-20-2X"
-              name="dress-us-petite-20-2X"
+              id={133}
+              name="p2"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-petite-20-2X"
+              htmlFor={133}
             >
-              20, 2X
+              2
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-petite-22-2X"
-              name="dress-us-petite-22-2X"
+              id={134}
+              name="p4"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-petite-22-2X"
+              htmlFor={134}
             >
-              22, 2X
+              4
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-petite-24-3X"
-              name="dress-us-petite-24-3X"
+              id={135}
+              name="p6"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-petite-24-3X"
+              htmlFor={135}
             >
-              24, 3X
+              6
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-petite-26-3X"
-              name="dress-us-petite-26-3X"
+              id={136}
+              name="p8"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-petite-26-3X"
+              htmlFor={136}
             >
-              26, 3X
+              8
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-petite-28-4X"
-              name="dress-us-petite-28-4X"
+              id={137}
+              name="p10"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-petite-28-4X"
+              htmlFor={137}
             >
-              28, 4X
+              10
+            </label>
+          </div>
+          <div
+            className="FormCheckboxSection__option"
+          >
+            <input
+              id={138}
+              name="p12"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor={138}
+            >
+              12
+            </label>
+          </div>
+          <div
+            className="FormCheckboxSection__option"
+          >
+            <input
+              id={139}
+              name="p14"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor={139}
+            >
+              14
+            </label>
+          </div>
+          <div
+            className="FormCheckboxSection__option"
+          >
+            <input
+              id={140}
+              name="p16"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor={140}
+            >
+              16
+            </label>
+          </div>
+          <div
+            className="FormCheckboxSection__option"
+          >
+            <input
+              id={141}
+              name="p18"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor={141}
+            >
+              18
+            </label>
+          </div>
+          <div
+            className="FormCheckboxSection__option"
+          >
+            <input
+              id={142}
+              name="p20"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor={142}
+            >
+              20
+            </label>
+          </div>
+          <div
+            className="FormCheckboxSection__option"
+          >
+            <input
+              id={143}
+              name="p22"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor={143}
+            >
+              22
+            </label>
+          </div>
+          <div
+            className="FormCheckboxSection__option"
+          >
+            <input
+              id={144}
+              name="p24"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor={144}
+            >
+              24
+            </label>
+          </div>
+          <div
+            className="FormCheckboxSection__option"
+          >
+            <input
+              id={145}
+              name="p26"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor={145}
+            >
+              26
+            </label>
+          </div>
+          <div
+            className="FormCheckboxSection__option"
+          >
+            <input
+              id={146}
+              name="p28"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor={146}
+            >
+              28
             </label>
           </div>
         </div>
@@ -529,7 +803,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
         className="FormCheckboxSection"
       >
         <p>
-          Tall US sizing
+          Tall France / Spain / Portugal / Netherlands sizing
         </p>
         <div
           className="FormCheckboxSection__options-container"
@@ -538,240 +812,375 @@ exports[`NPFSizes renders the UI as expected 1`] = `
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-tall-00-XXS"
-              name="dress-us-tall-00-XXS"
+              id={211}
+              name="tXXS"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-tall-00-XXS"
+              htmlFor={211}
             >
-              00, XXS
+              XXS
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-tall-0-xs"
-              name="dress-us-tall-0-xs"
+              id={212}
+              name="tXS"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-tall-0-xs"
+              htmlFor={212}
             >
-              0, XS
+              XS
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-tall-2-xs"
-              name="dress-us-tall-2-xs"
+              id={213}
+              name="tS"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-tall-2-xs"
+              htmlFor={213}
             >
-              2, XS
+              S
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-tall-4-s"
-              name="dress-us-tall-4-s"
+              id={214}
+              name="tM"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-tall-4-s"
+              htmlFor={214}
             >
-              4, S
+              M
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-tall-6-s"
-              name="dress-us-tall-6-s"
+              id={215}
+              name="tL"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-tall-6-s"
+              htmlFor={215}
             >
-              6, S
+              L
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-tall-8-m"
-              name="dress-us-tall-8-m"
+              id={216}
+              name="tXL"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-tall-8-m"
+              htmlFor={216}
             >
-              8, M
+              XL
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-tall-10-m"
-              name="dress-us-tall-10-m"
+              id={217}
+              name="t2X"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-tall-10-m"
+              htmlFor={217}
             >
-              10, M
+              2X
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-tall-12-l"
-              name="dress-us-tall-12-l"
+              id={218}
+              name="t3X"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-tall-12-l"
+              htmlFor={218}
             >
-              12, L
+              3X
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-tall-14-l"
-              name="dress-us-tall-14-l"
+              id={219}
+              name="t4X"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-tall-14-l"
+              htmlFor={219}
             >
-              14, L
+              4X
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-tall-16-XL"
-              name="dress-us-tall-16-XL"
+              id={236}
+              name="t00"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-tall-16-XL"
+              htmlFor={236}
             >
-              16, XL
+              00
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-tall-18-XL"
-              name="dress-us-tall-18-XL"
+              id={237}
+              name="t0"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-tall-18-XL"
+              htmlFor={237}
             >
-              18, XL
+              0
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-tall-20-2X"
-              name="dress-us-tall-20-2X"
+              id={238}
+              name="t2"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-tall-20-2X"
+              htmlFor={238}
             >
-              20, 2X
+              2
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-tall-22-2X"
-              name="dress-us-tall-22-2X"
+              id={239}
+              name="t4"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-tall-22-2X"
+              htmlFor={239}
             >
-              22, 2X
+              4
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-tall-24-3X"
-              name="dress-us-tall-24-3X"
+              id={240}
+              name="t6"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-tall-24-3X"
+              htmlFor={240}
             >
-              24, 3X
+              6
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-tall-26-3X"
-              name="dress-us-tall-26-3X"
+              id={241}
+              name="t8"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-tall-26-3X"
+              htmlFor={241}
             >
-              26, 3X
+              8
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-tall-28-4X"
-              name="dress-us-tall-28-4X"
+              id={242}
+              name="t10"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-tall-28-4X"
+              htmlFor={242}
             >
-              28, 4X
+              10
+            </label>
+          </div>
+          <div
+            className="FormCheckboxSection__option"
+          >
+            <input
+              id={243}
+              name="t12"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor={243}
+            >
+              12
+            </label>
+          </div>
+          <div
+            className="FormCheckboxSection__option"
+          >
+            <input
+              id={244}
+              name="t14"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor={244}
+            >
+              14
+            </label>
+          </div>
+          <div
+            className="FormCheckboxSection__option"
+          >
+            <input
+              id={245}
+              name="t16"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor={245}
+            >
+              16
+            </label>
+          </div>
+          <div
+            className="FormCheckboxSection__option"
+          >
+            <input
+              id={246}
+              name="t18"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor={246}
+            >
+              18
+            </label>
+          </div>
+          <div
+            className="FormCheckboxSection__option"
+          >
+            <input
+              id={247}
+              name="t20"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor={247}
+            >
+              20
+            </label>
+          </div>
+          <div
+            className="FormCheckboxSection__option"
+          >
+            <input
+              id={248}
+              name="t22"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor={248}
+            >
+              22
+            </label>
+          </div>
+          <div
+            className="FormCheckboxSection__option"
+          >
+            <input
+              id={249}
+              name="t24"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor={249}
+            >
+              24
+            </label>
+          </div>
+          <div
+            className="FormCheckboxSection__option"
+          >
+            <input
+              id={250}
+              name="t26"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor={250}
+            >
+              26
+            </label>
+          </div>
+          <div
+            className="FormCheckboxSection__option"
+          >
+            <input
+              id={251}
+              name="t28"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor={251}
+            >
+              28
             </label>
           </div>
         </div>
@@ -780,7 +1189,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
         className="FormCheckboxSection"
       >
         <p>
-          Maternity US sizing
+          Maternity France / Spain / Portugal / Netherlands sizing
         </p>
         <div
           className="FormCheckboxSection__options-container"
@@ -789,245 +1198,381 @@ exports[`NPFSizes renders the UI as expected 1`] = `
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-maternity-00-XXS"
-              name="dress-us-maternity-00-XXS"
+              id={316}
+              name="mXXS"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-maternity-00-XXS"
+              htmlFor={316}
             >
-              00, XXS
+              XXS
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-maternity-0-xs"
-              name="dress-us-maternity-0-xs"
+              id={317}
+              name="mXS"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-maternity-0-xs"
+              htmlFor={317}
             >
-              0, XS
+              XS
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-maternity-2-xs"
-              name="dress-us-maternity-2-xs"
+              id={318}
+              name="mS"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-maternity-2-xs"
+              htmlFor={318}
             >
-              2, XS
+              S
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-maternity-4-s"
-              name="dress-us-maternity-4-s"
+              id={319}
+              name="mM"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-maternity-4-s"
+              htmlFor={319}
             >
-              4, S
+              M
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-maternity-6-s"
-              name="dress-us-maternity-6-s"
+              id={320}
+              name="mL"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-maternity-6-s"
+              htmlFor={320}
             >
-              6, S
+              L
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-maternity-8-m"
-              name="dress-us-maternity-8-m"
+              id={321}
+              name="mXL"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-maternity-8-m"
+              htmlFor={321}
             >
-              8, M
+              XL
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-maternity-10-m"
-              name="dress-us-maternity-10-m"
+              id={322}
+              name="m2X"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-maternity-10-m"
+              htmlFor={322}
             >
-              10, M
+              2X
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-maternity-12-l"
-              name="dress-us-maternity-12-l"
+              id={323}
+              name="m3X"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-maternity-12-l"
+              htmlFor={323}
             >
-              12, L
+              3X
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-maternity-14-l"
-              name="dress-us-maternity-14-l"
+              id={324}
+              name="m4X"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-maternity-14-l"
+              htmlFor={324}
             >
-              14, L
+              4X
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-maternity-16-XL"
-              name="dress-us-maternity-16-XL"
+              id={341}
+              name="m00"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-maternity-16-XL"
+              htmlFor={341}
             >
-              16, XL
+              00
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-maternity-18-XL"
-              name="dress-us-maternity-18-XL"
+              id={342}
+              name="m0"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-maternity-18-XL"
+              htmlFor={342}
             >
-              18, XL
+              0
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-maternity-20-2X"
-              name="dress-us-maternity-20-2X"
+              id={343}
+              name="m2"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-maternity-20-2X"
+              htmlFor={343}
             >
-              20, 2X
+              2
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-maternity-22-2X"
-              name="dress-us-maternity-22-2X"
+              id={344}
+              name="m4"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-maternity-22-2X"
+              htmlFor={344}
             >
-              22, 2X
+              4
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-maternity-24-3X"
-              name="dress-us-maternity-24-3X"
+              id={345}
+              name="m6"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-maternity-24-3X"
+              htmlFor={345}
             >
-              24, 3X
+              6
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-maternity-26-3X"
-              name="dress-us-maternity-26-3X"
+              id={346}
+              name="m8"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-maternity-26-3X"
+              htmlFor={346}
             >
-              26, 3X
+              8
             </label>
           </div>
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="dress-us-maternity-28-4X"
-              name="dress-us-maternity-28-4X"
+              id={347}
+              name="m10"
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="dress-us-maternity-28-4X"
+              htmlFor={347}
             >
-              28, 4X
+              10
+            </label>
+          </div>
+          <div
+            className="FormCheckboxSection__option"
+          >
+            <input
+              id={348}
+              name="m12"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor={348}
+            >
+              12
+            </label>
+          </div>
+          <div
+            className="FormCheckboxSection__option"
+          >
+            <input
+              id={349}
+              name="m14"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor={349}
+            >
+              14
+            </label>
+          </div>
+          <div
+            className="FormCheckboxSection__option"
+          >
+            <input
+              id={350}
+              name="m16"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor={350}
+            >
+              16
+            </label>
+          </div>
+          <div
+            className="FormCheckboxSection__option"
+          >
+            <input
+              id={351}
+              name="m18"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor={351}
+            >
+              18
+            </label>
+          </div>
+          <div
+            className="FormCheckboxSection__option"
+          >
+            <input
+              id={352}
+              name="m20"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor={352}
+            >
+              20
+            </label>
+          </div>
+          <div
+            className="FormCheckboxSection__option"
+          >
+            <input
+              id={353}
+              name="m22"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor={353}
+            >
+              22
+            </label>
+          </div>
+          <div
+            className="FormCheckboxSection__option"
+          >
+            <input
+              id={354}
+              name="m24"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor={354}
+            >
+              24
+            </label>
+          </div>
+          <div
+            className="FormCheckboxSection__option"
+          >
+            <input
+              id={355}
+              name="m26"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor={355}
+            >
+              26
+            </label>
+          </div>
+          <div
+            className="FormCheckboxSection__option"
+          >
+            <input
+              id={356}
+              name="m28"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor={356}
+            >
+              28
             </label>
           </div>
         </div>
       </div>
     </form>
+    <div />
   </section>
   <footer
     className="NPFFooter"
@@ -1035,6 +1580,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
     <button
       className="NPFFooter_previous"
       onClick={[Function]}
+      type="button"
     >
       <svg
         aria-hidden="true"
@@ -1060,6 +1606,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
     <button
       className="NPFFooter_next"
       onClick={[Function]}
+      type="button"
     >
       <span>
         NEXT

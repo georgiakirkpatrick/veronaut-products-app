@@ -29,4 +29,8 @@ const AllCategories = props => {
     )
 }
 
+AllCategories.defaultProps = {
+    categoryList: []
+}
+
 export default AllCategories

@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NPFSubmit renders the UI as expected 1`] = `
+<div>
+  <section
+    className="FormPage"
+  >
+    <h1>
+      Ready to submit?
+    </h1>
+    <form
+      id="form-page"
+    >
+      <button
+        className="FormButton"
+        onClick={[Function]}
+        type="button"
+      >
+        SUBMIT PRODUCT
+      </button>
+    </form>
+    <div />
+  </section>
+</div>
+`;

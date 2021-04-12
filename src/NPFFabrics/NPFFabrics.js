@@ -13,7 +13,6 @@ import FormUrlInput from '../FormUrlInput/FormUrlInput'
 import FormNumberInput from '../FormNumberInput/FormNumberInput'
 
 const NPFFabrics = props => {
-    console.log('props.fabricProps.newMill', props.fabricProps.newMill)
     const [fiberCertChecks, setFiberCertChecks] = useState({0: props.fabricProps.initialCertChecks})
     const [fiberCount, setFiberCount] = useState(1)
 
@@ -367,35 +366,35 @@ const NPFFabrics = props => {
         }    
     }
 
-    const nextButton = () => {props.fabricProps.setPage(props.fabricProps.currentPage + 1)}
+    const nextButton = event => {
+        const missingFabricFields = []
 
-    // const nextButton = event => {
-    //     const missingFabricFields = []
-
-    //     Object.keys(props.fabFact).forEach(key => {
-    //         if (props.fabFact[key] === '' || 0) {
-    //             missingFabricFields.push(key.replace( /([A-Z])/g, " $1" ).toLowerCase())
-    //         }
-    //     })
+        Object.keys(props.fabFact).forEach(key => {
+            if (props.fabFact[key] === '' || 0) {
+                missingFabricFields.push(key.replace( /([A-Z])/g, " $1" ).toLowerCase())
+            }
+        })
             
-    //     if (missingFabricFields.length === 1) {
-    //         alert(`Please complete the '${missingFabricFields[0]}' field`)
-    //     } else if (missingFabricFields.length > 1) {
-    //         alert(`Please complete the following fields: ${missingFabricFields.map(field => `
-    //             ${field}`)}
-    //         `)
-    //     } else if (missingFabricFields.length === 0) {
-    //         props.fiberFieldsets.forEach(fieldset => {
-    //             if (fieldset.fiberTypeId === 0) {
-    //                 alert(`Please select an option for each 'Fiber or material' field.  Remove any unused fiber sections with the 'Remove' button.`)
-    //             } else if (fieldset.originId === 0) {
-    //                 alert(`Please select an option for each 'Fiber origin' field.  Remove any unused fiber sections with the 'Remove' button.`)
-    //             }
+        if (missingFabricFields.length === 1) {
+            alert(`Please complete the '${missingFabricFields[0]}' field`)
+        } else if (missingFabricFields.length > 1) {
+            alert(`Please complete the following fields: ${missingFabricFields.map(field => `
+                ${field}`)}
+            `)
+        } else if (missingFabricFields.length === 0) {
+            props.fiberFieldsets.forEach(fieldset => {
+                if (fieldset.fiberTypeId === 0) {
+                    alert(`Please select an option for each 'Fiber or material' field.  Remove any unused fiber sections with the 'Remove' button.`)
+                } else if (fieldset.originId === 0) {
+                    alert(`Please select an option for each 'Fiber origin' field.  Remove any unused fiber sections with the 'Remove' button.`)
+                }
 
-    //             props.setPage(props.currentPage + 1)
-    //         })    
-    //     }
-    // }
+                props.setPage(props.currentPage + 1)
+            })    
+        }
+    }
+
+    // const nextButton = () => {props.fabricProps.setPage(props.fabricProps.currentPage + 1)}
 
     return (
         <div id='fabrics'>
@@ -721,44 +720,70 @@ const NPFFabrics = props => {
 }
 
 NPFFabrics.defaultProps = {
-    countries: [],
-    factoryList: [],
     fabFact: {
         dyeFinCountryId: '',
         dyeFinId: '',
         dyeFinNotes: '',
         wovKnitCountryId: '',
-        wovKnitFactoryId: '',
+        wovKnitId: '',
         wovKnitNotes: ''
     },
     setFabFact: () => {},
-    factPopUp: false,
-    setFactPopUp: () => {},
-    newFact: {
-        factoryName: '',
-        factoryCountryId: '',
-        factoryWebsite: '',
-        factoryNotes: ''
-    },
-    setNewFact: () => {},
     certChecks: {},
     setCertChecks: () => {},
-    certPopUp: false,
-    setCertPopUp: () => {},
-    newCert: {
-        name: '',
-        newCertWebsite: ''
-    },
-    setNewCert: () => {},
-    millPopUp: false,
-    setMillPopUp: () => {},
-    newMill: {
-        millName: '',
-        millCountryId: '',
-        millWebsite: '',
-        millNotes: ''
-    },
-    setNewMill: () => {},
+    fiberFieldsets: [
+        {
+            fiberTypeId: 0,
+            percentage: '',
+            originId: 0,
+            producerId: 0,
+            producerNotes: '',
+            certIds: []
+        }
+    ],
+    setFiberFieldsets: () => {},
+    fabricProps: {
+        currentPage: 0,
+        setPage: () => {},
+        countries: [],
+        certificationList: [],
+        setCertificationList: () => {},
+        initCerts: {},
+        factoryList: [],
+        fiberTypeList: [],
+        setFiberTypeList: () => {},
+        certPopUp: false,
+        setCertPopUp: () => {},
+        factPopUp: false,
+        setFactPopUp: () => {},
+        fiberPopUp: false,
+        setFiberPopUp: () => {},
+        millPopUp: false,
+        setMillPopUp: () => {},
+        newCert: {
+            name: '',
+            website: ''
+        },
+        setNewCert: () => {},
+        newFact: {
+            name: '',
+            countryId: '',
+            website: '',
+            notes: ''
+        },
+        setNewFact: () => {},
+        newFiber: {
+            name: ''
+        },
+        setNewFiber: () => {},
+        newMill: {
+            name: '',
+            countryId: '',
+            website: '',
+            notes: ''
+        },
+        setNewMill: () => {},
+    }
 }
 
 export default NPFFabrics

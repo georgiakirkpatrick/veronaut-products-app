@@ -8,7 +8,9 @@ exports[`NPFImages render the UI as expected 1`] = `
     <h1>
       Images
     </h1>
-    <form>
+    <form
+      id="form-page"
+    >
       <div
         className="FormPromptWithSub"
       >
@@ -45,15 +47,16 @@ exports[`NPFImages render the UI as expected 1`] = `
           className="FormUrlInput"
         >
           <label
-            htmlFor="color-swatch-url-fieldset0"
+            htmlFor="color-swatch-url-0"
           >
             Color swatch URL
           </label>
           <input
             defaultValue=""
-            id="color-swatch-url-fieldset0"
-            name="colorSwatchUrlFieldset"
+            id="color-swatch-url-0"
+            name="swatchUrl"
             onChange={[Function]}
+            required={true}
             type="url"
           />
         </div>
@@ -70,6 +73,7 @@ exports[`NPFImages render the UI as expected 1`] = `
             id="color-image-urls-0"
             name="imageUrls"
             onChange={[Function]}
+            required={true}
             type="url"
           />
         </div>
@@ -82,6 +86,7 @@ exports[`NPFImages render the UI as expected 1`] = `
         </button>
       </fieldset>
     </form>
+    <div />
   </section>
   <footer
     className="NPFFooter"
@@ -89,6 +94,7 @@ exports[`NPFImages render the UI as expected 1`] = `
     <button
       className="NPFFooter_previous"
       onClick={[Function]}
+      type="button"
     >
       <svg
         aria-hidden="true"
@@ -114,6 +120,7 @@ exports[`NPFImages render the UI as expected 1`] = `
     <button
       className="NPFFooter_next"
       onClick={[Function]}
+      type="button"
     >
       <span>
         NEXT

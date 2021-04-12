@@ -3,6 +3,7 @@
 exports[`Product renders the UI as expected 1`] = `
 <li
   className="Product"
+  id={0}
 >
   <a
     href="/product/0/"

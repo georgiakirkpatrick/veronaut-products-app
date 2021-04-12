@@ -176,4 +176,8 @@ const Header = props => {
     )
 }
 
+Header.defaultProps = {
+    categoryList: []
+}
+
 export default Header

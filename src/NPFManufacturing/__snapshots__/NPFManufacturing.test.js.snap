@@ -10,7 +10,9 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
     <h1>
       Manufacturing
     </h1>
-    <form>
+    <form
+      id="form-page"
+    >
       <div
         className="FormPromptWithSub"
       >
@@ -22,42 +24,57 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
         <p
           className="FormPromptWithSub__subtitle"
         >
-          
+          If the product page does not provide factory names or locations, select "not disclosed" from the dropdown.
         </p>
       </div>
       <fieldset
         className="FormFieldset"
       >
         <p>
-          Sewing and finishing
+          Sewing factory
         </p>
         <div
           className="FormDropdown"
         >
           <label
-            htmlFor="location"
+            htmlFor="sewing-location"
           >
             Location
           </label>
           <select
             name="location"
             onChange={[Function]}
-            value=""
-          />
+            required={true}
+          >
+            <option
+              id={0}
+              value={0}
+            >
+              Select a country
+            </option>
+          </select>
         </div>
         <div
           className="FormDropdown"
         >
           <label
-            htmlFor="factory"
+            htmlFor="sewing-factory"
           >
             Factory
           </label>
           <select
             name="factory"
             onChange={[Function]}
+            required={true}
             value=""
-          />
+          >
+            <option
+              id={0}
+              value={0}
+            >
+              Select a factory
+            </option>
+          </select>
         </div>
         <button
           className="FormButton"
@@ -67,153 +84,53 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
           ADD A FACTORY
         </button>
       </fieldset>
-      <section
-        className="FormPopUp__pop-up"
-        id="addSewing"
-      >
-        <button
-          className="FormPopUp__close-button"
-          onClick={[Function]}
-          type="button"
-        >
-          <svg
-            aria-hidden="true"
-            className="svg-inline--fa fa-times fa-w-11 fa-lg "
-            data-icon="times"
-            data-prefix="fas"
-            focusable="false"
-            role="img"
-            style={Object {}}
-            viewBox="0 0 352 512"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
-              fill="currentColor"
-              style={Object {}}
-            />
-          </svg>
-        </button>
-        <h1>
-          New Factory
-        </h1>
-        <div
-          className="FormPromptWithSub"
-        >
-          <p
-            className="FormPromptWithSub__prompt"
-          >
-            Add a sewing and finishing factory
-          </p>
-          <p
-            className="FormPromptWithSub__subtitle"
-          >
-            
-          </p>
-        </div>
-        <div
-          className="FormText"
-        >
-          <label
-            htmlFor="sewingFactoryName"
-          >
-            Factory name
-          </label>
-          <input
-            defaultValue=""
-            id="sewingFactoryName"
-            name=""
-            onChange={[Function]}
-            type="text"
-          />
-        </div>
-        <div
-          className="FormDropdown"
-        >
-          <label
-            htmlFor="sewingFactoryLocation"
-          >
-            Location
-          </label>
-          <select
-            name="sewingFactoryLocation"
-            onChange={[Function]}
-            value=""
-          />
-        </div>
-        <div
-          className="FormUrlInput"
-        >
-          <label
-            htmlFor="sewingFactoryWebsite"
-          >
-            Website
-          </label>
-          <input
-            defaultValue=""
-            id="sewingFactoryWebsite"
-            name="sewingFactoryWebsite"
-            onChange={[Function]}
-            type="url"
-          />
-        </div>
-        <div
-          className="FormText"
-        >
-          <label
-            htmlFor="sewingFactoryNotes"
-          >
-            Notes
-          </label>
-          <input
-            defaultValue=""
-            id="sewingFactoryNotes"
-            name=""
-            onChange={[Function]}
-            type="text"
-          />
-        </div>
-        <button
-          className="FormButton"
-          onClick={[Function]}
-          type="button"
-        >
-          SUBMIT FACTORY
-        </button>
-      </section>
       <fieldset
         className="FormFieldset"
       >
         <p>
-          Fabric cutting
+          Add a cutting factory
         </p>
         <div
           className="FormDropdown"
         >
           <label
-            htmlFor="location"
+            htmlFor="cutting-location"
           >
             Location
           </label>
           <select
             name="location"
             onChange={[Function]}
-            value=""
-          />
+            required={true}
+          >
+            <option
+              id={0}
+              value={0}
+            >
+              Select a country
+            </option>
+          </select>
         </div>
         <div
           className="FormDropdown"
         >
           <label
-            htmlFor="factory"
+            htmlFor="cutting-factory"
           >
             Factory
           </label>
           <select
             name="factory"
             onChange={[Function]}
-            value=""
-          />
+            required={true}
+          >
+            <option
+              id={0}
+              value={0}
+            >
+              Select a factory
+            </option>
+          </select>
         </div>
         <button
           className="FormButton"
@@ -223,125 +140,11 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
           ADD A FACTORY
         </button>
       </fieldset>
-      <section
-        className="FormPopUp__pop-up"
-        id="addCutting"
-      >
-        <button
-          className="FormPopUp__close-button"
-          onClick={[Function]}
-          type="button"
-        >
-          <svg
-            aria-hidden="true"
-            className="svg-inline--fa fa-times fa-w-11 fa-lg "
-            data-icon="times"
-            data-prefix="fas"
-            focusable="false"
-            role="img"
-            style={Object {}}
-            viewBox="0 0 352 512"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
-              fill="currentColor"
-              style={Object {}}
-            />
-          </svg>
-        </button>
-        <h1>
-          New Factory
-        </h1>
-        <div
-          className="FormPromptWithSub"
-        >
-          <p
-            className="FormPromptWithSub__prompt"
-          >
-            Add a cutting factory
-          </p>
-          <p
-            className="FormPromptWithSub__subtitle"
-          >
-            
-          </p>
-        </div>
-        <div
-          className="FormText"
-        >
-          <label
-            htmlFor="cuttingFactoryName"
-          >
-            Factory name
-          </label>
-          <input
-            defaultValue=""
-            id="cuttingFactoryName"
-            name="cuttingFactoryName"
-            onChange={[Function]}
-            type="text"
-          />
-        </div>
-        <div
-          className="FormDropdown"
-        >
-          <label
-            htmlFor="cuttingFactoryLocation"
-          >
-            Location
-          </label>
-          <select
-            name="cuttingFactoryLocation"
-            onChange={[Function]}
-            value=""
-          />
-        </div>
-        <div
-          className="FormUrlInput"
-        >
-          <label
-            htmlFor="cuttingFactoryWebsite"
-          >
-            Website
-          </label>
-          <input
-            defaultValue=""
-            id="cuttingFactoryWebsite"
-            name="cuttingFactoryWebsite"
-            onChange={[Function]}
-            type="url"
-          />
-        </div>
-        <div
-          className="FormText"
-        >
-          <label
-            htmlFor="cuttingFactoryNotes"
-          >
-            Notes
-          </label>
-          <input
-            defaultValue=""
-            id="cuttingFactoryNotes"
-            name="cuttingFactoryNotes"
-            onChange={[Function]}
-            type="text"
-          />
-        </div>
-        <button
-          className="FormButton"
-          onClick={[Function]}
-          type="button"
-        >
-          SUBMIT FACTORY
-        </button>
-      </section>
       <fieldset
         className="FormFieldset"
       >
         <p>
-          Does the fabric have any of the following certifications?
+          Does the product have any of the following certifications?
         </p>
         <div
           className="FormCheckboxSection"
@@ -351,38 +154,7 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
           />
           <div
             className="FormCheckboxSection__options-container"
-          >
-            <div
-              className="FormCheckboxSection__option"
-            >
-              <input
-                id={1}
-                name={1}
-                onChange={[Function]}
-                type="checkbox"
-              />
-              <label
-                htmlFor={1}
-              >
-                BlueSign
-              </label>
-            </div>
-            <div
-              className="FormCheckboxSection__option"
-            >
-              <input
-                id={2}
-                name={2}
-                onChange={[Function]}
-                type="checkbox"
-              />
-              <label
-                htmlFor={2}
-              >
-                OEKO-TEX
-              </label>
-            </div>
-          </div>
+          />
         </div>
         <button
           className="FormButton"
@@ -392,90 +164,6 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
           ADD A CERTIFICATION
         </button>
       </fieldset>
-      <section
-        className="FormPopUp__pop-up"
-        id={1}
-      >
-        <button
-          className="FormPopUp__close-button"
-          onClick={[Function]}
-          type="button"
-        >
-          <svg
-            aria-hidden="true"
-            className="svg-inline--fa fa-times fa-w-11 fa-lg "
-            data-icon="times"
-            data-prefix="fas"
-            focusable="false"
-            role="img"
-            style={Object {}}
-            viewBox="0 0 352 512"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
-              fill="currentColor"
-              style={Object {}}
-            />
-          </svg>
-        </button>
-        <h1>
-          New Certification
-        </h1>
-        <div
-          className="FormPromptWithSub"
-        >
-          <p
-            className="FormPromptWithSub__prompt"
-          >
-            Add a certification
-          </p>
-          <p
-            className="FormPromptWithSub__subtitle"
-          >
-            
-          </p>
-        </div>
-        <div
-          className="FormText"
-        >
-          <label
-            htmlFor="newCertName"
-          >
-            Certification name
-          </label>
-          <input
-            defaultValue=""
-            id="newCertName"
-            name="newCertName"
-            onChange={[Function]}
-            type="text"
-          />
-        </div>
-        <div
-          className="FormUrlInput"
-        >
-          <label
-            htmlFor="newCertWebsite"
-          >
-            Website
-          </label>
-          <input
-            defaultValue=""
-            id="newCertWebsite"
-            name="newCertWebsite"
-            onChange={[Function]}
-            type="url"
-          />
-        </div>
-        <button
-          className="FormButton"
-          onClick={[Function]}
-          type="button"
-        >
-          SUBMIT CERTIFICATION
-        </button>
-      </section>
       <fieldset
         className="FormFieldset"
       >
@@ -486,20 +174,236 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
           className="FormText"
         >
           <label
-            htmlFor="additionalNotes"
+            htmlFor="additional-notes"
           >
             
           </label>
           <input
-            defaultValue=""
-            id="additionalNotes"
-            name="additionalNotes"
+            id="additional-notes"
+            name="cmtNotes"
             onChange={[Function]}
+            required={true}
             type="text"
+            value=""
           />
         </div>
       </fieldset>
     </form>
+    <div />
+  </section>
+  <section
+    className="FormPopUp__pop-up"
+    id="addFactory"
+  >
+    <button
+      className="FormPopUp__close-button"
+      onClick={[Function]}
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-times fa-w-11 fa-lg "
+        data-icon="times"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        style={Object {}}
+        viewBox="0 0 352 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+    </button>
+    <header>
+      <h1>
+        New Factory
+      </h1>
+    </header>
+    <div
+      className="FormPromptWithSub"
+    >
+      <p
+        className="FormPromptWithSub__prompt"
+      >
+        Add a factory
+      </p>
+      <p
+        className="FormPromptWithSub__subtitle"
+      >
+        Include the factory website if it is provided on the product page.  Copy and paste all available information about the factory in the 'notes' field
+      </p>
+    </div>
+    <div
+      className="FormText"
+    >
+      <label
+        htmlFor="factory-name"
+      >
+        Factory name
+      </label>
+      <input
+        id="factory-name"
+        name="name"
+        onChange={[Function]}
+        required={true}
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="FormDropdown"
+    >
+      <label
+        htmlFor="factory-location"
+      >
+        Factory location
+      </label>
+      <select
+        name="location"
+        onChange={[Function]}
+        required={true}
+      >
+        <option
+          id={0}
+          value={0}
+        >
+          Select a country
+        </option>
+      </select>
+    </div>
+    <div
+      className="FormUrlInput"
+    >
+      <label
+        htmlFor="factory-website"
+      >
+        Factory website
+      </label>
+      <input
+        defaultValue=""
+        id="factory-website"
+        name="website"
+        onChange={[Function]}
+        required={true}
+        type="url"
+      />
+    </div>
+    <div
+      className="FormText"
+    >
+      <label
+        htmlFor="factory-notes"
+      >
+        Notes
+      </label>
+      <input
+        id="factory-notes"
+        name="notes"
+        onChange={[Function]}
+        required={true}
+        type="text"
+        value=""
+      />
+    </div>
+    <button
+      className="FormButton"
+      onClick={[Function]}
+      type="submit"
+    >
+      SUBMIT FACTORY
+    </button>
+  </section>
+  <section
+    className="FormPopUp__pop-up"
+    id="cert-pop-up"
+  >
+    <button
+      className="FormPopUp__close-button"
+      onClick={[Function]}
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-times fa-w-11 fa-lg "
+        data-icon="times"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        style={Object {}}
+        viewBox="0 0 352 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+    </button>
+    <header>
+      <h1>
+        New Certification
+      </h1>
+    </header>
+    <div
+      className="FormPromptWithSub"
+    >
+      <p
+        className="FormPromptWithSub__prompt"
+      >
+        Add a certification
+      </p>
+      <p
+        className="FormPromptWithSub__subtitle"
+      >
+        
+      </p>
+    </div>
+    <div
+      className="FormText"
+    >
+      <label
+        htmlFor="man-cert-name"
+      >
+        Certification name
+      </label>
+      <input
+        id="man-cert-name"
+        name="name"
+        onChange={[Function]}
+        required={true}
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="FormUrlInput"
+    >
+      <label
+        htmlFor="man-cert-website"
+      >
+        Website
+      </label>
+      <input
+        defaultValue=""
+        id="man-cert-website"
+        name="website"
+        onChange={[Function]}
+        required={true}
+        type="url"
+      />
+    </div>
+    <button
+      className="FormButton"
+      onClick={[Function]}
+      type="submit"
+    >
+      CREATE CERTIFICATION
+    </button>
   </section>
   <footer
     className="NPFFooter"
@@ -507,6 +411,7 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
     <button
       className="NPFFooter_previous"
       onClick={[Function]}
+      type="button"
     >
       <svg
         aria-hidden="true"
@@ -532,6 +437,7 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
     <button
       className="NPFFooter_next"
       onClick={[Function]}
+      type="button"
     >
       <span>
         NEXT

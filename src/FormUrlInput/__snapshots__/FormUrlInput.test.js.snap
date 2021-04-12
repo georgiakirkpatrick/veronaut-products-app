@@ -13,6 +13,7 @@ exports[`FormUrlInput render the UI as expected 1`] = `
     defaultValue=""
     id={1}
     name=""
+    required={true}
     type="url"
   />
 </div>

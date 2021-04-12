@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FormTextInput render the UI as expected 1`] = `
+exports[`FormNumberInput render the UI as expected 1`] = `
 <div
-  className="FormText"
+  className="FormNumber"
 >
   <label
     htmlFor={1}
@@ -13,9 +13,9 @@ exports[`FormTextInput render the UI as expected 1`] = `
     id={1}
     name=""
     onChange={[Function]}
-    required={true}
-    type="text"
+    type="number"
     value={1}
   />
+   %
 </div>
 `;

@@ -4,227 +4,6 @@ exports[`Login renders the UI as expected 1`] = `
 <form
   className="Login"
 >
-  <nav
-    className="Header"
-  >
-    <div
-      className="Header__top"
-    >
-      <div
-        className="Header__item"
-      >
-        <button
-          className="Header__hamburger"
-          onClick={[Function]}
-          type="button"
-        >
-          <svg
-            aria-hidden="true"
-            className="svg-inline--fa fa-bars fa-w-14 fa-lg "
-            data-icon="bars"
-            data-prefix="fas"
-            focusable="false"
-            role="img"
-            style={Object {}}
-            viewBox="0 0 448 512"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"
-              fill="currentColor"
-              style={Object {}}
-            />
-          </svg>
-        </button>
-      </div>
-      <a
-        className="Header__logo Header__item"
-        href="/"
-        onClick={[Function]}
-      >
-        <h1>
-          VERONAUT
-        </h1>
-      </a>
-      <div
-        className="Header__search-user Header__item"
-      />
-    </div>
-    <div
-      className="Backdrop"
-      onClick={[Function]}
-    />
-    <div
-      className="Header__desktop-menu"
-    />
-    <div
-      className="Header__menu"
-    >
-      <button
-        className="close-button"
-        onClick={[Function]}
-        type="button"
-      >
-        <svg
-          aria-hidden="true"
-          className="svg-inline--fa fa-times fa-w-11 fa-lg "
-          data-icon="times"
-          data-prefix="fas"
-          focusable="false"
-          role="img"
-          style={Object {}}
-          viewBox="0 0 352 512"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
-            fill="currentColor"
-            style={Object {}}
-          />
-        </svg>
-      </button>
-      <div
-        className="Header__menu-primary"
-      >
-        <div
-          onClick={[Function]}
-        >
-          <a
-            className="MenuItem__primary"
-            href="/"
-            onClick={[Function]}
-          >
-            <div
-              className="empty"
-            />
-            <span>
-              Home
-            </span>
-            <div
-              className="empty"
-            />
-          </a>
-        </div>
-        <div
-          className="Header__primary-item"
-        >
-          <a
-            className="MenuItem__primary"
-            href="/"
-            onClick={[Function]}
-          >
-            <div
-              className="empty"
-            />
-            <span>
-              Categories
-            </span>
-            <span
-              className="MenuItem__icon-right"
-            >
-              <svg
-                aria-hidden="true"
-                className="svg-inline--fa fa-angle-right fa-w-8 fa-lg "
-                data-icon="angle-right"
-                data-prefix="fas"
-                focusable="false"
-                role="img"
-                style={Object {}}
-                viewBox="0 0 256 512"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
-                  fill="currentColor"
-                  style={Object {}}
-                />
-              </svg>
-            </span>
-          </a>
-        </div>
-        <div
-          className="Header__primary-item"
-          onClick={[Function]}
-        >
-          <a
-            className="MenuItem__primary"
-            href="/about"
-            onClick={[Function]}
-          >
-            <div
-              className="empty"
-            />
-            <span>
-              About
-            </span>
-            <div
-              className="empty"
-            />
-          </a>
-        </div>
-        <div
-          className="Header__primary-item"
-          onClick={[Function]}
-        >
-          <a
-            className="MenuItem__primary"
-            href="/add-product"
-            onClick={[Function]}
-          >
-            <div
-              className="empty"
-            />
-            <span>
-              Add a Product
-            </span>
-            <div
-              className="empty"
-            />
-          </a>
-        </div>
-        <div
-          className="Header__primary-item"
-          onClick={[Function]}
-        >
-          <a
-            className="MenuItem__primary"
-            href="/create-account"
-            onClick={[Function]}
-          >
-            <div
-              className="empty"
-            />
-            <span>
-              Create an account
-            </span>
-            <div
-              className="empty"
-            />
-          </a>
-        </div>
-        <div
-          className="Header__primary-item"
-          onClick={[Function]}
-        >
-          <a
-            className="MenuItem__primary"
-            href="/login"
-            onClick={[Function]}
-          >
-            <div
-              className="empty"
-            />
-            <span>
-              Log in
-            </span>
-            <div
-              className="empty"
-            />
-          </a>
-        </div>
-      </div>
-    </div>
-  </nav>
   <header>
     <h2
       className="FormTitle"
@@ -244,11 +23,12 @@ exports[`Login renders the UI as expected 1`] = `
         Email
       </label>
       <input
-        defaultValue=""
         id="login-email"
         name="loginEmail"
         onChange={[Function]}
+        required={true}
         type="text"
+        value=""
       />
     </div>
     <div
@@ -260,11 +40,12 @@ exports[`Login renders the UI as expected 1`] = `
         Password
       </label>
       <input
-        defaultValue=""
         id="login-password"
         name="loginPassword"
         onChange={[Function]}
+        required={true}
         type="text"
+        value=""
       />
     </div>
     <a

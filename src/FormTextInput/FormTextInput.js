@@ -22,7 +22,7 @@ FormTextInput.defaultProps = {
     prompt: '',
     name: '',
     currentValue: 1,
-    change: () => {}
+    handleChange: () => {}
 }
 
 export default FormTextInput

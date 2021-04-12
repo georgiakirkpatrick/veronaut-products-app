@@ -11,16 +11,11 @@ import formData from '../FORM_DATA'
 
 const NPFNewProduct = props => {
     const findBrandDetails = brand => {
-        console.log('props.brandId', props.brandId)
         return brand['id'] === Number(props.brandId)
     }
 
     const brandDetailArray = props.brandList.filter(findBrandDetails)
-    console.log('brandDetailArray', brandDetailArray)
-
     const brandDetails = brandDetailArray.length > 0 ? brandDetailArray[0] : { english_name: null, home_currency: null }
-    console.log('brandDetails', brandDetails)
-
     const currencyId = brandDetails.home_currency ? Number(brandDetails.home_currency - 1) : 0
     const currencyDetails = currencies[currencyId]
 
@@ -31,28 +26,28 @@ const NPFNewProduct = props => {
         })
     }
 
-    const nextButton = () => {props.setPage(props.currentPage + 1)}
-
-    // const nextButton = event => {
-    //     event.preventDefault()
-    //     const missingFields = []
+    const nextButton = event => {
+        event.preventDefault()
+        const missingFields = []
          
-    //     Object.keys(props.newProductFields).forEach(key => {
-    //         if (props.newProductFields[key] === '' || 0) {
-    //             missingFields.push(key.replace( /([A-Z])/g, " $1" ).toLowerCase())
-    //         }
-    //     })
+        Object.keys(props.newProductFields).forEach(key => {
+            if (props.newProductFields[key] === '' || 0) {
+                missingFields.push(key.replace( /([A-Z])/g, " $1" ).toLowerCase())
+            }
+        })
             
-    //     if (missingFields.length === 1) {
-    //         alert(`Please complete the '${missingFields[0]}' field`)
-    //     } else if (missingFields.length > 1) {
-    //         alert(`Please complete the following fields: ${missingFields.map(field => `
-    //             ${field}`)}
-    //         `)
-    //     } else if (missingFields.length === 0) {
-    //         props.setPage(props.currentPage + 1)
-    //     }
-    // }
+        if (missingFields.length === 1) {
+            alert(`Please complete the '${missingFields[0]}' field`)
+        } else if (missingFields.length > 1) {
+            alert(`Please complete the following fields: ${missingFields.map(field => `
+                ${field}`)}
+            `)
+        } else if (missingFields.length === 0) {
+            props.setPage(props.currentPage + 1)
+        }
+    }
+
+    // const nextButton = () => {props.setPage(props.currentPage + 1)}
 
     return (
         <div className='NPFNewProduct'>
@@ -132,8 +127,11 @@ const NPFNewProduct = props => {
 }
 
 NPFNewProduct.defaultProps = {
+    brandId: 0,
+    brandList: [],
     currencies: [],
     currentPage: 0,
+    setPage: () => {},
     newProductFields: {
         name: '', 
         url: '' ,
@@ -144,8 +142,8 @@ NPFNewProduct.defaultProps = {
         wash: '',
         dry: ''
     },
-    setNewProductFields: () => {},
-    setPage: () => {}
+    setNewProductFields: () => {}
+
 }
 
 export default NPFNewProduct

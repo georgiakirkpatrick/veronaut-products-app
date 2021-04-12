@@ -7,8 +7,11 @@ exports[`FormPage render the UI as expected 1`] = `
   <div
     className="empty"
   />
-  <form>
+  <form
+    id="form-page"
+  >
     
   </form>
+  <div />
 </section>
 `;

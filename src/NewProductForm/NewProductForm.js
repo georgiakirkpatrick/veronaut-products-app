@@ -100,33 +100,14 @@ const NewProductForm = props => {
     const [currentPage, setPage] = useState(0)
 
     // BRAND STATE
-    const [brandList, setBrandList] = useState([
-        // {
-        //     approved_by_admin: true,
-        //     date_published: "2021-02-22T03:09:41.039Z",
-        //     english_name: "Sézane",
-        //     home_currency: 1,
-        //     id: 0,
-        //     size_system: 2,
-        //     website: "https://www.sezane.com/fr"
-        // },
-        // {
-        //     approved_by_admin: true,
-        //     date_published: "2021-02-22T03:09:41.039Z",
-        //     english_name: "Sézane",
-        //     home_currency: 1,
-        //     id: 1,
-        //     size_system: 2,
-        //     website: "https://www.sezane.com/fr"
-        // }
-    ])
+    const [brandList, setBrandList] = useState([])
     const [brandPopUp, setBrandPopUp] = useState(false)
     const [newBrandFields, setNewBrandFields] = useState(
         {
-            brandName: '',
-            brandWebsite: '',
-            brandCurrency: 0,
-            brandSizeSystem: 0
+            name: '',
+            website: '',
+            currency: 0,
+            sizeSystem: 0
         }
     )
 
@@ -272,7 +253,7 @@ const NewProductForm = props => {
             setPrimCertChecks(initialObject)
             setSecCertChecks(initialObject)
             setLinCertChecks(initialObject)
-        }, [])
+        }, [certificationList])
         
         // PERMITTED CATEGORIES
         const initialPCategories = formData.permittedCategories.categoryOptions.map(cert => [cert.id, false])
@@ -727,6 +708,9 @@ const NewProductForm = props => {
 
     const formPages = [
         start,
+        prohibitedFibers,
+        permittedCategories,
+        notPermitted,
         brand,
         newProduct,
         manufacturing,
@@ -739,10 +723,7 @@ const NewProductForm = props => {
         linFabric,
         notions,
         submit,
-        finish,
-        prohibitedFibers,
-        permittedCategories,
-        notPermitted
+        finish
     ]
 
     if (Object.keys(manCertChecks) < 1) {

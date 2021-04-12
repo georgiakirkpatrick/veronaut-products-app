@@ -181,10 +181,12 @@ const NPFSizes = props => {
 
 NPFSizes.defaultProps = {
     currentPage: 0,
-    selectedSizeOptions: [],
     setPage: () => {},
+    selectedSizeOptions: [],
+    setSelectedSizeOptions: () => {},
+    sizes: [],
     sizeChange: () => {},
-    sizes: []
-}
+    sizeSystem: 1
+}    
 
 export default NPFSizes

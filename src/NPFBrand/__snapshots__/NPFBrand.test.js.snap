@@ -2,6 +2,7 @@
 
 exports[`NPFBrand render the UI as expected 1`] = `
 <div
+  className="relative"
   id="NPFBrand"
 >
   <section
@@ -10,7 +11,9 @@ exports[`NPFBrand render the UI as expected 1`] = `
     <h1>
       Brand
     </h1>
-    <form>
+    <form
+      id="form-page"
+    >
       <div
         className="FormDropdown"
       >
@@ -22,9 +25,12 @@ exports[`NPFBrand render the UI as expected 1`] = `
         <select
           name="brand"
           onChange={[Function]}
+          required={true}
+          value={0}
         >
           <option
-            id="blank-brand"
+            id={0}
+            value={1}
           >
             Select a brand
           </option>
@@ -51,203 +57,250 @@ exports[`NPFBrand render the UI as expected 1`] = `
       >
         ADD A BRAND
       </button>
-      <section
-        className="FormPopUp__pop-up"
-        id="add-brand"
+      <footer
+        className="NPFFooter"
       >
         <button
-          className="FormPopUp__close-button"
+          className="NPFFooter_previous"
           onClick={[Function]}
           type="button"
         >
           <svg
             aria-hidden="true"
-            className="svg-inline--fa fa-times fa-w-11 fa-lg "
-            data-icon="times"
+            className="svg-inline--fa fa-arrow-left fa-w-14 NPFFooter_arrow"
+            data-icon="arrow-left"
             data-prefix="fas"
             focusable="false"
             role="img"
             style={Object {}}
-            viewBox="0 0 352 512"
+            viewBox="0 0 448 512"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+              d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"
+              fill="currentColor"
+              style={Object {}}
+            />
+          </svg>
+          <span>
+            PREVIOUS
+          </span>
+        </button>
+        <button
+          className="NPFFooter_next"
+          onClick={[Function]}
+          type="submit"
+        >
+          <span>
+            NEXT
+          </span>
+          <svg
+            aria-hidden="true"
+            className="svg-inline--fa fa-arrow-right fa-w-14 NPFFooter_arrow"
+            data-icon="arrow-right"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            style={Object {}}
+            viewBox="0 0 448 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
               fill="currentColor"
               style={Object {}}
             />
           </svg>
         </button>
-        <h1>
-          New Brand
-        </h1>
-        <div
-          className="FormPromptWithSub"
-        >
-          <p
-            className="FormPromptWithSub__prompt"
-          >
-            Enter the following details to add a brand.
-          </p>
-          <p
-            className="FormPromptWithSub__subtitle"
-          >
-            
-          </p>
-        </div>
-        <div
-          className="FormText"
-        >
-          <label
-            htmlFor="brandName"
-          >
-            Brand name
-          </label>
-          <input
-            defaultValue=""
-            id="brandName"
-            name="brandName"
-            onChange={[Function]}
-            type="text"
-          />
-        </div>
-        <div
-          className="FormUrlInput"
-        >
-          <label
-            htmlFor="brandWebsite"
-          >
-            Brand website
-          </label>
-          <input
-            defaultValue=""
-            id="brandWebsite"
-            name="brandWebsite"
-            onChange={[Function]}
-            type="url"
-          />
-        </div>
-        <div
-          className="FormDropdown"
-        >
-          <label
-            htmlFor="brandCurrency"
-          >
-            Which currency does the brand list prices in?
-          </label>
-          <select
-            name="brandCurrency"
-            onChange={[Function]}
-          />
-        </div>
-        <div
-          className="FormDropdown"
-        >
-          <label
-            htmlFor="brandSizeSystem"
-          >
-            Which sizing system does the brand use?
-          </label>
-          <select
-            name="brandSizeSystem"
-            onChange={[Function]}
-            value=""
-          >
-            <option
-              id="us-sizes"
-            >
-              US
-            </option>
-            <option
-              id="france-sizes"
-            >
-              France
-            </option>
-            <option
-              id="italy-sizes"
-            >
-              Italy
-            </option>
-            <option
-              id="uk-sizes"
-            >
-              UK
-            </option>
-            <option
-              id="japan-sizes"
-            >
-              Japan
-            </option>
-            <option
-              id="other-sizes"
-            >
-              Other
-            </option>
-          </select>
-        </div>
-        <button
-          className="FormButton"
-          onClick={[Function]}
-          type="button"
-        >
-          CREATE BRAND
-        </button>
-      </section>
+      </footer>
     </form>
+    <div />
   </section>
-  <footer
-    className="NPFFooter"
+  <section
+    className="FormPopUp__pop-up"
+    id="add-brand"
   >
     <button
-      className="NPFFooter_previous"
+      className="FormPopUp__close-button"
       onClick={[Function]}
+      type="button"
     >
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-arrow-left fa-w-14 NPFFooter_arrow"
-        data-icon="arrow-left"
+        className="svg-inline--fa fa-times fa-w-11 fa-lg "
+        data-icon="times"
         data-prefix="fas"
         focusable="false"
         role="img"
         style={Object {}}
-        viewBox="0 0 448 512"
+        viewBox="0 0 352 512"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"
+          d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
           fill="currentColor"
           style={Object {}}
         />
       </svg>
-      <span>
-        PREVIOUS
-      </span>
     </button>
+    <header>
+      <h1>
+        New Brand
+      </h1>
+    </header>
+    <div
+      className="FormPromptWithSub"
+    >
+      <p
+        className="FormPromptWithSub__prompt"
+      >
+        Enter the following details to add a brand.
+      </p>
+      <p
+        className="FormPromptWithSub__subtitle"
+      >
+        
+      </p>
+    </div>
+    <div
+      className="FormText"
+    >
+      <label
+        htmlFor="brandName"
+      >
+        Brand name
+      </label>
+      <input
+        id="brandName"
+        name="name"
+        onChange={[Function]}
+        required={true}
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="FormUrlInput"
+    >
+      <label
+        htmlFor="brandWebsite"
+      >
+        Brand website
+      </label>
+      <input
+        defaultValue=""
+        id="brandWebsite"
+        name="website"
+        onChange={[Function]}
+        required={true}
+        type="url"
+      />
+    </div>
+    <div
+      className="FormDropdown"
+    >
+      <label
+        htmlFor="brandCurrency"
+      >
+        Which currency does the brand list prices in?
+      </label>
+      <p>
+        If the brand offers multiple currency options on their website, select the currency of the brand's home country.  Not sure?  Select 'Not sure' from the dropdown.
+      </p>
+      <select
+        name="currency"
+        onChange={[Function]}
+        required={true}
+        value={0}
+      >
+        <option
+          id={0}
+          value={0}
+        >
+          Select a currency
+        </option>
+      </select>
+    </div>
+    <div
+      className="FormDropdown"
+    >
+      <label
+        htmlFor="brandSizeSystem"
+      >
+        Which sizing system does the brand use?
+      </label>
+      <p>
+        Not sure?  Select 'Not sure' from the dropdown.
+      </p>
+      <select
+        name="sizeSystem"
+        onChange={[Function]}
+        required={true}
+        value={0}
+      >
+        <option
+          id={0}
+          value={0}
+        >
+          Select a sizing system
+        </option>
+        <option
+          id={1}
+          value={1}
+        >
+          US
+        </option>
+        <option
+          id={2}
+          value={2}
+        >
+          France / Spain / Portugal / Netherlands
+        </option>
+        <option
+          id={3}
+          value={3}
+        >
+          Italy
+        </option>
+        <option
+          id={4}
+          value={4}
+        >
+          UK / Australia / New Zealand
+        </option>
+        <option
+          id={5}
+          value={5}
+        >
+          Japan
+        </option>
+        <option
+          id={6}
+          value={6}
+        >
+          Other
+        </option>
+        <option
+          id={7}
+          value={7}
+        >
+          Not sure
+        </option>
+        <option
+          id={8}
+          value={8}
+        >
+          International
+        </option>
+      </select>
+    </div>
     <button
-      className="NPFFooter_next"
+      className="FormButton"
       onClick={[Function]}
+      type="submit"
     >
-      <span>
-        NEXT
-      </span>
-      <svg
-        aria-hidden="true"
-        className="svg-inline--fa fa-arrow-right fa-w-14 NPFFooter_arrow"
-        data-icon="arrow-right"
-        data-prefix="fas"
-        focusable="false"
-        role="img"
-        style={Object {}}
-        viewBox="0 0 448 512"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
-          fill="currentColor"
-          style={Object {}}
-        />
-      </svg>
+      CREATE BRAND
     </button>
-  </footer>
+  </section>
 </div>
 `;

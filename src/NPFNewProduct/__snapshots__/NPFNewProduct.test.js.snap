@@ -1,14 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NPFNewProduct render the UI as expected 1`] = `
-<div>
+<div
+  className="NPFNewProduct"
+>
   <section
     className="FormPage"
   >
     <h1>
       New Product
     </h1>
-    <form>
+    <form
+      id="form-page"
+    >
+      <div
+        className="FormPromptWithSub"
+      >
+        <p
+          className="FormPromptWithSub__prompt"
+        >
+          Brand: null
+        </p>
+        <p
+          className="FormPromptWithSub__subtitle"
+        >
+          
+        </p>
+      </div>
       <div
         className="FormText"
       >
@@ -18,11 +36,12 @@ exports[`NPFNewProduct render the UI as expected 1`] = `
           Product name
         </label>
         <input
-          defaultValue=""
           id="product-name"
-          name="productName"
+          name="name"
           onChange={[Function]}
+          required={true}
           type="text"
+          value=""
         />
       </div>
       <div
@@ -38,6 +57,7 @@ exports[`NPFNewProduct render the UI as expected 1`] = `
           id="product-url"
           name="productUrl"
           onChange={[Function]}
+          required={true}
           type="url"
         />
       </div>
@@ -50,86 +70,110 @@ exports[`NPFNewProduct render the UI as expected 1`] = `
           Category
         </label>
         <select
-          name="productCategory"
+          name="categoryId"
           onChange={[Function]}
+          required={true}
+          value={0}
         >
           <option
+            id={0}
+            value={0}
+          >
+            Select a category
+          </option>
+          <option
             id={1}
+            value={1}
           >
             Activewear
           </option>
           <option
             id={2}
+            value={2}
           >
             Blazers
           </option>
           <option
             id={3}
+            value={3}
           >
             Coats and Jackets
           </option>
           <option
             id={4}
+            value={4}
           >
             Dresses
           </option>
           <option
             id={5}
+            value={5}
           >
             Facemasks
           </option>
           <option
             id={6}
+            value={6}
           >
             Hair Accessories and Hats
           </option>
           <option
             id={7}
+            value={7}
           >
             Jeans
           </option>
           <option
             id={8}
+            value={8}
           >
             Jumpsuits
           </option>
           <option
             id={9}
+            value={9}
           >
             Lingerie
           </option>
           <option
             id={10}
+            value={10}
           >
             Pants
           </option>
           <option
             id={11}
+            value={11}
           >
             Shoes
           </option>
           <option
             id={12}
+            value={12}
           >
             Skirts
           </option>
           <option
             id={13}
+            value={13}
           >
             Socks and Tights
           </option>
           <option
             id={14}
+            value={14}
           >
             Sweaters
           </option>
           <option
             id={15}
+            value={15}
           >
             Swimwear
           </option>
           <option
             id={16}
+            value={16}
           >
             Tops
           </option>
@@ -148,34 +192,8 @@ exports[`NPFNewProduct render the UI as expected 1`] = `
           id="feature-image-url"
           name="featureImageUrl"
           onChange={[Function]}
+          required={true}
           type="url"
-        />
-      </div>
-      <div
-        className="FormPromptWithSub"
-      >
-        <p
-          className="FormPromptWithSub__prompt"
-        >
-          Currency
-        </p>
-        <p
-          className="FormPromptWithSub__subtitle"
-        >
-          
-        </p>
-      </div>
-      <div
-        className="FormDropdown"
-      >
-        <label
-          htmlFor="product-currency"
-        >
-          Currency
-        </label>
-        <select
-          name="productCurrency"
-          onChange={[Function]}
         />
       </div>
       <div
@@ -184,57 +202,107 @@ exports[`NPFNewProduct render the UI as expected 1`] = `
         <label
           htmlFor="price"
         >
-          Product price
+          Product price in US dollars ($)
         </label>
         <input
-          defaultValue=""
           id="price"
           name="price"
           onChange={[Function]}
+          required={true}
           type="text"
+          value=""
         />
-      </div>
-      <div
-        className="FormPromptWithSub"
-      >
-        <p
-          className="FormPromptWithSub__prompt"
-        >
-          Care instructions
-        </p>
-        <p
-          className="FormPromptWithSub__subtitle"
-        >
-          
-        </p>
       </div>
       <div
         className="FormDropdown"
       >
         <label
-          htmlFor="wash"
+          htmlFor="washId"
         >
-          Wash instructions
+          Washing instructions
         </label>
         <select
-          name="wash"
+          name="washId"
           onChange={[Function]}
-          value=""
+          required={true}
         >
           <option
+            id={0}
+            value={0}
+          >
+            Select washing instructions
+          </option>
+          <option
             id={1}
+            value={1}
+          >
+            Not disclosed
+          </option>
+          <option
+            id={2}
+            value={2}
           >
             Do not wash
           </option>
           <option
-            id={2}
+            id={3}
+            value={3}
           >
-            Machine wash cold
+            Machine wash cold (&lt;85°F/&lt;30°C)
           </option>
           <option
-            id={3}
+            id={4}
+            value={4}
           >
-            Machine wash warm
+            Machine wash warm (&lt;105°F/&lt;40°C)
+          </option>
+          <option
+            id={5}
+            value={5}
+          >
+            Machine wash hot (≥140°F/≥60°C)
+          </option>
+          <option
+            id={6}
+            value={6}
+          >
+            Hand wash
+          </option>
+          <option
+            id={7}
+            value={7}
+          >
+            Dry clean only
+          </option>
+          <option
+            id={8}
+            value={8}
+          >
+            Do not dry clean
+          </option>
+          <option
+            id={9}
+            value={9}
+          >
+            Do not wash
+          </option>
+          <option
+            id={10}
+            value={10}
+          >
+            Machine wash normal cycle
+          </option>
+          <option
+            id={11}
+            value={11}
+          >
+            Machine wash permanent press
+          </option>
+          <option
+            id={12}
+            value={12}
+          >
+            Machine wash delicate
           </option>
         </select>
       </div>
@@ -242,33 +310,91 @@ exports[`NPFNewProduct render the UI as expected 1`] = `
         className="FormDropdown"
       >
         <label
-          htmlFor="dry"
+          htmlFor="dryId"
         >
-          Dry instructions
+          Drying instructions
         </label>
         <select
-          name="dry"
+          name="dryId"
           onChange={[Function]}
-          value=""
+          required={true}
         >
           <option
+            id={0}
+            value={0}
+          >
+            Select drying instructions
+          </option>
+          <option
             id={1}
+            value={1}
+          >
+            Not disclosed
+          </option>
+          <option
+            id={2}
+            value={2}
           >
             Hang dry
           </option>
           <option
-            id={2}
+            id={3}
+            value={3}
           >
-            Hand dry in the shade
+            Hang dry in the shade
           </option>
           <option
-            id={3}
+            id={4}
+            value={4}
           >
             Dry flat
+          </option>
+          <option
+            id={5}
+            value={5}
+          >
+            Tumble dry
+          </option>
+          <option
+            id={6}
+            value={6}
+          >
+            Tumble dry low heat
+          </option>
+          <option
+            id={7}
+            value={7}
+          >
+            Tumble dry medium heat
+          </option>
+          <option
+            id={8}
+            value={8}
+          >
+            Tumble dry high heat
+          </option>
+          <option
+            id={9}
+            value={9}
+          >
+            Tumble dry normal cycle
+          </option>
+          <option
+            id={10}
+            value={10}
+          >
+            Tumble dry permanent press
+          </option>
+          <option
+            id={11}
+            value={11}
+          >
+            Tumble dry delicate
           </option>
         </select>
       </div>
     </form>
+    <div />
   </section>
   <footer
     className="NPFFooter"
@@ -276,6 +402,7 @@ exports[`NPFNewProduct render the UI as expected 1`] = `
     <button
       className="NPFFooter_previous"
       onClick={[Function]}
+      type="button"
     >
       <svg
         aria-hidden="true"
@@ -301,6 +428,7 @@ exports[`NPFNewProduct render the UI as expected 1`] = `
     <button
       className="NPFFooter_next"
       onClick={[Function]}
+      type="button"
     >
       <span>
         NEXT

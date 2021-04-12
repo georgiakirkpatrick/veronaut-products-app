@@ -363,25 +363,25 @@ const NPFNotions = props => {
         props.setNewNotionMaterial('')
     }
 
-    const nextButton = () => {props.fabricProps.setPage(props.fabricProps.currentPage + 1)}
+    const nextButton = () => {          
+        props.notionFields.forEach(fieldset => {
+            if (fieldset.typeId === 0) {
+                alert(`Please select an option for each 'notion type' field.  Remove any unused notion sections with the 'Remove' button.`)
+            } else if (fieldset.locationId === 0) {
+                alert(`Please select an option for each 'location of notion manufacturing' field.  Remove any unused notion sections with the 'Remove' button.`)
+            } else if (fieldset.factoryId === 0) {
+                alert(`Please select an option for each 'notion manufacturer' field.  Remove any unused notion sections with the 'Remove' button.`)
+            } else if (fieldset.materialTypeId === 0) {
+                alert(`Please select an option for each 'notion material' field.  Remove any unused notion sections with the 'Remove' button.`)
+            } else if (fieldset.materialOriginId === 0) {
+                alert(`Please select an option for each 'origin of notion material' field.  Remove any unused notion sections with the 'Remove' button.`)
+            } else {
+                props.setPage(props.currentPage + 1)
+            }
+        })    
+    }
 
-    // const nextButton = () => {          
-    //     props.notionFields.forEach(fieldset => {
-    //         if (fieldset.typeId === 0) {
-    //             alert(`Please select an option for each 'notion type' field.  Remove any unused notion sections with the 'Remove' button.`)
-    //         } else if (fieldset.locationId === 0) {
-    //             alert(`Please select an option for each 'location of notion manufacturing' field.  Remove any unused notion sections with the 'Remove' button.`)
-    //         } else if (fieldset.factoryId === 0) {
-    //             alert(`Please select an option for each 'notion manufacturer' field.  Remove any unused notion sections with the 'Remove' button.`)
-    //         } else if (fieldset.materialTypeId === 0) {
-    //             alert(`Please select an option for each 'notion material' field.  Remove any unused notion sections with the 'Remove' button.`)
-    //         } else if (fieldset.materialOriginId === 0) {
-    //             alert(`Please select an option for each 'origin of notion material' field.  Remove any unused notion sections with the 'Remove' button.`)
-    //         } else {
-    //             props.setPage(props.currentPage + 1)
-    //         }
-    //     })    
-    // }
+    // const nextButton = () => {props.fabricProps.setPage(props.fabricProps.currentPage + 1)}
 
     return (
         <div id='notions'>
@@ -622,6 +622,8 @@ const NPFNotions = props => {
 }
 
 NPFNotions.defaultProps = {
+    notionTypeList: [],
+    setNotionTypeList: () => {},
     notionTypePopUp: false,
     setNotionTypePopUp: () => {},
     materialPopUp: false,
@@ -640,15 +642,22 @@ NPFNotions.defaultProps = {
     fabricProps: {
         currentPage: 0,
         setPage: () => {},
-        certificationList: [],
         countries: [],
+        certificationList: [],
+        setCertificationList: () => {},
+        initCerts: {},
+        factoryList: [],
+        fiberTypeList: [],
+        setFiberTypeList: () => {},
+        setFactoryList: () => {},
         certPopUp: false,
         setCertPopUp: () => {},
-        factoryList: [],
-        setFactoryList: () => {},
         factPopUp: false,
         setFactPopUp: () => {},
-        fiberTypeList: [],
+        fiberPopUp: false,
+        setFiberPopUp: () => {},
+        millPopUp: false,
+        setMillPopUp: () => {},
         newCert: {
             name: '',
             website: ''
@@ -661,6 +670,17 @@ NPFNotions.defaultProps = {
             notes: ''
         },
         setNewFact: () => {},
+        newFiber: {
+            name: ''
+        },
+        setNewFiber: () => {},
+        newMill: {
+            name: '',
+            countryId: '',
+            website: '',
+            notes: ''
+        },
+        setNewMill: () => {},
     }
 }
 

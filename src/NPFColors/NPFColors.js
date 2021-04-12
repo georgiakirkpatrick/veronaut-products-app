@@ -56,29 +56,29 @@ const NPFColors = props => {
         props.setColorFieldsets(values)
     }
 
-    // const nextButton = () => {
-    //     const missingFields = []
+    const nextButton = () => {
+        const missingFields = []
 
-    //     props.colorFieldsets.forEach(fieldset => {
-    //         if (fieldset.name === '') {
-    //             missingFields.push(fieldset.name)
-    //         } else if (fieldset.descriptionId === 0) {
-    //             missingFields.push(fieldset.name)
-    //         }
-    //     })
+        props.colorFieldsets.forEach(fieldset => {
+            if (fieldset.name === '') {
+                missingFields.push(fieldset.name)
+            } else if (fieldset.descriptionId === 0) {
+                missingFields.push(fieldset.name)
+            }
+        })
 
-    //     if (missingFields.length === 1) {
-    //         alert(`Please enter a name and description for each color option.  Remove any unneeded color fields by clicking 'remove'.`)
-    //     } else if (missingFields.length > 1) {
-    //         alert(`Please complete the following fields: ${missingFields.map(field => `
-    //             '${field}' swatch url`)}
-    //         `)
-    //     } else if (missingFields.length === 0) {
-    //         props.setPage(props.currentPage + 1)
-    //     }
-    // }
+        if (missingFields.length === 1) {
+            alert(`Please enter a name and description for each color option.  Remove any unneeded color fields by clicking 'remove'.`)
+        } else if (missingFields.length > 1) {
+            alert(`Please complete the following fields: ${missingFields.map(field => `
+                '${field}' swatch url`)}
+            `)
+        } else if (missingFields.length === 0) {
+            props.setPage(props.currentPage + 1)
+        }
+    }
     
-    const nextButton = () => {props.setPage(props.currentPage + 1)}
+    // const nextButton = () => {props.setPage(props.currentPage + 1)}
     
     return (
         <div id='colors'>

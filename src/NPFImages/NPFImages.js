@@ -6,7 +6,6 @@ import FormFieldset from '../FormFieldset/FormFieldset'
 import FormPromptWithSub from '../FormPromptWithSub/FormPromptWithSub'
 import FormUrlInput from '../FormUrlInput/FormUrlInput'
 import NPFFooter from '../NPFFooter/NPFFooter';
-import formData from '../FORM_DATA'
 
 const NPFImages = props => {
     const addAnImage = (index) => {
@@ -29,41 +28,40 @@ const NPFImages = props => {
         values[index][event.target.name][i] = event.target.value
     }
 
-    // const nextButton = () => {
-    //     const missingSwatches = []
-    //     const missingUrls = []
+    const nextButton = () => {
+        const missingSwatches = []
+        const missingUrls = []
 
-    //     props.colorFieldsets.forEach(fieldset => {
-    //         if (fieldset.swatchUrl === '') {
-    //             missingSwatches.push(fieldset.name)
-    //         }
+        props.colorFieldsets.forEach(fieldset => {
+            if (fieldset.swatchUrl === '') {
+                missingSwatches.push(fieldset.name)
+            }
 
-    //         fieldset.imageUrls.forEach(field => {
-    //             if (field === '') {
-    //                 missingUrls.push(
-    //                     field.name
-    //                 )
-    //             }
-    //         })
-    //     })
+            fieldset.imageUrls.forEach(field => {
+                if (field === '') {
+                    missingUrls.push(
+                        field.name
+                    )
+                }
+            })
+        })
         
-    //     if (missingSwatches.length === 1) {
-    //         alert(`Please complete the '${missingSwatches[0]}' swatch url field`)
-    //     } else if (missingSwatches.length > 1) {
-    //         alert(`Please complete the following fields: ${missingSwatches.map(field => `
-    //             '${field}' swatch url`)}
-    //         `)
-    //     } else if (missingSwatches.length === 0) {
-    //         if (missingUrls.length >= 1) {
-    //             alert(`Please enter at least one image url for each color and remove any empty fields`)
-    //         } else {
-    //             submitProduct()
-    //             props.setPage(props.currentPage + 1)
-    //         }
-    //     }
-    // }
+        if (missingSwatches.length === 1) {
+            alert(`Please complete the '${missingSwatches[0]}' swatch url field`)
+        } else if (missingSwatches.length > 1) {
+            alert(`Please complete the following fields: ${missingSwatches.map(field => `
+                '${field}' swatch url`)}
+            `)
+        } else if (missingSwatches.length === 0) {
+            if (missingUrls.length >= 1) {
+                alert(`Please enter at least one image url for each color and remove any empty fields`)
+            } else {
+                props.setPage(props.currentPage + 1)
+            }
+        }
+    }
 
-    const nextButton = () => {props.setPage(props.currentPage + 1)}
+    // const nextButton = () => {props.setPage(props.currentPage + 1)}
 
     return (
         <div>

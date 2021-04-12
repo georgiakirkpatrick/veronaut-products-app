@@ -133,14 +133,6 @@ exports[`LandingPage renders the UI as expected 1`] = `
           href="/category/4/dresses"
           onClick={[Function]}
         >
-          <div
-            className="Category__cropped"
-          >
-            <img
-              alt="Analina Shirt Dress in Blue Depths"
-              src="https://cdn.shopify.com/s/files/1/0767/5207/products/9754_Analina_Blue_Depths_3480_web_1186x1186.jpg?v=1580429686"
-            />
-          </div>
           <h2
             className="Category__title"
           >
@@ -156,14 +148,6 @@ exports[`LandingPage renders the UI as expected 1`] = `
           href="/category/4/dresses"
           onClick={[Function]}
         >
-          <div
-            className="Category__cropped"
-          >
-            <img
-              alt="Analina Shirt Dress in Blue Depths"
-              src="https://cdn.shopify.com/s/files/1/0767/5207/products/9754_Analina_Blue_Depths_3480_web_1186x1186.jpg?v=1580429686"
-            />
-          </div>
           <h2
             className="Category__title"
           >
@@ -179,14 +163,6 @@ exports[`LandingPage renders the UI as expected 1`] = `
           href="/category/4/dresses"
           onClick={[Function]}
         >
-          <div
-            className="Category__cropped"
-          >
-            <img
-              alt="Analina Shirt Dress in Blue Depths"
-              src="https://cdn.shopify.com/s/files/1/0767/5207/products/9754_Analina_Blue_Depths_3480_web_1186x1186.jpg?v=1580429686"
-            />
-          </div>
           <h2
             className="Category__title"
           >

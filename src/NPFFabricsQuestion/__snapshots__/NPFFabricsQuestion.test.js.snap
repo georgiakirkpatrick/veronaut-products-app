@@ -10,7 +10,9 @@ exports[`NPFFabricsQuestion render the UI as expected 1`] = `
     <h1>
       Fabrics
     </h1>
-    <form>
+    <form
+      id="form-page"
+    >
       <div
         className="FormPromptWithSub"
       >
@@ -135,6 +137,7 @@ exports[`NPFFabricsQuestion render the UI as expected 1`] = `
         </div>
       </div>
     </form>
+    <div />
   </section>
   <footer
     className="NPFFooter"
@@ -142,6 +145,7 @@ exports[`NPFFabricsQuestion render the UI as expected 1`] = `
     <button
       className="NPFFooter_previous"
       onClick={[Function]}
+      type="button"
     >
       <svg
         aria-hidden="true"
@@ -167,6 +171,7 @@ exports[`NPFFabricsQuestion render the UI as expected 1`] = `
     <button
       className="NPFFooter_next"
       onClick={[Function]}
+      type="button"
     >
       <span>
         NEXT

@@ -12,8 +12,6 @@ import FormPromptWithSub from '../FormPromptWithSub/FormPromptWithSub'
 import config from '../config'
 
 const NPFManufacturing = props => {
-    console.log('props.fabricProps', props.fabricProps)
-
     const makeCountryOptions = () => {
         const countries = props.fabricProps.countries.map((country, index) => ({
             id: index + 2,
@@ -427,10 +425,22 @@ NPFManufacturing.defaultProps = {
     fabricProps: {
         currentPage: 0,
         setPage: () => {},
+        countries: [],
+        certificationList: [],
+        setCertificationList: () => {},
+        initCerts: {},
+        factoryList: [],
+        fiberTypeList: [],
+        setFiberTypeList: () => {},
+        setFactoryList: () => {},
         certPopUp: false,
         setCertPopUp: () => {},
         factPopUp: false,
         setFactPopUp: () => {},
+        fiberPopUp: false,
+        setFiberPopUp: () => {},
+        millPopUp: false,
+        setMillPopUp: () => {},
         newCert: {
             name: '',
             website: ''
@@ -442,7 +452,18 @@ NPFManufacturing.defaultProps = {
             website: '',
             notes: ''
         },
-        setNewFact: () => {}
+        setNewFact: () => {},
+        newFiber: {
+            name: ''
+        },
+        setNewFiber: () => {},
+        newMill: {
+            name: '',
+            countryId: '',
+            website: '',
+            notes: ''
+        },
+        setNewMill: () => {},
     }
 }
 

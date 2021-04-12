@@ -10,7 +10,9 @@ exports[`NPFColors render the UI as expected 1`] = `
     <h1>
       Colors
     </h1>
-    <form>
+    <form
+      id="form-page"
+    >
       <div
         id="color-inputs"
       >
@@ -37,6 +39,7 @@ exports[`NPFColors render the UI as expected 1`] = `
         ADD A COLOR
       </button>
     </form>
+    <div />
   </section>
   <footer
     className="NPFFooter"
@@ -44,6 +47,7 @@ exports[`NPFColors render the UI as expected 1`] = `
     <button
       className="NPFFooter_previous"
       onClick={[Function]}
+      type="button"
     >
       <svg
         aria-hidden="true"
@@ -69,6 +73,7 @@ exports[`NPFColors render the UI as expected 1`] = `
     <button
       className="NPFFooter_next"
       onClick={[Function]}
+      type="button"
     >
       <span>
         NEXT

@@ -11,6 +11,7 @@ exports[`FormDropdown render the UI as expected 1`] = `
   </label>
   <select
     name=""
+    required={true}
   />
 </div>
 `;
