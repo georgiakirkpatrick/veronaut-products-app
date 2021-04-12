@@ -10,6 +10,11 @@
     border: none;
 }
 
+.NewProductForm .NPFNewProduct .FormPromptWithSub p {
+    font-weight: initial;
+    padding: 0 0 10px;
+}
+
 .NewProductForm__not-permitted {
     height: 80vh;
     width: 95vw;

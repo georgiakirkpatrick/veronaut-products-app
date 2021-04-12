@@ -3,9 +3,10 @@
 }
 
 .FormPage {
-    padding: 10px;
-    height: 80vh;
+    padding: 5vh 10px 15vh;
+    height: 90vh;
     overflow: scroll;
+    position: relative
 }
 
 .FormPage form {

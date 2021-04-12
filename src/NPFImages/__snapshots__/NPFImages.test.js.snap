@@ -68,7 +68,7 @@ exports[`NPFImages render the UI as expected 1`] = `
           <input
             defaultValue=""
             id="color-image-urls-0"
-            name="colorImageUrls"
+            name="imageUrls"
             onChange={[Function]}
             type="url"
           />

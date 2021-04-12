@@ -6,6 +6,7 @@ const FormUrlInput = props => {
         <div className='FormUrlInput'>
             <label htmlFor={props.id}>{props.prompt}</label>
             <input 
+                required
                 type='url'
                 id={props.id} 
                 name={props.name}

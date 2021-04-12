@@ -1,37 +1,4 @@
 const data = {
-    categories: [
-        {
-            id: 1,
-            engName: 'Activewear',
-            category_class: 'clothing'
-        },
-        {
-            id: 2,
-            engName: 'Blazers',
-            category_class: 'clothing'
-        },
-        {
-            id: 3,
-            engName: 'Coats and Jackets',
-            category_class: 'clothing'
-        },
-        {
-            id: 4,
-            engName: 'Dresses',
-            category_class: 'clothing'
-        },
-        {
-            id: 5,
-            engName: 'Facemasks',
-            category_class: 'accessories'
-        },
-        {
-            id: 6,
-            engName: 'Hair Accessories and Hats',
-            category_class: 'accessories'
-        },
-    ],
-
     productImages: [
         {
             id: 1,

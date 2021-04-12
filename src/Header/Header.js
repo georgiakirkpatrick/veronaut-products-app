@@ -8,13 +8,21 @@ import Backdrop from '../Backdrop/Backdrop'
 import MenuItem from '../MenuItem/MenuItem'
 import './Header.css'
 
-const Header = () => {
+const Header = props => {
     const [mobMenuOpen, setMobMenuOpen] = useState(false)
     const [activeMenu, setActiveMenu] = useState('main')
 
     const handleHamClick = () => setMobMenuOpen(true)
     const handleCloseClick = () => {
         setMobMenuOpen(false)
+    }
+
+    const makeCategorySlug = categoryName => {
+        return categoryName
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .replace(/\s+/g, '-')
+            .toLowerCase()
     }
 
     return (
@@ -145,17 +153,22 @@ const Header = () => {
                             Categories
                         </MenuItem>
 
-                        <div onClick={handleCloseClick}>
-                            <MenuItem
-                                to='/category/4/dresses'
-                                goToMenu='main'
-                                itemType='secondary'
-                                setActiveMenu={setActiveMenu}
-                                handleCloseClick={handleCloseClick}
-                            >
-                                Dresses    
-                            </MenuItem>
-                        </div>
+                        {props.categoryList.map(category => {
+                            const slug = makeCategorySlug(category.english_name)
+                            return (
+                                <div key={category.id} onClick={handleCloseClick}>
+                                    <MenuItem
+                                        to={`/category/${category.id}/${slug}`}
+                                        goToMenu='main'
+                                        itemType='secondary'
+                                        setActiveMenu={setActiveMenu}
+                                        handleCloseClick={handleCloseClick}
+                                    >
+                                        {category.english_name}    
+                                    </MenuItem>
+                                </div>
+                            )
+                        })}
                     </div>
                 </CSSTransition>
             </div>

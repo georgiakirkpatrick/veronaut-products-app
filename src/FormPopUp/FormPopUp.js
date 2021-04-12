@@ -15,13 +15,17 @@ const FormPopUp = props => {
             >
                 <FontAwesomeIcon icon='times' size='lg' />
             </button>
-            <h1>
-                {props.title}
-            </h1>
-            {props.children}
+            
+            <header>
+                <h1>
+                    {props.title}
+                </h1>
+            </header>
+                {props.children}
             <FormButton 
                 buttonText={props.buttonText}
                 handleClick={props.submit}
+                type={props.buttonType}
             />
         </section>
     )

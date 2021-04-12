@@ -6,10 +6,14 @@ const FormPage = props => {
 
     return (
         <section className='FormPage'>
-            {title}
-            <form>
+            {title}                                                                                                                                                                                                                                                                               
+            <form id='form-page'>
                 {props.children}
             </form>
+
+            <div>
+                {props.nextError}
+            </div>
         </section>
     )
 }

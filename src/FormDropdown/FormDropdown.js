@@ -5,10 +5,15 @@ const FormDropdown = props => {
     return (
         <div key={props.id} className='FormDropdown'>
             <label htmlFor={props.id}>{props.prompt}</label>
-
-            <select name={props.name} onChange={props.handleChange} value={props.currentValue} >
-                {props.options.map((opt) => {
-                    return <option key={opt.id} id={opt.id} value={opt.currentValue}>{opt.text}</option>
+            {props.subprompt && <p>{props.subprompt}</p>}
+            <select
+                required
+                name={props.name}
+                onChange={props.handleChange}
+                value={props.currentValue}
+            >
+                {props.options.map((opt, index) => {
+                    return <option key={index} id={opt.id} value={opt.value ? opt.value : opt.id}>{opt.text}</option>
                 })}
             </select>
         </div>

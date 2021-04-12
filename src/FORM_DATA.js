@@ -65,21 +65,21 @@ const formData = {
     colors: {
         id: 'colors',
         pageTitle: 'Colors',
-        pagePrompts: [
-            {
-                prompt: `How many color options does the product have?`,
-                promptSubtitle: `If the product has color options listed on other pages (at other URLs), add those as separate products.`
-            },
-            {
-                prompt: `Enter all color options listed on the product webpage`,
-                promptSubtitle: ''
-            }
-        ],
-        colorName: {
+        // pagePrompts: [
+        //     {
+        //         prompt: `How many color options does the product have?`,
+        //         promptSubtitle: `If the product has color options listed on other pages (at other URLs), add those as separate products.`
+        //     },
+        //     {
+        //         prompt: `Enter all color options listed on the product webpage`,
+        //         promptSubtitle: ''
+        //     }
+        // ],
+        name: {
             prompt: 'Color name',
             explanation: 'What the brand calls the color'
         },
-        colorDescription: {
+        description: {
             prompt: 'Color description',
             explanation: 'Select an option that best describes the color',
             options: [
@@ -97,7 +97,39 @@ const formData = {
                 },
                 {
                     id: 4,
-                    text: ''
+                    text: 'Off-white'
+                },
+                {
+                    id: 5,
+                    text: 'Brown'
+                },
+                {
+                    id: 6,
+                    text: 'Purple'
+                },
+                {
+                    id: 7,
+                    text: 'Blue'
+                },
+                {
+                    id: 8,
+                    text: 'Green'
+                },
+                {
+                    id: 9,
+                    text: 'Yellow'
+                },
+                {
+                    id: 10,
+                    text: 'Orange'
+                },
+                {
+                    id: 11,
+                    text: 'Pink'
+                },
+                {
+                    id: 12,
+                    text: 'Red'
                 }
             ]
         }
@@ -149,137 +181,125 @@ const formData = {
             {
                 prompt: 'Are there any additional notes about how the product was cut, sewn, or finished?',
                 subprompt: 'Copy and paste them here.'
-            },
-            // {    
-            //     prompt: 'Add a sewing and finishing factory',
-            //     promptSubtitle: ''
-            // },
-            // {    
-            //     prompt: 'Add a cutting factory',
-            //     promptSubtitle: ''
-            // },
-            // {    
-            //     prompt: 'Add a certification',
-            //     promptSubtitle: ''
-            // }
-        ],
-        location: {
-            name: 'location',
-            prompt: 'Location',
-            explanation: 'If the product page does not provide a factory location, select "Not disclosed"'
-        },
-        factory: {
-            name: 'factory',
-            prompt: 'Factory',
-            explanation: 'If the product page does not provide a factory name, select "Not disclosed"',
-            options: [
-                {
-                    id: 1,
-                    text: 'Dynotex',
-                    name: 'Dynotex',
-                    location: 'US',
-                    website: 'dynotex.com',
-                    notes: 'Established in 1999. 226 Newell Street, Ground Floor, Brooklyn, NY 11222. Phone: 1-718-618-9731'
-                },
-                {
-                    id: 2,
-                    text: 'Spooltown',
-                    name: 'Spooltown',
-                    location: 'US',
-                    website: 'spooltown.com',
-                    notes: 'Portland, Oregon'
-                }
-            ]
-        },
-        buttonText: ['ADD A FACTORY', 'ADD A CERTIFICATION'],
-        addSewing: {
-            id: 'addSewing',
-            name: 'addSewing',
-            pageTitle: 'New Factory',
-            prompt: 'Add a sewing and finishing factory',
-            explanation: 'If the product page does not provide a factory location, select "Not disclosed"',
-            button: 'ADD A FACTORY',
-            factoryName: {
-                id: 'sewingFactoryName',
-                prompt: 'Factory name',
-                explanation: ''
-            },
-            factoryLocation: {
-                id: 'sewingFactoryLocation',
-                prompt: 'Location',
-                explanation: ''
-            },
-            factoryWebsite: {
-                id: 'sewingFactoryWebsite',
-                prompt: 'Website',
-                explanation: ''
-            },
-            factoryNotes: {
-                id: 'sewingFactoryNotes',
-                prompt: 'Notes',
-                explanation: ''
-            },
-            submitButton: 'SUBMIT FACTORY'
-        },
-        addCutting: {
-            id: 'addCutting',
-            name: 'addCutting',
-            pageTitle: 'New Factory',
-            prompt: 'Add a cutting factory',
-            explanation: 'If the product page does not provide a factory location, select "Not disclosed"',
-            button: 'ADD A FACTORY',
-            factoryName: {
-                id: 'cuttingFactoryName',
-                prompt: 'Factory name',
-                explanation: ''
-            },
-            factoryLocation: {
-                id: 'cuttingFactoryLocation',
-                prompt: 'Location',
-                explanation: ''
-            },
-            factoryWebsite: {
-                id: 'cuttingFactoryWebsite',
-                prompt: 'Website',
-                explanation: ''
-            },
-            factoryNotes: {
-                id: 'cuttingFactoryNotes',
-                prompt: 'Notes',
-                explanation: ''
-            },
-            submitButton: 'SUBMIT FACTORY'
-        },
-        certifications: {
-            name: 'certifications',
-            prompt: 'Certifications',
-            options: [
-                {
-                    id: 1,
-                    text: 'BlueSign',
-                    checked: false
-                },
-                {
-                    id: 2,
-                    text: 'OEKO-TEX',
-                    checked: false
-                }
-            ]
-        },
-        newCertification: {
-            title: 'New Certification',
-            submitButton: 'SUBMIT CERTIFICATION',
-            certName: {
-                id: 'certName',
-                prompt: 'Certification name',
-                explanation: ''
-            },
-            certWebsite: {
-                id: 'certWebsite',
-                prompt: 'Website',
-                explanation: ''
             }
-        },
+        ],
+        // location: {
+        //     // name: 'location',
+        //     // prompt: 'Location',
+        //     explanation: 'If the product page does not provide a factory location, select "Not disclosed"'
+        // },
+        // factory: {
+        //     name: 'factory',
+        //     prompt: 'Factory',
+        //     explanation: 'If the product page does not provide a factory name, select "Not disclosed"',
+            // options: [
+            //     {
+            //         id: 1,
+            //         text: 'Dynotex',
+            //         name: 'Dynotex',
+            //         location: 'US',
+            //         website: 'dynotex.com',
+            //         notes: 'Established in 1999. 226 Newell Street, Ground Floor, Brooklyn, NY 11222. Phone: 1-718-618-9731'
+            //     },
+            //     {
+            //         id: 2,
+            //         text: 'Spooltown',
+            //         name: 'Spooltown',
+            //         location: 'US',
+            //         website: 'spooltown.com',
+            //         notes: 'Portland, Oregon'
+            //     }
+            // ]
+        // },
+        // buttonText: ['ADD A FACTORY', 'ADD A CERTIFICATION'],
+        // addSewing: {
+        //     // id: 'addSewing',
+        //     name: 'addSewing',
+        //     pageTitle: 'New Factory',
+        //     prompt: 'Add a sewing and finishing factory',
+        //     explanation: 'If the product page does not provide a factory location, select "Not disclosed"',
+        //     button: 'ADD A FACTORY',
+        //     factoryName: {
+        //         id: 'sewingFactoryName',
+        //         prompt: 'Factory name',
+        //         explanation: ''
+        //     },
+        //     factoryLocation: {
+        //         id: 'sewingFactoryLocation',
+        //         prompt: 'Location',
+        //         explanation: ''
+        //     },
+        //     factoryWebsite: {
+        //         id: 'sewingFactoryWebsite',
+        //         prompt: 'Website',
+        //         explanation: ''
+        //     },
+        //     factoryNotes: {
+        //         id: 'sewingFactoryNotes',
+        //         prompt: 'Notes',
+        //         explanation: ''
+        //     },
+            // submitButton: 'SUBMIT FACTORY'
+        // },
+        // addCutting: {
+        //     id: 'addCutting',
+        //     name: 'addCutting',
+        //     pageTitle: 'New Factory',
+        //     prompt: 'Add a cutting factory',
+        //     explanation: 'If the product page does not provide a factory location, select "Not disclosed"',
+        //     button: 'ADD A FACTORY',
+        //     factoryName: {
+        //         id: 'cuttingFactoryName',
+        //         prompt: 'Factory name',
+        //         explanation: ''
+        //     },
+        //     factoryLocation: {
+        //         id: 'cuttingFactoryLocation',
+        //         prompt: 'Location',
+        //         explanation: ''
+        //     },
+        //     factoryWebsite: {
+        //         id: 'cuttingFactoryWebsite',
+        //         prompt: 'Website',
+        //         explanation: ''
+        //     },
+        //     factoryNotes: {
+        //         id: 'cuttingFactoryNotes',
+        //         prompt: 'Notes',
+        //         explanation: ''
+        //     },
+        //     submitButton: 'SUBMIT FACTORY'
+        // },
+        // certifications: {
+        //     name: 'certifications',
+        //     prompt: 'Certifications',
+        //     options: [
+        //         {
+        //             id: 1,
+        //             text: 'BlueSign',
+        //             checked: false
+        //         },
+        //         {
+        //             id: 2,
+        //             text: 'OEKO-TEX',
+        //             checked: false
+        //         }
+        //     ]
+        // },
+        // newCertification: {
+        //     title: 'New Certification',
+        //     submitButton: 'SUBMIT CERTIFICATION',
+        //     certName: {
+        //         id: 'certName',
+        //         prompt: 'Certification name',
+        //         explanation: ''
+        //     },
+        //     certWebsite: {
+        //         id: 'certWebsite',
+        //         prompt: 'Website',
+        //         explanation: ''
+        //     }
+        // },
         additionalNotes: {
             id: 'additionalNotes',
             prompt: 'Are there any additional notes about how the product was cut, sewn, or finished?',
@@ -288,18 +308,16 @@ const formData = {
     },
 
     newProduct: {
-        id: 'new-product',
-        pageTitle: 'New Product',
-        careInstructions: {
-            prompt: 'Care instructions'
-        },
-        productCategory: {
-            prompt: 'Category',
+        category: {
             options: [
+                {
+                    id: 0,
+                    text: 'Select a category'
+                },
                 {
                     id: 1,
                     text: 'Activewear',
-                    class: 'clothing'
+                    class: 'clothing',
                     
                 },
                 {
@@ -379,63 +397,111 @@ const formData = {
                 }
             ]
         },
-        productCurrency: {
-            prompt: 'Currency'
-        },
         dry: {
-            id: 'dry',
-            prompt: 'Dry instructions',
             options: [
                 {
+                    id: 0,
+                    text: 'Select drying instructions'
+                },
+                {
                     id: 1,
+                    text: 'Not disclosed'
+                },
+                {
+                    id: 2,
                     text: 'Hang dry'
                 },
                 {
-                    id: 2,
-                    text: 'Hand dry in the shade'
+                    id: 3,
+                    text: 'Hang dry in the shade'
                 },
                 {
-                    id: 3,
+                    id: 4,
                     text: 'Dry flat'
+                },
+                {
+                    id: 5,
+                    text: 'Tumble dry'
+                },
+                {
+                    id: 6,
+                    text: 'Tumble dry low heat'
+                },
+                {
+                    id: 7,
+                    text: 'Tumble dry medium heat'
+                },
+                {
+                    id: 8,
+                    text: 'Tumble dry high heat'
+                },
+                {
+                    id: 9,
+                    text: 'Tumble dry normal cycle'
+                },
+                {
+                    id: 10,
+                    text: 'Tumble dry permanent press'
+                },
+                {
+                    id: 11,
+                    text: 'Tumble dry delicate'
                 }
             ],
         },
-        featureImageUrl: {
-            id: 'feature-image-url',
-            prompt: 'Feature image URL'
-        },
-        productName: {
-            id: 'product-name',
-            prompt: 'Product name',
-            explanation: `Enter the product name as it is listed on the brand's website`
-        },
-        productPrice: {
-            prompt: 'Product price',
-            promptSubtitle: '',
-        },
-        price: {
-            id: 'price',
-            prompt: 'Product price'
-        },
-        productUrl: {
-            id: 'productUrl',
-            prompt: 'Product URL'
-        },
         wash: {
-            id: 'wash',
-            prompt: 'Wash instructions',
             options: [
                 {
+                    id: 0,
+                    text: 'Select washing instructions'
+                },
+                {
                     id: 1,
-                    text: 'Do not wash'
+                    text: 'Not disclosed'
                 },
                 {
                     id: 2,
-                    text: 'Machine wash cold'
+                    text: 'Do not wash'
                 },
                 {
                     id: 3,
-                    text: 'Machine wash warm'
+                    text: 'Machine wash cold (<85°F/<30°C)'
+                },
+                {
+                    id: 4,
+                    text: 'Machine wash warm (<105°F/<40°C)'
+                },
+                {
+                    id: 5,
+                    text: 'Machine wash hot (≥140°F/≥60°C)'
+                },
+                {
+                    id: 6,
+                    text: 'Hand wash'
+                },
+                {
+                    id: 7,
+                    text: 'Dry clean only'
+                },
+                {
+                    id: 8,
+                    text: 'Do not dry clean'
+                },
+                {
+                    id: 9,
+                    text: 'Do not wash'
+                },
+                {
+                    id: 10,
+                    text: 'Machine wash normal cycle'
+                },
+                {
+                    id: 11,
+                    text: 'Machine wash permanent press'
+                },
+                {
+                    id: 12,
+                    text: 'Machine wash delicate'
                 }
             ]
         }

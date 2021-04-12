@@ -66,6 +66,7 @@
     transform: translateX(-107%);
     transition: transform ease-out .5s;
     padding: 40px 0;
+    overflow-y: scroll;
 }
 
 

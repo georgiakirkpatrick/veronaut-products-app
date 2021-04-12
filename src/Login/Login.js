@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import FormTitle from '../FormTitle/FormTitle'
 import FormButton from '../FormButton/FormButton'
 import FormTextInput from '../FormTextInput/FormTextInput'
-import Header from '../Header/Header'
 import './Login.css'
 
 const Login = () => {
@@ -14,7 +13,7 @@ const Login = () => {
     <form
       className='Login'
     >
-      <Header />
+      
       <header>
           <FormTitle titleText='Log in' />
       </header> 

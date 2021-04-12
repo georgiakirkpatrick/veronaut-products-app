@@ -4,7 +4,7 @@ import FormTitle from '../FormTitle/FormTitle'
 import FormButton from '../FormButton/FormButton'
 import FormPromptWithSub from '../FormPromptWithSub/FormPromptWithSub'
 import FormTextInput from '../FormTextInput/FormTextInput'
-import Header from '../Header/Header'
+// import Header from '../Header/Header'
 import './ForgotPassword.css'
 
 const ForgotPassword = props => {
@@ -40,7 +40,7 @@ const ForgotPassword = props => {
         <form
             className='ForgotPassword'
         >
-            <Header />
+            
             <header>
                 <FormTitle titleText='Forgot your password?' />
             </header>

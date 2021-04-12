@@ -1,24 +1,24 @@
-.FormDropdown {
+.FormNumber {
     width: 100%;
     margin-top: 10px;
 }
 
-.FormDropdown > label {
+.FormNumber > label {
     display: block;
     font-weight: 400;
     font-size: 16px;
 }
 
-.FormDropdown > p {
+.FormNumber > p {
     font-weight: 400;
     font-size: 13px;
     padding: 5px 0;
 
 }
 
-.FormDropdown > select {
-    display: block;
-    width: 100%;
+.FormNumber > input {
+    /* display: block; */
+    width: 20%;
     margin: 2px 0px 10px;
     padding: 10px;
     font: inherit;

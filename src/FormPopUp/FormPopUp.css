@@ -11,10 +11,11 @@
 }
 
 .FormPopUp__pop-up {
+    padding: 5vh 10px 15vh;
     position: fixed;
     top: 10vh;
     left: 0;
-    height: 80vh;
+    height: 90vh;
     width: 100vw;
     overflow: scroll;
     border: none;
@@ -22,7 +23,6 @@
     z-index: 3;
     transform: translateX(-107%);
     transition: transform 0.3s ease-out;
-    padding: 10px;
     overflow-y: scroll;
 }
 
@@ -37,4 +37,11 @@
     margin: 5px 0;
     background-color: rgb(238, 238, 238);
     border: none;
+}
+
+.FormPopUp__pop-up h1 {
+    text-align: center;
+    padding: 0 0 25px;
+    font-size: 30px;
+    font-weight: 500;
 }

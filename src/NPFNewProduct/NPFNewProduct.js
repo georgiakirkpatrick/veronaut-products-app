@@ -5,23 +5,69 @@ import FormPage from '../FormPage/FormPage'
 import FormPromptWithSub from '../FormPromptWithSub/FormPromptWithSub'
 import FormTextInput from '../FormTextInput/FormTextInput'
 import FormUrlInput from '../FormUrlInput/FormUrlInput'
-import NPFFooter from '../NPFFooter/NPFFooter';
+import NPFFooter from '../NPFFooter/NPFFooter'
+import currencies from '../CURRENCIES'
 import formData from '../FORM_DATA'
 
 const NPFNewProduct = props => {
-    const newProductChange = event => {
-        props.setNewProductFields({...props.newProductFields, [event.target.name]: event.target.value})
+    const findBrandDetails = brand => {
+        console.log('props.brandId', props.brandId)
+        return brand['id'] === Number(props.brandId)
     }
 
+    const brandDetailArray = props.brandList.filter(findBrandDetails)
+    console.log('brandDetailArray', brandDetailArray)
+
+    const brandDetails = brandDetailArray.length > 0 ? brandDetailArray[0] : { english_name: null, home_currency: null }
+    console.log('brandDetails', brandDetails)
+
+    const currencyId = brandDetails.home_currency ? Number(brandDetails.home_currency - 1) : 0
+    const currencyDetails = currencies[currencyId]
+
+    const changeField = event => {
+        props.setNewProductFields({
+            ...props.newProductFields, 
+            [event.target.name]: event.target.value
+        })
+    }
+
+    const nextButton = () => {props.setPage(props.currentPage + 1)}
+
+    // const nextButton = event => {
+    //     event.preventDefault()
+    //     const missingFields = []
+         
+    //     Object.keys(props.newProductFields).forEach(key => {
+    //         if (props.newProductFields[key] === '' || 0) {
+    //             missingFields.push(key.replace( /([A-Z])/g, " $1" ).toLowerCase())
+    //         }
+    //     })
+            
+    //     if (missingFields.length === 1) {
+    //         alert(`Please complete the '${missingFields[0]}' field`)
+    //     } else if (missingFields.length > 1) {
+    //         alert(`Please complete the following fields: ${missingFields.map(field => `
+    //             ${field}`)}
+    //         `)
+    //     } else if (missingFields.length === 0) {
+    //         props.setPage(props.currentPage + 1)
+    //     }
+    // }
+
     return (
-        <div>
-            <FormPage title={formData.newProduct.pageTitle}>
+        <div className='NPFNewProduct'>
+            <FormPage title='New Product'>
+                <FormPromptWithSub
+                    prompt={`Brand: ${brandDetails.english_name}`}
+                    promptSubtitle=''
+                />
+
                 <FormTextInput
                     id='product-name'
-                    name='productName'
+                    name='name'
                     prompt='Product name'
-                    currentValue={props.newProductFields.productName}
-                    handleChange={event => newProductChange(event)}
+                    currentValue={props.newProductFields.name}
+                    handleChange={event => changeField(event)}
                 />
 
                 <FormUrlInput 
@@ -29,75 +75,57 @@ const NPFNewProduct = props => {
                     name='productUrl'
                     prompt='Product URL'
                     currentValue={props.newProductFields.productUrl}
-                    handleChange={event => newProductChange(event)}
+                    handleChange={event => changeField(event)}
                 />
 
                 <FormDropdown
                     id='product-category'
-                    name='productCategory'
+                    name='categoryId'
                     prompt='Category'
-                    handleChange={event => newProductChange(event)}
-                    currentValue={props.newProductFields.productCategory}
-                    options={formData.newProduct.productCategory.options}
+                    handleChange={event => changeField(event)}
+                    currentValue={props.newProductFields.categoryId}
+                    options={formData.newProduct.category.options}
                 />
 
                 <FormUrlInput
                     id='feature-image-url'
                     name='featureImageUrl'
-                    prompt={formData.newProduct.featureImageUrl.prompt}
+                    prompt='Feature image URL'
                     currentValue={props.newProductFields.featureImageUrl}
-                    handleChange={event => newProductChange(event)}
-                />
-
-                <FormPromptWithSub 
-                    prompt={formData.newProduct.productCurrency.prompt}
-                    promptSubtitle={formData.newProduct.productCurrency.promptSubtitle}
-                />
-
-                <FormDropdown
-                    id='product-currency'
-                    name='productCurrency'
-                    prompt={formData.newProduct.productCurrency.prompt}
-                    handleChange={event => newProductChange(event)}
-                    currentValue={props.newProductFields.productCurrency}
-                    options={props.currencies}
+                    handleChange={event => changeField(event)}
                 />
 
                 <FormTextInput
                     id='price'
                     name='price'
-                    prompt={formData.newProduct.price.prompt}
+                    prompt={`Product price in ${currencyDetails.name_plural ? currencyDetails.name_plural : ''} (${currencyDetails.symbol_native ? currencyDetails.symbol_native : ''})`}
                     currentValue={props.newProductFields.price}
-                    handleChange={event => newProductChange(event)}
-                />
-
-                <FormPromptWithSub 
-                    prompt={formData.newProduct.careInstructions.prompt}
-                    promptSubtitle=''
+                    handleChange={event => changeField(event)}
                 />
 
                 <FormDropdown
-                    id='wash'
-                    name='wash'
-                    prompt={formData.newProduct.wash.prompt}
-                    handleChange={event => newProductChange(event)}
-                    currentValue={props.newProductFields.wash}
+                    id='washId'
+                    name='washId'
+                    prompt='Washing instructions'
+                    handleChange={event => changeField(event)}
+                    currentValue={props.newProductFields.washId}
                     options={formData.newProduct.wash.options}
                 />
 
                 <FormDropdown
-                    id='dry'
-                    name='dry'
-                    prompt={formData.newProduct.dry.prompt}
-                    handleChange={event => newProductChange(event)}
-                    currentValue={props.newProductFields.dry}
+                    id='dryId'
+                    name='dryId'
+                    prompt='Drying instructions'
+                    handleChange={event => changeField(event)}
+                    currentValue={props.newProductFields.dryId}
                     options={formData.newProduct.dry.options}
                 />
             </FormPage>
+
             <NPFFooter 
                 buttons='prevNext' 
                 previousButton={() => props.setPage(props.currentPage - 1)} 
-                nextButton={() => props.setPage(props.currentPage + 1)}
+                nextButton={event => {nextButton(event)}}
             /> 
         </div>
     )    
@@ -107,9 +135,9 @@ NPFNewProduct.defaultProps = {
     currencies: [],
     currentPage: 0,
     newProductFields: {
-        productName: '', 
-        productUrl: '' ,
-        category: '',
+        name: '', 
+        url: '' ,
+        categoryId: 0,
         featureImageUrl: '',
         currency: '',
         price: '',

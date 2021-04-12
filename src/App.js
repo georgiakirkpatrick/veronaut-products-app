@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import config from './config'
 import '@fortawesome/react-fontawesome'
 import './FontAwesomeIcons/FontAwesomeIcons'
 import Account from './Account/Account'
@@ -17,28 +18,76 @@ import NotFoundPage from './NotFoundPage/NotFoundPage'
 import NewAccount from './NewAccount/NewAccount'
 import './App.css'
 
-const getAllCategories = () => {
-  return fetch('https://polar-inlet-79605.herokuapp.com/api/categories', {
+const App = () => {
+  const [brandId, setBrandId] = useState(0)
+  const [categoryList, setCategoryList] = useState([])
+  const [categoriesLoaded, setCategoriesLoaded] = useState(false)
+  const [err, setErr] = useState(null)
+  const [certificationList, setCertificationList] = useState([])
+  const [certListLoaded, setCertListLoaded] = useState(false)
+ 
+  const [ loginInfo, setLoginInfo ] = useState({ user: null, token: null })
+
+  useEffect(() => {
+    const getRequestParams = {
       method: 'GET',
       headers: {
-          'Content-type': 'application/json'
+        'Content-type': 'application/json'
       }
-  })
-  .then(response => {
-    return response.json()
-  })
-  .then(responseJson => {
-    console.log('responseJson', responseJson)
-    return responseJson
-  })
-}
+    }
+    
+    const getAllCategories = () => {
+      fetch(`${config.API_URL}/api/categories`, {
+        method: 'GET',
+        headers: {
+            'Content-type': 'application/json'
+        }
+      })
+      .then(response => {
+        if (response.status >= 400) {
+          console.log('There was a problem.  Status code: ' + response.status)
+          throw new Error("Server responded with an error!")
+        }
+        return response.json()
+      })
+      .then(categoryArray => {
+        setCategoryList(categoryArray)
+        setCategoriesLoaded(true)
+      },
+      err => {
+        setErr(err)
+        setCategoriesLoaded(true)
+      })
+    }
 
-const allCategories = getAllCategories().then(categories => {
-  return categories
-})
+    getAllCategories()
 
-const App = () => {
-  const [ loginInfo, setLoginInfo ] = useState({ user: null, token: null })
+    const getCertifications = () => {
+      fetch(`${config.API_URL}/api/certifications`, getRequestParams)
+        .then(response => {
+            if (response.status >= 400) {
+                console.log('There was a problem.  Status code: ' + response.status)
+                throw new Error("Server responded with an error!")
+            }
+            return response.json()
+        })
+        .then(certificationArray => {
+          const formattedCerts = certificationArray.map(cert => {
+            return {
+              id: cert.id,
+              text: cert.english_name,
+              website: cert.website,
+              approved: cert.approved_by_admin
+            }
+          })
+          
+          setCertificationList(formattedCerts)
+          setCertListLoaded(true)
+        })
+    }
+
+    getCertifications()
+  }, [])
 
   const fullPrinciples = (
     [
@@ -88,77 +137,89 @@ const App = () => {
     }
   ]
 
-  return (
+  if (err) {
+    return <div> {err.message} </div>
+  } else if (!categoriesLoaded || !certListLoaded) {
+    return <div> Loading... </div>
+  } else {
+    return (
     <Router>
       <div className='App'>
         <main>
+          <Header categoryList={categoryList} />
           <Switch>
             <Route path='/about' render={routeProps => (
               <>  
-                <PrincipleList 
-                  allCategories={allCategories}
+                <PrincipleList
                   principles={principles}
-                  {...routeProps}
+                  routeProps={routeProps}
                 />
+                <Footer />
               </>  
             )} />
             <Route path='/account' render={routeProps => (
-              <Account 
-                allCategories={allCategories}
-                {...routeProps}
-              />
+              <>
+                <Account
+                  routeProps={routeProps}
+                />
+                <Footer />
+              </>
             )} />
             <Route path='/add-product' exact render={routeProps => (
-              <NewProductForm
-                allCategories={allCategories}
-                loginInfo={loginInfo}
-                setLoginInfo={setLoginInfo}
-                {...routeProps}
-              />
+              <>
+                <NewProductForm
+                  brandId={brandId}
+                  setBrandId={setBrandId}
+                  loginInfo={loginInfo}
+                  setLoginInfo={setLoginInfo}
+                  routeProps={routeProps}
+                  certificationList={certificationList}
+                  setCertificationList={setCertificationList}
+                />
+              </>
             )}/>
             <Route path='/all-categories' render={routeProps => (
-              <AllCategories
-                allCategories={allCategories}
-                {...routeProps}
-              />
+              <>
+                <AllCategories
+                  categoryList={categoryList}
+                  routeProps={routeProps}
+                />
+                <Footer />
+              </>
             )}/>
             <Route path='/category/:categoryId/:slug' render={routeProps => (
-              <ProductListPage
-                allCategories={allCategories}
-                routeProps={routeProps}
-                history={routeProps.history}
-              />
+              <>
+                <ProductListPage
+                  categoryList={categoryList}
+                  routeProps={routeProps}
+                />
+                <Footer />
+              </>
             )} />
             <Route path='/create-account' render={routeProps => (
               <NewAccount
-                allCategories={allCategories}
-                history={routeProps.history}
+                routeProps={routeProps}
                 loginInfo={loginInfo}
                 setLoginInfo={setLoginInfo}
               />
             )} />
             <Route path='/forgot-password' render={routeProps => (
-              <ForgotPassword 
-                allCategories={allCategories}
-                history={routeProps.history}
+              <ForgotPassword
+              routeProps={routeProps}
               />
             )} />
             <Route path='/login' render={routeProps => (
-              <Login 
-                allCategories={allCategories}
-                history={routeProps.history}
+              <Login
+              routeProps={routeProps}
                 loginInfo={loginInfo}
                 setLoginInfo={setLoginInfo}
               />
             )} />
             <Route path='/principles' render={(routeProps) => (
               <>
-                <Header />
                 <PrincipleList
-                  allCategories={allCategories}
-                  {...routeProps}
+                  routeProps={routeProps}
                   principles={fullPrinciples}
-
                 />
                 <Footer />
               </>
@@ -168,9 +229,7 @@ const App = () => {
               path='/product/:productId/:slug'
               render={(routeProps) => (
               <>
-                <Header />
                 <ProductDetail
-                  allCategories={allCategories}
                   routeProps={routeProps}
                 />
                 <Footer />
@@ -179,10 +238,8 @@ const App = () => {
 
             <Route path='/' exact render={(routeProps) => (
               <>
-                <Header />
-                <LandingPage 
-                  allCategories={allCategories}
-                  {...routeProps}
+                <LandingPage
+                  routeProps={routeProps}
                 />
                 <Footer />
               </>
@@ -190,10 +247,8 @@ const App = () => {
 
             <Route render={(routeProps) => (
               <>
-                <Header />
                 <NotFoundPage
-                  allCategories={allCategories}
-                  {...routeProps}
+                  routeProps={routeProps}
                 />
                 <Footer />
               </>
@@ -202,7 +257,7 @@ const App = () => {
         </main>
       </div>
     </Router>
-  )
+  )}
 }
 
 

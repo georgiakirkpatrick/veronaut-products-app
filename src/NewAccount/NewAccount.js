@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import FormTitle from '../FormTitle/FormTitle'
 import FormButton from '../FormButton/FormButton'
 import FormTextInput from '../FormTextInput/FormTextInput'
-import Header from '../Header/Header'
+// import Header from '../Header/Header'
 import './NewAccount.css'
 
 const NewAccount = props => {
@@ -15,7 +15,7 @@ const NewAccount = props => {
     <form 
       className='NewAccount'
     >
-      <Header allCategories={props.allCategories} />
+      {/* <Header allCategories={props.allCategories} /> */}
       <header>
         <FormTitle titleText='Create an account' />
       </header> 

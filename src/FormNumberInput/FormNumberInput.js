@@ -1,28 +1,27 @@
 import React from 'react'
-import './FormTextInput.css'
+import './FormNumberInput.css'
 
-const FormTextInput = props => {
+const FormNumberInput = props => {
     return (
-        <div className='FormText'>
+        <div className='FormNumber'>
             <label htmlFor={props.id}>{props.prompt}</label>
             <input
-                required
-                type='text' 
+                type='number' 
                 id={props.id} 
                 name={props.name} 
                 value={props.currentValue} 
                 onChange={props.handleChange} 
-            />
+            /> %
         </div>
     )
 }
 
-FormTextInput.defaultProps = {
+FormNumberInput.defaultProps = {
     id: 1,
     prompt: '',
     name: '',
     currentValue: 1,
-    change: () => {}
+    handleChange: () => {}
 }
 
-export default FormTextInput
+export default FormNumberInput

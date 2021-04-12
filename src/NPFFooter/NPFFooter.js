@@ -4,6 +4,9 @@ import '../FontAwesomeIcons/FontAwesomeIcons';
 import './NPFFooter.css'
 
 const NPFFooter = props => {
+
+    const nextButtonClass = () => props.next ? 'NPFFooter_next active' : 'NPFFooter_next'
+
     const buttons = () => {
         if (props.buttons === 'prev') {
             return (
@@ -15,21 +18,29 @@ const NPFFooter = props => {
         } if (props.buttons === 'next') {
             return (
                 <>
-                <div />
                 <button className='NPFFooter_next' onClick={props.nextButton}>
                     <span>NEXT</span>
-                    <FontAwesomeIcon className='NPFFooter_arrow' icon="arrow-right" />
+                    <FontAwesomeIcon className={nextButtonClass()} icon="arrow-right" />
                 </button>
                 </>
             )
         } if (props.buttons === 'prevNext') {
             return (
                 <>
-                    <button className='NPFFooter_previous' onClick={props.previousButton}>
+                    <button 
+                        className='NPFFooter_previous' 
+                        onClick={props.previousButton}
+                        type={props.backType}
+                    >
                         <FontAwesomeIcon className='NPFFooter_arrow' icon="arrow-left" />
                         <span>PREVIOUS</span>
                     </button>
-                    <button className='NPFFooter_next' onClick={props.nextButton}>
+
+                    <button 
+                        className={nextButtonClass()} 
+                        onClick={props.nextButton}
+                        type={props.nextType}
+                    >
                         <span>NEXT</span>
                         <FontAwesomeIcon className='NPFFooter_arrow' icon="arrow-right" />
                     </button>
@@ -50,7 +61,9 @@ const NPFFooter = props => {
 NPFFooter.defaultProps = {
     buttons: 'prev',
     previousButton: () => {},
-    nextButton:  () => {}
+    nextButton:  () => {},
+    backType: 'button',
+    nextType: 'button'
 }
 
 export default NPFFooter
