@@ -5,8 +5,6 @@ import './NPFFooter.css'
 
 const NPFFooter = props => {
 
-    const nextButtonClass = () => props.next ? 'NPFFooter_next active' : 'NPFFooter_next'
-
     const buttons = () => {
         if (props.buttons === 'prev') {
             return (
@@ -50,6 +48,10 @@ const NPFFooter = props => {
             return <div />
         }
     }
+    
+    const nextButtonClass = () => props.next 
+        ? 'NPFFooter_next active' 
+        : 'NPFFooter_next'
 
     return (
         <footer className='NPFFooter'>

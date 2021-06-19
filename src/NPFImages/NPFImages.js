@@ -8,7 +8,7 @@ import FormUrlInput from '../FormUrlInput/FormUrlInput'
 import NPFFooter from '../NPFFooter/NPFFooter';
 
 const NPFImages = props => {
-    const addAnImage = (index) => {
+    const addImage = (index) => {
         const fieldsetToUpdate = props.colorFieldsets[index]
         fieldsetToUpdate.imageUrls.push('')
         props.setColorFieldsets([ ...props.colorFieldsets ])    
@@ -33,12 +33,12 @@ const NPFImages = props => {
         const missingUrls = []
 
         props.colorFieldsets.forEach(fieldset => {
-            if (fieldset.swatchUrl === '') {
+            if (fieldset.swatchUrl === '' || null) {
                 missingSwatches.push(fieldset.name)
             }
 
             fieldset.imageUrls.forEach(field => {
-                if (field === '') {
+                if (field === '' || null) {
                     missingUrls.push(
                         field.name
                     )
@@ -98,7 +98,7 @@ const NPFImages = props => {
                         
                         <FormButton
                             buttonText='ADD AN IMAGE FOR THIS COLOR'
-                            handleClick={() => addAnImage(index)}
+                            handleClick={() => addImage(index)}
                         />
                    </ FormFieldset>
                 })}

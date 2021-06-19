@@ -5,6 +5,35 @@ import FormPromptWithSub from '../FormPromptWithSub/FormPromptWithSub'
 import NPFFooter from '../NPFFooter/NPFFooter'
 
 const NPFFabricsQuestion = props => {
+    const linCheckOption = [
+        {
+            text: 'Yes',
+            id: 'lining-fabric',
+            checked: props.linCheck
+        }
+    ]
+
+    const nextButton = () => {
+        if (props.secCheck && props.linCheck) {
+            props.setPrimPageTurns(1)
+            props.setSecPageTurns(1)
+            props.setBackPageTurns(1)
+        } else if (props.secCheck && !props.linCheck) {
+            props.setPrimPageTurns(1)
+            props.setSecPageTurns(2)
+            props.setBackPageTurns(2)
+        } else if (!props.secCheck && props.linCheck) {
+            props.setPrimPageTurns(2)
+            props.setSecPageTurns(1)
+            props.setBackPageTurns(1)
+        } else if (!props.secCheck && !props.linCheck) {
+            props.setPrimPageTurns(3)
+            props.setBackPageTurns(3)
+        }
+        
+        props.setPage(props.currentPage + 1)
+    }
+
     const primCheckOption = [
         {
             text: 'Yes',
@@ -20,14 +49,7 @@ const NPFFabricsQuestion = props => {
             checked: props.secCheck
         }
     ]
-    
-    const linCheckOption = [
-        {
-            text: 'Yes',
-            id: 'lining-fabric',
-            checked: props.linCheck
-        }
-    ]
+
 
     return (
         <div id='fabric-question'>
@@ -67,22 +89,25 @@ const NPFFabricsQuestion = props => {
             </FormPage>
 
             <NPFFooter 
-                buttons='prevNext' previousButton={() => props.setPage(props.currentPage - 1)} 
-                nextButton={() => props.setPage(props.currentPage + 1)} 
+                buttons='prevNext' 
+                previousButton={() => props.setPage(props.currentPage - 1)} 
+                nextButton={() => nextButton()} 
             />
         </div>
     )    
 }
 
 NPFFabricsQuestion.defaultProps = {
+    currentPage: 0,
+    linCheck: false,
     primCheck: false,
     secCheck: false,
-    linCheck: false,
-    setPrimCheck: () => {},
-    setSecCheck: () => {},
     setLinCheck: () => {},
-    currentPage: 0,
-    setPage: () => {}
+    setPage: () => {},
+    setPrimCheck: () => {},
+    setPrimPageTurns: () => {},
+    setSecCheck: () => {},
+    setSecPageTurns: () => {}
 }
 
 export default NPFFabricsQuestion

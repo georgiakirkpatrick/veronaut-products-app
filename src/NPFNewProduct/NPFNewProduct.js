@@ -13,11 +13,8 @@ const NPFNewProduct = props => {
     const findBrandDetails = brand => {
         return brand['id'] === Number(props.brandId)
     }
-
     const brandDetailArray = props.brandList.filter(findBrandDetails)
     const brandDetails = brandDetailArray.length > 0 ? brandDetailArray[0] : { english_name: null, home_currency: null }
-    const currencyId = brandDetails.home_currency ? Number(brandDetails.home_currency - 1) : 0
-    const currencyDetails = currencies[currencyId]
 
     const changeField = event => {
         props.setNewProductFields({
@@ -26,12 +23,15 @@ const NPFNewProduct = props => {
         })
     }
 
+    const currencyId = brandDetails.home_currency ? Number(brandDetails.home_currency - 1) : 0
+    const currencyDetails = currencies[currencyId]
+
     const nextButton = event => {
         event.preventDefault()
         const missingFields = []
          
         Object.keys(props.newProductFields).forEach(key => {
-            if (props.newProductFields[key] === '' || 0) {
+            if (props.newProductFields[key] === '' || Number(props.newProductFields[key]) === 0) {
                 missingFields.push(key.replace( /([A-Z])/g, " $1" ).toLowerCase())
             }
         })
@@ -67,9 +67,9 @@ const NPFNewProduct = props => {
 
                 <FormUrlInput 
                     id='product-url'
-                    name='productUrl'
+                    name='url'
                     prompt='Product URL'
-                    currentValue={props.newProductFields.productUrl}
+                    currentValue={props.newProductFields.url}
                     handleChange={event => changeField(event)}
                 />
 
@@ -79,7 +79,7 @@ const NPFNewProduct = props => {
                     prompt='Category'
                     handleChange={event => changeField(event)}
                     currentValue={props.newProductFields.categoryId}
-                    options={formData.newProduct.category.options}
+                    options={formData.productCategories}
                 />
 
                 <FormUrlInput
@@ -104,7 +104,7 @@ const NPFNewProduct = props => {
                     prompt='Washing instructions'
                     handleChange={event => changeField(event)}
                     currentValue={props.newProductFields.washId}
-                    options={formData.newProduct.wash.options}
+                    options={formData.washOptions}
                 />
 
                 <FormDropdown
@@ -113,7 +113,7 @@ const NPFNewProduct = props => {
                     prompt='Drying instructions'
                     handleChange={event => changeField(event)}
                     currentValue={props.newProductFields.dryId}
-                    options={formData.newProduct.dry.options}
+                    options={formData.dryOptions}
                 />
             </FormPage>
 
@@ -131,7 +131,6 @@ NPFNewProduct.defaultProps = {
     brandList: [],
     currencies: [],
     currentPage: 0,
-    setPage: () => {},
     newProductFields: {
         name: '', 
         url: '' ,
@@ -142,8 +141,8 @@ NPFNewProduct.defaultProps = {
         wash: '',
         dry: ''
     },
-    setNewProductFields: () => {}
-
+    setNewProductFields: () => {},
+    setPage: () => {}
 }
 
 export default NPFNewProduct

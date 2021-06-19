@@ -55,7 +55,7 @@ exports[`NPFNewProduct render the UI as expected 1`] = `
         <input
           defaultValue=""
           id="product-url"
-          name="productUrl"
+          name="url"
           onChange={[Function]}
           required={true}
           type="url"

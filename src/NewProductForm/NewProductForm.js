@@ -22,10 +22,6 @@ import NPFSubmit from '../NPFSubmit/NPFSubmit'
 import config from '../config'
 import './NewProductForm.css'
 
-const formatCountries = countries.map((country, index) => {
-    return { id: index, text: country.text }
-})
-
 const makeCurrencyOptions = currencies.map((currency, index) => {
     return {
         id: index + 1, 
@@ -63,7 +59,7 @@ const NewProductForm = props => {
         }
 
         const getFiberTypes = () => {
-            fetch(`${config.API_URL}/api/fabrics/fiber-types`, getRequestParams)
+            fetch(`${config.API_URL}/api/fibers/fiber-types`, getRequestParams)
                 .then(response => {
                     if (response.status >= 400) {
                         console.log('There was a problem.  Status code: ' + response.status)
@@ -89,7 +85,6 @@ const NewProductForm = props => {
                     setNotionTypeList(notionTypeArray)
                 })
             }
-    
         getFactories()
         getFiberTypes()
         getNotionsTypes()
@@ -113,6 +108,8 @@ const NewProductForm = props => {
 
     // CERTIFICATIONS
     const [initCerts, setInitCerts] = useState({})
+    const initialCertChecks = certificationList.map(c => [c.id, false])
+    const initialObject = Object.fromEntries(initialCertChecks)
 
     // COLOR AND IMAGE STATE
     const [colorFieldsets, setColorFieldsets] = useState([
@@ -130,97 +127,112 @@ const NewProductForm = props => {
     const [linCheck, setLinCheck] = useState(false)
 
     // FABRICS
-        const [newCert, setNewCert] = useState({
-            name: '',
-            website: ''
-        })
-        const [newFact, setNewFact] = useState({
-            name: '',
-            countryId: '',
-            website: '',
-            notes: ''
-        })
-        const [newFiber, setNewFiber] = useState({
-            name: ''
-        })
-        const [newMill, setNewMill] = useState({
-            name: '',
-            countryId: '',
-            website: '',
-            notes: ''
-        })
-        const [certPopUp, setCertPopUp] = useState(false)
-        const [factPopUp, setFactPopUp] = useState(false)
-        const [fiberPopUp, setFiberPopUp] = useState(false)
-        const [millPopUp, setMillPopUp] = useState(false)
+    const [primPageTurns, setPrimPageTurns] = useState(3)
+    const [secPageTurns, setSecPageTurns] = useState(2)
+    const linPageTurns = 1
+    const [backPageTurns, setBackPageTurns] = useState(3)
+    const [newCert, setNewCert] = useState({
+        name: '',
+        website: ''
+    })
+    const [newFact, setNewFact] = useState({
+        name: '',
+        countryId: 0,
+        website: '',
+        notes: ''
+    })
+    const [newFiber, setNewFiber] = useState({
+        name: ''
+    })
+
+    const [newMill, setNewMill] = useState({
+        name: '',
+        countryId: 0,
+        website: '',
+        notes: ''
+    })
+    const [newProducer, setNewProducer] = useState({
+        name: '',
+        countryId: 0,
+        website: '',
+        notes: ''
+    })
+    const [certPopUp, setCertPopUp] = useState(false)
+    const [dyeFactPopUp, setDyeFactPopUp] = useState(false)
+    const [fiberPopUp, setFiberPopUp] = useState(false)
+    const [millPopUp, setMillPopUp] = useState(false)
+    const [producerPopUp, setProducerPopUp] = useState(false)
 
         // PRIMARY FABRIC STATE
-        const [primCertChecks, setPrimCertChecks] = useState({})
+        const [primCertChecks, setPrimCertChecks] = useState(initialObject)
         const [primFabFact, setPrimFabFact] = useState({
-            dyeFinCountryId: '',
-            dyeFinId: '',
+            dyeFinCountryId: 0,
+            dyeFinId: 0,
             dyeFinNotes: '',
-            wovKnitCountryId: '',
-            wovKnitId: '',
+            wovKnitCountryId: 0,
+            wovKnitId: 0,
             wovKnitNotes: ''
         })
+
         const [primFiberFieldsets, setPrimFiberFieldsets] = useState([
             {
                 fiberTypeId: 0,
-                percentage: '',
+                percentage: 0,
                 originId: 0,
                 producerId: 0,
                 producerNotes: '',
-                certIds: []
+                certIds: initialObject
             }
         ])
 
         // SECONDARY FABRIC STATE
-        const [secCertChecks, setSecCertChecks] = useState({})
+        const [secCertChecks, setSecCertChecks] = useState(initialObject)
         const [secFabFact, setSecFabFact] = useState({
-            dyeFinCountryId: '',
-            dyeFinId: '',
+            dyeFinCountryId: 0,
+            dyeFinId: 0,
             dyeFinNotes: '',
-            wovKnitCountryId: '',
-            wovKnitId: '',
+            wovKnitCountryId: 0,
+            wovKnitId: 0,
             wovKnitNotes: ''
         })
         const [secFiberFieldsets, setSecFiberFieldsets] = useState([
             {
                 fiberTypeId: 0,
-                percentage: '',
+                percentage: 0,
                 originId: 0,
                 producerId: 0,
                 producerNotes: '',
-                certIds: []
+                certIds: initialObject
             }
         ])
 
         // LINING FABRIC STATE
-        const [linCertChecks, setLinCertChecks] = useState({})
+        const [linCertChecks, setLinCertChecks] = useState(initialObject)
         const [linFabFact, setLinFabFact] = useState({
-            dyeFinCountryId: '',
-            dyeFinId: '',
+            dyeFinCountryId: 0,
+            dyeFinId: 0,
             dyeFinNotes: '',
-            wovKnitCountryId: '',
-            wovKnitId: '',
+            wovKnitCountryId: 0,
+            wovKnitId: 0,
             wovKnitNotes: ''
         })
         const [linFiberFieldsets, setLinFiberFieldsets] = useState([
             {
                 fiberTypeId: 0,
-                percentage: '',
+                percentage: 0,
                 originId: 0,
                 producerId: 0,
                 producerNotes: '',
-                certIds: []
+                certIds: initialObject
             }
         ])
 
     // MANUFACTURING STATE
-    const [sewFact, setSewFact] = useState({countryId: '', factoryId: ''})
-    const [cutFact, setCutFact] = useState({countryId: '', factoryId: ''})
-    const [manCertChecks, setManCertChecks] = useState({})
+    const [sewFact, setSewFact] = useState({countryId: 0, factoryId: 0})
+    const [cutFact, setCutFact] = useState({countryId: 0, factoryId: 0})
+    const [cutFactPopUp, setCutFactPopUp] = useState(false)
+    const [sewFactPopUp, setSewFactPopUp] = useState(false)
+    const [manCertChecks, setManCertChecks] = useState(initialObject)
     const [cmtNotes, setCmtNotes] = useState('')
 
     // NEW PRODUCT
@@ -234,34 +246,39 @@ const NewProductForm = props => {
         washId: 0,
         dryId: 0
     })
-    const [newProductId, setNewProductId] = useState('')
+    const [newProductId, setNewProductId] = useState(null)
 
     // NOTIONS
+    const [notFactPopUp, setNotFactPopUp] = useState(false)
     const [notionFields, setNotionFields] = useState([])
     const [notionTypePopUp, setNotionTypePopUp] = useState(false)
     const [materialPopUp, setMaterialPopUp] = useState(false)
     const [newNotionType, setNewNotionType] = useState('')
     const [newNotionMaterial, setNewNotionMaterial] = useState('')
+    const [notCertChecks, setNotCertChecks] = useState(initialObject)
+    const [matProdPopUp, setMatProdPopUp] = useState(false)
 
     // SET INITIAL CHECKBOX STATE VALUES
         // CERTIFICATION CHECKBOX VALUES
         React.useEffect(() => {
             const initialCertChecks = certificationList.map(c => [c.id, false])
             const initialObject = Object.fromEntries(initialCertChecks)
+
             setInitCerts(initialObject)
-            setManCertChecks(initialObject)
-            setPrimCertChecks(initialObject)
-            setSecCertChecks(initialObject)
-            setLinCertChecks(initialObject)
         }, [certificationList])
         
         // PERMITTED CATEGORIES
-        const initialPCategories = formData.permittedCategories.categoryOptions.map(cert => [cert.id, false])
-        const [selectedPCategories, setSelectedPCategories] = useState(Object.fromEntries(initialPCategories))
+        const initialPCategories = formData.permittedCategories.map(cert => [cert.id, false])
+        const pCatObject = Object.fromEntries(initialPCategories)
+        const [nonePCategories, setNonePCategories] = useState({101: false})
+        const [pCategories, setPCategories] = useState(pCatObject)
 
         // PROHIBITED FIBERS STATE
         const initialPFiberChecks = formData.prohibitedFibers.map(fiber => [fiber.id, false])
-        const [pFiberChecks, setPFiberChecks] = useState(Object.fromEntries(initialPFiberChecks))
+        const pFibObject = Object.fromEntries(initialPFiberChecks)
+        const [nonePFiber, setNonePFiber] = useState({100: false})
+        const [pageTurns, setPageTurns] = useState(1)
+        const [pFiberChecks, setPFiberChecks] = useState(pFibObject)
 
         // SIZES CHECKBOX VALUES
         const brandInfo = brandList.length >= 1 ? brandList.find(brand => brand.id === props.brandId) : null
@@ -281,99 +298,122 @@ const NewProductForm = props => {
         }
         const [selectedSizeOptions, setSelectedSizeOptions] = useState(allSizeIds())
 
-// SUBMIT FORM
+    // SUBMIT FORM
     const submitProduct = () => {
 
     // PREPARE DATA
-        const fabricArray = []
-        const certArray = certObject => {
+    const fabricArray = []
+    const certArray = certObject => {
+        const checkedCerts = []
+
+        for (const [key, value] of Object.entries(certObject)) {
+            if (value) {
+                checkedCerts.push(key)
+            }
+        }
+
+        return checkedCerts
+    }
+
+    const formatFibers = fibFieldsets => {
+        const formattedFieldsets = []
+
+        fibFieldsets.forEach(fibFieldset => {
+            const formattedCerts = certArray(fibFieldset.certIds)
+
+            formattedFieldsets.push({
+                ...fibFieldset,
+                certIds: formattedCerts
+            })
+
+
+        })
+
+        return formattedFieldsets
+    }
+
+    if (primCheck) {
+        fabricArray.push({
+            certs: certArray(primCertChecks),
+            fabric_details: primFabFact,
+            fiber_array: formatFibers(primFiberFieldsets),
+            relationship: "primary"
+        })
+    }
+
+    if (secCheck) {
+        fabricArray.push({
+            certs: certArray(secCertChecks),
+            fabric_details: secFabFact,
+            fiber_array: formatFibers(secFiberFieldsets),
+            relationship: "secondary"
+        })
+    }
+
+    if (linCheck) {
+        fabricArray.push({
+            certs: certArray(linCertChecks),
+            fabric_details: linFabFact,
+            fiber_array: formatFibers(linFiberFieldsets),
+            relationship: "lining"
+        })
+    }
+
+    const manCertArray = []
+
+    for (const [key, value] of Object.entries(manCertChecks)) {
+        if (value) {
+            manCertArray.push(key)
+        }
+    }
+
+    const sizeArray = []
+
+    for (const [key, value] of Object.entries(selectedSizeOptions)) {
+        if (value) {
+            sizeArray.push(key)
+        }
+    }
+
+    const newNotionArray = []
+
+    if (notionFields.length > 0) {
+        notionFields.forEach(notion => {
             const checkedCerts = []
 
-            for (const [key, value] of certObject) {
+            for (const [key, value] of Object.entries(notion.certIds)) {
                 if (value) {
                     checkedCerts.push(key)
                 }
             }
-        }
 
-        if (primCheck) {
-            fabricArray.push({
-                certs: certArray(primCertChecks),
-                fabric_details: primFabFact,
-                fiber_array: primFiberFieldsets,
-                relationship: "primary"
+            newNotionArray.push({
+                ...notion,
+                certIds: checkedCerts
             })
-        }
+        })
+    }
 
-        if (secCheck) {
-            fabricArray.push({
-                certs: certArray(secCertChecks),
-                fabric_details: secFabFact,
-                fiber_array: secFiberFieldsets,
-                relationship: "secondary"
-            })
-        }
-
-        if (linCheck) {
-            fabricArray.push({
-                certs: certArray(linCertChecks),
-                fabric_details: linFabFact,
-                fiber_array: linFiberFieldsets,
-                relationship: "lining"
-            })
-        }
-
-        const manCertArray = []
-
-        for (const [key, value] of Object.entries(manCertChecks)) {
-            if (value) {
-                manCertArray.push(key)
-            }
-        }
-
-        const sizeArray = []
-
-        for (const [key, value] of Object.entries(selectedSizeOptions)) {
-            if (value) {
-                sizeArray.push(key)
-            }
-        }
-
-        if (notionFields > 1) {
-
-            notionFields.forEach(notion => {
-                const checkedCerts = []
-
-                for (const [key, value] of notion.certIds) {
-                    if (value) {
-                        checkedCerts.push(key)
-                    }
-                }
-
-                notion.certIds = checkedCerts
-            })
-        }
-
-        const data = {
-            "english_name": newProductFields.name,
-            "brand_id": props.brandId,
-            "category_id": props.newProductFields.categoryId,
-            "product_url": props.newProductFields.url,
-            "feature_image_url": props.newProductFields.featureImageUrl,
-            "multiple_color_options": props.colorFieldsets.length > 1 ? true : false,
-            "cost_in_home_currency": props.newProductFields.price,
-            "wash_id": Number(props.newProductFields.washId),
-            "dry_id": Number(props.newProductFields.dryId),
-            "cmt_notes": cmtNotes,
-            "color_fieldsets": colorFieldsets,
-            "sew_fact": sewFact,
-            "cut_fact": cutFact,
-            "man_cert_checks": manCertArray,
-            "fabrics": fabricArray,
-            "notions": notionFields,
-            "selected_sizes": sizeArray,
-            "approved_by_admin": false
-        }
+    const data = {
+        "english_name": newProductFields.name,
+        "brand_id": props.brandId,
+        "category_id": newProductFields.categoryId,
+        "product_url": newProductFields.url,
+        "feature_image_url": newProductFields.featureImageUrl,
+        "multiple_color_options": colorFieldsets.length > 1 ? true : false,
+        "cost_in_home_currency": newProductFields.price,
+        "wash_id": Number(newProductFields.washId),
+        "dry_id": Number(newProductFields.dryId),
+        "cmt_notes": cmtNotes,
+        "color_fieldsets": colorFieldsets,
+        "sew_fact": sewFact,
+        "cut_fact": cutFact,
+        "man_cert_checks": manCertArray,
+        "fabrics": fabricArray,
+        "notions": newNotionArray,
+        "selected_sizes": sizeArray,
+        "approved_by_admin": false
+    }
 
     // CHECK ALL REQUIRED FIELDS ARE INCLUDED
         const isObject = variable => (
@@ -404,15 +444,12 @@ const NewProductForm = props => {
         fetch(`${config.API_URL}/api/products/product-form`,
             postRequestParams
         )
-        .then(response => {
-            if (response.status >= 400) {
-                throw new Error('Server responded with an error!')
-            }
-            return response.json()
-        })
-        .then(responseJson => {
-            console.log('responseJson', responseJson)
-        })
+            .then(response => {
+                if (response.status >= 400) {
+                    throw new Error('Server responded with an error!')
+                }
+                return response.json()
+            })
 }
 
 // FORM PAGES
@@ -433,6 +470,7 @@ const NewProductForm = props => {
             setBrandPopUp={setBrandPopUp}
             setBrandId={props.setBrandId}
             currencies={makeCurrencyOptions}
+            pageTurns={pageTurns}
         />
     )
     
@@ -446,79 +484,89 @@ const NewProductForm = props => {
         />
     )
 
-    // FABRICS
     const fabricProps = {
-        currentPage: currentPage,
-        setPage: setPage,
-        countries: formatCountries,
         certificationList: certificationList,
-        initCerts: initCerts,
-        setCertificationList: setCertificationList,
-        factoryList: factoryList,
-        setFactoryList: setFactoryList,
-        fiberTypeList: fiberTypeList,
-        setFiberTypeList: setFiberTypeList,
         certPopUp: certPopUp,
-        setCertPopUp: setCertPopUp,
-        factPopUp: factPopUp,
-        setFactPopUp: setFactPopUp,
+        countries: countries,
+        currentPage: currentPage,
+        dyeFactPopUp: dyeFactPopUp,
+        initCerts: initCerts,
+        factoryList: factoryList,
         fiberPopUp: fiberPopUp,
-        setFiberPopUp: setFiberPopUp,
+        fiberTypeList: fiberTypeList,
         millPopUp: millPopUp,
-        setMillPopUp: setMillPopUp,
         newCert: newCert,
-        setNewCert: setNewCert,
         newFact: newFact,
-        setNewFact: setNewFact,
         newFiber: newFiber,
-        setNewFiber: setNewFiber,
         newMill: newMill,
+        newProducer: newProducer,
+        producerPopUp: producerPopUp,
+        setCertificationList: setCertificationList,
+        setDyeFactPopUp: setDyeFactPopUp,
+        setFiberTypeList: setFiberTypeList,
+        setFactoryList: setFactoryList,
+        setCertPopUp: setCertPopUp,
+        setFiberPopUp: setFiberPopUp,
+        setInitCerts: setInitCerts,
+        setMillPopUp: setMillPopUp,
+        setNewCert: setNewCert,
+        setNewFact: setNewFact,
+        setNewFiber: setNewFiber,
         setNewMill: setNewMill,
+        setNewProducer: setNewProducer,
+        setPage: setPage,
+        setProducerPopUp: setProducerPopUp,
+        setSewFactPopUp: setSewFactPopUp,
+        sewFactPopUp: sewFactPopUp
     }
-        // PRIMARY FABRIC PAGE
-        const primFabric = (
-            <NPFFabrics
-                fabricProps={fabricProps}
-                id='prim'
-                title='Primary Fabric'
-                fabFact={primFabFact}
-                setFabFact={setPrimFabFact}
-                fiberFieldsets={primFiberFieldsets}
-                setFiberFieldsets={setPrimFiberFieldsets}
-                certChecks={primCertChecks}
-                setCertChecks={setPrimCertChecks}
-            />
-        )
+        
+    // PRIMARY FABRIC PAGE
+    const primFabric = (
+        <NPFFabrics
+            fabricProps={fabricProps}
+            id='prim'
+            title='Primary Fabric'
+            fabFact={primFabFact}
+            setFabFact={setPrimFabFact}
+            fiberFieldsets={primFiberFieldsets}
+            setFiberFieldsets={setPrimFiberFieldsets}
+            certChecks={primCertChecks}
+            setCertChecks={setPrimCertChecks}
+            pageTurns={primPageTurns}
+        />
+    )
 
-        // SECONDARY FABRIC PAGE
-        const secFabric = (
-            <NPFFabrics
-                fabricProps={fabricProps}
-                id='sec'
-                title='Secondary Fabric'
-                fabFact={secFabFact}
-                setFabFact={setSecFabFact}
-                fiberFieldsets={secFiberFieldsets}
-                setFiberFieldsets={setSecFiberFieldsets}
-                certChecks={secCertChecks}
-                setCertChecks={setSecCertChecks}
-            />
-        )
+    // SECONDARY FABRIC PAGE
+    const secFabric = (
+        <NPFFabrics
+            fabricProps={fabricProps}
+            id='sec'
+            title='Secondary Fabric'
+            fabFact={secFabFact}
+            setFabFact={setSecFabFact}
+            fiberFieldsets={secFiberFieldsets}
+            setFiberFieldsets={setSecFiberFieldsets}
+            certChecks={secCertChecks}
+            setCertChecks={setSecCertChecks}
+            pageTurns={secPageTurns}
+        />
+    )
 
-        // LINING FABRIC PAGE
-        const linFabric = (
-            <NPFFabrics
-                fabricProps={fabricProps}
-                id='lin'
-                title='Lining Fabric'
-                fabFact={linFabFact}
-                setFabFact={setLinFabFact}
-                fiberFieldsets={linFiberFieldsets}
-                setFiberFieldsets={setLinFiberFieldsets}
-                certChecks={linCertChecks}
-                setCertChecks={setLinCertChecks}
-            />
-        )
+    // LINING FABRIC PAGE
+    const linFabric = (
+        <NPFFabrics
+            fabricProps={fabricProps}
+            id='lin'
+            title='Lining Fabric'
+            fabFact={linFabFact}
+            setFabFact={setLinFabFact}
+            fiberFieldsets={linFiberFieldsets}
+            setFiberFieldsets={setLinFiberFieldsets}
+            certChecks={linCertChecks}
+            setCertChecks={setLinCertChecks}
+            pageTurns={linPageTurns}
+        />
+    )
 
     // FABRICS QUESTION PAGE
     const fabricsQuestion = (
@@ -531,6 +579,9 @@ const NewProductForm = props => {
             setSecCheck={setSecCheck}
             linCheck={linCheck}
             setLinCheck={setLinCheck}
+            setPrimPageTurns={setPrimPageTurns}
+            setSecPageTurns={setSecPageTurns}
+            setBackPageTurns={setBackPageTurns}
         />
     )
 
@@ -546,8 +597,8 @@ const NewProductForm = props => {
 
             <NPFFooter 
                 buttons='prev' 
-                previousButton={() => setPage(currentPage - 1)} 
-                nextButton={() => setPage(currentPage + 1)} 
+                previousButton={() => setPage(currentPage - 1)}
+                nextButton={() => setPage(currentPage + 1)}
             />
         </div>
     )
@@ -574,8 +625,12 @@ const NewProductForm = props => {
             brandId={props.brandId}
             cutFact={cutFact}
             setCutFact={setCutFact}
+            cutFactPopUp={cutFactPopUp}
+            setCutFactPopUp={setCutFactPopUp}
             sewFact={sewFact}
             setSewFact={setSewFact}
+            sewFactPopUp={sewFactPopUp}
+            setSewFactPopUp={setSewFactPopUp}
             cmtNotes={cmtNotes}
             setCmtNotes={setCmtNotes}
             certChecks={manCertChecks}
@@ -605,27 +660,26 @@ const NewProductForm = props => {
                     Veronaut does accept products made with synthetic fabrics, with exceptions for outerwear, shoes, and swimwear
                 </p>
 
-                <FormButton 
-                    buttonText={formData.notPermitted.buttons[1].text}
-                    handleClick={() => setPage(0)}
-                />
-
                 <Link 
                     className='NewProductForm__button-like'
                     to='/about'>
                         FIND OUT WHY
                 </Link>
+
+                <FormButton 
+                    buttonText='SUBMIT A DIFFERENT PRODUCT'
+                    handleClick={() => setPage(0)}
+                />
             </FormPage>
 
             <NPFFooter
-                buttons='prevNext'
+                buttons='prev'
                 previousButton={() => setPage(currentPage - 1)}
-                nextButton={() => setPage(currentPage + 1)}
             />
         </div>
     )
 
-    // NOTIONS    
+    // NOTIONS
     const notions = (
         <NPFNotions
             fabricProps={fabricProps}
@@ -637,40 +691,108 @@ const NewProductForm = props => {
             setNewNotionMaterial={setNewNotionMaterial}
             newNotionType={newNotionType}
             setNewNotionType={setNewNotionType}
+            notCertChecks={notCertChecks}
+            setNotCertChecks={setNotCertChecks}
+            notFactPopUp={notFactPopUp}
+            setNotFactPopUp={setNotFactPopUp}
             notionFields={notionFields}
             setNotionFields={setNotionFields}
             notionTypeList={notionTypeList}
             setNotionTypeList={setNotionTypeList}
             notionTypePopUp={notionTypePopUp}
             setNotionTypePopUp={setNotionTypePopUp}
+            matProdPopUp={matProdPopUp}
+            setMatProdPopUp={setMatProdPopUp}
+            backPageTurns={backPageTurns}
         />
     )
 
     // PERMITTED CATEGORIES
     const pCatChange = event => {
-        setSelectedPCategories({...selectedPCategories, [event.target.id]: !selectedPCategories[event.target.id]})
+        if (pCategories[event.target.id] === false) {
+            setPCategories(
+                {
+                    ...pCategories,
+                    [event.target.id]: true
+                }
+            )
+            setNonePCategories({101: false})
+            setPageTurns(2)
+        } else {
+            setPCategories(
+                {
+                    ...pCategories, 
+                    [event.target.id]: false
+                }
+            )
+        }
+    }
+
+    const nonePCatChange = () => {
+        if (nonePCategories[101] === false) {
+            setPCategories(pCatObject)
+            setNonePCategories({101: true})
+            setPageTurns(1)
+        } else {
+            setNonePCategories({101: false})
+        }
     }
 
     const permittedCategories = (
         <NPFPermittedCategories
-            selectedOptions={selectedPCategories}
-            handleChange={event => pCatChange(event)}
             currentPage={currentPage}
             setPage={setPage}
+            none={nonePCategories}
+            noneChange={nonePCatChange}
+            pCategories={pCategories}
+            pCatChange={event => pCatChange(event)}
+            pageTurns={pageTurns}
+            setPageTurns={setPageTurns}
         />
     )
 
     // PROHIBITED FIBERS
     const pFiberChange = event => {
-        setPFiberChecks({...pFiberChecks, [event.target.id]: !pFiberChecks[event.target.id]})
+        if (pFiberChecks[event.target.id] === false) {
+            setPFiberChecks(
+                {
+                    ...pFiberChecks, 
+                    [event.target.id]: true
+                }
+            )
+    
+            setNonePFiber({100: false})
+            setPageTurns(1)
+        } else {
+            setPFiberChecks(
+                {
+                    ...pFiberChecks,
+                    [event.target.id]: false
+                }
+            )
+        }
+    }
+
+    const nonePFiberChange = () => {
+        if (nonePFiber[100] === false) {
+            setPFiberChecks(pFibObject)
+            setNonePFiber({100: true})
+            setPageTurns(3)
+        } else {
+            setNonePFiber({100: false})
+        }
     }
 
     const prohibitedFibers = (
         <NPFProhibFibers
             currentPage={currentPage}
             setPage={setPage}
-            selectedOptions={pFiberChecks}
-            handleChange={event => pFiberChange(event)}
+            none={nonePFiber}
+            noneChange={nonePFiberChange}
+            pFiberChecks={pFiberChecks}
+            pFiberChange={event => pFiberChange(event)}
+            pageTurns={pageTurns}
+            setPageTurns={setPageTurns}
         />
     )
 
@@ -744,10 +866,10 @@ const NewProductForm = props => {
 }
 
 NewProductForm.defaultProps = {
-    certificationList: [],
-    setCertificationList: () => {},
     brandId: 0,
-    setBrandId: () => {}
+    certificationList: [],
+    setBrandId: () => {},
+    setCertificationList: () => {}
 }
 
 export default NewProductForm

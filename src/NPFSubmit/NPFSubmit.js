@@ -1,6 +1,7 @@
 import React from 'react'
 import FormButton from '../FormButton/FormButton'
 import FormPage from '../FormPage/FormPage'
+import NPFFooter from '../NPFFooter/NPFFooter'
 
 const NPFSubmit = props => {
     const submitButton = () => {
@@ -16,6 +17,11 @@ const NPFSubmit = props => {
                     handleClick={() => submitButton()}
                 />
             </FormPage>
+
+            <NPFFooter 
+                buttons='prev' 
+                previousButton={() => props.setPage(props.currentPage - 1)}
+            />
         </div>
     )
 }
@@ -23,7 +29,6 @@ const NPFSubmit = props => {
 NPFSubmit.defaultProps = {
     currentPage: 0,
     setPage: () => {},
-    selectedSizeOptions: {},
     submitProduct: () => {}
 }
 

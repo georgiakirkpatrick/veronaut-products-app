@@ -37,6 +37,59 @@ const NPFBrand = props => {
         getBrands()
     }, [setBrandList])
 
+    const addBrand = brand => {
+        props.setBrandList([
+        ...props.brandList,
+        {
+            "id": brand.id,
+            "english_name": brand.english_name,
+            "home_currency": Number(brand.home_currency),
+            "size_system": Number(brand.size_system),
+            "website": brand.website,
+            "approved_by_admin": brand.approved_by_admin
+        }
+        ])
+
+        props.setCurrentBrandId(brand.id)
+    }
+
+    const changeFields = event => {
+        const values = {...props.newBrandFields}
+        values[event.target.name] = event.target.value
+        props.setNewBrandFields(values)
+    }
+
+    const handleBrandPopClose = () => {
+        props.setBrandPopUp(false)
+    }
+
+    const handleBrandPopSubmit = () => {
+        const missingFields = []
+
+        Object.keys(props.newBrandFields).forEach(key => {
+            !props.newBrandFields[key] && missingFields.push(key.replace( /([A-Z])/g, " $1" ).toLowerCase())
+        })
+
+        if (missingFields.length === 1) {
+            alert(`Please complete the '${missingFields[0]}' field`)
+        } else if (missingFields.length > 1) {
+            alert(`Please complete the following fields: ${missingFields.map(field => `
+                ${field}`)}
+            `)
+        } else if (missingFields.length === 0) {
+            submitNewBrand()
+
+            props.setNewBrandFields({
+                name: '',
+                website: '',
+                currency: 0,
+                sizeSystem: 0
+            })
+
+            handleBrandPopClose()
+        }
+    }
+
     const makeBrandOptions = () => {
         const brands = props.brandList.map(brand => ({
             id: brand.id,
@@ -52,7 +105,7 @@ const NPFBrand = props => {
             {
                 id: 0,
                 text: "Select a brand",
-                value: 1
+                value: 0
             },
             ...brands
         ]
@@ -90,37 +143,11 @@ const NPFBrand = props => {
         ]
     }
 
-    const changeFields = event => {
-        const values = {...props.newBrandFields}
-        values[event.target.name] = event.target.value
-        props.setNewBrandFields(values)
-    }
-
     const newBrandPopUp = () => {
         if (props.brandPopUp === true) {
             return 'FormPopUp__pop-up active'
         }
         return 'FormPopUp__pop-up'
-    }
-
-    const handleBrandPopClose = () => {
-        props.setBrandPopUp(false)
-    }
-
-    const addBrand = brand => {
-        props.setBrandList([
-        ...props.brandList,
-        {
-            "id": brand.id,
-            "english_name": brand.english_name,
-            "home_currency": Number(brand.home_currency),
-            "size_system": Number(brand.size_system),
-            "website": brand.website,
-            "approved_by_admin": brand.approved_by_admin
-        }
-        ])
-
-        props.setCurrentBrandId(brand.id)
     }
 
     const submitNewBrand = () => {
@@ -171,40 +198,12 @@ const NPFBrand = props => {
             })
     }
 
-    const handleBrandPopSubmit = () => {
-        const missingFields = []
-
-        Object.keys(props.newBrandFields).forEach(key => {
-            !props.newBrandFields[key] && missingFields.push(key.replace( /([A-Z])/g, " $1" ).toLowerCase())
-        })
-
-        if (missingFields.length === 1) {
-            alert(`Please complete the '${missingFields[0]}' field`)
-        } else if (missingFields.length > 1) {
-            alert(`Please complete the following fields: ${missingFields.map(field => `
-                ${field}`)}
-            `)
-        } else if (missingFields.length === 0) {
-            submitNewBrand()
-
-            props.setNewBrandFields({
-                name: '',
-                website: '',
-                currency: 0,
-                sizeSystem: 0
-            })
-
-            handleBrandPopClose()
+    const nextButton = () => {
+        if (props.currentBrandId === 0) {
+            alert('Please select a brand.')
+        } else if (props.currentBrandId > 0) {
+            props.setPage(props.currentPage + 1)
         }
-    }
-
-
-    const nextButton = event => {
-        event.preventDefault()
-
-        props.currentBrandId !== 0
-            ? props.setPage(props.currentPage + 1)
-            : alert("Please select a brand")
     }
 
     // const nextButton = () => {props.setPage(props.currentPage + 1)}
@@ -240,11 +239,9 @@ const NPFBrand = props => {
 
                 <NPFFooter
                     buttons='prevNext'
-                    previousButton={() => props.setPage(props.currentPage - 1)} 
-                    nextButton={event => {
-                        nextButton(event)
-                    }}
-                    nextType='submit'
+                    previousButton={() => props.setPage(props.currentPage - props.pageTurns)} 
+                    nextButton={event => {nextButton(event)}}
+                    nextType='button'
                 />
             </FormPage>
 
@@ -302,24 +299,27 @@ const NPFBrand = props => {
 }
 
 NPFBrand.defaultProps = {
-    currentPage: 0,
-    setPage: () => {},
-    currentBrandId: 0,
-    setCurrentBrandId: () => {},
     brandList: [],
-    brands: [],
-    setBrands: () => {},
     brandPopUp: false,
-    setBrandPopUp: () => {},
-    newBrandFields:         {
+    brands: [],
+    currencies: [],
+    currentBrandId: 0,
+    currentPage: 0,
+    newBrandFields: {
         name: '',
         website: '',
         currency: 0,
         sizeSystem: 0
     },
-    setNewBrandFields: () => {},
+    pageTurns: 0,
     setBrandId: () => {},
-    currencies: []
+    setBrandList: () => {},
+    setBrandPopUp: () => {},
+    setBrands: () => {},
+    setCurrentBrandId: () => {},
+    setNewBrandFields: () => {},
+    setNewProductFields: () => {},
+    setPage: () => {}
 }
 
 export default NPFBrand

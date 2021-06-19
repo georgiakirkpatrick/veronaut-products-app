@@ -1,5 +1,4 @@
 import React from 'react'
-// import config from '../config'
 import FormPage from '../FormPage/FormPage'
 import FormCheckboxSection from '../FormCheckboxSection/FormCheckboxSection'
 import FormPromptWithSub from '../FormPromptWithSub/FormPromptWithSub'
@@ -8,25 +7,52 @@ import './NPFSizes.css'
 import sizeData from '../SIZES'
 
 const NPFSizes = props => {
-    // const newProductId = props.newProductId
-    const systemName = sizeData.systems[props.sizeSystem].text
+    const maternityOptions = [
+        ...sizeData.women.alpha.maternity.map(size => (
+            {
+                id: size.id,
+                name: 'm' + size.text,
+                text: size.text
+            }
+        )),
+        ...Object.values(sizeData.women.dress.maternity).map((size, index) => (
+            {
+                id: size[props.sizeSystem].id,
+                name: Object.keys(sizeData.women.dress.maternity)[index],
+                text: size[props.sizeSystem].text
+            }
+        ))
+    ]
 
-    // const initiateSizes = () => props.setSelectedSizeOptions()
+    const nextButton = () => {
+        props.setPage(props.currentPage + 1)
+    }
 
-    // const allSizeOptions = [
-    //     ...sizeData.women.alpha.standard.map(option => [option.id, false]),
-    //     ...Object.values(sizeData.women.dress.standard).map(option => [option[props.sizeSystem].id, false]),
-    //     ...sizeData.women.alpha.petite.map(option => [option.id, false]),
-    //     ...Object.values(sizeData.women.dress.petite).map(option => [option[props.sizeSystem].id, false]),
-    //     ...sizeData.women.alpha.tall.map(option => [option.id, false]),
-    //     ...Object.values(sizeData.women.dress.tall).map(option => [option[props.sizeSystem].id, false]),
-    //     ...sizeData.women.alpha.maternity.map(option => [option.id, false]),
-    //     ...Object.values(sizeData.women.dress.maternity).map(option => [option[props.sizeSystem].id, false])
-    // ]
+    const petiteOptions = [
+        ...sizeData.women.alpha.petite.map(size => (
+            {
+                id: size.id,
+                name: 'p' + size.text,
+                text: size.text
+            }
+        )),
+        ...Object.values(sizeData.women.dress.petite).map((size, index) => (
+            {
+                id: size[props.sizeSystem].id,
+                name: Object.keys(sizeData.women.dress.petite)[index],
+                text: size[props.sizeSystem].text
+            }
+        ))
+    ]
 
-    // useEffect(() => {
-    //     initiateSizes(Object.fromEntries(allSizeOptions))
-    // }, [allSizeOptions])
+    const sizeChange = event => {
+        props.setSelectedSizeOptions(
+            {
+                ...props.selectedSizeOptions,
+                [event.target.id]: !props.selectedSizeOptions[event.target.id]
+            }
+        )
+    }
 
     const standardOptions = [
         ...sizeData.women.alpha.standard.map(size => (
@@ -45,23 +71,8 @@ const NPFSizes = props => {
         ))
     ]
 
-    const petiteOptions = [
-        ...sizeData.women.alpha.petite.map(size => (
-            {
-                id: size.id,
-                name: 'p' + size.text,
-                text: size.text
-            }
-        )),
-        ...Object.values(sizeData.women.dress.petite).map((size, index) => (
-            {
-                id: size[props.sizeSystem].id,
-                name: Object.keys(sizeData.women.dress.petite)[index],
-                text: size[props.sizeSystem].text
-            }
-        ))
-    ]
-        
+    const systemName = sizeData.systems[props.sizeSystem].text
+
     const tallOptions = [
         ...sizeData.women.alpha.tall.map(size => (
             {
@@ -78,60 +89,6 @@ const NPFSizes = props => {
             }
         ))
     ]
-
-    const maternityOptions = [
-        ...sizeData.women.alpha.maternity.map(size => (
-            {
-                id: size.id,
-                name: 'm' + size.text,
-                text: size.text
-            }
-        )),
-        ...Object.values(sizeData.women.dress.maternity).map((size, index) => (
-            {
-                id: size[props.sizeSystem].id,
-                name: Object.keys(sizeData.women.dress.maternity)[index],
-                text: size[props.sizeSystem].text
-            }
-        ))
-    ]
-
-    const sizeChange = event => {
-        props.setSelectedSizeOptions(
-            {
-                ...props.selectedSizeOptions,
-                [event.target.id]: !props.selectedSizeOptions[event.target.id]
-            }
-        )
-    }
-
-    // const submitSize = sizeId => {
-    //     const data = {
-    //         "size_id": sizeId,
-    //         "product_id": newProductId
-    //     }
-
-    //     const postRequestParams = {
-    //         method: 'POST',
-    //         headers: { 'Content-type': 'application/json' },
-    //         body: JSON.stringify(data)
-    //     }
-
-    //     fetch(`${config.API_URL}/api/products/${newProductId}/sizes`,
-    //         postRequestParams
-    //     )
-    //     .then(response => {
-    //         if (response.status >= 400) {
-    //             throw new Error('Server responded with an error!')
-    //         }
-    //         return response.json()
-    //     })
-    // }
-
-    const nextButton = () => {
-        // sizeIds.forEach(sizeId => submitSize(sizeId))
-        props.setPage(props.currentPage + 1)
-    }
 
     return (
         <div className='NPFSizes'>
@@ -181,11 +138,10 @@ const NPFSizes = props => {
 
 NPFSizes.defaultProps = {
     currentPage: 0,
-    setPage: () => {},
     selectedSizeOptions: [],
+    setPage: () => {},
     setSelectedSizeOptions: () => {},
     sizes: [],
-    sizeChange: () => {},
     sizeSystem: 1
 }    
 

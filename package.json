@@ -21,6 +21,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "env CI=true npm test && npm run build",
+    "deploy": "vercel --prod",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

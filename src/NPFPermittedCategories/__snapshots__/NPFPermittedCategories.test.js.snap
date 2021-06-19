@@ -38,13 +38,13 @@ exports[`NPFPermittedCategories renders the UI as expected 1`] = `
             className="FormCheckboxSection__option"
           >
             <input
-              id="coats-and-jackets"
-              name="coats-and-jackets"
+              id={1}
+              name={1}
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="coats-and-jackets"
+              htmlFor={1}
             >
               Coats and jackets
             </label>
@@ -53,13 +53,13 @@ exports[`NPFPermittedCategories renders the UI as expected 1`] = `
             className="FormCheckboxSection__option"
           >
             <input
-              id="shoes"
-              name="shoes"
+              id={2}
+              name={2}
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="shoes"
+              htmlFor={2}
             >
               Shoes
             </label>
@@ -68,28 +68,39 @@ exports[`NPFPermittedCategories renders the UI as expected 1`] = `
             className="FormCheckboxSection__option"
           >
             <input
-              id="swimwear"
-              name="swimwear"
+              id={3}
+              name={3}
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="swimwear"
+              htmlFor={3}
             >
               Swimwear
             </label>
           </div>
+        </div>
+      </div>
+      <div
+        className="FormCheckboxSection"
+      >
+        <div
+          className="empty"
+        />
+        <div
+          className="FormCheckboxSection__options-container"
+        >
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="none"
-              name="none"
+              id={101}
+              name={101}
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="none"
+              htmlFor={101}
             >
               None of these
             </label>

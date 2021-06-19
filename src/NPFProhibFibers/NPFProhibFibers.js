@@ -1,68 +1,34 @@
 import React from 'react'
+import formData from '../FORM_DATA'
 import FormPage from '../FormPage/FormPage'
 import FormCheckboxSection from '../FormCheckboxSection/FormCheckboxSection'
 import FormPromptWithSub from '../FormPromptWithSub/FormPromptWithSub'
 import NPFFooter from '../NPFFooter/NPFFooter'
 
-const prohibitedFibers = [
-    {
-        text: 'Acetate',
-        id: 'acetate',
-        checked: false
-    },
-    {
-        text: 'Acrylic',
-        id: 'acrylic',
-        checked: false
-    },
-    {
-        text: 'Microfiber',
-        id: 'microfiber',
-        checked: false
-    },
-    {
-        text: 'Neoprene',
-        id: 'neoprene',
-        checked: false
-    },
-    {
-        text: 'Nylon',
-        id: 'nylon',
-        checked: false
-    },
-    {
-        text: 'Olefin',
-        id: 'olefin',
-        checked: false
-    },
-    {
-        text: 'Polyamide',
-        id: 'polyamide',
-        checked: false
-    },
-    {
-        text: 'Polyester',
-        id: 'polyester',
-        checked: false
-    },
-    {
-        text: 'Polyurethane',
-        id: 'polyurethane',
-        checked: false
-    },
-    {
-        text: 'Vinyl',
-        id: 'vinyl',
-        checked: false
-    },
+const noneOption = [
     {
         text: 'None of these',
-        id: 'none',
+        id: 100,
         checked: false
     }
 ]
 
 const NPFProhibFibers = props => {
+    const nextButton = () => {
+        const prohibFibs = []
+
+        Object.keys(props.pFiberChecks).forEach(key => {
+            if (props.pFiberChecks[key]) {
+                prohibFibs.push(key)
+            }
+        })
+
+        if (prohibFibs.length === 0 && !props.none[100]) {
+            alert('Please select an option.')
+        } else {
+            props.setPage(props.currentPage + props.pageTurns)
+        }
+    }
 
     return (
         <div>
@@ -73,21 +39,38 @@ const NPFProhibFibers = props => {
                 />
 
                 <FormCheckboxSection 
-                    options={prohibitedFibers}
-                    selectedOptions={props.selectedOptions}
-                    handleChange={props.handleChange}
+                    options={formData.prohibitedFibers}
+                    selectedOptions={props.pFiberChecks}
+                    handleChange={props.pFiberChange}
+                />
+
+                <FormCheckboxSection  
+                    options={noneOption}
+                    selectedOptions={props.none}
+                    handleChange={props.noneChange}
                 />
             </FormPage>
-            <NPFFooter buttons='prevNext' previousButton={() => props.setPage(props.currentPage - 1)} nextButton={() => props.setPage(props.currentPage + 1)} />
+
+            <NPFFooter
+                buttons='prevNext'
+                previousButton={() => props.setPage(props.currentPage - props.pageTurns)} 
+                nextButton={() => nextButton()}
+            />
         </div>
     )
 }
 
 NPFProhibFibers.defaultProps = {
-    selectedOptions: [],
+    currentPage: 1,
     handleChange: () => {},
+    none: {},
+    noneChange: () => {},
+    pageTurns: 1,
+    pFiberChange: () => {},
+    pFiberChecks: {},
+    selectedOptions: [],
     setPage: () => {},
-    currentPage: 1
+    setPFiberChecks: () => {}
 }
 
 export default NPFProhibFibers

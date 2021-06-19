@@ -80,7 +80,9 @@ const App = () => {
               approved: cert.approved_by_admin
             }
           })
-          
+
+          formattedCerts.sort((a, b) => a.text > b.text ? 1 : -1)
+
           setCertificationList(formattedCerts)
           setCertListLoaded(true)
         })

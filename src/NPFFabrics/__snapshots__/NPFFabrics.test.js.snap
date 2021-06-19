@@ -37,14 +37,15 @@ exports[`NPFFabrics render the UI as expected 1`] = `
           className="FormDropdown"
         >
           <label
-            htmlFor="dyeFinLocation"
+            htmlFor="dye-finish-country-id"
           >
-            Dyeing and finishing location
+            Dyeing and finishing country
           </label>
           <select
-            name="dyeFinLocation"
+            name="dyeFinCountryId"
             onChange={[Function]}
             required={true}
+            value=""
           >
             <option
               id={0}
@@ -223,14 +224,15 @@ exports[`NPFFabrics render the UI as expected 1`] = `
           className="FormDropdown"
         >
           <label
-            htmlFor="wov-knit-location"
+            htmlFor="wov-knit-country-id"
           >
-            Knitting or weaving location
+            Knitting or weaving country
           </label>
           <select
-            name="wovKnitLocation"
+            name="wovKnitCountryId"
             onChange={[Function]}
             required={true}
+            value=""
           >
             <option
               id={0}
@@ -244,14 +246,15 @@ exports[`NPFFabrics render the UI as expected 1`] = `
           className="FormDropdown"
         >
           <label
-            htmlFor="wov-knit-location"
+            htmlFor="wov-knit-id"
           >
             Knitting/weaving fabric mill
           </label>
           <select
-            name="wovKnitFactory"
+            name="wovKnitId"
             onChange={[Function]}
             required={true}
+            value=""
           >
             <option
               id={0}

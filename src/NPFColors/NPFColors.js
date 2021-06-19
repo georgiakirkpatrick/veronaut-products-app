@@ -9,6 +9,26 @@ import FormTextInput from '../FormTextInput/FormTextInput'
 import formData from '../FORM_DATA'
 
 const NPFColors = props => {
+    const addColor = () => {
+        props.setColorFieldsets(
+            [
+                ...props.colorFieldsets, 
+                {
+                    name: '', 
+                    descriptionId: 0, 
+                    swatchUrl: '',
+                    imageUrls: ['']
+                }
+            ]
+        )
+    }
+
+    const colorsChangeInput = (index, event) => {
+        const values = [...props.colorFieldsets]
+        values[index][event.target.name] = event.target.value
+        props.setColorFieldsets(values)
+    }
+
     const makeColorOptions = () => {
         const defaultOption = {
             id: 0,
@@ -16,7 +36,7 @@ const NPFColors = props => {
             value: 0
         }
         
-        const colors = formData.colors.description.options.map(color => (
+        const colors = formData.colors.map(color => (
             {
                 id: color.id,
                 text: color.text,
@@ -28,32 +48,6 @@ const NPFColors = props => {
             defaultOption,
             ...colors
         ]
-    }    
-
-    const colorsChangeInput = (index, event) => {
-        const values = [...props.colorFieldsets]
-        values[index][event.target.name] = event.target.value
-        props.setColorFieldsets(values)
-    }
-
-    const addAColor = () => {
-        props.setColorFieldsets(
-            [
-                ...props.colorFieldsets, 
-                { 
-                    name: '', 
-                    descriptionId: 0, 
-                    swatchUrl: '',
-                    imageUrls: ['']
-                }
-            ]
-        )
-    }
-
-    const removeColor = (index) => {
-        const values = [...props.colorFieldsets]
-        values.splice(index, 1)
-        props.setColorFieldsets(values)
     }
 
     const nextButton = () => {
@@ -80,6 +74,12 @@ const NPFColors = props => {
     
     // const nextButton = () => {props.setPage(props.currentPage + 1)}
     
+    const removeColor = (index) => {
+        const values = [...props.colorFieldsets]
+        values.splice(index, 1)
+        props.setColorFieldsets(values)
+    }
+
     return (
         <div id='colors'>
             <FormPage title='Colors'>
@@ -122,7 +122,7 @@ const NPFColors = props => {
     
                 <FormButton 
                     buttonText='ADD A COLOR' 
-                    handleClick={() => addAColor() } 
+                    handleClick={() => addColor() } 
                 />                
             </FormPage>
             <NPFFooter

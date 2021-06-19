@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import config from '../config'
 import FormButton from '../FormButton/FormButton'
 import FormCheckboxSection from '../FormCheckboxSection/FormCheckboxSection'
@@ -13,8 +13,119 @@ import FormUrlInput from '../FormUrlInput/FormUrlInput'
 import FormNumberInput from '../FormNumberInput/FormNumberInput'
 
 const NPFFabrics = props => {
-    const [fiberCertChecks, setFiberCertChecks] = useState({0: props.fabricProps.initialCertChecks})
-    const [fiberCount, setFiberCount] = useState(1)
+    console.log('props', props)
+    const addCertification = certification => {
+        props.fabricProps.setCertificationList([
+            ...props.fabricProps.certificationList,
+            {
+                id: certification.id,
+                text: certification.english_name,
+                website: certification.website,
+                approved: certification.approved_by_admin
+            }
+        ])
+
+        props.fabricProps.setInitCerts({
+            ...props.fabricProps.initCerts,
+            [certification.id]: false
+        })
+    }
+
+    const addFactory = newFactory => {
+        props.fabricProps.setFactoryList([
+            ...props.fabricProps.factoryList,
+            {
+                id: newFactory.id,
+                english_name: newFactory.english_name,
+                country: newFactory.country,
+                website: newFactory.website,
+                notes: newFactory.notes,
+                approved_by_admin: newFactory.approved_by_admin
+            }
+        ])
+    }
+
+    const addFiber = () => {
+        const initialCertChecks = props.fabricProps.certificationList.map(c => [c.id, false])
+        const initialObject = Object.fromEntries(initialCertChecks)
+
+        props.setFiberFieldsets([
+            ...props.fiberFieldsets,
+            {
+                fiberTypeId: 0,
+                percentage: '',
+                originId: 0,
+                producerId: 0,
+                producerNotes: '',
+                certIds: initialObject
+            }
+        ])
+    }
+
+    const addFiberType = newFiberType => {
+        props.fabricProps.setFiberTypeList([
+            ...props.fabricProps.fiberTypeList,
+            newFiberType
+        ])
+    }
+
+    const certPopUpStatus = () => {
+        if (props.fabricProps.certPopUp === true) {
+            return 'FormPopUp__pop-up active'
+        }
+        return 'FormPopUp__pop-up'
+    }
+
+    const handleClose = () => {
+        props.fabricProps.setCertPopUp(false)
+        props.fabricProps.setDyeFactPopUp(false)
+        props.fabricProps.setFiberPopUp(false)
+        props.fabricProps.setMillPopUp(false)
+    }
+
+    const fabCertChange = event => {
+        props.setCertChecks({
+            ...props.certChecks, 
+            [event.target.id]: !props.certChecks[event.target.id]
+        })
+    }
+
+    const fabChange = event => {
+        const fabFields = {...props.fabFact}
+        fabFields[event.target.name] = event.target.value
+        props.setFabFact(fabFields)
+    }
+
+    const factPopUpStatus = () => {
+        if (props.fabricProps.dyeFactPopUp === true) {
+            return 'FormPopUp__pop-up active'
+        }
+        return 'FormPopUp__pop-up'
+    }
+
+    const fibCertChange = (fiberIndex, changeId) => {
+        console.log('fiberIndex', fiberIndex)
+        const updatedFibers = [...props.fiberFieldsets]
+    
+        updatedFibers[fiberIndex].certIds[changeId] = !props.fiberFieldsets[fiberIndex].certIds[changeId]
+
+        console.log('updatedFibers', updatedFibers)
+
+        props.setFiberFieldsets(updatedFibers)
+    }
+
+    const fibChangeInput = (index, event) => {
+        const values = [...props.fiberFieldsets]
+        values[index][event.target.name] = event.target.value
+        props.setFiberFieldsets(values)
+    }
+
+    const fibPopUpStatus = () => {
+        if (props.fabricProps.fiberPopUp === true) {
+            return 'FormPopUp__pop-up active'
+        }
+        return 'FormPopUp__pop-up'
+    }
 
     const makeCountryOptions = () => {
         const countries = props.fabricProps.countries.map((country, index) => ({
@@ -33,37 +144,31 @@ const NPFFabrics = props => {
         ]
     }
 
-    const makeFactoryOptions = () => {
-        const factories = props.fabricProps.factoryList.map(factory => ({
-            id: factory.id,
-            text: factory.english_name,
-            value: factory.id
-        }))
+    const makeFactoryOptions = factType => {
+        const factoryQty = props.fabricProps.factoryList.length
+        const factories = props.fabricProps.factoryList.slice(1, factoryQty)
+        const alphaFactories = factories.sort((a, b) => a.english_name > b.english_name ? 1 : -1)
+
+        const formatedFactories = alphaFactories.map(mill => (
+            {
+                id: mill.id,
+                text: mill.english_name,
+                value: mill.id
+            }
+        ))
 
         return [
             {
                 id: 0,
-                text: 'Select a factory',
+                text: `Select a ${factType}`,
                 value: 0
             },
-            ...factories
-        ]
-    }
-
-    const makeMillOptions = () => {
-        const mills = props.fabricProps.factoryList.map(factory => ({
-            id: factory.id,
-            text: factory.english_name,
-            value: factory.id
-        }))
-
-        return [
             {
-                id: 0,
-                text: 'Select a fabric mill',
-                value: 0
+                id: 1,
+                text: 'Not disclosed',
+                value: 1
             },
-            ...mills
+            ...formatedFactories
         ]
     }
 
@@ -83,14 +188,21 @@ const NPFFabrics = props => {
             ...fibers
         ]
     }
+
+    const millPopUpStatus = () => {
+        if (props.fabricProps.millPopUp === true) {
+            return 'FormPopUp__pop-up active'
+        }
+        return 'FormPopUp__pop-up'
+    }
     
-    const fabChange = event => {
-        const fabFields = {...props.fabFact}
-        fabFields[event.target.name] = event.target.value
-        props.setFabFact(fabFields)
+    const newCertChange = event => {
+        const newCertFields = {...props.fabricProps.newCert}
+        newCertFields[event.target.name] = event.target.value
+        props.fabricProps.setNewCert(newCertFields)
     }
 
-    const newFactChange                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    = event => {
+    const newFactChange = event => {
         const newFields = {...props.fabricProps.newFact}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
         newFields[event.target.name] = event.target.value
         props.fabricProps.setNewFact(newFields)
@@ -102,53 +214,56 @@ const NPFFabrics = props => {
         props.fabricProps.setNewMill(newFields)
     }
 
-    const newCertChange = event => {
-        const newCertFields = {...props.fabricProps.newCert}
-        newCertFields[event.target.name] = event.target.value
-        props.fabricProps.setNewCert(newCertFields)
+    const newProducerChange = event => {
+        const newFields = {...props.fabricProps.newProducer}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+        newFields[event.target.name] = event.target.value
+        props.fabricProps.setNewProducer(newFields)
     }
 
-    const fabricCertChange = event => {
-        props.setCertChecks({...props.certChecks, [event.target.id]: !props.certChecks[event.target.id]})
-    }
+    const nextButton = () => {
+        const missingFabricFields = []
 
-    const fiberCertChange = (event, index) => {
-        const fiberObject = fiberCertChecks[index]
+        const requiredFabFields = {
+            'dyeFinCountryId': 'dyeing and finishing country',
+            'dyeFinId': 'dyeing and finishing factory',
+            'wovKnitCountryId': 'knitting or weaving country',
+            'wovKnitId': 'knitting or weaving fabric mill'
+        }
 
-        setFiberCertChecks(
-            {
-                ...fiberCertChecks,
-                [index]: {
-                    ...fiberObject,
-                    [event.target.id]: !fiberObject[event.target.id]
-                }
+        Object.keys(requiredFabFields).forEach(key => {
+            if (Number(props.fabFact[key]) === 0) {
+                missingFabricFields.push(requiredFabFields[key])
             }
-        )
-    }
-
-    const fibersChangeInput = (index, event) => {
-        const values = [...props.fiberFieldsets]
-        values[index][event.target.name] = event.target.value
-        props.setFiberFieldsets(values)
-    }
-
-    const addAFiber = () => {
-        props.setFiberFieldsets([
-            ...props.fiberFieldsets,
-            {
-                fiberTypeId: 0,
-                percentage: '',
-                originId: 0,
-                certIds: []
-            }
-        ])
-
-        setFiberCertChecks({
-            ...fiberCertChecks,
-            [fiberCount]: props.fabricProps.initialCertChecks
         })
+            
+        if (missingFabricFields.length === 1) {
+            alert(`Please complete the '${missingFabricFields[0]}' field`)
+        } else if (missingFabricFields.length > 1) {
+            alert(`Please complete the following fields: ${missingFabricFields.map(field => `
+                ${field}`)}
+            `)
+        } else if (missingFabricFields.length === 0) {
+            props.fiberFieldsets.forEach(fiber => {
+                if (Number(fiber.fiberTypeId) === 0) {
+                    alert(`Please select an option for each 'fiber type' field.  Remove any unused fiber sections with the 'remove' button.`)
+                } else if (Number(fiber.originId) === 0) {
+                    alert(`Please select an option for each 'fiber origin' field.  Remove any unused fiber sections with the 'remove' button.`)
+                } else if (Number(fiber.producerId) === 0) {
+                    alert(`Please select an option for each 'fiber producer' field.  Remove any unused fiber sections with the 'remove' button.`)
+                } else {
+                    props.fabricProps.setPage(props.fabricProps.currentPage + props.pageTurns)
+                }
+            })
+        }
+    }
 
-        setFiberCount(fiberCount + 1)
+    // const nextButton = () => {props.fabricProps.setPage(props.fabricProps.currentPage + 1)}
+
+    const prodPopUpStatus = () => {
+        if (props.fabricProps.producerPopUp === true) {
+            return 'FormPopUp__pop-up active'
+        }
+        return 'FormPopUp__pop-up'
     }
 
     const removeFiber = (index) => {
@@ -157,88 +272,10 @@ const NPFFabrics = props => {
         props.setFiberFieldsets(values)
     }
 
-    const handleClose = () => {
-        props.fabricProps.setCertPopUp(false)
-        props.fabricProps.setFactPopUp(false)
-        props.fabricProps.setFiberPopUp(false)
-        props.fabricProps.setMillPopUp(false)
-    }
-
-    const certPopUpStatus = () => {
-        if (props.fabricProps.certPopUp === true) {
-            return 'FormPopUp__pop-up active'
-        }
-        return 'FormPopUp__pop-up'
-    }
-
-    const factPopUpStatus = () => {
-        if (props.fabricProps.factPopUp === true) {
-            return 'FormPopUp__pop-up active'
-        }
-        return 'FormPopUp__pop-up'
-    }
-
-    const fiberPopUpStatus = () => {
-        if (props.fabricProps.fiberPopUp === true) {
-            return 'FormPopUp__pop-up active'
-        }
-        return 'FormPopUp__pop-up'
-    }
-
-    const millPopUpStatus = () => {
-        if (props.fabricProps.millPopUp === true) {
-            return 'FormPopUp__pop-up active'
-        }
-        return 'FormPopUp__pop-up'
-    }
-
-    const addFactory = newFactory => {
-        props.fabricProps.setFactoryList([
-            ...props.fabricProps.factoryList,
-            {
-                id: newFactory.id,
-                english_name: newFactory.english_name,
-                country: newFactory.country,
-                website: newFactory.website,
-                notes: newFactory.notes,
-                approved_by_admin: newFactory.approved_by_admin
-            }
-        ])
-    }
-
-    const addFiberType = newFiberType => {
-        props.fabricProps.setFiberTypeList([
-            ...props.fabricProps.fiberTypeList,
-            newFiberType
-        ])
-    }
-
-    const addCertification = certification => {
-        props.fabricProps.setCertificationList([
-            ...props.fabricProps.certificationList,
-            {
-                id: certification.id,
-                text: certification.english_name,
-                website: certification.website,
-                approved: certification.approved_by_admin
-            }
-        ])
-
-        props.setCertChecks({
-            ...props.certChecks,
-            [certification.id]: false
-        })
-
-        props.fabricProps.setInitialCertChecks({
-            ...props.fabricProps.initialCertChecks,
-            [certification.id]: false
-        })
-    }
-
     const submitFactory = () => {
         const data = {
             "english_name": props.fabricProps.newFact.name,
-            "country": props.fabricProps.newFact.location,
+            "country": props.fabricProps.newFact.countryId,
             "website": props.fabricProps.newFact.website,
             "notes": props.fabricProps.newFact.notes
         }
@@ -271,8 +308,12 @@ const NPFFabrics = props => {
             })
             .then(responseJson => {
                 addFactory(responseJson)
-            })
-            props.fabricProps.setFactPopUp(false)
+                    const fabFactory = {...props.fabFact}
+                    fabFactory.dyeFinId = responseJson.id
+                    props.setFabFact(fabFactory)
+                })
+
+            props.fabricProps.setDyeFactPopUp(false)
             props.fabricProps.setNewFact({
                 name: '',
                 countryId: 0,
@@ -280,28 +321,26 @@ const NPFFabrics = props => {
                 notes: ''
             })
         }
-        
     }
 
     const submitFiber = () => {
         const data = {
-            "english_name": props.fabricProps.newFiber.name,
-            "fiber_type_class": "undetermined"
+            "english_name": props.fabricProps.newFiber.name
         }
 
         const postRequestParams = {
             method: 'POST',
-            headers: 'Content-type: application/json',
+            headers: { 'Content-type': 'application/json' },
             body: JSON.stringify(data)
         }
 
         if (props.fabricProps.newFiber.name === '') {
             alert(`Please enter a new fiber.`)
         } else {
-            fetch(`${config.API_URL}/api/fabrics/fiber-types`,
+            fetch(`${config.API_URL}/api/fibers/fiber-types`,
                 postRequestParams
             )
-            .then(response => {
+            .then(response => {            
                 if (response.status >= 400) {
                     throw new Error('Server responded with an error!')
                 }
@@ -314,6 +353,111 @@ const NPFFabrics = props => {
             props.fabricProps.setFiberPopUp(false)
             props.fabricProps.setNewFiber({
                 name: ''
+            })
+        }
+    }
+
+    const submitFibProducer = index => {
+        const data = {
+            "english_name": props.fabricProps.newProducer.name,
+            "country": props.fabricProps.newProducer.countryId,
+            "website": props.fabricProps.newProducer.website,
+            "notes": props.fabricProps.newProducer.notes
+        }
+
+        const postRequestParams = {
+            method: 'POST',
+            headers: { 'Content-type': 'application/json' },
+            body: JSON.stringify(data)
+        }
+
+        const missingFields = []
+
+        console.log('props.fabricProps.newProducer', props.fabricProps.newProducer)
+
+        Object.keys(props.fabricProps.newProducer).forEach(key => {
+            console.log('props.fabricProps.newProducer')
+            if (props.fabricProps.newProducer[key] === '' || 0) {
+                missingFields.push(key.replace( /([A-Z])/g, " $1" ).toLowerCase())
+            }
+        })
+
+        if (missingFields.length >= 1) {
+            alert(`The factory name and country fields are required.  Please complete both fields.`)
+        } else {
+            fetch(`${config.API_URL}/api/factories`,
+                postRequestParams
+            )
+            .then(response => {
+                if (response.status >= 400) {
+                    throw new Error('Server responded with an error!')
+                }
+                return response.json()
+            })
+            .then(responseJson => {
+                addFactory(responseJson)
+                const fiberArray = [...props.fiberFieldsets]
+                fiberArray[index].producerId = responseJson.id
+                props.setFabFact(fiberArray)
+            })
+
+            props.fabricProps.setProducerPopUp(false)
+            props.fabricProps.setNewProducer({
+                name: '',
+                countryId: 0,
+                website: '',
+                notes: ''
+            })
+        }
+    }
+
+    const submitMill = () => {
+        const data = {
+            "english_name": props.fabricProps.newMill.name,
+            "country": props.fabricProps.newMill.countryId,
+            "website": props.fabricProps.newMill.website,
+            "notes": props.fabricProps.newMill.notes
+        }
+
+        const postRequestParams = {
+            method: 'POST',
+            headers: { 'Content-type': 'application/json' },
+            body: JSON.stringify(data)
+        }
+
+        const missingFields = []
+
+        Object.keys(props.fabricProps.newMill).forEach(key => {
+            if (props.fabricProps.newMill[key] === '' || 0) {
+                missingFields.push(key.replace( /([A-Z])/g, " $1" ).toLowerCase())
+            }
+        })
+
+        if (missingFields.length >= 1) {
+            alert(`The factory name and country fields are required.  Please complete both fields.`)
+        } else {
+            fetch(`${config.API_URL}/api/factories`,
+                postRequestParams
+            )
+            .then(response => {
+                if (response.status >= 400) {
+                    throw new Error('Server responded with an error!')
+                }
+                return response.json()
+            })
+            .then(responseJson => {
+                addFactory(responseJson)
+                const newFactory = {...props.fabFact}
+                newFactory.wovKnitId = responseJson.id
+                props.setFabFact(newFactory)
+            })
+
+            props.fabricProps.setMillPopUp(false)
+            props.fabricProps.setNewMill({
+                name: '',
+                countryId: 0,
+                website: '',
+                notes: ''
             })
         }
     }
@@ -366,36 +510,6 @@ const NPFFabrics = props => {
         }    
     }
 
-    const nextButton = event => {
-        const missingFabricFields = []
-
-        Object.keys(props.fabFact).forEach(key => {
-            if (props.fabFact[key] === '' || 0) {
-                missingFabricFields.push(key.replace( /([A-Z])/g, " $1" ).toLowerCase())
-            }
-        })
-            
-        if (missingFabricFields.length === 1) {
-            alert(`Please complete the '${missingFabricFields[0]}' field`)
-        } else if (missingFabricFields.length > 1) {
-            alert(`Please complete the following fields: ${missingFabricFields.map(field => `
-                ${field}`)}
-            `)
-        } else if (missingFabricFields.length === 0) {
-            props.fiberFieldsets.forEach(fieldset => {
-                if (fieldset.fiberTypeId === 0) {
-                    alert(`Please select an option for each 'Fiber or material' field.  Remove any unused fiber sections with the 'Remove' button.`)
-                } else if (fieldset.originId === 0) {
-                    alert(`Please select an option for each 'Fiber origin' field.  Remove any unused fiber sections with the 'Remove' button.`)
-                }
-
-                props.setPage(props.currentPage + 1)
-            })    
-        }
-    }
-
-    // const nextButton = () => {props.fabricProps.setPage(props.fabricProps.currentPage + 1)}
-
     return (
         <div id='fabrics'>
             <FormPage title={props.title}>
@@ -403,30 +517,31 @@ const NPFFabrics = props => {
                     prompt='Please enter the fabric details provided on the product webpage.'
                     promptSubtitle='If the product page does not provide the information detailed below, please select "not disclosed" from the dropdown.'
                 />
+
                 <FormFieldset
                     prompt='Fabric Dyeing, Printing, and Finishing'
                 >
-                    <FormDropdown 
-                        id='dyeFinLocation'
-                        name='dyeFinLocation'
-                        prompt='Dyeing and finishing location'
-                        currentValue={props.fabFact.dyeFinLocation}
+                    <FormDropdown
+                        id='dye-finish-country-id'
+                        name='dyeFinCountryId'
+                        prompt='Dyeing and finishing country'
+                        currentValue={props.fabFact.dyeFinCountryId}
                         options={makeCountryOptions()}
                         handleChange={event => fabChange(event)} 
                     />
 
-                    <FormDropdown 
+                    <FormDropdown
                         id='dye-fin-id'
                         name='dyeFinId'
                         prompt='Dyeing and finishing factory'
                         currentValue={props.fabFact.dyeFinId}
-                        options={makeFactoryOptions()}
+                        options={makeFactoryOptions('factory')}
                         handleChange={event => fabChange(event)} 
                     />
 
                     <FormButton 
                         buttonText='ADD A FACTORY' 
-                        handleClick={() => props.fabricProps.setFactPopUp(true)}
+                        handleClick={() => props.fabricProps.setDyeFactPopUp(true)}
                     />
 
                     <FormPopUp
@@ -446,9 +561,9 @@ const NPFFabrics = props => {
                         />
                         <FormDropdown
                             id={props.id + 'NewFactLocation'}
-                            name='location'
+                            name='countryId'
                             prompt='Location'
-                            currentValue={props.fabricProps.newFact.location}
+                            currentValue={props.fabricProps.newFact.countryId}
                             options={makeCountryOptions()}
                             handleChange={event => newFactChange(event)} 
                         />
@@ -481,20 +596,20 @@ const NPFFabrics = props => {
                     prompt='Knitting and Weaving'
                 >
                     <FormDropdown 
-                        id='wov-knit-location'
-                        name='wovKnitLocation'
-                        prompt='Knitting or weaving location'
-                        currentValue={props.fabFact.wovKnitLocation}
+                        id='wov-knit-country-id'
+                        name='wovKnitCountryId'
+                        prompt='Knitting or weaving country'
+                        currentValue={props.fabFact.wovKnitCountryId}
                         options={makeCountryOptions()}
                         handleChange={event => fabChange(event)} 
                     />
 
                     <FormDropdown 
-                        id='wov-knit-location'
-                        name='wovKnitFactory'
+                        id='wov-knit-id'
+                        name='wovKnitId'
                         prompt='Knitting/weaving fabric mill'
-                        currentValue={props.fabFact.wovKnitFactory}
-                        options={makeMillOptions()}
+                        currentValue={props.fabFact.wovKnitId}
+                        options={makeFactoryOptions('fabric mill')}
                         handleChange={event => fabChange(event)} 
                     />
 
@@ -508,7 +623,7 @@ const NPFFabrics = props => {
                         status={millPopUpStatus()}
                         title='New Fabric Mill'
                         close={() => handleClose()}
-                        submit={() => handleClose()}
+                        submit={() => submitMill()}
                         buttonText='SUBMIT FABRIC MILL'
                     >
                         <FormTextInput 
@@ -521,9 +636,9 @@ const NPFFabrics = props => {
 
                         <FormDropdown
                             id={props.id + 'NewMillLocation'}
-                            name='location'
+                            name='countryId'
                             prompt='Location'
-                            currentValue={props.fabricProps.newMill.location}
+                            currentValue={props.fabricProps.newMill.countryId}
                             options={makeCountryOptions()}
                             handleChange={event => newMillChange(event)} 
                         />
@@ -560,7 +675,7 @@ const NPFFabrics = props => {
                     <FormCheckboxSection
                         options={props.fabricProps.certificationList} 
                         selectedOptions={props.certChecks}
-                        handleChange={event => fabricCertChange(event)}
+                        handleChange={event => fabCertChange(event)}
                     />
 
                     <FormButton
@@ -614,10 +729,8 @@ const NPFFabrics = props => {
                             name='fiberTypeId'
                             prompt='Fiber or material'
                             options={makeFiberOptions()}
-                            currentValue={fiberFieldset.id} 
-                            handleChange={event => {
-                                fibersChangeInput(index, event)
-                            }}
+                            currentValue={fiberFieldset.fiberTypeId} 
+                            handleChange={event => {fibChangeInput(index, event)}}
                         />
 
                         <FormButton
@@ -627,7 +740,7 @@ const NPFFabrics = props => {
 
                         <FormPopUp
                             id={'new-fiber'} 
-                            status={fiberPopUpStatus()}
+                            status={fibPopUpStatus()}
                             title='New Fiber'
                             close={() => handleClose()}
                             submit={() => submitFiber()}
@@ -638,7 +751,13 @@ const NPFFabrics = props => {
                                 name='name'
                                 prompt='Fiber name'
                                 currentValue={props.fabricProps.newFiber.name}
-                                handleChange={event => props.fabricProps.setNewFiber({name: event.target.value})} 
+                                handleChange={event => {
+                                    props.fabricProps.setNewFiber(
+                                        {
+                                            name: event.target.value
+                                        }
+                                    )
+                                }} 
                             />
                         </FormPopUp>
 
@@ -646,10 +765,8 @@ const NPFFabrics = props => {
                             id={'fiber-type-percentage-' + index}
                             name='percentage'
                             prompt='Percentage of fabric content, if available'
-                            currentValue={fiberFieldset.percentage} 
-                            handleChange={event => {
-                                fibersChangeInput(index, event)
-                            }}
+                            currentValue={fiberFieldset.percentage === 0 ? '' : fiberFieldset.percentage} 
+                            handleChange={event => {fibChangeInput(index, event)}}
                         />
     
                         <FormDropdown 
@@ -658,20 +775,21 @@ const NPFFabrics = props => {
                             prompt='Fiber origin'
                             options={makeCountryOptions()}
                             currentValue={fiberFieldset.originId} 
-                            handleChange={event => {
-                                fibersChangeInput(index, event)
-                            }}
+                            handleChange={event => {fibChangeInput(index, event)}}
                         />
 
                         <FormDropdown 
                             id={'producer-id' + index}
                             name='producerId'
                             prompt='Fiber or material producer'
-                            options={makeFactoryOptions()}
+                            options={makeFactoryOptions('producer')}
                             currentValue={fiberFieldset.producerId}
-                            handleChange={event => {
-                                fibersChangeInput(index, event)
-                            }}
+                            handleChange={event => {fibChangeInput(index, event)}}
+                        />
+
+                        <FormButton 
+                            buttonText='ADD A PRODUCER'
+                            handleClick={() => props.fabricProps.setProducerPopUp(true)}
                         />
 
                         <FormTextInput
@@ -679,10 +797,50 @@ const NPFFabrics = props => {
                             name='producerNotes'
                             prompt='Whether or not the producer is listed, are there notes about the fiber or material producer?  If so, copy them and paste them here.'
                             currentValue={fiberFieldset.producerNotes}
-                            handleChange={event => {
-                                fibersChangeInput(index, event)
-                            }}
+                            handleChange={event => {fibChangeInput(index, event)}}
                         />
+
+                        <FormPopUp
+                            id={'fabric' + props.id + 'NewFibProducer'} 
+                            status={prodPopUpStatus()}
+                            title='New Producer'
+                            close={() => handleClose()}
+                            submit={() => submitFibProducer(index)}
+                            buttonText='Submit Factory'
+                        >
+                            <FormTextInput 
+                                id={props.id + 'NewProducerName'}
+                                name='name'
+                                prompt='Factory name'
+                                currentValue={props.fabricProps.newProducer.name}
+                                handleChange={event => newProducerChange(event)} 
+                            />
+
+                            <FormDropdown
+                                id={props.id + 'NewProducerLocation'}
+                                name='countryId'
+                                prompt='Location'
+                                currentValue={props.fabricProps.newProducer.countryId}
+                                options={makeCountryOptions()}
+                                handleChange={event => newProducerChange(event)} 
+                            />
+
+                            <FormUrlInput
+                                id={props.id + 'NewProducerWebsite'}
+                                name='website'
+                                prompt='Website'
+                                currentValue={props.fabricProps.newProducer.website}
+                                handleChange={event => newProducerChange(event)}
+                            />
+
+                            <FormTextInput 
+                                id={props.id + 'NewProducerNotes'}
+                                name='notes'
+                                prompt='Notes'
+                                currentValue={props.fabricProps.newProducer.notes}
+                                handleChange={event => newProducerChange(event)} 
+                            />
+                        </FormPopUp>
 
                         <FormPromptWithSub 
                             prompt=''
@@ -691,8 +849,8 @@ const NPFFabrics = props => {
 
                         <FormCheckboxSection
                             options={props.fabricProps.certificationList} 
-                            selectedOptions={fiberCertChecks[index]}
-                            handleChange={event => fiberCertChange(event, index)}
+                            selectedOptions={props.fiberFieldsets[index].certIds}
+                            handleChange={event => fibCertChange(index, event.target.id)}
                         />
 
                         <FormButton
@@ -704,9 +862,7 @@ const NPFFabrics = props => {
 
                 <FormButton 
                     buttonText='THIS FABRIC HAS ADDITIONAL FIBERS' 
-                    handleClick={() => {
-                        addAFiber()
-                    }}
+                    handleClick={() => {addFiber()}}
                 />
             </FormPage>
 
@@ -720,6 +876,7 @@ const NPFFabrics = props => {
 }
 
 NPFFabrics.defaultProps = {
+    certChecks: {},
     fabFact: {
         dyeFinCountryId: '',
         dyeFinId: '',
@@ -728,9 +885,58 @@ NPFFabrics.defaultProps = {
         wovKnitId: '',
         wovKnitNotes: ''
     },
-    setFabFact: () => {},
-    certChecks: {},
-    setCertChecks: () => {},
+    fabricProps: {
+        certificationList: [],
+        certPopUp: false,
+        countries: [],
+        currentPage: 0,
+        dyeFactPopUp: false,
+        initCerts: {},
+        factoryList: [],
+        fiberPopUp: false,
+        fiberTypeList: [],
+        millPopUp: false,
+        newCert: {
+            name: '',
+            website: ''
+        },
+        newFact: {
+            name: '',
+            countryId: '',
+            website: '',
+        },
+        newFiber: {
+            name: ''
+        },
+        newMill: {
+            name: '',
+            countryId: '',
+            website: '',
+            notes: ''
+        },
+        newProducer: {
+            name: '',
+            countryId: 0,
+            website: '',
+            notes: ''
+        },
+        producerPopUp: false,
+        setCertificationList: () => {},
+        setFiberTypeList: () => {},
+        setCertPopUp: () => {},
+        setDyeFactPopUp: () => {},
+        setFactoryList: () => {},
+        setFiberPopUp: () => {},
+        setInitCerts: () => {},
+        setMillPopUp: () => {},
+        setNewCert:  () => {},
+        setNewFact:  () => {},
+        setNewFiber: () => {},
+        setNewMill: () => {},
+        setNewProducer: () => {},
+        setPage: () => {},
+        setProducerPopUp: () => {}
+    },
     fiberFieldsets: [
         {
             fiberTypeId: 0,
@@ -741,49 +947,9 @@ NPFFabrics.defaultProps = {
             certIds: []
         }
     ],
-    setFiberFieldsets: () => {},
-    fabricProps: {
-        currentPage: 0,
-        setPage: () => {},
-        countries: [],
-        certificationList: [],
-        setCertificationList: () => {},
-        initCerts: {},
-        factoryList: [],
-        fiberTypeList: [],
-        setFiberTypeList: () => {},
-        certPopUp: false,
-        setCertPopUp: () => {},
-        factPopUp: false,
-        setFactPopUp: () => {},
-        fiberPopUp: false,
-        setFiberPopUp: () => {},
-        millPopUp: false,
-        setMillPopUp: () => {},
-        newCert: {
-            name: '',
-            website: ''
-        },
-        setNewCert: () => {},
-        newFact: {
-            name: '',
-            countryId: '',
-            website: '',
-            notes: ''
-        },
-        setNewFact: () => {},
-        newFiber: {
-            name: ''
-        },
-        setNewFiber: () => {},
-        newMill: {
-            name: '',
-            countryId: '',
-            website: '',
-            notes: ''
-        },
-        setNewMill: () => {},
-    }
+    setFabFact: () => {},
+    setCertChecks: () => {},
+    setFiberFieldsets: () => {}
 }
 
 export default NPFFabrics

@@ -38,13 +38,13 @@ exports[`NPFProhibFibers renders the UI as expected 1`] = `
             className="FormCheckboxSection__option"
           >
             <input
-              id="acetate"
-              name="acetate"
+              id={1}
+              name={1}
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="acetate"
+              htmlFor={1}
             >
               Acetate
             </label>
@@ -53,13 +53,13 @@ exports[`NPFProhibFibers renders the UI as expected 1`] = `
             className="FormCheckboxSection__option"
           >
             <input
-              id="acrylic"
-              name="acrylic"
+              id={2}
+              name={2}
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="acrylic"
+              htmlFor={2}
             >
               Acrylic
             </label>
@@ -68,13 +68,13 @@ exports[`NPFProhibFibers renders the UI as expected 1`] = `
             className="FormCheckboxSection__option"
           >
             <input
-              id="microfiber"
-              name="microfiber"
+              id={3}
+              name={3}
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="microfiber"
+              htmlFor={3}
             >
               Microfiber
             </label>
@@ -83,13 +83,13 @@ exports[`NPFProhibFibers renders the UI as expected 1`] = `
             className="FormCheckboxSection__option"
           >
             <input
-              id="neoprene"
-              name="neoprene"
+              id={4}
+              name={4}
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="neoprene"
+              htmlFor={4}
             >
               Neoprene
             </label>
@@ -98,13 +98,13 @@ exports[`NPFProhibFibers renders the UI as expected 1`] = `
             className="FormCheckboxSection__option"
           >
             <input
-              id="nylon"
-              name="nylon"
+              id={5}
+              name={5}
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="nylon"
+              htmlFor={5}
             >
               Nylon
             </label>
@@ -113,13 +113,13 @@ exports[`NPFProhibFibers renders the UI as expected 1`] = `
             className="FormCheckboxSection__option"
           >
             <input
-              id="olefin"
-              name="olefin"
+              id={6}
+              name={6}
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="olefin"
+              htmlFor={6}
             >
               Olefin
             </label>
@@ -128,13 +128,13 @@ exports[`NPFProhibFibers renders the UI as expected 1`] = `
             className="FormCheckboxSection__option"
           >
             <input
-              id="polyamide"
-              name="polyamide"
+              id={7}
+              name={7}
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="polyamide"
+              htmlFor={7}
             >
               Polyamide
             </label>
@@ -143,13 +143,13 @@ exports[`NPFProhibFibers renders the UI as expected 1`] = `
             className="FormCheckboxSection__option"
           >
             <input
-              id="polyester"
-              name="polyester"
+              id={8}
+              name={8}
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="polyester"
+              htmlFor={8}
             >
               Polyester
             </label>
@@ -158,13 +158,13 @@ exports[`NPFProhibFibers renders the UI as expected 1`] = `
             className="FormCheckboxSection__option"
           >
             <input
-              id="polyurethane"
-              name="polyurethane"
+              id={9}
+              name={9}
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="polyurethane"
+              htmlFor={9}
             >
               Polyurethane
             </label>
@@ -173,28 +173,39 @@ exports[`NPFProhibFibers renders the UI as expected 1`] = `
             className="FormCheckboxSection__option"
           >
             <input
-              id="vinyl"
-              name="vinyl"
+              id={10}
+              name={10}
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="vinyl"
+              htmlFor={10}
             >
               Vinyl
             </label>
           </div>
+        </div>
+      </div>
+      <div
+        className="FormCheckboxSection"
+      >
+        <div
+          className="empty"
+        />
+        <div
+          className="FormCheckboxSection__options-container"
+        >
           <div
             className="FormCheckboxSection__option"
           >
             <input
-              id="none"
-              name="none"
+              id={100}
+              name={100}
               onChange={[Function]}
               type="checkbox"
             />
             <label
-              htmlFor="none"
+              htmlFor={100}
             >
               None of these
             </label>

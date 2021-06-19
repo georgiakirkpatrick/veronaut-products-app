@@ -132,10 +132,10 @@ exports[`NPFNotions render the UI as expected 1`] = `
             Location of notion manufacturing
           </label>
           <select
-            name="locationId"
+            name="countryId"
             onChange={[Function]}
             required={true}
-            value=""
+            value={0}
           >
             <option
               id={0}
@@ -398,7 +398,7 @@ exports[`NPFNotions render the UI as expected 1`] = `
             name="materialOriginId"
             onChange={[Function]}
             required={true}
-            value=""
+            value={0}
           >
             <option
               id={0}
@@ -558,7 +558,7 @@ exports[`NPFNotions render the UI as expected 1`] = `
             onChange={[Function]}
             required={true}
             type="text"
-            value=""
+            value={null}
           />
         </div>
       </fieldset>

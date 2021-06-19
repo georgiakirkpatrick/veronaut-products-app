@@ -14,7 +14,7 @@ const FormCheckboxSection = props => {
         return (
             <div key={option.id} className='FormCheckboxSection__option'>
                 <input type='checkbox' 
-                    id={option.id} 
+                    id={option.id}
                     name={option.name ? option.name : option.id} 
                     checked={selectedOptions[option.id]}
                     onChange={props.handleChange}>
