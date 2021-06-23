@@ -53,20 +53,27 @@ const NPFColors = props => {
     const nextButton = () => {
         const missingFields = []
 
+        const requiredFields = [
+            'descriptionId'
+        ]
+
+        props.colorFieldsets.length > 1 && requiredFields.push('name')
+
         props.colorFieldsets.forEach(fieldset => {
-            if (fieldset.name === '') {
-                missingFields.push(fieldset.name)
-            } else if (fieldset.descriptionId === 0) {
-                missingFields.push(fieldset.name)
-            }
+            requiredFields.forEach(field => {
+                if (fieldset[field] === 0 || fieldset[field] === '') {
+                    missingFields.push(field)
+                }
+            })
+            // if (fieldset.name === '' ) {
+            //     missingFields.push(fieldset.name)
+            // } else if (fieldset.descriptionId === 0) {
+            //     missingFields.push(fieldset.name)
+            // }
         })
 
-        if (missingFields.length === 1) {
-            alert(`Please enter a name and description for each color option.  Remove any unneeded color fields by clicking 'remove'.`)
-        } else if (missingFields.length > 1) {
-            alert(`Please complete the following fields: ${missingFields.map(field => `
-                '${field}' swatch url`)}
-            `)
+        if (missingFields.length >= 1) {
+            alert(`Please enter a description for each color option.  Remove any unneeded color fields by clicking 'remove'.`)
         } else if (missingFields.length === 0) {
             props.setPage(props.currentPage + 1)
         }
@@ -86,7 +93,7 @@ const NPFColors = props => {
                 <div id='color-inputs'>
                     <FormPromptWithSub 
                         prompt='Enter all color options listed on the product webpage'
-                        promptSubtitle=''
+                        promptSubtitle='If the product has multiple colors, what is the dominant color?'
                     />
                     {props.colorFieldsets.map((colorFieldset, index) => (
                         <fieldset key={index} className='NewProductForm__fieldset'>
@@ -110,6 +117,7 @@ const NPFColors = props => {
                                 id={'color-description' + index} 
                                 name='descriptionId'
                                 prompt='Color description'
+                                // 'If the product has multiple colors, what is the dominant color?'
                                 options={makeColorOptions()}
                                 currentValue={colorFieldset.descriptionId} 
                                 handleChange={event => {

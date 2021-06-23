@@ -134,7 +134,7 @@ const NPFBrand = props => {
         const sizeSystems = sizeData.systems.map(system => ({
             id: system.id,
             text: system.text,
-            value: system.id
+            value: system.value
         }))
 
         return [
@@ -151,31 +151,11 @@ const NPFBrand = props => {
     }
 
     const submitNewBrand = () => {
-        const formattedBrand = () => {
-            if (props.newBrandFields.name) {
-                const val = props.newBrandFields.name.toLowerCase().split(" ")
-                
-                for (let i = 0; i < val.length; i++) {
-                    val[i] = val[i][0].toUpperCase() + val[i].substr(1)
-                }
-
-                return val.join(" ")
-            }
-        }
-
-        const formattedWebsite = () => {
-            if (props.newBrandFields.website) {
-                const val = props.newBrandFields.name.toLowerCase()
-
-                return val
-            }
-        }
-
         const data = {
-            "english_name": formattedBrand(),
+            "english_name": props.formatName(props.newBrandFields.name),
             "home_currency": props.newBrandFields.currency,
             "size_system": Number(props.newBrandFields.sizeSystem),
-            "website": formattedWebsite(),
+            "website": props.formatUrl(props.newBrandFields.website),
             "approved_by_admin": false
         }
 
@@ -305,6 +285,8 @@ NPFBrand.defaultProps = {
     currencies: [],
     currentBrandId: 0,
     currentPage: 0,
+    formatName: () => {},
+    formatUrl: () => {},
     newBrandFields: {
         name: '',
         website: '',
@@ -312,7 +294,6 @@ NPFBrand.defaultProps = {
         sizeSystem: 0
     },
     pageTurns: 0,
-    setBrandId: () => {},
     setBrandList: () => {},
     setBrandPopUp: () => {},
     setBrands: () => {},

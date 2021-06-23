@@ -2,35 +2,43 @@ const sizeData = {
     systems: [
         {
             id: 1,
-            text: 'US'
+            text: 'US',
+            value: 1
         },
         {
             id: 2,
-            text: 'France / Spain / Portugal / Netherlands'
+            text: 'France / Spain / Portugal / Netherlands',
+            value: 2
         },
         {
             id: 3,
-            text: 'Italy'
+            text: 'Italy',
+            value: 3
         },
         {
             id: 4,
-            text: 'UK / Australia / New Zealand'
+            text: 'UK / Australia / New Zealand',
+            value: 4
         },
         {
             id: 5,
-            text: 'Japan'
+            text: 'Japan',
+            value: 5
         },
         {
             id: 6,
-            text: 'Other'
+            text: 'Other',
+            value: 1
         },
         {
             id: 7,
-            text: 'Not sure'
+            text: 'Not sure',
+            value: 1
         },
         {
             id: 8,
-            text: 'International'
+            text: 'International',
+            value: 1
         }
     ],
     women: {

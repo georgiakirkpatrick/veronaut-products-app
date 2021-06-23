@@ -29,9 +29,19 @@ const NPFNewProduct = props => {
     const nextButton = event => {
         event.preventDefault()
         const missingFields = []
+
+        const requiredFields = {
+            name: props.newProductFields.name,
+            url: props.newProductFields.url,
+            categoryId: props.newProductFields.categoryId,
+            featureImageUrl: props.newProductFields.featureImageUrl,
+            price: props.newProductFields.price,
+            washId: props.newProductFields.washId,
+            dryId: props.newProductFields.dryId
+        }
          
-        Object.keys(props.newProductFields).forEach(key => {
-            if (props.newProductFields[key] === '' || Number(props.newProductFields[key]) === 0) {
+        Object.keys(requiredFields).forEach(key => {
+            if (requiredFields[key] === '' || Number(requiredFields[key]) === 0) {
                 missingFields.push(key.replace( /([A-Z])/g, " $1" ).toLowerCase())
             }
         })

@@ -75,6 +75,7 @@ const App = () => {
           const formattedCerts = certificationArray.map(cert => {
             return {
               id: cert.id,
+              name: cert.id,
               text: cert.english_name,
               website: cert.website,
               approved: cert.approved_by_admin

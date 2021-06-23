@@ -179,17 +179,38 @@ const NPFManufacturing = props => {
     }
 
     // CERTIFICATIONS
+    const addCertification = certification => {
+        const newCertList = [
+            ...props.fabricProps.certificationList,
+            {
+                id: certification.id,
+                name: certification.name,
+                text: certification.english_name,
+                website: certification.website,
+                approved: certification.approved_by_admin
+            }
+        ]
+            
+        newCertList.sort((a, b) => a.text > b.text ? 1 : -1)
+        props.fabricProps.setCertificationList(newCertList)
+    }
+
+    const certificationChange = event => {
+        props.setCertChecks({
+            ...props.certChecks, 
+            [event.target.name]: !props.certChecks[event.target.name]})
+    }
+
     const certPopUpStatus = () => {
         if (props.fabricProps.certPopUp === true) {
             return 'FormPopUp__pop-up active'
         }
         return 'FormPopUp__pop-up'
     }
-
-    const certificationChange = event => {
-        props.setCertChecks({
-            ...props.certChecks, 
-            [event.target.id]: !props.certChecks[event.target.id]})
+    
+    const cmtNotesChange = event => {
+        const newNotes = event.target.value
+        props.setCmtNotes(newNotes)
     }
 
     const newCertChangeInput = event => {
@@ -198,28 +219,10 @@ const NPFManufacturing = props => {
         props.fabricProps.setNewCert(newCertFields)
     }
 
-    const addCertification = certification => {
-        const newCertList = [
-            ...props.fabricProps.certificationList,
-            {
-                id: certification.id,
-                text: certification.english_name,
-                website: certification.website,
-                approved: certification.approved_by_admin
-            }
-        ]
-            
-        newCertList.sort((a, b) => a.text > b.text ? 1 : -1)
-
-        props.fabricProps.setCertificationList(newCertList)
-
-        console.log(props.certChecks)
-    }
-
     const submitNewCert = () => {
         const data = {
-            "english_name": props.fabricProps.newCert.name,
-            "website": props.fabricProps.newCert.website,
+            "english_name": props.fabricProps.formatName(props.fabricProps.newCert.name),
+            "website": props.fabricProps.formatUrl(props.fabricProps.newCert.website),
             "approved_by_admin": false
         }
 
@@ -269,11 +272,7 @@ const NPFManufacturing = props => {
             )
         }
     }
-    
-    const cmtNotesChange = event => {
-        const newNotes = event.target.value
-        props.setCmtNotes(newNotes)
-    }
+
 
     // const nextButton = () => {props.fabricProps.setPage(props.fabricProps.currentPage + 1)}
 
@@ -295,7 +294,7 @@ const NPFManufacturing = props => {
             'countryId': 'cutting location',
             'factoryId': 'cutting factory'
         }
-        
+
         Object.keys(requiredCutFields).forEach(key => {
             if (props.cutFact[key] === 0) {
                 missingFields.push(requiredCutFields[key])
@@ -403,6 +402,13 @@ const NPFManufacturing = props => {
                     />
                 </FormFieldset>
             </FormPage>
+
+
+            <NPFFooter 
+                buttons='prevNext' 
+                previousButton={() => props.setPage(props.currentPage - 1)} 
+                nextButton={event => nextButton(event)}
+            />
 
             <FormPopUp
                 id='addSewFact'
@@ -527,12 +533,6 @@ const NPFManufacturing = props => {
                     handleChange={event => newCertChangeInput(event)}
                 />
             </FormPopUp>
-
-            <NPFFooter 
-                buttons='prevNext' 
-                previousButton={() => props.setPage(props.currentPage - 1)} 
-                nextButton={event => nextButton(event)}
-            />
         </div>
     )  
 }

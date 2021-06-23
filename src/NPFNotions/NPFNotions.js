@@ -18,6 +18,7 @@ const NPFNotions = props => {
             ...props.fabricProps.certificationList,
             {
                 id: certification.id,
+                name: certification.name,
                 text: certification.english_name,
                 website: certification.website,
                 approved: certification.approved_by_admin
@@ -26,12 +27,12 @@ const NPFNotions = props => {
 
         props.setCertChecks({
             ...props.fabricProps.certChecks,
-            [certification.id]: false
+            [certification.name]: false
         })
     }
 
     const addNotion = () => {
-        const initialCertChecks = props.fabricProps.certificationList.map(c => [c.id, false])
+        const initialCertChecks = props.fabricProps.certificationList.map(c => [c.name, false])
         const initialObject = Object.fromEntries(initialCertChecks)
 
         props.setNotionFields(
@@ -111,8 +112,26 @@ const NPFNotions = props => {
                 text: 'Select a fiber or material',
                 value: 0
             },
+            {
+                id: 1,
+                text: 'Not disclosed',
+                value: 1
+            },
             ...materials
         ]
+    }
+
+    const makeNotCertList = index => {
+        const notCertList = []
+
+        props.fabricProps.certificationList.forEach(cert => {
+            notCertList.push({
+                ...cert,
+                id: index + '-' + cert.id
+            })
+        })
+
+        return notCertList
     }
 
     const makeNotTypeOptions = () => {
@@ -152,6 +171,7 @@ const NPFNotions = props => {
         if (props.notionFields.length === 0) {
             props.fabricProps.setPage(props.fabricProps.currentPage + 1)
         }
+
         props.notionFields.forEach(fieldset => {
             if (Number(fieldset.typeId) === 0) {
                 alert(`Please select an option for each 'notion type' field.  Remove any unused notion sections with the 'Remove' button.`)
@@ -189,8 +209,7 @@ const NPFNotions = props => {
     }
 
     const notChangeInput = (event, index) => {
-        console.log('event.target.name', event.target.name)
-        console.log('event.target.value', event.target.value)
+
         const updatedNotions = [...props.notionFields]
         updatedNotions[index][event.target.name] = event.target.value
         props.setNotionFields(updatedNotions) 
@@ -245,7 +264,7 @@ const NPFNotions = props => {
             `)
         } else if (missingFields.length === 0) {
             const data = {
-                "english_name": props.fabricProps.newCert.name,
+                "english_name": props.fabricProps.formatName(props.fabricProps.newCert.name),
                 "website": props.fabricProps.newCert.website,
                 "approved_by_admin": false          
             }
@@ -278,9 +297,9 @@ const NPFNotions = props => {
 
     const submitNewManufacturer = index => {
         const data = {
-            "english_name": props.fabricProps.newFact.name,
-            "country": props.fabricProps.newFact.location,
-            "website": props.fabricProps.newFact.website,
+            "english_name": props.fabricProps.formatName(props.fabricProps.newFact.name),
+            "country": props.fabricProps.newFact.countryId,
+            "website": props.fabricProps.formatUrl(props.fabricProps.newFact.website),
             "notes": props.fabricProps.newFact.notes
         }
 
@@ -289,6 +308,19 @@ const NPFNotions = props => {
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify(data)
         }
+
+        const requiredFields = {
+            english_name: props.fabricProps.newFact.name,
+            country: props.fabricProps.newFact.countryId
+        }
+
+        const missingFields = []
+
+        Object.keys(requiredFields).forEach(key => {
+            if (requiredFields[key] === '' || requiredFields[key] === 0) {
+                missingFields.push(key.replace( /([A-Z])/g, " $1" ).toLowerCase())
+            }
+        })
 
         fetch(`${config.API_URL}/api/factories`, postRequestParams)
             .then(response => {
@@ -310,12 +342,12 @@ const NPFNotions = props => {
                     }
                 ]
 
-                const factQty = newFactArray.length
-                const factories = newFactArray.slice(1, factQty)
+                const factory = newFactArray.length
+                const factories = newFactArray.slice(1, factory)
                 const alphaFactories = factories.sort((a, b) => a.english_name > b.english_name ? 1 : -1)
                 props.fabricProps.setFactoryList(alphaFactories)
     
-                const newNotFields = props.notionFields
+                const newNotFields = [...props.notionFields]
                 newNotFields[index]['factoryId'] = newFactory.id
                 props.setNotionFields(newNotFields)
             })
@@ -329,9 +361,9 @@ const NPFNotions = props => {
         })
     }
 
-    const submitNewMaterial = () => {
+    const submitNewMaterial = index => {
         const data = {
-            "english_name": props.newNotionMaterial,
+            "english_name": props.fabricProps.formatName(props.newNotionMaterial),
             "fiber_type_class": "undetermined"
         }
 
@@ -354,37 +386,27 @@ const NPFNotions = props => {
                 return response.json()
             })
             .then(newMaterial => {
-                console.log('newMaterial', newMaterial)
                 const matTypes = [
                     ...props.fiberTypeList,
                     newMaterial
                 ]
 
                 const alphaMatTypes = matTypes.sort((a, b) => a.english_name > b.english_name ? 1 : -1)
-
                 props.setFiberTypeList(alphaMatTypes)
+                const newNotionFields = [...props.notionFields]
+                newNotionFields[index]['materialTypeId'] = newMaterial.id
+    
+                props.setNotionFields(newNotionFields)
             })
         }
 
-        // props.setMaterialPopUp(false)
         props.setNewNotionMaterial('')
         props.setMaterialPopUp(false)
-
     }
 
     const submitNewNotType = index => {
-        const formattedNotType = () => {
-            if (props.newNotionType) {
-                const val = props.newNotionType.toLowerCase().split(" ")
-            
-                val[0] = val[0][0].toUpperCase() + val[0].substr(1)
-            
-                return val.join(" ")
-            }
-        }
-
         const data = {
-            "english_name": formattedNotType(),
+            "english_name": props.fabricProps.formatName(props.newNotionType),
             "approved_by_admin": false
         }
 
@@ -410,7 +432,7 @@ const NPFNotions = props => {
                 ...props.notionTypeList,
                 {
                     "id": newNotionType.id,
-                    "english_name": newNotionType.english_name,
+                    "english_name": props.fabricProps.formatName(newNotionType.english_name),
                     "approved_by_admin": newNotionType.approved_by_admin,
                     "date_published": newNotionType.date_published
                 }
@@ -421,20 +443,13 @@ const NPFNotions = props => {
             const alphaNotions = notions.sort((a, b) => a.english_name > b.english_name ? 1 : -1)
             props.setNotionTypeList(alphaNotions)
 
-            const newNotionFields = props.notionFields
+            const newNotionFields = [...props.notionFields]
             newNotionFields[index]['typeId'] = newNotionType.id
             props.setNotionFields(newNotionFields)
         })
         
         props.setNotionTypePopUp(false)
         props.setNewNotionType('')
-
-
-
-        // props.setNotionFields(
-        //     ...props.notionFields,
-
-        // )
     }
 
     return (
@@ -459,7 +474,7 @@ const NPFNotions = props => {
                                     id={'notion-type-' + index}
                                     name={'typeId'}
                                     prompt='Notion type'
-                                    currentValue={notion['typeId']}
+                                    currentValue={notion.typeId}
                                     options={makeNotTypeOptions()}
                                     handleChange={event => notChangeInput(event, index)} 
                                 />
@@ -529,9 +544,9 @@ const NPFNotions = props => {
                                     
                                     <FormDropdown
                                         id='notion-factory-location' 
-                                        name='location'
+                                        name='countryId'
                                         prompt='Location'
-                                        currentValue={props.fabricProps.newFact.location}
+                                        currentValue={props.fabricProps.newFact.countryId}
                                         options={makeCountryOptions()}
                                         handleChange={event => newNotFactChangeInput(event)}
                                     />
@@ -572,7 +587,7 @@ const NPFNotions = props => {
                                     status={notMaterialPopUpStatus()}
                                     title='Add a Material'
                                     close={() => props.setMaterialPopUp(false)}
-                                    submit={() => submitNewMaterial()}
+                                    submit={() => submitNewMaterial(index)}
                                     buttonText='SUBMIT MATERIAL'
                                 >
                                     <FormTextInput
@@ -613,7 +628,7 @@ const NPFNotions = props => {
                                 <FormCheckboxSection
                                     id={'notion-certifications' + index}
                                     name='certIds'
-                                    options={props.fabricProps.certificationList}
+                                    options={makeNotCertList(index)}
                                     selectedOptions={notion.certIds}
                                     handleChange={event => notCertChange(index, event.target.id)}
                                 />

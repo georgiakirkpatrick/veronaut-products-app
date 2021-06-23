@@ -13,12 +13,12 @@ import FormUrlInput from '../FormUrlInput/FormUrlInput'
 import FormNumberInput from '../FormNumberInput/FormNumberInput'
 
 const NPFFabrics = props => {
-    console.log('props', props)
     const addCertification = certification => {
         props.fabricProps.setCertificationList([
             ...props.fabricProps.certificationList,
             {
                 id: certification.id,
+                name: certification.name,
                 text: certification.english_name,
                 website: certification.website,
                 approved: certification.approved_by_admin
@@ -27,7 +27,7 @@ const NPFFabrics = props => {
 
         props.fabricProps.setInitCerts({
             ...props.fabricProps.initCerts,
-            [certification.id]: false
+            [certification.name]: false
         })
     }
 
@@ -46,7 +46,9 @@ const NPFFabrics = props => {
     }
 
     const addFiber = () => {
-        const initialCertChecks = props.fabricProps.certificationList.map(c => [c.id, false])
+        console.log('props.fabricProps.certificationList', props.fabricProps.certificationList)
+
+        const initialCertChecks = props.fabricProps.certificationList.map(c => [c.name, false])
         const initialObject = Object.fromEntries(initialCertChecks)
 
         props.setFiberFieldsets([
@@ -81,12 +83,13 @@ const NPFFabrics = props => {
         props.fabricProps.setDyeFactPopUp(false)
         props.fabricProps.setFiberPopUp(false)
         props.fabricProps.setMillPopUp(false)
+        props.fabricProps.setProducerPopUp(false)
     }
 
     const fabCertChange = event => {
         props.setCertChecks({
             ...props.certChecks, 
-            [event.target.id]: !props.certChecks[event.target.id]
+            [event.target.name]: !props.certChecks[event.target.name]
         })
     }
 
@@ -103,11 +106,11 @@ const NPFFabrics = props => {
         return 'FormPopUp__pop-up'
     }
 
-    const fibCertChange = (fiberIndex, changeId) => {
+    const fibCertChange = (fiberIndex, certName) => {
         console.log('fiberIndex', fiberIndex)
         const updatedFibers = [...props.fiberFieldsets]
     
-        updatedFibers[fiberIndex].certIds[changeId] = !props.fiberFieldsets[fiberIndex].certIds[changeId]
+        updatedFibers[fiberIndex].certIds[certName] = !props.fiberFieldsets[fiberIndex].certIds[certName]
 
         console.log('updatedFibers', updatedFibers)
 
@@ -116,7 +119,7 @@ const NPFFabrics = props => {
 
     const fibChangeInput = (index, event) => {
         const values = [...props.fiberFieldsets]
-        values[index][event.target.name] = event.target.value
+        values[index][event.target.name] = Number(event.target.value)
         props.setFiberFieldsets(values)
     }
 
@@ -170,6 +173,19 @@ const NPFFabrics = props => {
             },
             ...formatedFactories
         ]
+    }
+
+    const makeFibCertList = index => {
+        const fibCertList = []
+
+        props.fabricProps.certificationList.forEach(cert => {
+            fibCertList.push({
+                ...cert,
+                id: index + '-' + cert.id
+            })
+        })
+
+        return fibCertList
     }
 
     const makeFiberOptions = () => {
@@ -272,11 +288,34 @@ const NPFFabrics = props => {
         props.setFiberFieldsets(values)
     }
 
-    const submitFactory = () => {
+    const clearFactPopUpFields = () => {
+        props.fabricProps.setNewFact({
+            name: '',
+            countryId: 0,
+            website: '',
+            notes: ''
+        })
+
+        props.fabricProps.setNewMill({
+            name: '',
+            countryId: 0,
+            website: '',
+            notes: ''
+        })
+
+        props.fabricProps.setNewProducer({
+            name: '',
+            countryId: 0,
+            website: '',
+            notes: ''
+        })
+    }
+
+    const submitDyeFactory = () => {
         const data = {
-            "english_name": props.fabricProps.newFact.name,
+            "english_name": props.formatName(props.fabricProps.newFact.name),
             "country": props.fabricProps.newFact.countryId,
-            "website": props.fabricProps.newFact.website,
+            "website": props.formatUrl(props.fabricProps.newFact.website),
             "notes": props.fabricProps.newFact.notes
         }
 
@@ -286,10 +325,15 @@ const NPFFabrics = props => {
             body: JSON.stringify(data)
         }
 
+        const requiredFields = {
+            english_name: props.fabricProps.newFact.name,
+            country: props.fabricProps.newFact.countryId
+        }
+
         const missingFields = []
 
-        Object.keys(props.fabricProps.newFact).forEach(key => {
-            if (props.fabricProps.newFact[key] === '' || 0) {
+        Object.keys(requiredFields).forEach(key => {
+            if (requiredFields[key] === '' || requiredFields[key] === 0) {
                 missingFields.push(key.replace( /([A-Z])/g, " $1" ).toLowerCase())
             }
         })
@@ -308,24 +352,19 @@ const NPFFabrics = props => {
             })
             .then(responseJson => {
                 addFactory(responseJson)
-                    const fabFactory = {...props.fabFact}
-                    fabFactory.dyeFinId = responseJson.id
-                    props.setFabFact(fabFactory)
-                })
-
-            props.fabricProps.setDyeFactPopUp(false)
-            props.fabricProps.setNewFact({
-                name: '',
-                countryId: 0,
-                website: '',
-                notes: ''
+                const fabFactory = {...props.fabFact}
+                fabFactory.dyeFinId = responseJson.id
+                props.setFabFact(fabFactory)
             })
+
+            handleClose()
+            clearFactPopUpFields()
         }
     }
 
     const submitFiber = () => {
         const data = {
-            "english_name": props.fabricProps.newFiber.name
+            "english_name": props.fabricProps.formatName(props.fabricProps.newFiber.name)
         }
 
         const postRequestParams = {
@@ -359,11 +398,13 @@ const NPFFabrics = props => {
 
     const submitFibProducer = index => {
         const data = {
-            "english_name": props.fabricProps.newProducer.name,
+            "english_name": props.fabricProps.formatName(props.fabricProps.newProducer.name),
             "country": props.fabricProps.newProducer.countryId,
-            "website": props.fabricProps.newProducer.website,
+            "website": props.fabricProps.formatUrl(props.fabricProps.newProducer.website),
             "notes": props.fabricProps.newProducer.notes
         }
+
+        console.log('data', data)
 
         const postRequestParams = {
             method: 'POST',
@@ -371,13 +412,16 @@ const NPFFabrics = props => {
             body: JSON.stringify(data)
         }
 
+        const requiredFields = {
+            english_name: props.fabricProps.newProducer.name,
+            country: props.fabricProps.newProducer.countryId
+        }
+
         const missingFields = []
 
-        console.log('props.fabricProps.newProducer', props.fabricProps.newProducer)
-
-        Object.keys(props.fabricProps.newProducer).forEach(key => {
+        Object.keys(requiredFields).forEach(key => {
             console.log('props.fabricProps.newProducer')
-            if (props.fabricProps.newProducer[key] === '' || 0) {
+            if (requiredFields[key] === '' || requiredFields[key] === 0) {
                 missingFields.push(key.replace( /([A-Z])/g, " $1" ).toLowerCase())
             }
         })
@@ -401,21 +445,16 @@ const NPFFabrics = props => {
                 props.setFabFact(fiberArray)
             })
 
-            props.fabricProps.setProducerPopUp(false)
-            props.fabricProps.setNewProducer({
-                name: '',
-                countryId: 0,
-                website: '',
-                notes: ''
-            })
+            handleClose()
+            clearFactPopUpFields()
         }
     }
 
     const submitMill = () => {
         const data = {
-            "english_name": props.fabricProps.newMill.name,
+            "english_name": props.fabricProps.formatName(props.fabricProps.newMill.name),
             "country": props.fabricProps.newMill.countryId,
-            "website": props.fabricProps.newMill.website,
+            "website": props.fabricProps.formatUrl(props.fabricProps.newMill.website),
             "notes": props.fabricProps.newMill.notes
         }
 
@@ -425,10 +464,15 @@ const NPFFabrics = props => {
             body: JSON.stringify(data)
         }
 
+        const requiredFields = {
+            english_name: props.fabricProps.newMill.name,
+            country: props.fabricProps.newMill.countryId
+        }
+
         const missingFields = []
 
-        Object.keys(props.fabricProps.newMill).forEach(key => {
-            if (props.fabricProps.newMill[key] === '' || 0) {
+        Object.keys(requiredFields).forEach(key => {
+            if (requiredFields[key] === '' || requiredFields[key] === 0) {
                 missingFields.push(key.replace( /([A-Z])/g, " $1" ).toLowerCase())
             }
         })
@@ -479,9 +523,9 @@ const NPFFabrics = props => {
             `)
         } else if (missingFields.length === 0) {
             const data = {
-                "english_name": props.fabricProps.newCert.name,
-                "website": props.fabricProps.newCert.website,
-                "approved_by_admin": false          
+                "english_name": props.fabricProps.formatName(props.fabricProps.newCert.name),
+                "website": props.fabricProps.formatUrl(props.fabricProps.newCert.website),
+                "approved_by_admin": false
             }
 
             const postRequestParams = {
@@ -544,45 +588,6 @@ const NPFFabrics = props => {
                         handleClick={() => props.fabricProps.setDyeFactPopUp(true)}
                     />
 
-                    <FormPopUp
-                        id={props.id + 'NewFact'} 
-                        status={factPopUpStatus()}
-                        title='New Factory'
-                        close={() => handleClose()}
-                        submit={() => submitFactory()}
-                        buttonText='Submit Factory'
-                    >
-                        <FormTextInput 
-                            id={props.id + 'NewFactName'}
-                            name='name'
-                            prompt='Factory name'
-                            currentValue={props.fabricProps.newFact.name}
-                            handleChange={event => newFactChange(event)} 
-                        />
-                        <FormDropdown
-                            id={props.id + 'NewFactLocation'}
-                            name='countryId'
-                            prompt='Location'
-                            currentValue={props.fabricProps.newFact.countryId}
-                            options={makeCountryOptions()}
-                            handleChange={event => newFactChange(event)} 
-                        />
-                        <FormUrlInput
-                            id={props.id + 'NewFactWebsite'}
-                            name='website'
-                            prompt='Website'
-                            currentValue={props.fabricProps.newFact.website}
-                            handleChange={event => newFactChange(event)}
-                        />
-                        <FormTextInput 
-                            id={props.id + 'NewFactNotes'}
-                            name='notes'
-                            prompt='Notes'
-                            currentValue={props.fabricProps.newFact.notes}
-                            handleChange={event => newFactChange(event)} 
-                        />
-                    </FormPopUp>
-
                     <FormTextInput
                         id='dye-fin-notes'
                         name='dyeFinNotes'
@@ -618,48 +623,6 @@ const NPFFabrics = props => {
                         handleClick={() => props.fabricProps.setMillPopUp(true)}
                     />
 
-                    <FormPopUp
-                        id={props.id + 'NewMill'} 
-                        status={millPopUpStatus()}
-                        title='New Fabric Mill'
-                        close={() => handleClose()}
-                        submit={() => submitMill()}
-                        buttonText='SUBMIT FABRIC MILL'
-                    >
-                        <FormTextInput 
-                            id={props.id + '-new-mill-name'}
-                            name='name'
-                            prompt='Fabric mill name'
-                            currentValue={props.fabricProps.newMill.name}
-                            handleChange={event => newMillChange(event)} 
-                        />
-
-                        <FormDropdown
-                            id={props.id + 'NewMillLocation'}
-                            name='countryId'
-                            prompt='Location'
-                            currentValue={props.fabricProps.newMill.countryId}
-                            options={makeCountryOptions()}
-                            handleChange={event => newMillChange(event)} 
-                        />
-
-                        <FormUrlInput
-                            id={props.id + 'NewMillWebsite'}
-                            name='website'
-                            prompt='Website'
-                            currentValue={props.fabricProps.newMill.website}
-                            handleChange={event => newMillChange(event)}
-                        />
-
-                        <FormTextInput 
-                            id={props.id + 'NewMillNotes'}
-                            name='notes'
-                            prompt='Notes'
-                            currentValue={props.fabricProps.newMill.notes}
-                            handleChange={event => newMillChange(event)} 
-                        />
-                    </FormPopUp>
-
                     <FormTextInput 
                         id='wov-knit-notes'
                         name='wovKnitNotes'
@@ -682,31 +645,6 @@ const NPFFabrics = props => {
                         buttonText='ADD A CERTIFICATION'
                         handleClick={() => props.fabricProps.setCertPopUp(true)}
                     />
-
-                    <FormPopUp
-                        id={props.id + 'NewCert'} 
-                        status={certPopUpStatus()}
-                        title='New Certification'
-                        close={() => handleClose()}
-                        submit={() => submitNewCert()}
-                        buttonText='SUBMIT CERTIFICATION'
-                    >
-                        <FormTextInput 
-                            id={props.id + '-new-cert-name'}
-                            name='name'
-                            prompt='Certification name'
-                            currentValue={props.fabricProps.newCert.name}
-                            handleChange={event => newCertChange(event)} 
-                        />
-
-                        <FormUrlInput
-                            id={props.id + '-new-cert-website'}
-                            name='website'
-                            prompt='Website'
-                            currentValue={props.fabricProps.newCert.website}
-                            handleChange={event => newCertChange(event)}
-                        />
-                    </FormPopUp>
                 </FormFieldset>
 
                 <FormPromptWithSub
@@ -738,29 +676,6 @@ const NPFFabrics = props => {
                             handleClick={() => props.fabricProps.setFiberPopUp(true)}
                         />
 
-                        <FormPopUp
-                            id={'new-fiber'} 
-                            status={fibPopUpStatus()}
-                            title='New Fiber'
-                            close={() => handleClose()}
-                            submit={() => submitFiber()}
-                            buttonText='SUBMIT FIBER'
-                        >
-                            <FormTextInput 
-                                id={'new-fiber-name'}
-                                name='name'
-                                prompt='Fiber name'
-                                currentValue={props.fabricProps.newFiber.name}
-                                handleChange={event => {
-                                    props.fabricProps.setNewFiber(
-                                        {
-                                            name: event.target.value
-                                        }
-                                    )
-                                }} 
-                            />
-                        </FormPopUp>
-
                         <FormNumberInput 
                             id={'fiber-type-percentage-' + index}
                             name='percentage'
@@ -790,14 +705,6 @@ const NPFFabrics = props => {
                         <FormButton 
                             buttonText='ADD A PRODUCER'
                             handleClick={() => props.fabricProps.setProducerPopUp(true)}
-                        />
-
-                        <FormTextInput
-                            id={'producer-notes' + index}
-                            name='producerNotes'
-                            prompt='Whether or not the producer is listed, are there notes about the fiber or material producer?  If so, copy them and paste them here.'
-                            currentValue={fiberFieldset.producerNotes}
-                            handleChange={event => {fibChangeInput(index, event)}}
                         />
 
                         <FormPopUp
@@ -842,15 +749,25 @@ const NPFFabrics = props => {
                             />
                         </FormPopUp>
 
+                        <FormTextInput
+                            id={'producer-notes' + index}
+                            name='producerNotes'
+                            prompt='Whether or not the producer is listed, are there notes about the fiber or material producer?  If so, copy them and paste them here.'
+                            currentValue={fiberFieldset.producerNotes}
+                            handleChange={event => {fibChangeInput(index, event)}}
+                        />
+
                         <FormPromptWithSub 
                             prompt=''
-                            promptSubtitle='Does the primary fabric have any of the following certifications?'
+                            promptSubtitle='Does the fiber have any of the following certifications?'
                         />
 
                         <FormCheckboxSection
-                            options={props.fabricProps.certificationList} 
+                            id={'fabric-certifications' + index}
+                            name='certIds'
+                            options={makeFibCertList(index)} 
                             selectedOptions={props.fiberFieldsets[index].certIds}
-                            handleChange={event => fibCertChange(index, event.target.id)}
+                            handleChange={event => fibCertChange(index, event.target.name)}
                         />
 
                         <FormButton
@@ -862,7 +779,7 @@ const NPFFabrics = props => {
 
                 <FormButton 
                     buttonText='THIS FABRIC HAS ADDITIONAL FIBERS' 
-                    handleClick={() => {addFiber()}}
+                    handleClick={index => {addFiber()}}
                 />
             </FormPage>
 
@@ -871,6 +788,135 @@ const NPFFabrics = props => {
                 previousButton={() => props.fabricProps.setPage(props.fabricProps.currentPage - 1)}
                 nextButton={event => nextButton(event)}
             />
+
+            <FormPopUp
+                id={props.id + 'NewFact'} 
+                status={factPopUpStatus()}
+                title='New Factory'
+                close={() => handleClose()}
+                submit={() => submitDyeFactory()}
+                buttonText='Submit Factory'
+            >
+                <FormTextInput 
+                    id={props.id + 'NewFactName'}
+                    name='name'
+                    prompt='Factory name'
+                    currentValue={props.fabricProps.newFact.name}
+                    handleChange={event => newFactChange(event)} 
+                />
+                <FormDropdown
+                    id={props.id + 'NewFactLocation'}
+                    name='countryId'
+                    prompt='Location'
+                    currentValue={props.fabricProps.newFact.countryId}
+                    options={makeCountryOptions()}
+                    handleChange={event => newFactChange(event)} 
+                />
+                <FormUrlInput
+                    id={props.id + 'NewFactWebsite'}
+                    name='website'
+                    prompt='Website'
+                    currentValue={props.fabricProps.newFact.website}
+                    handleChange={event => newFactChange(event)}
+                />
+                <FormTextInput 
+                    id={props.id + 'NewFactNotes'}
+                    name='notes'
+                    prompt='Notes'
+                    currentValue={props.fabricProps.newFact.notes}
+                    handleChange={event => newFactChange(event)} 
+                />
+            </FormPopUp>
+
+            <FormPopUp
+                id={props.id + 'NewMill'} 
+                status={millPopUpStatus()}
+                title='New Fabric Mill'
+                close={() => handleClose()}
+                submit={() => submitMill()}
+                buttonText='SUBMIT FABRIC MILL'
+            >
+                <FormTextInput 
+                    id={props.id + '-new-mill-name'}
+                    name='name'
+                    prompt='Fabric mill name'
+                    currentValue={props.fabricProps.newMill.name}
+                    handleChange={event => newMillChange(event)} 
+                />
+
+                <FormDropdown
+                    id={props.id + 'NewMillLocation'}
+                    name='countryId'
+                    prompt='Location'
+                    currentValue={props.fabricProps.newMill.countryId}
+                    options={makeCountryOptions()}
+                    handleChange={event => newMillChange(event)} 
+                />
+
+                <FormUrlInput
+                    id={props.id + 'NewMillWebsite'}
+                    name='website'
+                    prompt='Website'
+                    currentValue={props.fabricProps.newMill.website}
+                    handleChange={event => newMillChange(event)}
+                />
+
+                <FormTextInput 
+                    id={props.id + 'NewMillNotes'}
+                    name='notes'
+                    prompt='Notes'
+                    currentValue={props.fabricProps.newMill.notes}
+                    handleChange={event => newMillChange(event)} 
+                />
+            </FormPopUp>
+
+            <FormPopUp
+                id={'new-fiber'} 
+                status={fibPopUpStatus()}
+                title='New Fiber'
+                close={() => handleClose()}
+                submit={() => submitFiber()}
+                buttonText='SUBMIT FIBER'
+            >
+                <FormTextInput 
+                    id={'new-fiber-name'}
+                    name='name'
+                    prompt='Fiber name'
+                    currentValue={props.fabricProps.newFiber.name}
+                    handleChange={event => {
+                        props.fabricProps.setNewFiber(
+                            {
+                                name: event.target.value
+                            }
+                        )
+                    }} 
+                />
+            </FormPopUp>
+
+            <FormPopUp
+                id={props.id + 'NewCert'} 
+                status={certPopUpStatus()}
+                title='New Certification'
+                close={() => handleClose()}
+                submit={() => submitNewCert()}
+                buttonText='SUBMIT CERTIFICATION'
+            >
+                <FormTextInput 
+                    id={props.id + '-new-cert-name'}
+                    name='name'
+                    prompt='Certification name'
+                    currentValue={props.fabricProps.newCert.name}
+                    handleChange={event => newCertChange(event)} 
+                />
+
+                <FormUrlInput
+                    id={props.id + '-new-cert-website'}
+                    name='website'
+                    prompt='Website'
+                    currentValue={props.fabricProps.newCert.website}
+                    handleChange={event => newCertChange(event)}
+                />
+            </FormPopUp>
         </div>
     )    
 }
