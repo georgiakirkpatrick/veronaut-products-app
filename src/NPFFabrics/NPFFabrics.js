@@ -46,8 +46,6 @@ const NPFFabrics = props => {
     }
 
     const addFiber = () => {
-        console.log('props.fabricProps.certificationList', props.fabricProps.certificationList)
-
         const initialCertChecks = props.fabricProps.certificationList.map(c => [c.name, false])
         const initialObject = Object.fromEntries(initialCertChecks)
 
@@ -107,12 +105,9 @@ const NPFFabrics = props => {
     }
 
     const fibCertChange = (fiberIndex, certName) => {
-        console.log('fiberIndex', fiberIndex)
         const updatedFibers = [...props.fiberFieldsets]
     
         updatedFibers[fiberIndex].certIds[certName] = !props.fiberFieldsets[fiberIndex].certIds[certName]
-
-        console.log('updatedFibers', updatedFibers)
 
         props.setFiberFieldsets(updatedFibers)
     }
@@ -404,8 +399,6 @@ const NPFFabrics = props => {
             "notes": props.fabricProps.newProducer.notes
         }
 
-        console.log('data', data)
-
         const postRequestParams = {
             method: 'POST',
             headers: { 'Content-type': 'application/json' },
@@ -420,7 +413,6 @@ const NPFFabrics = props => {
         const missingFields = []
 
         Object.keys(requiredFields).forEach(key => {
-            console.log('props.fabricProps.newProducer')
             if (requiredFields[key] === '' || requiredFields[key] === 0) {
                 missingFields.push(key.replace( /([A-Z])/g, " $1" ).toLowerCase())
             }

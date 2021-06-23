@@ -63,6 +63,12 @@ const NPFImages = props => {
 
     // const nextButton = () => {props.setPage(props.currentPage + 1)}
 
+    const removeImage = (index, i) => {
+        const newColors = [...props.colorFieldsets]
+        newColors[index].imageUrls.splice(i, 1)
+        props.setColorFieldsets(newColors)
+    }
+
     return (
         <div>
             <FormPage title='Images'>
@@ -84,16 +90,25 @@ const NPFImages = props => {
                         />
                         
                         {colorFieldset.imageUrls.map((colorImageUrl, i) => (
-                            <FormUrlInput
-                                key={i}
-                                id={'color-image-urls-' + i}
-                                name='imageUrls'
-                                prompt='Image URL for this color'
-                                currentValue={colorImageUrl}
-                                handleChange={event => {
-                                    changeImageInput(index, i, event)
-                                }}
-                            />
+                            <div key={i} className='NewProductForm__image-field'>
+                                <button 
+                                    className='NewProductForm__remove-image'
+                                    type='button'
+                                    onClick={() => removeImage(index, i)}
+                                >
+                                    REMOVE
+                                </button>
+
+                                <FormUrlInput
+                                    id={'color-image-urls-' + i}
+                                    name='imageUrls'
+                                    prompt='Image URL for this color'
+                                    currentValue={colorImageUrl}
+                                    handleChange={event => {
+                                        changeImageInput(index, i, event)
+                                    }}
+                                />
+                            </div>
                         ))}
                         
                         <FormButton

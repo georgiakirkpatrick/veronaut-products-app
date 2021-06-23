@@ -32,7 +32,6 @@ const makeCurrencyOptions = currencies.map((currency, index) => {
 
 const NewProductForm = props => {
     const { certificationList, setCertificationList } = props
-    console.log('certificationList', certificationList)
 
     const [factoryList, setFactoryList] = useState([])
     const [fiberTypeList, setFiberTypeList] = useState([])
@@ -165,8 +164,6 @@ const NewProductForm = props => {
     const [millPopUp, setMillPopUp] = useState(false)
     const [producerPopUp, setProducerPopUp] = useState(false)
 
-    console.log('millPopUp', millPopUp)
-
         // PRIMARY FABRIC STATE
         const [primCertChecks, setPrimCertChecks] = useState(initialObject)
         const [primFabFact, setPrimFabFact] = useState({
@@ -255,7 +252,6 @@ const NewProductForm = props => {
     // NOTIONS
     const [notFactPopUp, setNotFactPopUp] = useState(false)
     const [notionFields, setNotionFields] = useState([])
-    console.log('notionFields', notionFields)
     const [notionTypePopUp, setNotionTypePopUp] = useState(false)
     const [materialPopUp, setMaterialPopUp] = useState(false)
     const [newNotionType, setNewNotionType] = useState('')
@@ -332,12 +328,10 @@ const NewProductForm = props => {
     const formatName = name => {
         if (name) {
             const formattedName = name.toLowerCase().split(" ")
-            console.log('formattedName', formattedName)
             for (let i = 0; i < formattedName.length; i++) {
                 formattedName[i] = formattedName[i][0].toUpperCase() + formattedName[i].substr(1)
             }
 
-            console.log('formattedName', formattedName)
             return formattedName.join(" ")
         }
     }
@@ -418,7 +412,6 @@ const NewProductForm = props => {
         }
 
         const formattedName = formatName(newProductFields.name)
-        console.log('formattedName', formattedName)
 
     const data = {
         "english_name": formattedName,
@@ -440,8 +433,6 @@ const NewProductForm = props => {
         "selected_sizes": sizeArray,
         "approved_by_admin": false
     }
-
-    console.log('data', data)
 
     // CHECK ALL REQUIRED FIELDS ARE INCLUDED
         const isObject = variable => (
@@ -868,9 +859,6 @@ const NewProductForm = props => {
     )
 
     const formPages = [
-        notions,
-        primFabric,
-
         start,
         prohibitedFibers,
         permittedCategories,

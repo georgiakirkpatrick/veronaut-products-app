@@ -3,6 +3,7 @@ import '@fortawesome/react-fontawesome'
 import FormPage from '../FormPage/FormPage'
 import FormButton from '../FormButton/FormButton'
 import FormDropdown from '../FormDropdown/FormDropdown'
+import FormFieldset from '../FormFieldset/FormFieldset'
 import FormPromptWithSub from '../FormPromptWithSub/FormPromptWithSub'
 import NPFFooter from '../NPFFooter/NPFFooter';
 import FormTextInput from '../FormTextInput/FormTextInput'
@@ -65,11 +66,6 @@ const NPFColors = props => {
                     missingFields.push(field)
                 }
             })
-            // if (fieldset.name === '' ) {
-            //     missingFields.push(fieldset.name)
-            // } else if (fieldset.descriptionId === 0) {
-            //     missingFields.push(fieldset.name)
-            // }
         })
 
         if (missingFields.length >= 1) {
@@ -96,7 +92,7 @@ const NPFColors = props => {
                         promptSubtitle='If the product has multiple colors, what is the dominant color?'
                     />
                     {props.colorFieldsets.map((colorFieldset, index) => (
-                        <fieldset key={index} className='NewProductForm__fieldset'>
+                        <FormFieldset key={index} className='NewProductForm__fieldset'>
                             <button 
                                 className='NewProductForm__remove' 
                                 type='button' 
@@ -124,7 +120,7 @@ const NPFColors = props => {
                                     colorsChangeInput(index, event)
                                 }}
                             />
-                        </fieldset>
+                        </ FormFieldset>
                     ))}
                 </div>
     
