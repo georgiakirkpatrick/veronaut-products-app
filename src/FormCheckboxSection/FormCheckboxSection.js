@@ -2,22 +2,29 @@ import React from 'react'
 import './FormCheckboxSection.css'
 
 const FormCheckboxSection = props => {
-    const selectedOptions = props.selectedOptions 
-        ? props.selectedOptions 
-        : Object.fromEntries(props.options.map((o) => [o.id, false]))
+    const {
+        handleChange,
+        options,
+        prompt,
+        selectedOptions
+    } = props
+    
+    const checked = selectedOptions 
+        ? selectedOptions 
+        : Object.fromEntries(options.map((o) => [o.id, false]))
 
-    const prompt = props.prompt 
-        ? <p>{props.prompt}</p> 
+    const formatPrompt = prompt 
+        ? <p>{prompt}</p> 
         : <div className='empty' />
         
-    const options = props.options.map(option => {
+    const formatOptions = options.map(option => {
         return (
             <div key={option.id} className='FormCheckboxSection__option'>
-                <input type='checkbox' 
+                <input type='checkbox'
                     id={option.id}
                     name={option.name ? option.name : option.id} 
-                    checked={selectedOptions[option.id]}
-                    onChange={props.handleChange}>
+                    checked={checked[option.name ? option.name : option.id]}
+                    onChange={handleChange}>
                 </input>
                 <label htmlFor={option.id}>{option.text}</label>
             </div>
@@ -26,9 +33,9 @@ const FormCheckboxSection = props => {
 
     return (
         <div className='FormCheckboxSection'>
-            {prompt}
+            {formatPrompt}
             <div className='FormCheckboxSection__options-container'>
-                {options}
+                {formatOptions}
             </div>
         </div>
     )

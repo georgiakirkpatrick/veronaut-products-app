@@ -10,10 +10,18 @@ import FormTextInput from '../FormTextInput/FormTextInput'
 import formData from '../FORM_DATA'
 
 const NPFColors = props => {
+
+    const {
+        colorFieldsets,
+        currentPage,
+        setColorFieldsets,
+        setPage,
+    } = props
+
     const addColor = () => {
-        props.setColorFieldsets(
+        setColorFieldsets(
             [
-                ...props.colorFieldsets, 
+                ...colorFieldsets, 
                 {
                     name: '', 
                     descriptionId: 0, 
@@ -25,9 +33,14 @@ const NPFColors = props => {
     }
 
     const colorsChangeInput = (index, event) => {
-        const values = [...props.colorFieldsets]
+        const values = [...colorFieldsets]
+        console.log('values', values)
         values[index][event.target.name] = event.target.value
-        props.setColorFieldsets(values)
+        console.log('values[index][event.target.name]', values[index][event.target.name])
+
+        setColorFieldsets(values)
+        console.log('values', values)
+
     }
 
     const makeColorOptions = () => {
@@ -58,9 +71,9 @@ const NPFColors = props => {
             'descriptionId'
         ]
 
-        props.colorFieldsets.length > 1 && requiredFields.push('name')
+        colorFieldsets.length > 1 && requiredFields.push('name')
 
-        props.colorFieldsets.forEach(fieldset => {
+        colorFieldsets.forEach(fieldset => {
             requiredFields.forEach(field => {
                 if (fieldset[field] === 0 || fieldset[field] === '') {
                     missingFields.push(field)
@@ -71,16 +84,16 @@ const NPFColors = props => {
         if (missingFields.length >= 1) {
             alert(`Please enter a description for each color option.  Remove any unneeded color fields by clicking 'remove'.`)
         } else if (missingFields.length === 0) {
-            props.setPage(props.currentPage + 1)
+            setPage(currentPage + 1)
         }
     }
     
-    // const nextButton = () => {props.setPage(props.currentPage + 1)}
+    // const nextButton = () => {setPage(currentPage + 1)}
     
     const removeColor = (index) => {
-        const values = [...props.colorFieldsets]
+        const values = [...colorFieldsets]
         values.splice(index, 1)
-        props.setColorFieldsets(values)
+        setColorFieldsets(values)
     }
 
     return (
@@ -91,7 +104,7 @@ const NPFColors = props => {
                         prompt='Enter all color options listed on the product webpage'
                         promptSubtitle='If the product has multiple colors, what is the dominant color?'
                     />
-                    {props.colorFieldsets.map((colorFieldset, index) => (
+                    {colorFieldsets.map((colorFieldset, index) => (
                         <FormFieldset key={index} className='NewProductForm__fieldset'>
                             <button 
                                 className='NewProductForm__remove' 
@@ -131,7 +144,7 @@ const NPFColors = props => {
             </FormPage>
             <NPFFooter
                 buttons='prevNext'
-                previousButton={() => props.setPage(props.currentPage - 1)} 
+                previousButton={() => setPage(currentPage - 1)} 
                 nextButton={() => {
                     nextButton()
                 }}

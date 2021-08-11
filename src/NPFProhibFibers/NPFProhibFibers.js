@@ -14,19 +14,29 @@ const noneOption = [
 ]
 
 const NPFProhibFibers = props => {
+    const {
+        currentPage,
+        setPage,
+        none,
+        noneChange,
+        pFiberChecks,
+        pFiberChange,
+        pageTurns
+    } = props
+
     const nextButton = () => {
         const prohibFibs = []
 
-        Object.keys(props.pFiberChecks).forEach(key => {
-            if (props.pFiberChecks[key]) {
+        Object.keys(pFiberChecks).forEach(key => {
+            if (pFiberChecks[key]) {
                 prohibFibs.push(key)
             }
         })
 
-        if (prohibFibs.length === 0 && !props.none[100]) {
+        if (prohibFibs.length === 0 && !none[100]) {
             alert('Please select an option.')
         } else {
-            props.setPage(props.currentPage + props.pageTurns)
+            setPage(currentPage + pageTurns)
         }
     }
 
@@ -34,26 +44,26 @@ const NPFProhibFibers = props => {
         <div>
             <FormPage title='Fibers'>
                 <FormPromptWithSub
-                    prompt='Does the product contain any of following materials?'
+                    prompt="Does the product's fabrics(s) comprise of 10% or more of any of following materials?  Exclude notions such as buttons, zippers, or embroidery thread."
                     promptSubtitle="Check all that apply and click 'next'."
                 />
 
                 <FormCheckboxSection 
                     options={formData.prohibitedFibers}
-                    selectedOptions={props.pFiberChecks}
-                    handleChange={props.pFiberChange}
+                    selectedOptions={pFiberChecks}
+                    handleChange={pFiberChange}
                 />
 
                 <FormCheckboxSection  
                     options={noneOption}
-                    selectedOptions={props.none}
-                    handleChange={props.noneChange}
+                    selectedOptions={none}
+                    handleChange={noneChange}
                 />
             </FormPage>
 
             <NPFFooter
                 buttons='prevNext'
-                previousButton={() => props.setPage(props.currentPage - props.pageTurns)} 
+                previousButton={() => setPage(currentPage - pageTurns)} 
                 nextButton={() => nextButton()}
             />
         </div>

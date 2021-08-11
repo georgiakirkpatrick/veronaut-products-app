@@ -1,19 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import renderer from 'react-test-renderer'
-import NPFNewProduct from './NPFNewProduct'
-import currencies from '../CURRENCIES'
+import NotionCarousel from './NotionCarousel'
 
-describe('NPFNewProduct', () => {
+describe('NotionCarousel', () => {
     it ('renders without crashing', () => {
         const div = document.createElement('div')
-        ReactDOM.render(<NPFNewProduct />, div)
+        ReactDOM.render(<NotionCarousel />, div)
         ReactDOM.unmountComponentAtNode(div)
     })
 
     it ('render the UI as expected', () => {
         const tree = renderer
-            .create(<NPFNewProduct />)
+            .create(<NotionCarousel />)
             .toJSON()
         expect(tree).toMatchSnapshot()
     })

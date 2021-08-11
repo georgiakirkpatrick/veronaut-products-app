@@ -265,6 +265,11 @@ const formData = {
             text: 'Vinyl',
             id: 10,
             checked: false
+        },
+        {
+            text: 'Not sure',
+            id: 11,
+            checked: false
         }
     ],
 
@@ -283,11 +288,11 @@ const formData = {
         },
         {
             id: 3,
-            text: 'Machine wash cold (<85°F/<30°C)'
+            text: 'Machine wash cold (≤85°F/≤30°C)'
         },
         {
             id: 4,
-            text: 'Machine wash warm (<105°F/<40°C)'
+            text: 'Machine wash warm (≤105°F/≤40°C)'
         },
         {
             id: 5,

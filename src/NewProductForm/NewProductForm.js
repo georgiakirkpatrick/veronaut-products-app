@@ -19,6 +19,7 @@ import NPFPermittedCategories from '../NPFPermittedCategories/NPFPermittedCatego
 import NPFProhibFibers from '../NPFProhibFibers/NPFProhibFibers'
 import NPFSizes from '../NPFSizes/NPFSizes'
 import NPFSubmit from '../NPFSubmit/NPFSubmit'
+import ScrollToTop from '../ScrollToTop/ScrollToTop'
 import config from '../config'
 import './NewProductForm.css'
 
@@ -31,9 +32,16 @@ const makeCurrencyOptions = currencies.map((currency, index) => {
 })
 
 const NewProductForm = props => {
-    const { certificationList, setCertificationList } = props
-
-    const [factoryList, setFactoryList] = useState([])
+    const {
+        brandArray,
+        brandId,
+        certificationList,
+        factoryList,
+        setBrandArray,
+        setBrandId,
+        setCertificationList,
+        setFactoryList,
+    } = props
     const [fiberTypeList, setFiberTypeList] = useState([])
     const [notionTypeList, setNotionTypeList] = useState([])
 
@@ -73,8 +81,8 @@ const NewProductForm = props => {
                 })
         }
 
-        const getNotionsTypes = () => {
-            fetch(`${config.API_URL}/api/fabrics/notion-types`, getRequestParams)
+        const getNotionTypes = () => {
+            fetch(`${config.API_URL}/api/notions/notion-types`, getRequestParams)
                 .then(response => {
                     if (response.status >= 400) {
                         console.log('There was a problem.  Status code: ' + response.status)
@@ -88,22 +96,21 @@ const NewProductForm = props => {
             }
         getFactories()
         getFiberTypes()
-        getNotionsTypes()
-    }, [])
+        getNotionTypes()
+    }, [setFactoryList])
 
 // STATE
     // FORM PAGE
     const [currentPage, setPage] = useState(0)
 
     // BRAND STATE
-    const [brandList, setBrandList] = useState([])
     const [brandPopUp, setBrandPopUp] = useState(false)
     const [newBrandFields, setNewBrandFields] = useState(
         {
             name: '',
             website: '',
-            currency: 0,
-            sizeSystem: 0
+            currencyId: 0,
+            sizeSystemId: 0
         }
     )
 
@@ -165,7 +172,8 @@ const NewProductForm = props => {
     const [producerPopUp, setProducerPopUp] = useState(false)
 
         // PRIMARY FABRIC STATE
-        const [primCertChecks, setPrimCertChecks] = useState(initialObject)
+        const [primCertChecks, setPrimCertChecks] = useState({...initialObject})
+
         const [primFabFact, setPrimFabFact] = useState({
             dyeFinCountryId: 0,
             dyeFinId: 0,
@@ -182,12 +190,13 @@ const NewProductForm = props => {
                 originId: 0,
                 producerId: 0,
                 producerNotes: '',
-                certIds: initialObject
+                certIds: {...initialObject}
             }
         ])
 
         // SECONDARY FABRIC STATE
-        const [secCertChecks, setSecCertChecks] = useState(initialObject)
+        const [secCertChecks, setSecCertChecks] = useState({...initialObject})
+
         const [secFabFact, setSecFabFact] = useState({
             dyeFinCountryId: 0,
             dyeFinId: 0,
@@ -203,12 +212,14 @@ const NewProductForm = props => {
                 originId: 0,
                 producerId: 0,
                 producerNotes: '',
-                certIds: initialObject
+                certIds: {...initialObject}
             }
         ])
 
         // LINING FABRIC STATE
-        const [linCertChecks, setLinCertChecks] = useState(initialObject)
+        const [linBackPageTurns, setLinBackPageTurns] = useState(1)
+        const [linCertChecks, setLinCertChecks] = useState({...initialObject})
+
         const [linFabFact, setLinFabFact] = useState({
             dyeFinCountryId: 0,
             dyeFinId: 0,
@@ -224,7 +235,7 @@ const NewProductForm = props => {
                 originId: 0,
                 producerId: 0,
                 producerNotes: '',
-                certIds: initialObject
+                certIds: {...initialObject}
             }
         ])
 
@@ -247,7 +258,6 @@ const NewProductForm = props => {
         washId: 0,
         dryId: 0
     })
-    const [newProductId, setNewProductId] = useState(null)
 
     // NOTIONS
     const [notFactPopUp, setNotFactPopUp] = useState(false)
@@ -256,8 +266,6 @@ const NewProductForm = props => {
     const [materialPopUp, setMaterialPopUp] = useState(false)
     const [newNotionType, setNewNotionType] = useState('')
     const [newNotionMaterial, setNewNotionMaterial] = useState('')
-    const [notCertChecks, setNotCertChecks] = useState(initialObject)
-    const [matProdPopUp, setMatProdPopUp] = useState(false)
 
     // SET INITIAL CHECKBOX STATE VALUES
         // CERTIFICATION CHECKBOX VALUES
@@ -282,10 +290,9 @@ const NewProductForm = props => {
         const [pFiberChecks, setPFiberChecks] = useState(pFibObject)
 
         // SIZES CHECKBOX VALUES
-        const brandInfo = brandList.length >= 1 ? brandList.find(brand => brand.id === props.brandId) : null
-        const sizeSystem = brandInfo ? brandInfo.size_system : 1
+        const brandInfo = brandArray.length >= 1 ? brandArray.find(brand => brand.id === brandId) : null
+        const sizeSystemId = brandInfo ? brandInfo.sizeSystemId : 1
         
-        // const sizeSystem = brandInfo.size_system
         const allSizeIds = () => {
             const sizeArray = []
 
@@ -347,11 +354,13 @@ const NewProductForm = props => {
         // PREPARE DATA - COLORS
         const colorArray = []
         colorFieldsets.forEach(color => {
+            const urlArray = color.imageUrls.map(url => formatUrl(url))
+
             colorArray.push({
                 name: formatName(color.name),
                 descriptionId: color.descriptionId,
                 swatchUrl: formatUrl(color.swatchUrl),
-                imageUrls: color.imageUrls.forEach(url => formatUrl(url))
+                imageUrls: urlArray
             })
         })
 
@@ -411,20 +420,20 @@ const NewProductForm = props => {
             }
         }
 
-        const formattedName = formatName(newProductFields.name)
+        // const formattedName = formatName(newProductFields.name)
 
     const data = {
-        "english_name": formattedName,
-        "brand_id": props.brandId,
+        "english_name": formatName(newProductFields.name),
+        "brand_id": brandId,
         "category_id": newProductFields.categoryId,
-        "product_url": formatUrl(newProductFields.website),
+        "product_url": formatUrl(newProductFields.url),
         "feature_image_url": formatUrl(newProductFields.featureImageUrl),
-        "multiple_color_options": colorFieldsets.length > 1 ? true : false,
+        "multiple_color_options": colorArray.length > 1 ? true : false,
         "cost_in_home_currency": newProductFields.price,
         "wash_id": Number(newProductFields.washId),
         "dry_id": Number(newProductFields.dryId),
         "cmt_notes": cmtNotes,
-        "color_fieldsets": colorFieldsets,
+        "color_fieldsets": colorArray,
         "sew_fact": sewFact,
         "cut_fact": cutFact,
         "man_cert_checks": certArray(manCertChecks),
@@ -433,7 +442,7 @@ const NewProductForm = props => {
         "selected_sizes": sizeArray,
         "approved_by_admin": false
     }
-
+    
     // CHECK ALL REQUIRED FIELDS ARE INCLUDED
         const isObject = variable => (
             Object.prototype.toString.call(variable) === '[object Object]'
@@ -475,19 +484,19 @@ const NewProductForm = props => {
     // BRAND
     const brand = (
         <NPFBrand
-            brandList={brandList}
+            brandArray={brandArray}
             brandPopUp={brandPopUp}
             currencies={makeCurrencyOptions}
-            currentBrandId={props.brandId}
+            currentBrandId={brandId}
             currentPage={currentPage}
             formatName={formatName}
             formatUrl={formatUrl}
             newBrandFields={newBrandFields}
             newProductFields={newProductFields}
             pageTurns={pageTurns}
-            setBrandList={setBrandList}
+            setBrandArray={setBrandArray}
             setBrandPopUp={setBrandPopUp}
-            setCurrentBrandId={props.setBrandId}
+            setCurrentBrandId={setBrandId}
             setNewBrandFields={setNewBrandFields}
             setNewProductFields={setNewProductFields}
             setPage={setPage}
@@ -499,8 +508,6 @@ const NewProductForm = props => {
         <NPFColors
             colorFieldsets={colorFieldsets}
             currentPage={currentPage}
-            formatName={formatName}
-            formatUrl={formatUrl}
             setColorFieldsets={setColorFieldsets}
             setPage={setPage}
         />
@@ -551,47 +558,52 @@ const NewProductForm = props => {
             fabFact={primFabFact}
             fabricProps={fabricProps}
             fiberFieldsets={primFiberFieldsets}
-            formatName={formatName}
-            formatUrl={formatUrl}
             id='prim'
+            pageTurns={primPageTurns}
             setFabFact={setPrimFabFact}
             setFiberFieldsets={setPrimFiberFieldsets}
             setCertChecks={setPrimCertChecks}
             title='Primary Fabric'
-            pageTurns={primPageTurns}
         />
     )
 
     // SECONDARY FABRIC PAGE
     const secFabric = (
-        <NPFFabrics
-            certChecks={secCertChecks}
-            fabFact={secFabFact}
-            fabricProps={fabricProps}
-            fiberFieldsets={secFiberFieldsets}
-            id='sec'
-            setFabFact={setSecFabFact}
-            setFiberFieldsets={setSecFiberFieldsets}
-            setCertChecks={setSecCertChecks}
-            title='Secondary Fabric'
-            pageTurns={secPageTurns}
-        />
+        <>
+            <ScrollToTop />
+            <NPFFabrics
+                certChecks={secCertChecks}
+                fabFact={secFabFact}
+                fabricProps={fabricProps}
+                fiberFieldsets={secFiberFieldsets}
+                id='sec'
+                setFabFact={setSecFabFact}
+                setFiberFieldsets={setSecFiberFieldsets}
+                setCertChecks={setSecCertChecks}
+                title='Secondary Fabric'
+                pageTurns={secPageTurns}
+            />
+        </>
     )
 
     // LINING FABRIC PAGE
     const linFabric = (
-        <NPFFabrics
-            certChecks={linCertChecks}
-            fabFact={linFabFact}
-            fabricProps={fabricProps}
-            fiberFieldsets={linFiberFieldsets}
-            id='lin'
-            setFabFact={setLinFabFact}
-            setFiberFieldsets={setLinFiberFieldsets}
-            setCertChecks={setLinCertChecks}
-            title='Lining Fabric'
-            pageTurns={linPageTurns}
-        />
+        <>
+            <ScrollToTop />
+            <NPFFabrics
+                certChecks={linCertChecks}
+                fabFact={linFabFact}
+                fabricProps={fabricProps}
+                fiberFieldsets={linFiberFieldsets}
+                id='lin'
+                linBackPageTurns={linBackPageTurns}
+                setFabFact={setLinFabFact}
+                setFiberFieldsets={setLinFiberFieldsets}
+                setCertChecks={setLinCertChecks}
+                title='Lining Fabric'
+                pageTurns={linPageTurns}
+            />
+        </>    
     )
 
     // FABRICS QUESTION PAGE
@@ -603,6 +615,7 @@ const NewProductForm = props => {
             setBackPageTurns={setBackPageTurns}
             secCheck={secCheck}
             setLinCheck={setLinCheck}
+            setLinBackPageTurns={setLinBackPageTurns}
             setPage={setPage}
             setPrimCheck={setPrimCheck}
             setPrimPageTurns={setPrimPageTurns}
@@ -631,16 +644,10 @@ const NewProductForm = props => {
 
     // IMAGES
     const images = (
-        <NPFImages 
-            brandId={props.brandId}
+        <NPFImages
             colorFieldsets={colorFieldsets}
             currentPage={currentPage}
-            formatName={formatName}
-            formatUrl={formatUrl}
-            newProductFields={newProductFields}
-            newProductId={newProductId}
             setColorFieldsets={setColorFieldsets}
-            setNewProductId={setNewProductId}
             setPage={setPage}
         />
     )
@@ -648,7 +655,7 @@ const NewProductForm = props => {
     // MANUFACTURING
     const manufacturing = (
         <NPFManufacturing
-            brandId={props.brandId}
+            brandId={brandId}
             certChecks={manCertChecks}
             cmtNotes={cmtNotes}
             currentPage={currentPage} 
@@ -670,13 +677,12 @@ const NewProductForm = props => {
     // NEW PRODUCTS
     const newProduct = (
         <NPFNewProduct
-            brandId={props.brandId}
-            brandList={brandList}
+            brandId={brandId}
+            brandArray={brandArray}
             currentPage={currentPage}
             formatName={formatName}
             formatUrl={formatUrl}
             newProductFields={newProductFields}
-            setBrandList={setBrandList}
             setNewProductFields={setNewProductFields}
             setPage={setPage}
         />
@@ -716,10 +722,8 @@ const NewProductForm = props => {
             fabricProps={fabricProps}
             fiberTypeList={fiberTypeList}
             materialPopUp={materialPopUp}
-            matProdPopUp={matProdPopUp}
             newNotionMaterial={newNotionMaterial}
             newNotionType={newNotionType}
-            notCertChecks={notCertChecks}
             notFactPopUp={notFactPopUp}
             notionFields={notionFields}
             notionTypeList={notionTypeList}
@@ -727,11 +731,9 @@ const NewProductForm = props => {
             setFiberTypeList={setFiberTypeList}
             setNewNotionMaterial={setNewNotionMaterial}
             setNewNotionType={setNewNotionType}
-            setNotCertChecks={setNotCertChecks}
             setNotFactPopUp={setNotFactPopUp}
             setNotionTypePopUp={setNotionTypePopUp}
             setMaterialPopUp={setMaterialPopUp}
-            setMatProdPopUp={setMatProdPopUp}
             setNotionFields={setNotionFields}
             setNotionTypeList={setNotionTypeList}
         />
@@ -829,15 +831,11 @@ const NewProductForm = props => {
     // SIZES
     const sizes = (
         <NPFSizes
-            brandId={props.brandId}
-            brandList={brandList}
-            category={newProductFields.category}
             currentPage={currentPage}
-            newProductId={newProductId}
             selectedSizeOptions={selectedSizeOptions}
             setPage={setPage}
             setSelectedSizeOptions={setSelectedSizeOptions}
-            sizeSystem={sizeSystem}
+            sizeSystemId={sizeSystemId}
         />
     )
 
@@ -896,10 +894,13 @@ const NewProductForm = props => {
 }
 
 NewProductForm.defaultProps = {
+    brandArray: [],
     brandId: 0,
     certificationList: [],
+    factoryList: [],
     setBrandId: () => {},
-    setCertificationList: () => {}
+    setCertificationList: () => {},
+    setFactoryList: () => {}
 }
 
 export default NewProductForm

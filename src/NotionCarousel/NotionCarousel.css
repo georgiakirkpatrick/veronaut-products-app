@@ -1,0 +1,28 @@
+.NotionCarousel {
+    width: 100%;
+    overflow: scroll;
+}
+
+.NotionCarousel__items {
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
+}
+
+.NotionCarousel__items > img {
+    width: 80vw;
+    padding: 0 10px 0 0;
+}
+
+.NotionCarousel__items > div {
+    padding: 0 10px 0 0;
+    width: 300px;
+}
+
+.NotionCarousel__stage {
+    text-decoration: underline;
+}
+
+#section-carousel > .NotionCarousel__items {
+    width: 150%;
+}

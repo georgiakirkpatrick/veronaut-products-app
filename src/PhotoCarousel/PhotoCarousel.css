@@ -1,24 +1,24 @@
-.ProductDetailCarousel {
+.PhotoCarousel {
     width: 100%;
     overflow: scroll;
 }
 
-.ProductDetailCarousel__items {
+.PhotoCarousel__items {
     display: flex;
     flex-direction: row;
     overflow: scroll;
 }
 
-.ProductDetailCarousel__items > img {
+.PhotoCarousel__items > li > img {
     width: 80vw;
     padding: 0 10px 0 0;
 }
 
-.ProductDetailCarousel__items > div {
+.PhotoCarousel__items > div {
     padding: 0 10px 0 0;
     width: 300px;
 }
 
-#section-carousel > .ProductDetailCarousel__items {
+#section-carousel > .PhotoCarousel__items {
     width: 150%;
 }

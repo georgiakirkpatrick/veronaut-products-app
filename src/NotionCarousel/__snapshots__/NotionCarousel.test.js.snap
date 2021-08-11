@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotionCarousel render the UI as expected 1`] = `
+<div
+  className="NotionCarousel"
+>
+  <div
+    className="NotionCarousel__items"
+  />
+</div>
+`;

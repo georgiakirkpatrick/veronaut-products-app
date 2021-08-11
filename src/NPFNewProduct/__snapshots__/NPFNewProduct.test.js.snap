@@ -19,7 +19,7 @@ exports[`NPFNewProduct render the UI as expected 1`] = `
         <p
           className="FormPromptWithSub__prompt"
         >
-          Brand: null
+          Brand: 
         </p>
         <p
           className="FormPromptWithSub__subtitle"
@@ -73,7 +73,7 @@ exports[`NPFNewProduct render the UI as expected 1`] = `
           name="categoryId"
           onChange={[Function]}
           required={true}
-          value={0}
+          value={1}
         >
           <option
             id={0}
@@ -202,7 +202,7 @@ exports[`NPFNewProduct render the UI as expected 1`] = `
         <label
           htmlFor="price"
         >
-          Product price in US dollars ($)
+          Product price in  ()
         </label>
         <input
           id="price"

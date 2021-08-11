@@ -16,17 +16,23 @@ import PrincipleList from './PrincipleList/PrincipleList'
 import NewProductForm from './NewProductForm/NewProductForm'
 import NotFoundPage from './NotFoundPage/NotFoundPage'
 import NewAccount from './NewAccount/NewAccount'
+import ScrollToTop from './ScrollToTop/ScrollToTop'
 import './App.css'
 
 const App = () => {
+  const [brandArray, setBrandArray] = useState([])
   const [brandId, setBrandId] = useState(0)
   const [categoryList, setCategoryList] = useState([])
   const [categoriesLoaded, setCategoriesLoaded] = useState(false)
-  const [err, setErr] = useState(null)
+  const [catError, setCatError] = useState(null)
   const [certificationList, setCertificationList] = useState([])
   const [certListLoaded, setCertListLoaded] = useState(false)
- 
-  const [ loginInfo, setLoginInfo ] = useState({ user: null, token: null })
+  const [factoryList, setFactoryList] = useState([])
+  const [loginInfo, setLoginInfo ] = useState({ user: null, token: null })
+  const [productArray, setProductArray] = useState([])
+  // const [selectedCategoryId, setSelectedCategoryId] = useState(1)
+
+  console.log('App brandArray', brandArray)
 
   useEffect(() => {
     const getRequestParams = {
@@ -53,14 +59,41 @@ const App = () => {
       .then(categoryArray => {
         setCategoryList(categoryArray)
         setCategoriesLoaded(true)
-      },
+      }
+      ,
       err => {
-        setErr(err)
-        setCategoriesLoaded(true)
-      })
+        setCatError(err)
+        setCategoriesLoaded(false)
+      }
+      )
     }
-
     getAllCategories()
+
+    const getBrands = () => {
+      fetch(`${config.API_URL}/api/brands`, getRequestParams)
+        .then(response => {
+          if (response.status >= 400) {
+              throw new Error("Server responded with an error!")
+          }
+          return response.json()
+        })
+        .then(brandArray => {
+          const brands = brandArray.map(brand => ({
+            id: brand.id,
+            text: brand.english_name,
+            value: brand.id,
+            currencyId: brand.home_currency,
+            sizeSystemId: brand.size_system
+          }))
+
+          brands.sort((a, b) => 
+              a.text > b.text ? 1 : -1
+          )
+
+          setBrandArray(brands)
+        })
+    }
+    getBrands()
 
     const getCertifications = () => {
       fetch(`${config.API_URL}/api/certifications`, getRequestParams)
@@ -81,16 +114,56 @@ const App = () => {
               approved: cert.approved_by_admin
             }
           })
-
           formattedCerts.sort((a, b) => a.text > b.text ? 1 : -1)
-
           setCertificationList(formattedCerts)
           setCertListLoaded(true)
         })
     }
-
     getCertifications()
+            
+    const getFactories = () => {
+      fetch(`${config.API_URL}/api/factories`, getRequestParams)
+        .then(response => {
+            if (response.status >= 400) {
+                console.log('There was a problem.  Status code: ' + response.status)
+                throw new Error("Server responded with an error!")
+            }
+            return response.json()
+        })
+        .then(factoryArray => {
+            setFactoryList(factoryArray)
+        })
+    }
+    getFactories()
   }, [])
+
+  // useEffect(() => {
+  //   const getProductsForCategory = categoryId => {
+  //     fetch(`${config.API_URL}/api/categories/${categoryId}/products`, {
+  //         method: 'GET',
+  //         headers: {
+  //             'Content-type': 'application/json'
+  //         }
+  //     })
+  //     .then(response => {
+  //         if (response.status >= 400) {
+  //             console.log('There was a problem.  Status code: ' + response.status)
+  //             throw new Error("Server responded with an error!")
+  //         }
+          
+  //         return response.json()
+  //     })
+  //     .then(products => {
+  //         setProductArray(products)
+  //         setCatProdLoaded(true)
+  //     },
+  //     err => {
+  //         setCatProdError(err)
+  //         setCatProdLoaded(false)
+  //     })
+  //   }
+  //   getProductsForCategory(selectedCategoryId)
+  // }, [selectedCategoryId])
 
   const fullPrinciples = (
     [
@@ -140,8 +213,8 @@ const App = () => {
     }
   ]
 
-  if (err) {
-    return <div> {err.message} </div>
+  if (catError) {
+    return <div> {catError.message} </div>
   } else if (!categoriesLoaded || !certListLoaded) {
     return <div> Loading... </div>
   } else {
@@ -149,6 +222,7 @@ const App = () => {
     <Router>
       <div className='App'>
         <main>
+          <ScrollToTop />
           <Header categoryList={categoryList} />
           <Switch>
             <Route path='/about' render={routeProps => (
@@ -171,13 +245,16 @@ const App = () => {
             <Route path='/add-product' exact render={routeProps => (
               <>
                 <NewProductForm
+                  brandArray={brandArray}
                   brandId={brandId}
-                  setBrandId={setBrandId}
-                  loginInfo={loginInfo}
-                  setLoginInfo={setLoginInfo}
-                  routeProps={routeProps}
                   certificationList={certificationList}
+                  factoryList={factoryList}
+                  loginInfo={loginInfo}
+                  setBrandArray={setBrandArray}
+                  setBrandId={setBrandId}
                   setCertificationList={setCertificationList}
+                  setFactoryList={setFactoryList}
+                  setLoginInfo={setLoginInfo}
                 />
               </>
             )}/>
@@ -194,7 +271,13 @@ const App = () => {
               <>
                 <ProductListPage
                   categoryList={categoryList}
+                  // catProdError={catProdError}
+                  // catProdLoaded={catProdLoaded}
+                  productArray={productArray}
                   routeProps={routeProps}
+                  setProductArray={setProductArray}
+                  // selectedCategoryId={selectedCategoryId}
+                  // setSelectedCategoryId={setSelectedCategoryId}
                 />
                 <Footer />
               </>
@@ -227,18 +310,18 @@ const App = () => {
                 <Footer />
               </>
             )}/>
-
-            <Route 
-              path='/product/:productId/:slug'
-              render={(routeProps) => (
+            <Route path='/product/:productId/:slug' render={(routeProps) => (
               <>
                 <ProductDetail
+                  factoryList={factoryList}
+                  certArray={certificationList}
+                  productArray={productArray}
                   routeProps={routeProps}
+                  setProductArray={setProductArray}
                 />
                 <Footer />
               </>
             )}/>
-
             <Route path='/' exact render={(routeProps) => (
               <>
                 <LandingPage
@@ -247,7 +330,6 @@ const App = () => {
                 <Footer />
               </>
             )}/>
-
             <Route render={(routeProps) => (
               <>
                 <NotFoundPage

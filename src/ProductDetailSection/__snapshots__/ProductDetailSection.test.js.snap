@@ -3,7 +3,9 @@
 exports[`ProductDetailSection renders the UI as expected 1`] = `
 Array [
   <hr />,
-  <section>
+  <section
+    id={1}
+  >
     <button
       className="ProductDetailSection__button"
       onClick={[Function]}
@@ -34,9 +36,11 @@ Array [
         
       </h3>
     </header>
-    <div
+    <ul
       className="ProductDetailSection"
-    />
+    >
+      
+    </ul>
   </section>,
 ]
 `;

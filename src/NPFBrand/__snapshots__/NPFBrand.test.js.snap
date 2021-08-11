@@ -30,7 +30,7 @@ exports[`NPFBrand render the UI as expected 1`] = `
         >
           <option
             id={0}
-            value={1}
+            value={0}
           >
             Select a brand
           </option>
@@ -89,7 +89,7 @@ exports[`NPFBrand render the UI as expected 1`] = `
         <button
           className="NPFFooter_next"
           onClick={[Function]}
-          type="submit"
+          type="button"
         >
           <span>
             NEXT
@@ -205,10 +205,10 @@ exports[`NPFBrand render the UI as expected 1`] = `
         Which currency does the brand list prices in?
       </label>
       <p>
-        If the brand offers multiple currency options on their website, select the currency of the brand's home country.  Not sure?  Select 'Not sure' from the dropdown.
+        If the brand offers multiple currency options on their website, select US dollars if available.  Otherwise, select the main currency of the brand's home country.  Not sure?  Select 'Not sure' from the dropdown.
       </p>
       <select
-        name="currency"
+        name="currencyId"
         onChange={[Function]}
         required={true}
         value={0}
@@ -230,10 +230,10 @@ exports[`NPFBrand render the UI as expected 1`] = `
         Which sizing system does the brand use?
       </label>
       <p>
-        Not sure?  Select 'Not sure' from the dropdown.
+        If the brand offers multiple size systems on their website based on the country in which the webpage is being viewed, select US sizes if available.  Otherwise, select the main size system of the brand's home country. Not sure?  Select 'Not sure' from the dropdown.
       </p>
       <select
-        name="sizeSystem"
+        name="sizeSystemId"
         onChange={[Function]}
         required={true}
         value={0}
@@ -276,19 +276,19 @@ exports[`NPFBrand render the UI as expected 1`] = `
         </option>
         <option
           id={6}
-          value={6}
+          value={1}
         >
           Other
         </option>
         <option
           id={7}
-          value={7}
+          value={1}
         >
           Not sure
         </option>
         <option
           id={8}
-          value={8}
+          value={1}
         >
           International
         </option>

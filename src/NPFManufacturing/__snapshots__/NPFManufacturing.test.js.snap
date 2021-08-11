@@ -42,9 +42,10 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
             Location
           </label>
           <select
-            name="location"
+            name="countryId"
             onChange={[Function]}
             required={true}
+            value=""
           >
             <option
               id={0}
@@ -63,7 +64,7 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
             Factory
           </label>
           <select
-            name="factory"
+            name="factoryId"
             onChange={[Function]}
             required={true}
             value=""
@@ -73,6 +74,12 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
               value={0}
             >
               Select a factory
+            </option>
+            <option
+              id={1}
+              value={1}
+            >
+              Not disclosed
             </option>
           </select>
         </div>
@@ -88,7 +95,7 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
         className="FormFieldset"
       >
         <p>
-          Add a cutting factory
+          Cutting factory
         </p>
         <div
           className="FormDropdown"
@@ -99,9 +106,10 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
             Location
           </label>
           <select
-            name="location"
+            name="countryId"
             onChange={[Function]}
             required={true}
+            value=""
           >
             <option
               id={0}
@@ -120,15 +128,22 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
             Factory
           </label>
           <select
-            name="factory"
+            name="factoryId"
             onChange={[Function]}
             required={true}
+            value=""
           >
             <option
               id={0}
               value={0}
             >
               Select a factory
+            </option>
+            <option
+              id={1}
+              value={1}
+            >
+              Not disclosed
             </option>
           </select>
         </div>
@@ -191,9 +206,65 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
     </form>
     <div />
   </section>
+  <footer
+    className="NPFFooter"
+  >
+    <button
+      className="NPFFooter_previous"
+      onClick={[Function]}
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-arrow-left fa-w-14 NPFFooter_arrow"
+        data-icon="arrow-left"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        style={Object {}}
+        viewBox="0 0 448 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+      <span>
+        PREVIOUS
+      </span>
+    </button>
+    <button
+      className="NPFFooter_next"
+      onClick={[Function]}
+      type="button"
+    >
+      <span>
+        NEXT
+      </span>
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-arrow-right fa-w-14 NPFFooter_arrow"
+        data-icon="arrow-right"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        style={Object {}}
+        viewBox="0 0 448 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+    </button>
+  </footer>
   <section
     className="FormPopUp__pop-up"
-    id="addFactory"
+    id="addSewFact"
   >
     <button
       className="FormPopUp__close-button"
@@ -241,12 +312,12 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
       className="FormText"
     >
       <label
-        htmlFor="factory-name"
+        htmlFor="sew-factory-name"
       >
         Factory name
       </label>
       <input
-        id="factory-name"
+        id="sew-factory-name"
         name="name"
         onChange={[Function]}
         required={true}
@@ -258,14 +329,15 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
       className="FormDropdown"
     >
       <label
-        htmlFor="factory-location"
+        htmlFor="sew-factory-location"
       >
         Factory location
       </label>
       <select
-        name="location"
+        name="countryId"
         onChange={[Function]}
         required={true}
+        value=""
       >
         <option
           id={0}
@@ -279,13 +351,13 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
       className="FormUrlInput"
     >
       <label
-        htmlFor="factory-website"
+        htmlFor="sew-factory-website"
       >
         Factory website
       </label>
       <input
         defaultValue=""
-        id="factory-website"
+        id="sew-factory-website"
         name="website"
         onChange={[Function]}
         required={true}
@@ -296,12 +368,139 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
       className="FormText"
     >
       <label
-        htmlFor="factory-notes"
+        htmlFor="sew-factory-notes"
       >
         Notes
       </label>
       <input
-        id="factory-notes"
+        id="sew-factory-notes"
+        name="notes"
+        onChange={[Function]}
+        required={true}
+        type="text"
+        value=""
+      />
+    </div>
+    <button
+      className="FormButton"
+      onClick={[Function]}
+      type="submit"
+    >
+      SUBMIT FACTORY
+    </button>
+  </section>
+  <section
+    className="FormPopUp__pop-up"
+    id="addCutFact"
+  >
+    <button
+      className="FormPopUp__close-button"
+      onClick={[Function]}
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-times fa-w-11 fa-lg "
+        data-icon="times"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        style={Object {}}
+        viewBox="0 0 352 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+    </button>
+    <header>
+      <h1>
+        New Factory
+      </h1>
+    </header>
+    <div
+      className="FormPromptWithSub"
+    >
+      <p
+        className="FormPromptWithSub__prompt"
+      >
+        Add a factory
+      </p>
+      <p
+        className="FormPromptWithSub__subtitle"
+      >
+        Include the factory website if it is provided on the product page.  Copy and paste all available information about the factory in the 'notes' field
+      </p>
+    </div>
+    <div
+      className="FormText"
+    >
+      <label
+        htmlFor="cut-factory-name"
+      >
+        Factory name
+      </label>
+      <input
+        id="cut-factory-name"
+        name="name"
+        onChange={[Function]}
+        required={true}
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="FormDropdown"
+    >
+      <label
+        htmlFor="cut-factory-location"
+      >
+        Factory location
+      </label>
+      <select
+        name="countryId"
+        onChange={[Function]}
+        required={true}
+        value=""
+      >
+        <option
+          id={0}
+          value={0}
+        >
+          Select a country
+        </option>
+      </select>
+    </div>
+    <div
+      className="FormUrlInput"
+    >
+      <label
+        htmlFor="cut-factory-website"
+      >
+        Factory website
+      </label>
+      <input
+        defaultValue=""
+        id="cut-factory-website"
+        name="website"
+        onChange={[Function]}
+        required={true}
+        type="url"
+      />
+    </div>
+    <div
+      className="FormText"
+    >
+      <label
+        htmlFor="cut-factory-notes"
+      >
+        Notes
+      </label>
+      <input
+        id="cut-factory-notes"
         name="notes"
         onChange={[Function]}
         required={true}
@@ -405,61 +604,5 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
       CREATE CERTIFICATION
     </button>
   </section>
-  <footer
-    className="NPFFooter"
-  >
-    <button
-      className="NPFFooter_previous"
-      onClick={[Function]}
-      type="button"
-    >
-      <svg
-        aria-hidden="true"
-        className="svg-inline--fa fa-arrow-left fa-w-14 NPFFooter_arrow"
-        data-icon="arrow-left"
-        data-prefix="fas"
-        focusable="false"
-        role="img"
-        style={Object {}}
-        viewBox="0 0 448 512"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"
-          fill="currentColor"
-          style={Object {}}
-        />
-      </svg>
-      <span>
-        PREVIOUS
-      </span>
-    </button>
-    <button
-      className="NPFFooter_next"
-      onClick={[Function]}
-      type="button"
-    >
-      <span>
-        NEXT
-      </span>
-      <svg
-        aria-hidden="true"
-        className="svg-inline--fa fa-arrow-right fa-w-14 NPFFooter_arrow"
-        data-icon="arrow-right"
-        data-prefix="fas"
-        focusable="false"
-        role="img"
-        style={Object {}}
-        viewBox="0 0 448 512"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
-          fill="currentColor"
-          style={Object {}}
-        />
-      </svg>
-    </button>
-  </footer>
 </div>
 `;

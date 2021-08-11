@@ -273,7 +273,6 @@ const NPFManufacturing = props => {
         }
     }
 
-
     // const nextButton = () => {props.fabricProps.setPage(props.fabricProps.currentPage + 1)}
 
     const nextButton = () => {

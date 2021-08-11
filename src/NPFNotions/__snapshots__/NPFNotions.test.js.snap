@@ -47,9 +47,10 @@ exports[`NPFNotions render the UI as expected 1`] = `
             Notion type
           </label>
           <select
-            name="typeId0"
+            name="typeId"
             onChange={[Function]}
             required={true}
+            value={0}
           >
             <option
               id={0}
@@ -112,7 +113,7 @@ exports[`NPFNotions render the UI as expected 1`] = `
               onChange={[Function]}
               required={true}
               type="text"
-              value={1}
+              value=""
             />
           </div>
           <button
@@ -164,6 +165,12 @@ exports[`NPFNotions render the UI as expected 1`] = `
               value={0}
             >
               Select a manufacturer
+            </option>
+            <option
+              id={1}
+              value={1}
+            >
+              Not disclosed
             </option>
           </select>
         </div>
@@ -246,9 +253,10 @@ exports[`NPFNotions render the UI as expected 1`] = `
               Location
             </label>
             <select
-              name="location"
+              name="countryId"
               onChange={[Function]}
               required={true}
+              value=""
             >
               <option
                 id={0}
@@ -319,6 +327,12 @@ exports[`NPFNotions render the UI as expected 1`] = `
               value={0}
             >
               Select a fiber or material
+            </option>
+            <option
+              id={1}
+              value={1}
+            >
+              Not disclosed
             </option>
           </select>
         </div>
@@ -425,7 +439,13 @@ exports[`NPFNotions render the UI as expected 1`] = `
               id={0}
               value={0}
             >
-              Select a manufacturer
+              Select a producer
+            </option>
+            <option
+              id={1}
+              value={1}
+            >
+              Not disclosed
             </option>
           </select>
         </div>
@@ -558,7 +578,7 @@ exports[`NPFNotions render the UI as expected 1`] = `
             onChange={[Function]}
             required={true}
             type="text"
-            value={null}
+            value=""
           />
         </div>
       </fieldset>

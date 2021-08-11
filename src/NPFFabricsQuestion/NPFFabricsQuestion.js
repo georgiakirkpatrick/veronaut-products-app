@@ -5,40 +5,58 @@ import FormPromptWithSub from '../FormPromptWithSub/FormPromptWithSub'
 import NPFFooter from '../NPFFooter/NPFFooter'
 
 const NPFFabricsQuestion = props => {
+    const {
+        currentPage,
+        linCheck,
+        primCheck,
+        setBackPageTurns,
+        secCheck,
+        setLinBackPageTurns,
+        setLinCheck,
+        setPage,
+        setPrimCheck,
+        setPrimPageTurns,
+        setSecCheck,
+        setSecPageTurns
+    } = props
+
     const linCheckOption = [
         {
             text: 'Yes',
             id: 'lining-fabric',
-            checked: props.linCheck
+            name: 'lining-fabric',
+            checked: linCheck
         }
     ]
 
     const nextButton = () => {
-        if (props.secCheck && props.linCheck) {
-            props.setPrimPageTurns(1)
-            props.setSecPageTurns(1)
-            props.setBackPageTurns(1)
-        } else if (props.secCheck && !props.linCheck) {
-            props.setPrimPageTurns(1)
-            props.setSecPageTurns(2)
-            props.setBackPageTurns(2)
-        } else if (!props.secCheck && props.linCheck) {
-            props.setPrimPageTurns(2)
-            props.setSecPageTurns(1)
-            props.setBackPageTurns(1)
-        } else if (!props.secCheck && !props.linCheck) {
-            props.setPrimPageTurns(3)
-            props.setBackPageTurns(3)
+        if (secCheck && linCheck) {
+            setPrimPageTurns(1)
+            setSecPageTurns(1)
+            setBackPageTurns(1)
+        } else if (secCheck && !linCheck) {
+            setPrimPageTurns(1)
+            setSecPageTurns(2)
+            setBackPageTurns(2)
+        } else if (!secCheck && linCheck) {
+            setLinBackPageTurns(2)
+            setPrimPageTurns(2)
+            setSecPageTurns(1)
+            setBackPageTurns(1)
+        } else if (!secCheck && !linCheck) {
+            setPrimPageTurns(3)
+            setBackPageTurns(3)
         }
         
-        props.setPage(props.currentPage + 1)
+        setPage(currentPage + 1)
     }
 
     const primCheckOption = [
         {
             text: 'Yes',
             id: 'primary-fabric',
-            checked: props.primCheck
+            name: 'primary-fabric',
+            checked: primCheck
         }
     ]
     
@@ -46,7 +64,8 @@ const NPFFabricsQuestion = props => {
         {
             text: 'Yes',
             id: 'secondary-fabric',
-            checked: props.secCheck
+            name: 'secondary-fabric',
+            checked: secCheck
         }
     ]
 
@@ -61,8 +80,8 @@ const NPFFabricsQuestion = props => {
                 <FormCheckboxSection 
                     prompt='The primary fabric (or material) is required.'
                     options={primCheckOption}
-                    selectedOptions={{'primary-fabric': props.primCheck}}
-                    handleChange={() => props.setPrimCheck(props.primCheck)}
+                    selectedOptions={{'primary-fabric': primCheck}}
+                    handleChange={() => setPrimCheck(primCheck)}
                 />
 
                 <FormPromptWithSub 
@@ -72,8 +91,8 @@ const NPFFabricsQuestion = props => {
                 <FormCheckboxSection 
                     prompt='Does this product include a secondary fabric?'
                     options={secCheckOption}
-                    selectedOptions={{'secondary-fabric': props.secCheck}}
-                    handleChange={() => props.setSecCheck(!props.secCheck)}
+                    selectedOptions={{'secondary-fabric': secCheck}}
+                    handleChange={() => setSecCheck(!secCheck)}
                 />
 
                 <FormPromptWithSub 
@@ -83,14 +102,14 @@ const NPFFabricsQuestion = props => {
                 <FormCheckboxSection 
                     prompt='Does this product include a lining fabric?'
                     options={linCheckOption}
-                    selectedOptions={{'lining-fabric': props.linCheck}}
-                    handleChange={() => props.setLinCheck(!props.linCheck)}
+                    selectedOptions={{'lining-fabric': linCheck}}
+                    handleChange={() => setLinCheck(!linCheck)}
                 />
             </FormPage>
 
             <NPFFooter 
                 buttons='prevNext' 
-                previousButton={() => props.setPage(props.currentPage - 1)} 
+                previousButton={() => setPage(currentPage - 1)} 
                 nextButton={() => nextButton()} 
             />
         </div>

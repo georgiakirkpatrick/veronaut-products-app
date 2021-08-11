@@ -8,22 +8,35 @@ import FormUrlInput from '../FormUrlInput/FormUrlInput'
 import NPFFooter from '../NPFFooter/NPFFooter';
 
 const NPFImages = props => {
+    const {
+        colorFieldsets,
+        currentPage,
+        setColorFieldsets,
+        setPage
+    } = props
+
     const addImage = (index) => {
-        const fieldsetToUpdate = props.colorFieldsets[index]
+        const fieldsetToUpdate = colorFieldsets[index]
         fieldsetToUpdate.imageUrls.push('')
-        props.setColorFieldsets([ ...props.colorFieldsets ])    
+        setColorFieldsets([ ...colorFieldsets ])    
     }
 
     const changeSwatchInput = (event, index) => {
-        const values = [...props.colorFieldsets]
-       
-        values[index][event.target.name] = event.target.value
+        const values = [...colorFieldsets]
+        console.log('values', values)
 
-        props.setColorFieldsets(values)
+        values[index][event.target.name] = event.target.value
+        console.log('values[index][event.target.name]', values[index][event.target.name])
+
+        setColorFieldsets(values)
     }
 
     const changeImageInput = (index, i, event) => {
-        const values = [...props.colorFieldsets]
+        console.log('index', index)
+        console.log('i', i)
+        console.log('event', event)
+
+        const values = [...colorFieldsets]
     
         values[index][event.target.name][i] = event.target.value
     }
@@ -32,7 +45,7 @@ const NPFImages = props => {
         const missingSwatches = []
         const missingUrls = []
 
-        props.colorFieldsets.forEach(fieldset => {
+        colorFieldsets.forEach(fieldset => {
             if (fieldset.swatchUrl === '' || null) {
                 missingSwatches.push(fieldset.name)
             }
@@ -56,17 +69,17 @@ const NPFImages = props => {
             if (missingUrls.length >= 1) {
                 alert(`Please enter at least one image url for each color and remove any empty fields`)
             } else {
-                props.setPage(props.currentPage + 1)
+                setPage(currentPage + 1)
             }
         }
     }
 
-    // const nextButton = () => {props.setPage(props.currentPage + 1)}
+    // const nextButton = () => {setPage(currentPage + 1)}
 
     const removeImage = (index, i) => {
-        const newColors = [...props.colorFieldsets]
+        const newColors = [...colorFieldsets]
         newColors[index].imageUrls.splice(i, 1)
-        props.setColorFieldsets(newColors)
+        setColorFieldsets(newColors)
     }
 
     return (
@@ -76,7 +89,7 @@ const NPFImages = props => {
                     prompt='Enter the color swatch URL and image URL(s) for each color'
                     promptSubtitle=''
                 />
-                {props.colorFieldsets.map((colorFieldset, index) => {
+                {colorFieldsets.map((colorFieldset, index) => {
                     return <FormFieldset key={index} className='NPFImages__fieldset'>
                         <FormPromptWithSub prompt={colorFieldset.name} promptSubtitle='' />
                         <FormUrlInput 
@@ -121,7 +134,7 @@ const NPFImages = props => {
 
             <NPFFooter 
                 buttons='prevNext' 
-                previousButton={() => { props.setPage(props.currentPage - 1) }} 
+                previousButton={() => { setPage(currentPage - 1) }} 
                 nextButton={() => { nextButton() }}
             />
         </div>

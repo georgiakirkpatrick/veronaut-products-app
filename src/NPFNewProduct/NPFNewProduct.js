@@ -10,34 +10,44 @@ import currencies from '../CURRENCIES'
 import formData from '../FORM_DATA'
 
 const NPFNewProduct = props => {
+    const {
+        brandId,
+        brandArray,
+        currentPage,
+        newProductFields,
+        setNewProductFields,
+        setPage
+    } = props
+
     const findBrandDetails = brand => {
-        return brand['id'] === Number(props.brandId)
+        return brand['id'] === Number(brandId)
     }
-    const brandDetailArray = props.brandList.filter(findBrandDetails)
-    const brandDetails = brandDetailArray.length > 0 ? brandDetailArray[0] : { english_name: null, home_currency: null }
+
+    const brandDetailArray = brandArray.filter(findBrandDetails)
+    const brandDetails = brandDetailArray.length > 0 ? brandDetailArray[0] : { id: 0, text: '', value: 0 }
 
     const changeField = event => {
-        props.setNewProductFields({
-            ...props.newProductFields, 
+        setNewProductFields({
+            ...newProductFields, 
             [event.target.name]: event.target.value
         })
     }
 
-    const currencyId = brandDetails.home_currency ? Number(brandDetails.home_currency - 1) : 0
-    const currencyDetails = currencies[currencyId]
+    const currencyId = brandDetails.currencyId ? Number(brandDetails.currencyId) : 0
+    const currencyDetails = currencies[currencyId - 1]
 
     const nextButton = event => {
         event.preventDefault()
         const missingFields = []
 
         const requiredFields = {
-            name: props.newProductFields.name,
-            url: props.newProductFields.url,
-            categoryId: props.newProductFields.categoryId,
-            featureImageUrl: props.newProductFields.featureImageUrl,
-            price: props.newProductFields.price,
-            washId: props.newProductFields.washId,
-            dryId: props.newProductFields.dryId
+            name: newProductFields.name,
+            url: newProductFields.url,
+            categoryId: newProductFields.categoryId,
+            featureImageUrl: newProductFields.featureImageUrl,
+            price: newProductFields.price,
+            washId: newProductFields.washId,
+            dryId: newProductFields.dryId
         }
          
         Object.keys(requiredFields).forEach(key => {
@@ -53,17 +63,17 @@ const NPFNewProduct = props => {
                 ${field}`)}
             `)
         } else if (missingFields.length === 0) {
-            props.setPage(props.currentPage + 1)
+            setPage(currentPage + 1)
         }
     }
 
-    // const nextButton = () => {props.setPage(props.currentPage + 1)}
+    // const nextButton = () => {setPage(currentPage + 1)}
 
     return (
         <div className='NPFNewProduct'>
             <FormPage title='New Product'>
                 <FormPromptWithSub
-                    prompt={`Brand: ${brandDetails.english_name}`}
+                    prompt={`Brand: ${brandDetails.text}`}
                     promptSubtitle=''
                 />
 
@@ -71,7 +81,7 @@ const NPFNewProduct = props => {
                     id='product-name'
                     name='name'
                     prompt='Product name'
-                    currentValue={props.newProductFields.name}
+                    currentValue={newProductFields.name}
                     handleChange={event => changeField(event)}
                 />
 
@@ -79,7 +89,7 @@ const NPFNewProduct = props => {
                     id='product-url'
                     name='url'
                     prompt='Product URL'
-                    currentValue={props.newProductFields.url}
+                    currentValue={newProductFields.url}
                     handleChange={event => changeField(event)}
                 />
 
@@ -88,7 +98,7 @@ const NPFNewProduct = props => {
                     name='categoryId'
                     prompt='Category'
                     handleChange={event => changeField(event)}
-                    currentValue={props.newProductFields.categoryId}
+                    currentValue={newProductFields.categoryId}
                     options={formData.productCategories}
                 />
 
@@ -96,15 +106,15 @@ const NPFNewProduct = props => {
                     id='feature-image-url'
                     name='featureImageUrl'
                     prompt='Feature image URL'
-                    currentValue={props.newProductFields.featureImageUrl}
+                    currentValue={newProductFields.featureImageUrl}
                     handleChange={event => changeField(event)}
                 />
 
                 <FormTextInput
                     id='price'
                     name='price'
-                    prompt={`Product price in ${currencyDetails.name_plural ? currencyDetails.name_plural : ''} (${currencyDetails.symbol_native ? currencyDetails.symbol_native : ''})`}
-                    currentValue={props.newProductFields.price}
+                    prompt={`Product price in ${currencyDetails ? currencyDetails.name_plural : ''} (${currencyDetails ? currencyDetails.symbol_native : ''})`}
+                    currentValue={newProductFields.price}
                     handleChange={event => changeField(event)}
                 />
 
@@ -113,7 +123,7 @@ const NPFNewProduct = props => {
                     name='washId'
                     prompt='Washing instructions'
                     handleChange={event => changeField(event)}
-                    currentValue={props.newProductFields.washId}
+                    currentValue={newProductFields.washId}
                     options={formData.washOptions}
                 />
 
@@ -122,14 +132,14 @@ const NPFNewProduct = props => {
                     name='dryId'
                     prompt='Drying instructions'
                     handleChange={event => changeField(event)}
-                    currentValue={props.newProductFields.dryId}
+                    currentValue={newProductFields.dryId}
                     options={formData.dryOptions}
                 />
             </FormPage>
 
             <NPFFooter 
                 buttons='prevNext' 
-                previousButton={() => props.setPage(props.currentPage - 1)} 
+                previousButton={() => setPage(currentPage - 1)} 
                 nextButton={event => {nextButton(event)}}
             /> 
         </div>
@@ -137,14 +147,13 @@ const NPFNewProduct = props => {
 }
 
 NPFNewProduct.defaultProps = {
-    brandId: 0,
-    brandList: [],
-    currencies: [],
-    currentPage: 0,
+    brandId: 1,
+    brandArray: [],
+    currentPage: 1,
     newProductFields: {
         name: '', 
         url: '' ,
-        categoryId: 0,
+        categoryId: 1,
         featureImageUrl: '',
         currency: '',
         price: '',

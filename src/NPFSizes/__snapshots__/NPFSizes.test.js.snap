@@ -31,7 +31,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
         className="FormCheckboxSection"
       >
         <p>
-          Standard France / Spain / Portugal / Netherlands sizing
+          Standard US sizing
         </p>
         <div
           className="FormCheckboxSection__options-container"
@@ -417,7 +417,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
         className="FormCheckboxSection"
       >
         <p>
-          Petite France / Spain / Portugal / Netherlands sizing
+          Petite US sizing
         </p>
         <div
           className="FormCheckboxSection__options-container"
@@ -803,7 +803,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
         className="FormCheckboxSection"
       >
         <p>
-          Tall France / Spain / Portugal / Netherlands sizing
+          Tall US sizing
         </p>
         <div
           className="FormCheckboxSection__options-container"
@@ -1189,7 +1189,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
         className="FormCheckboxSection"
       >
         <p>
-          Maternity France / Spain / Portugal / Netherlands sizing
+          Maternity US sizing
         </p>
         <div
           className="FormCheckboxSection__options-container"

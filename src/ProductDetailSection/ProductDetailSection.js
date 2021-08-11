@@ -4,43 +4,49 @@ import '../FontAwesomeIcons/FontAwesomeIcons';
 import './ProductDetailSection.css'
 
 const ProductDetailSection = props => {
+    const {
+        children,
+        closeButton,
+        id,
+        openButton,
+        sectionOpen,
+        sectionTitle
+    } = props
+
+    const handleClick = sectionOpen ? closeButton : openButton
+    const displayButton = sectionOpen ? 'times' : 'angle-down'
+    const sectionClass = sectionOpen ? 'ProductDetailSection active' : 'ProductDetailSection'
     return (
         <>
             <hr></hr>
 
-            <section>
+            <section id={id}>
                 <button 
                     className='ProductDetailSection__button' 
                     type='button' 
-                    onClick={props.sectionOpen 
-                        ? props.handleSectionClose 
-                        : props.handleSectionOpen} 
+                    onClick={handleClick}
                 >
-                    <FontAwesomeIcon icon={props.sectionOpen ? 'times' : 'angle-down'} />
+                        <FontAwesomeIcon icon={displayButton} />
                 </button>
-
-                <header 
-                    onClick={props.sectionOpen 
-                        ? props.handleSectionClose 
-                        : props.handleSectionOpen}
-                >
+                    <header onClick={handleClick}>
                     <h3>
-                        {props.sectionTitle}
+                        {sectionTitle}
                     </h3>
                 </header>
 
-                <div className={props.sectionOpen ? 'ProductDetailSection active' : 'ProductDetailSection'}>
-                    {props.children}
-                </div>
+                <ul className={sectionClass}>
+                    {children}
+                </ul>
             </section>
         </>
     )
 }
 
 ProductDetailSection.defaultProps = {
-    id: '',
-    handleSectionClose: () => {},
-    handleSectionOpen: () => {},
+    children: '',
+    closeButton: () => {},
+    id: 1,
+    openButton: () => {},
     sectionOpen: false,
     sectionTitle: ''
 }

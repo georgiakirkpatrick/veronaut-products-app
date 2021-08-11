@@ -1,18 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import ProductDetailCarousel from './ProductDetailCarousel'
+import FabricCarousel from './FabricCarousel'
 import renderer from 'react-test-renderer'
 
-describe ('ProductDetailCarousel', () => {
+describe ('FabricCarousel', () => {
     it ('renders without crashing', () => {
         const div = document.createElement('div')
-        ReactDOM.render(<ProductDetailCarousel />, div)
+        ReactDOM.render(<FabricCarousel />, div)
         ReactDOM.unmountComponentAtNode(div)
     })
 
     it('renders the UI as expected', () => {
         const tree = renderer
-            .create(<ProductDetailCarousel />)
+            .create(<FabricCarousel />)
             .toJSON()
         expect(tree).toMatchSnapshot()    
     })

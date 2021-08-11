@@ -7,8 +7,11 @@ const Product = props => {
     // const currencySymbol = currencies[props.brandCurrencyId]
 
     return (
-        <li className='Product' key={props.id} id={props.id}>
-            <Link to={`/product/${props.id}/${props.productSlug}`}>
+        <li className='Product' id={props.id}>
+            <Link 
+                to={`/product/${props.id}/${props.productSlug}`}
+                onClick={() => props.setProductId}
+            >
                 <div className='Product__cropped'>
                     <img src={props.pathToImg } alt={props.imgAlt} />
                 </div>

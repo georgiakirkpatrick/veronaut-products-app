@@ -75,6 +75,12 @@ exports[`NPFFabrics render the UI as expected 1`] = `
             >
               Select a factory
             </option>
+            <option
+              id={1}
+              value={1}
+            >
+              Not disclosed
+            </option>
           </select>
         </div>
         <button
@@ -84,118 +90,6 @@ exports[`NPFFabrics render the UI as expected 1`] = `
         >
           ADD A FACTORY
         </button>
-        <section
-          className="FormPopUp__pop-up"
-          id="undefinedNewFact"
-        >
-          <button
-            className="FormPopUp__close-button"
-            onClick={[Function]}
-            type="button"
-          >
-            <svg
-              aria-hidden="true"
-              className="svg-inline--fa fa-times fa-w-11 fa-lg "
-              data-icon="times"
-              data-prefix="fas"
-              focusable="false"
-              role="img"
-              style={Object {}}
-              viewBox="0 0 352 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
-                fill="currentColor"
-                style={Object {}}
-              />
-            </svg>
-          </button>
-          <header>
-            <h1>
-              New Factory
-            </h1>
-          </header>
-          <div
-            className="FormText"
-          >
-            <label
-              htmlFor="undefinedNewFactName"
-            >
-              Factory name
-            </label>
-            <input
-              id="undefinedNewFactName"
-              name="name"
-              onChange={[Function]}
-              required={true}
-              type="text"
-              value=""
-            />
-          </div>
-          <div
-            className="FormDropdown"
-          >
-            <label
-              htmlFor="undefinedNewFactLocation"
-            >
-              Location
-            </label>
-            <select
-              name="location"
-              onChange={[Function]}
-              required={true}
-            >
-              <option
-                id={0}
-                value={0}
-              >
-                Select a country
-              </option>
-            </select>
-          </div>
-          <div
-            className="FormUrlInput"
-          >
-            <label
-              htmlFor="undefinedNewFactWebsite"
-            >
-              Website
-            </label>
-            <input
-              defaultValue=""
-              id="undefinedNewFactWebsite"
-              name="website"
-              onChange={[Function]}
-              required={true}
-              type="url"
-            />
-          </div>
-          <div
-            className="FormText"
-          >
-            <label
-              htmlFor="undefinedNewFactNotes"
-            >
-              Notes
-            </label>
-            <input
-              id="undefinedNewFactNotes"
-              name="notes"
-              onChange={[Function]}
-              required={true}
-              type="text"
-              value=""
-            />
-          </div>
-          <button
-            className="FormButton"
-            onClick={[Function]}
-            type="button"
-          >
-            Submit Factory
-          </button>
-        </section>
         <div
           className="FormText"
         >
@@ -262,6 +156,12 @@ exports[`NPFFabrics render the UI as expected 1`] = `
             >
               Select a fabric mill
             </option>
+            <option
+              id={1}
+              value={1}
+            >
+              Not disclosed
+            </option>
           </select>
         </div>
         <button
@@ -271,118 +171,6 @@ exports[`NPFFabrics render the UI as expected 1`] = `
         >
           ADD A FABRIC MILL
         </button>
-        <section
-          className="FormPopUp__pop-up"
-          id="undefinedNewMill"
-        >
-          <button
-            className="FormPopUp__close-button"
-            onClick={[Function]}
-            type="button"
-          >
-            <svg
-              aria-hidden="true"
-              className="svg-inline--fa fa-times fa-w-11 fa-lg "
-              data-icon="times"
-              data-prefix="fas"
-              focusable="false"
-              role="img"
-              style={Object {}}
-              viewBox="0 0 352 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
-                fill="currentColor"
-                style={Object {}}
-              />
-            </svg>
-          </button>
-          <header>
-            <h1>
-              New Fabric Mill
-            </h1>
-          </header>
-          <div
-            className="FormText"
-          >
-            <label
-              htmlFor="undefined-new-mill-name"
-            >
-              Fabric mill name
-            </label>
-            <input
-              id="undefined-new-mill-name"
-              name="name"
-              onChange={[Function]}
-              required={true}
-              type="text"
-              value=""
-            />
-          </div>
-          <div
-            className="FormDropdown"
-          >
-            <label
-              htmlFor="undefinedNewMillLocation"
-            >
-              Location
-            </label>
-            <select
-              name="location"
-              onChange={[Function]}
-              required={true}
-            >
-              <option
-                id={0}
-                value={0}
-              >
-                Select a country
-              </option>
-            </select>
-          </div>
-          <div
-            className="FormUrlInput"
-          >
-            <label
-              htmlFor="undefinedNewMillWebsite"
-            >
-              Website
-            </label>
-            <input
-              defaultValue=""
-              id="undefinedNewMillWebsite"
-              name="website"
-              onChange={[Function]}
-              required={true}
-              type="url"
-            />
-          </div>
-          <div
-            className="FormText"
-          >
-            <label
-              htmlFor="undefinedNewMillNotes"
-            >
-              Notes
-            </label>
-            <input
-              id="undefinedNewMillNotes"
-              name="notes"
-              onChange={[Function]}
-              required={true}
-              type="text"
-              value=""
-            />
-          </div>
-          <button
-            className="FormButton"
-            onClick={[Function]}
-            type="button"
-          >
-            SUBMIT FABRIC MILL
-          </button>
-        </section>
         <div
           className="FormText"
         >
@@ -424,80 +212,6 @@ exports[`NPFFabrics render the UI as expected 1`] = `
         >
           ADD A CERTIFICATION
         </button>
-        <section
-          className="FormPopUp__pop-up"
-          id="undefinedNewCert"
-        >
-          <button
-            className="FormPopUp__close-button"
-            onClick={[Function]}
-            type="button"
-          >
-            <svg
-              aria-hidden="true"
-              className="svg-inline--fa fa-times fa-w-11 fa-lg "
-              data-icon="times"
-              data-prefix="fas"
-              focusable="false"
-              role="img"
-              style={Object {}}
-              viewBox="0 0 352 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
-                fill="currentColor"
-                style={Object {}}
-              />
-            </svg>
-          </button>
-          <header>
-            <h1>
-              New Certification
-            </h1>
-          </header>
-          <div
-            className="FormText"
-          >
-            <label
-              htmlFor="undefined-new-cert-name"
-            >
-              Certification name
-            </label>
-            <input
-              id="undefined-new-cert-name"
-              name="name"
-              onChange={[Function]}
-              required={true}
-              type="text"
-              value=""
-            />
-          </div>
-          <div
-            className="FormUrlInput"
-          >
-            <label
-              htmlFor="undefined-new-cert-website"
-            >
-              Website
-            </label>
-            <input
-              defaultValue=""
-              id="undefined-new-cert-website"
-              name="website"
-              onChange={[Function]}
-              required={true}
-              type="url"
-            />
-          </div>
-          <button
-            className="FormButton"
-            onClick={[Function]}
-            type="button"
-          >
-            SUBMIT CERTIFICATION
-          </button>
-        </section>
       </fieldset>
       <div
         className="FormPromptWithSub"
@@ -535,6 +249,7 @@ exports[`NPFFabrics render the UI as expected 1`] = `
             name="fiberTypeId"
             onChange={[Function]}
             required={true}
+            value={0}
           >
             <option
               id={0}
@@ -551,63 +266,6 @@ exports[`NPFFabrics render the UI as expected 1`] = `
         >
           ADD A FIBER OR MATERIAL TYPE
         </button>
-        <section
-          className="FormPopUp__pop-up"
-          id="new-fiber"
-        >
-          <button
-            className="FormPopUp__close-button"
-            onClick={[Function]}
-            type="button"
-          >
-            <svg
-              aria-hidden="true"
-              className="svg-inline--fa fa-times fa-w-11 fa-lg "
-              data-icon="times"
-              data-prefix="fas"
-              focusable="false"
-              role="img"
-              style={Object {}}
-              viewBox="0 0 352 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
-                fill="currentColor"
-                style={Object {}}
-              />
-            </svg>
-          </button>
-          <header>
-            <h1>
-              New Fiber
-            </h1>
-          </header>
-          <div
-            className="FormText"
-          >
-            <label
-              htmlFor="new-fiber-name"
-            >
-              Fiber name
-            </label>
-            <input
-              id="new-fiber-name"
-              name="name"
-              onChange={[Function]}
-              required={true}
-              type="text"
-              value=""
-            />
-          </div>
-          <button
-            className="FormButton"
-            onClick={[Function]}
-            type="button"
-          >
-            SUBMIT FIBER
-          </button>
-        </section>
         <div
           className="FormNumber"
         >
@@ -665,10 +323,136 @@ exports[`NPFFabrics render the UI as expected 1`] = `
               id={0}
               value={0}
             >
-              Select a factory
+              Select a producer
+            </option>
+            <option
+              id={1}
+              value={1}
+            >
+              Not disclosed
             </option>
           </select>
         </div>
+        <button
+          className="FormButton"
+          onClick={[Function]}
+          type="button"
+        >
+          ADD A PRODUCER
+        </button>
+        <section
+          className="FormPopUp__pop-up"
+          id="fabricundefinedNewFibProducer"
+        >
+          <button
+            className="FormPopUp__close-button"
+            onClick={[Function]}
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-times fa-w-11 fa-lg "
+              data-icon="times"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 352 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </button>
+          <header>
+            <h1>
+              New Producer
+            </h1>
+          </header>
+          <div
+            className="FormText"
+          >
+            <label
+              htmlFor="undefinedNewProducerName"
+            >
+              Factory name
+            </label>
+            <input
+              id="undefinedNewProducerName"
+              name="name"
+              onChange={[Function]}
+              required={true}
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            className="FormDropdown"
+          >
+            <label
+              htmlFor="undefinedNewProducerLocation"
+            >
+              Location
+            </label>
+            <select
+              name="countryId"
+              onChange={[Function]}
+              required={true}
+              value={0}
+            >
+              <option
+                id={0}
+                value={0}
+              >
+                Select a country
+              </option>
+            </select>
+          </div>
+          <div
+            className="FormUrlInput"
+          >
+            <label
+              htmlFor="undefinedNewProducerWebsite"
+            >
+              Website
+            </label>
+            <input
+              defaultValue=""
+              id="undefinedNewProducerWebsite"
+              name="website"
+              onChange={[Function]}
+              required={true}
+              type="url"
+            />
+          </div>
+          <div
+            className="FormText"
+          >
+            <label
+              htmlFor="undefinedNewProducerNotes"
+            >
+              Notes
+            </label>
+            <input
+              id="undefinedNewProducerNotes"
+              name="notes"
+              onChange={[Function]}
+              required={true}
+              type="text"
+              value=""
+            />
+          </div>
+          <button
+            className="FormButton"
+            onClick={[Function]}
+            type="button"
+          >
+            Submit Factory
+          </button>
+        </section>
         <div
           className="FormText"
         >
@@ -697,7 +481,7 @@ exports[`NPFFabrics render the UI as expected 1`] = `
           <p
             className="FormPromptWithSub__subtitle"
           >
-            Does the primary fabric have any of the following certifications?
+            Does the fiber have any of the following certifications?
           </p>
         </div>
         <div
@@ -784,5 +568,362 @@ exports[`NPFFabrics render the UI as expected 1`] = `
       </svg>
     </button>
   </footer>
+  <section
+    className="FormPopUp__pop-up"
+    id="undefinedNewFact"
+  >
+    <button
+      className="FormPopUp__close-button"
+      onClick={[Function]}
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-times fa-w-11 fa-lg "
+        data-icon="times"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        style={Object {}}
+        viewBox="0 0 352 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+    </button>
+    <header>
+      <h1>
+        New Factory
+      </h1>
+    </header>
+    <div
+      className="FormText"
+    >
+      <label
+        htmlFor="undefinedNewFactName"
+      >
+        Factory name
+      </label>
+      <input
+        id="undefinedNewFactName"
+        name="name"
+        onChange={[Function]}
+        required={true}
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="FormDropdown"
+    >
+      <label
+        htmlFor="undefinedNewFactLocation"
+      >
+        Location
+      </label>
+      <select
+        name="countryId"
+        onChange={[Function]}
+        required={true}
+        value=""
+      >
+        <option
+          id={0}
+          value={0}
+        >
+          Select a country
+        </option>
+      </select>
+    </div>
+    <div
+      className="FormUrlInput"
+    >
+      <label
+        htmlFor="undefinedNewFactWebsite"
+      >
+        Website
+      </label>
+      <input
+        defaultValue=""
+        id="undefinedNewFactWebsite"
+        name="website"
+        onChange={[Function]}
+        required={true}
+        type="url"
+      />
+    </div>
+    <div
+      className="FormText"
+    >
+      <label
+        htmlFor="undefinedNewFactNotes"
+      >
+        Notes
+      </label>
+      <input
+        id="undefinedNewFactNotes"
+        name="notes"
+        onChange={[Function]}
+        required={true}
+        type="text"
+        value={1}
+      />
+    </div>
+    <button
+      className="FormButton"
+      onClick={[Function]}
+      type="button"
+    >
+      Submit Factory
+    </button>
+  </section>
+  <section
+    className="FormPopUp__pop-up"
+    id="undefinedNewMill"
+  >
+    <button
+      className="FormPopUp__close-button"
+      onClick={[Function]}
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-times fa-w-11 fa-lg "
+        data-icon="times"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        style={Object {}}
+        viewBox="0 0 352 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+    </button>
+    <header>
+      <h1>
+        New Fabric Mill
+      </h1>
+    </header>
+    <div
+      className="FormText"
+    >
+      <label
+        htmlFor="undefined-new-mill-name"
+      >
+        Fabric mill name
+      </label>
+      <input
+        id="undefined-new-mill-name"
+        name="name"
+        onChange={[Function]}
+        required={true}
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="FormDropdown"
+    >
+      <label
+        htmlFor="undefinedNewMillLocation"
+      >
+        Location
+      </label>
+      <select
+        name="countryId"
+        onChange={[Function]}
+        required={true}
+        value=""
+      >
+        <option
+          id={0}
+          value={0}
+        >
+          Select a country
+        </option>
+      </select>
+    </div>
+    <div
+      className="FormUrlInput"
+    >
+      <label
+        htmlFor="undefinedNewMillWebsite"
+      >
+        Website
+      </label>
+      <input
+        defaultValue=""
+        id="undefinedNewMillWebsite"
+        name="website"
+        onChange={[Function]}
+        required={true}
+        type="url"
+      />
+    </div>
+    <div
+      className="FormText"
+    >
+      <label
+        htmlFor="undefinedNewMillNotes"
+      >
+        Notes
+      </label>
+      <input
+        id="undefinedNewMillNotes"
+        name="notes"
+        onChange={[Function]}
+        required={true}
+        type="text"
+        value=""
+      />
+    </div>
+    <button
+      className="FormButton"
+      onClick={[Function]}
+      type="button"
+    >
+      SUBMIT FABRIC MILL
+    </button>
+  </section>
+  <section
+    className="FormPopUp__pop-up"
+    id="new-fiber"
+  >
+    <button
+      className="FormPopUp__close-button"
+      onClick={[Function]}
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-times fa-w-11 fa-lg "
+        data-icon="times"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        style={Object {}}
+        viewBox="0 0 352 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+    </button>
+    <header>
+      <h1>
+        New Fiber
+      </h1>
+    </header>
+    <div
+      className="FormText"
+    >
+      <label
+        htmlFor="new-fiber-name"
+      >
+        Fiber name
+      </label>
+      <input
+        id="new-fiber-name"
+        name="name"
+        onChange={[Function]}
+        required={true}
+        type="text"
+        value=""
+      />
+    </div>
+    <button
+      className="FormButton"
+      onClick={[Function]}
+      type="button"
+    >
+      SUBMIT FIBER
+    </button>
+  </section>
+  <section
+    className="FormPopUp__pop-up"
+    id="undefinedNewCert"
+  >
+    <button
+      className="FormPopUp__close-button"
+      onClick={[Function]}
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-times fa-w-11 fa-lg "
+        data-icon="times"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        style={Object {}}
+        viewBox="0 0 352 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+    </button>
+    <header>
+      <h1>
+        New Certification
+      </h1>
+    </header>
+    <div
+      className="FormText"
+    >
+      <label
+        htmlFor="undefined-new-cert-name"
+      >
+        Certification name
+      </label>
+      <input
+        id="undefined-new-cert-name"
+        name="name"
+        onChange={[Function]}
+        required={true}
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="FormUrlInput"
+    >
+      <label
+        htmlFor="undefined-new-cert-website"
+      >
+        Website
+      </label>
+      <input
+        defaultValue=""
+        id="undefined-new-cert-website"
+        name="website"
+        onChange={[Function]}
+        required={true}
+        type="url"
+      />
+    </div>
+    <button
+      className="FormButton"
+      onClick={[Function]}
+      type="button"
+    >
+      SUBMIT CERTIFICATION
+    </button>
+  </section>
 </div>
 `;
