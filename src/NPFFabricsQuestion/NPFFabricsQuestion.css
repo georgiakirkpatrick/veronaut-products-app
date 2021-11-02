@@ -1,0 +1,49 @@
+.NPFFabricsQuestion p {
+    padding: 0;
+}
+
+.NPFFabricsQuestion .FormCheckboxSection {
+    margin: 1vh 0;
+}
+
+.NPFFabricsQuestion .FormCheckboxSection p {
+    padding: 1vh 0;
+}
+
+.NPFFabricsQuestion .FormCheckboxSection__option {
+    padding: 1vh;
+}
+
+@media screen and (min-width: 768px) {
+    .NPFFabricsQuestion .FormFieldset {
+        padding: 2vh 5vw;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .NPFFabricsQuestion .FormCheckboxSection p {
+        padding: 0;
+    }
+
+    .NPFFabricsQuestion .FormFieldset {
+        padding: 5vh 5vw;
+    }
+}
+
+@media screen and (min-width: 1024px) and (min-height: 1366px) {
+    .NPFFabricsQuestion .FormCheckboxSection p {
+        padding: 0;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .NPFFabricsQuestion .FormFieldset {
+        padding: 5vh 3vw;
+    }
+}
+
+@media screen and (min-width: 2560px) {
+    .NPFFabricsQuestion .FormFieldset {
+        padding: 3vh 3vw;
+    }
+}

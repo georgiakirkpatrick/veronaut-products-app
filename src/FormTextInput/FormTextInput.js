@@ -2,27 +2,35 @@ import React from 'react'
 import './FormTextInput.css'
 
 const FormTextInput = props => {
+    const {
+        currentValue,
+        handleChange,
+        id,
+        name,
+        prompt
+    } = props
+
     return (
-        <div className='FormText'>
-            <label htmlFor={props.id}>{props.prompt}</label>
+        <div className='FormTextInput'>
+            <label htmlFor={id}>{prompt}</label>
             <input
                 required
-                type='text' 
-                id={props.id} 
-                name={props.name} 
-                value={props.currentValue} 
-                onChange={props.handleChange} 
+                id={id}
+                name={name}
+                onChange={handleChange}
+                value={currentValue}
+                type='text'
             />
         </div>
     )
 }
 
 FormTextInput.defaultProps = {
-    id: 1,
-    prompt: '',
-    name: '',
     currentValue: 1,
-    handleChange: () => {}
+    handleChange: () => {},
+    id: 1,
+    name: '',
+    prompt: ''
 }
 
 export default FormTextInput

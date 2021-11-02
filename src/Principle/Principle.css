@@ -1,8 +1,29 @@
 .Principle {
-    padding: 15px 0;
-    line-height: 1.3;
+    padding: 5vh 0;
+    line-height: 16px;
 }
 
 .Principle > h3 {
-    padding: 2px 0 2px;
+    font: 500 18px Poppins;
+    letter-spacing: 1px;
+    padding: 3vh 0;
+    color: #041516;
+}
+
+.Principle > p {
+    font: 300 16px/20px Poppins;
+    line-height: 20px;
+    letter-spacing: 1px;
+    color: #041516;
+}
+
+.Principle > svg {
+    color: #041516;
+}
+
+@media screen and (min-width: 768px) {
+    .Principle {
+        padding: 2vh 0;
+        line-height: 16px;
+    }
 }

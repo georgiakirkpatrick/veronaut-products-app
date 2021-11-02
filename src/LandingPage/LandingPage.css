@@ -1,6 +1,116 @@
+.LandingPage button {
+    width: 100%;
+    color: #041516;
+    background-color: #F2E7F1;
+    border: 1px solid #F2E7F1;
+    border-radius: 40px;
+    padding: 2vh;
+    margin: 5vh 0;
+}
+
+.LandingPage form {
+    width: 100%;
+    border: none;
+    padding: 5vh 0;
+}
+
+.LandingPage fieldset {
+    width: 100%;
+    border: none;
+}
+
+.LandingPage label {
+    display: block;
+    font-size: 18px;
+    padding: 10px 0 0;
+    margin:  2vh;
+}
+
+.LandingPage input {
+    background-color: rgb(255, 255, 255);
+    border: solid 1px #041516;
+    border-radius: 30px;
+    padding: 2vh;
+    width: 100%;
+    font-size: 18px;
+}
+
+.LandingPage h1 {
+    font-size: 60px;
+    color: #F2E7F1;
+}
+
+.LandingPage h1 .fashion{
+    font-weight: 300;
+}
+
+.LandingPage h1 .truth {
+    font-weight: 600;
+}
+
+.LandingPage h2 {
+    padding-bottom: 2vh;
+    font: 400 30px Poppins;
+    letter-spacing: 1px;
+}
+
+.LandingPage .Product__brand-and-title, 
+.LandingPage .Product__price {
+    color: #E1D8E3;
+}
+
+.LandingPage .ProductListPage__product-list {
+    min-height: 0;
+}
+
+.LandingPage .Product p {
+    color: #E1D8E3;
+}
+
+.LandingPage .subhero {
+    padding: 3vh 0 0;
+    font-size: 24px;
+    line-height: 40px;
+    color: #F2E7F1;
+}
+
+.LandingPage .subero2 {
+    text-decoration: underline 1px;
+    text-underline-offset: 5px;
+    font-style: oblique;
+}
+
+.LandingPage__body {
+    background: #2F3B51;
+    padding: 10vh 4vw;
+}
+
+.LandingPage__body h2 {
+    letter-spacing: 1px;
+}
+
+.LandingPage__categories {
+    height: 100%;
+    width: 100%
+}
+
+.LandingPage__categories > p {
+    font: bold 18px Poppins;
+    letter-spacing: 1px;
+}
+
+.LandingPage__categories h2,
+.LandingPage__new-products h2 {
+    color: #E1D8E3;
+    width: 100%;
+    padding: 0 2vh 2vh;
+}
+
+
 .LandingPage__hero {
     position: relative;
-    height: 90vh
+    height: 90vh;
+    background: #041516;
 }
 
 .LandingPage__hero button {
@@ -18,20 +128,6 @@
     padding: 0;
 }
 
-.LandingPage h1 {
-    font-size: 20px;
-}
-
-.LandingPage__hero-title {
-    position: absolute;
-    bottom: 5vw;
-    left: 5vw;
-    width: 90vw;
-    background-color: rgba(255, 255, 255, 0.315);
-    padding: 1em;
-    border-radius: 1px;
-}
-
 .LandingPage__hero header {
     color: rgb(27, 27, 27);
     font-family: 'Poppins', sans-serif;
@@ -45,12 +141,234 @@
     object-position: 50% 0 ;
 }
 
-.LandingPage > .PrincipleList {
-    background-color: rgb(236, 236, 236);
+.LandingPage__hero-title {
+    padding: 15vw;
+    border-radius: 1px;
+}
+
+.LandingPage__new-products {
+    width: 100%
+}
+
+.LandingPage .ProductListPage {
+    padding: 0;
+    width: 100%
+}
+
+@media screen and (min-width: 360px) {
+    .LandingPage__body {
+        padding: 15vh 4vw 10vh;
+    }
+}
+
+@media screen and (min-width: 375px) {
+    .LandingPage__body {
+        padding: 20vh 4vw 10vh;
+    }
+}
+
+@media screen and (min-width: 375px) and (min-height: 812px) {
+    .LandingPage__hero-title {
+        padding: 18vh 14vw;
+    }
 }
 
 @media screen and (min-width: 768px) {
+    .LandingPage button {
+        width: 40%;
+        color: #041516;
+    }
+
+    .LandingPage form {
+        padding: 2vh 0;
+    }
+
+    .LandingPage h1 {
+        font-size: 80px;
+    }
+
+    .LandingPage input {
+        border-radius: 30px;
+        padding: 2vh;
+        width: 50%;
+        font-size: 18px;
+    }
+
+    .LandingPage .ProductListPage__product-list {
+        justify-content: space-between;
+    }
+
+    .LandingPage .subhero {
+        font-size: 30px;
+        line-height: 50px;
+    }
+
+    .LandingPage__body {
+        padding: 10vh 3vw;
+    }
+
+    .LandingPage__categories {
+        height: 100%;
+    }
+
     .LandingPage__hero {
-        height: 90vh
+        height: 93vh
+    }
+
+    .LandingPage__hero header {
+        width: 40vh;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .LandingPage button {
+        width: 30%;
+    }
+    
+    .LandingPage__body {
+        padding: 20vh 3vw;
+    }
+    
+    .LandingPage h1 {
+        font-size: 72px;
+        line-height: 90px;
+    }
+
+    .LandingPage .Product {
+        height: 100%;
+    }
+
+    .LandingPage .subhero {
+        font-size: 24px;
+        line-height: 36px;
+    }
+    
+    .LandingPage__hero header {
+        width: 30vw;
+    }
+
+    .LandingPage__hero-title {
+        padding: 15vh 15vw;
+        border-radius: 1px;
+    }
+}    
+
+@media screen and (min-width: 1024px) and (min-height: 1366px) {
+    .LandingPage button {
+        width: 30%;
+        height: 50px;
+        padding: 0;
+        margin: 3vh 0;
+    }
+
+    .LandingPage input {
+        padding: 1vh;
+        width: 40%;
+        height: 50px;
+    }
+    
+    .LandingPage h1 {
+        font-size: 112px;
+        line-height: 130px;
+    }
+
+    .LandingPage .ProductListPage {
+        padding-top: 0;
+    }
+
+    .LandingPage__body {
+        padding: 10vh 3vw;
+    }
+
+    .LandingPage__hero {
+        height: 93vh
+    }
+
+    .LandingPage__hero header {
+        width: 40vh;
+    }
+
+    .LandingPage .subhero {
+        font-size: 36px;
+        line-height: 60px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .LandingPage button {
+        width: 30%;
+        height: 50px;
+        padding: 0;
+    }
+    
+    .LandingPage h1 {
+        font-size: 96px;
+        line-height: 120px;
+    }
+
+    .LandingPage .Product__cropped {
+        height: 37vh;
+    }
+
+    .LandingPage .subhero {
+        font-size: 30px;
+        line-height: 48px;
+    }
+
+    .LandingPage__body {
+        padding: 10vh 15vw;
+    }
+    
+    .LandingPage__hero header {
+        width: 30vw;
+    }
+
+    .LandingPage__hero-title {
+        padding: 17vh 15vw;
+    }
+}
+
+@media screen and (min-width: 2560px) {
+    .LandingPage button {
+        width: 15%;
+        height: 50px;
+    }
+
+    .LandingPage h1 {
+        font-size: 180px;
+        line-height: 220px;
+    }
+
+    .LandingPage input {
+        width: 20%;
+    }
+
+    .LandingPage .EmailSignUp {
+        padding: 10vh 25vw;
+    }
+
+    .LandingPage .Product {
+        width: 310px;
+    }
+    
+    .LandingPage .Product__cropped {
+        height: 26vh;
+    }
+
+    .LandingPage .subhero {
+        font-size: 60px;
+        line-height: 80px;
+    }
+
+    .LandingPage__body {
+        padding: 10vh 25vw;
+    }
+    
+    .LandingPage__hero header {
+        width: 35vw;
+    }
+
+    .LandingPage__hero-title {
+        padding: 15vh 15vw;
     }
 }

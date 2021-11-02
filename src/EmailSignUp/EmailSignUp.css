@@ -1,27 +1,21 @@
 .EmailSignUp {
-    padding: 20px 10px;
+    background-color: white;
+    list-style-type: none;
+    padding: 8vh 8vw 2vh;
+    border: solid white;
+    border-radius: 0 150px 0 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    font: 400 18px/22px Poppins;
+    letter-spacing: 1px;
+    color: #041516;
 }
 
-.EmailSignUp > form > fieldset {
-    position: relative;
-    width: 100%;
-    border: none;
-    padding: 0 0 20px;
-}
+@media screen and (min-width: 1440px) {
+    .LandingPage .EmailSignUp {
+        padding: 10vh 15vw;
+    }
 
-.EmailSignUp > form > fieldset > label {
-    display: block;
-    /* font-weight: 600; */
-    padding: 10px 0 0;
-}
-
-.EmailSignUp > form > fieldset > input {
-    background-color: rgb(255, 255, 255);
-    border-left: none;
-    border-top: none;
-    border-right: none;
-    border-bottom: solid 1px grey;
-    padding: 5px;
-    width: 100%;
-    font-size: 16px;
 }

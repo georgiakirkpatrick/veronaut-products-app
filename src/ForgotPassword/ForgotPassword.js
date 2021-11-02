@@ -4,10 +4,13 @@ import FormTitle from '../FormTitle/FormTitle'
 import FormButton from '../FormButton/FormButton'
 import FormPromptWithSub from '../FormPromptWithSub/FormPromptWithSub'
 import FormTextInput from '../FormTextInput/FormTextInput'
-// import Header from '../Header/Header'
 import './ForgotPassword.css'
 
 const ForgotPassword = props => {
+    const {
+        setLoginInfo
+    } = props
+
     const [forgotEmail, setForgotEmail] = useState('')
 
     const handleSubmitBasicAuth = event => {
@@ -29,11 +32,8 @@ const ForgotPassword = props => {
             return response.json()
         })
         .then (responseJson => {
-            props.setLoginInfo(responseJson)
+            setLoginInfo(responseJson)
         })
-        // .then make sure a user with that email/username exists.  If it does exist, send an email 
-        // to the user with a password reset link.  If it does not exist, return a message 
-        // saying so.
     }
 
     return (
@@ -67,6 +67,10 @@ const ForgotPassword = props => {
             </Link>
         </form>
     )
+}
+
+ForgotPassword.defaultProps = {
+    setLoginInfo: () => {}
 }
 
 export default ForgotPassword

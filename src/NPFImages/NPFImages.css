@@ -1,3 +1,7 @@
+.NPFImages .FormPromptWithSub {
+    margin-bottom: 3vh;
+}
+/* 
 .NPFImages__fieldset {
     position: relative;
     width: 100%;
@@ -5,4 +9,36 @@
     margin: 5px 0;
     background-color: rgb(238, 238, 238);
     border: none;
+}
+
+.NPFImages__fieldset .FormPromptWithSub {
+    margin-bottom: 2vh;
+} */
+.NPFImages__image-field {
+    position: relative;
+    width: 100%;
+    padding: 0;
+    margin: 1vh 0;
+}
+
+.NPFImages__image-field .NPFImages__remove-image {
+    position: absolute;
+    right: 0;
+    padding: 0;
+    background-color: #F2E7F1;
+    color: #000;
+    font: 500 14px/18px Poppins, sans-serif;
+}
+
+.NPFImages__preview-images {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.NPFImages__preview-img { 
+    width: 23%;
+    margin-right: 2%
 }

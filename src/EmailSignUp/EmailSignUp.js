@@ -12,7 +12,7 @@ const EmailSignUp = () => {
             </header>
 
             <p>
-                Create an account and save items to buy later.
+                Create an account to save your favorite products.
             </p>
 
             <form>
@@ -22,7 +22,7 @@ const EmailSignUp = () => {
                 </fieldset>
 
                 <FormButton
-                    buttonText='CREATE ACCOUNT'
+                    buttonText='Create account'
                     handleClick={() => {}}
                 />
             </form>

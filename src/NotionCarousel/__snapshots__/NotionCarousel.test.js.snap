@@ -4,8 +4,12 @@ exports[`NotionCarousel render the UI as expected 1`] = `
 <div
   className="NotionCarousel"
 >
-  <div
+  <ul
     className="NotionCarousel__items"
-  />
+  >
+    <p>
+      This product does not have any notions
+    </p>
+  </ul>
 </div>
 `;

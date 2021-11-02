@@ -4,7 +4,11 @@ import ReadMoreLink from '../ReadMoreLink/ReadMoreLink'
 import './LandingCategoryList.css'
 
 const LandingCategoryList = props => {
-    const generateCategoryList = props.categories.map(category => (
+    const {
+        categories
+    } = props
+
+    const generateCategoryList = categories.map(category => (
         <Category 
             key={category.key}
             id={category.id}

@@ -3,7 +3,11 @@ import Category from '../Category/Category'
 import './AllCategories.css'
 
 const AllCategories = props => {
-    const categoryList = props.categoryList.map(category => (
+    const {
+        categoryList
+    } = props
+
+    const categories = categoryList.map(category => (
         <Category
             key={category.id}
             id={category.id}
@@ -22,7 +26,7 @@ const AllCategories = props => {
                 </header>
                 
                 <ul className='AllCategories__list'>
-                    {categoryList}
+                    {categories}
                 </ul>
             </section>
         </>

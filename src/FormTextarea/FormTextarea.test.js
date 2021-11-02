@@ -1,18 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import PhotoCarousel from './PhotoCarousel'
+import FormTextarea from './FormTextarea'
 import renderer from 'react-test-renderer'
 
-describe ('PhotoCarousel', () => {
+describe ('FormTextarea', () => {
     it ('renders without crashing', () => {
         const div = document.createElement('div')
-        ReactDOM.render(<PhotoCarousel />, div)
+        ReactDOM.render(<FormTextarea />, div)
         ReactDOM.unmountComponentAtNode(div)
     })
 
     it('renders the UI as expected', () => {
         const tree = renderer
-            .create(<PhotoCarousel />)
+            .create(<FormTextarea />)
             .toJSON()
         expect(tree).toMatchSnapshot()    
     })

@@ -1,16 +1,18 @@
 import React from 'react'
 import config from '../config'
 import '@fortawesome/react-fontawesome'
-import FormPage from '../FormPage/FormPage'
 import FormButton from '../FormButton/FormButton'
 import FormCheckboxSection from '../FormCheckboxSection/FormCheckboxSection'
 import FormDropdown from '../FormDropdown/FormDropdown'
 import FormFieldset from '../FormFieldset/FormFieldset'
+import FormPage from '../FormPage/FormPage'
 import FormPopUp from '../FormPopUp/FormPopUp'
 import FormPromptWithSub from '../FormPromptWithSub/FormPromptWithSub'
-import NPFFooter from '../NPFFooter/NPFFooter';
+import FormTextarea from '../FormTextarea/FormTextarea'
 import FormTextInput from '../FormTextInput/FormTextInput'
 import FormUrlInput from '../FormUrlInput/FormUrlInput'
+import NPFFooter from '../NPFFooter/NPFFooter'
+import './NPFNotions.css'
 
 const NPFNotions = props => {
     const {
@@ -24,6 +26,7 @@ const NPFNotions = props => {
         notionFields,
         notionTypeList,
         notionTypePopUp,
+        setCertChecks,
         setFiberTypeList,
         setNewNotionMaterial,
         setNewNotionType,
@@ -46,7 +49,7 @@ const NPFNotions = props => {
             }
         ])
 
-        props.setCertChecks({
+        setCertChecks({
             ...fabricProps.certChecks,
             [certification.name]: false
         })
@@ -71,23 +74,6 @@ const NPFNotions = props => {
                 }
             ]
         )
-    }
-
-    const makeCountryOptions = () => {
-        const countries = fabricProps.countries.map((country, index) => ({
-            id: index + 2,
-            text: country.text,
-            value: index + 2
-        }))
-
-        return [
-            {
-                id: 0,
-                text: 'Select a country',
-                value: 0
-            },
-            ...countries
-        ]
     }
 
     const makeFactoryOptions = factType => {
@@ -210,10 +196,6 @@ const NPFNotions = props => {
         })    
     }
 
-    // const nextButton = () => {
-    //     fabricProps.setPage(fabricProps.currentPage + 1)
-    // }
-
     const notCertChange = (notionIndex, changeId) => {
         const updatedNotions = [...notionFields]
 
@@ -224,13 +206,12 @@ const NPFNotions = props => {
 
     const notCertPopUpStatus = () => {
         if (fabricProps.certPopUp === true) {
-            return 'FormPopUp__pop-up active'
+            return 'FormPopUp active'
         }
-        return 'FormPopUp__pop-up'
+        return 'FormPopUp'
     }
 
     const notChangeInput = (event, index) => {
-
         const updatedNotions = [...notionFields]
         updatedNotions[index][event.target.name] = event.target.value
         setNotionFields(updatedNotions) 
@@ -238,24 +219,24 @@ const NPFNotions = props => {
 
     const notFactPopUpStatus = () => {
         if (notFactPopUp === true) {
-            return 'FormPopUp__pop-up active'
+            return 'FormPopUp active'
         }
 
-        return 'FormPopUp__pop-up'
+        return 'FormPopUp'
     }
 
     const notMaterialPopUpStatus = () => {
         if (materialPopUp === true) {
-            return 'FormPopUp__pop-up active'
+            return 'FormPopUp active'
         }
-        return 'FormPopUp__pop-up'
+        return 'FormPopUp'
     }
 
     const notTypePopUpStatus = () => {
         if (notionTypePopUp === true) {
-            return 'FormPopUp__pop-up active'
+            return 'FormPopUp active'
         }
-        return 'FormPopUp__pop-up'
+        return 'FormPopUp'
     }
 
     const previousButton = () => {
@@ -343,43 +324,52 @@ const NPFNotions = props => {
             }
         })
 
-        fetch(`${config.API_URL}/api/factories`, postRequestParams)
-            .then(response => {
-                if (response.status >= 400) {
-                    throw new Error("Server responded with an error!")
-                }
-                return response.json()
-            })
-            .then(newFactory => {
-                const newFactArray = [
-                    ...fabricProps.factoryList,
-                    {
-                        "id": Number(newFactory.id),
-                        "english_name": newFactory.english_name,
-                        "country": Number(newFactory.country),
-                        "website": newFactory.website,
-                        "notes": newFactory.notes,
-                        "approved_by_admin": newFactory.approved_by_admin
+        if (missingFields.length === 1) {
+            alert(`Please complete the '${missingFields[0]}' field`)
+        } else if (missingFields.length > 1) {
+            alert(`Please complete the following fields: ${missingFields.map(field => `
+                ${field}`)}
+            `)
+        } else if (missingFields.length === 0) {
+            fetch(`${config.API_URL}/api/factories`, postRequestParams)
+                .then(response => {
+                    if (response.status >= 400) {
+                        throw new Error("Server responded with an error!")
                     }
-                ]
+                    return response.json()
+                })
+                .then(newFactory => {
+                    const newFactArray = [
+                        ...fabricProps.factoryList,
+                        {
+                            "id": Number(newFactory.id),
+                            "english_name": newFactory.english_name,
+                            "country": Number(newFactory.country),
+                            "website": newFactory.website,
+                            "notes": newFactory.notes,
+                            "approved_by_admin": newFactory.approved_by_admin
+                        }
+                    ]
 
-                const factory = newFactArray.length
-                const factories = newFactArray.slice(1, factory)
-                const alphaFactories = factories.sort((a, b) => a.english_name > b.english_name ? 1 : -1)
-                fabricProps.setFactoryList(alphaFactories)
-    
-                const newNotFields = [...notionFields]
-                newNotFields[index]['factoryId'] = newFactory.id
-                setNotionFields(newNotFields)
+                    const factory = newFactArray.length
+                    const factories = newFactArray.slice(1, factory)
+                    const alphaFactories = factories.sort((a, b) => a.english_name > b.english_name ? 1 : -1)
+                    fabricProps.setFactoryList(alphaFactories)
+        
+                    const newNotFields = [...notionFields]
+                    newNotFields[index]['factoryId'] = newFactory.id
+                    setNotionFields(newNotFields)
+                })
+
+            setNotFactPopUp(false)
+
+            fabricProps.setNewFact({
+                name: '',
+                countryId: 0,
+                website: '',
+                notes: ''
             })
-
-        setNotFactPopUp(false)
-        fabricProps.setNewFact({
-            name: '',
-            countryId: 0,
-            website: '',
-            notes: ''
-        })
+        }
     }
 
     const submitNewMaterial = index => {
@@ -427,7 +417,7 @@ const NPFNotions = props => {
 
     const submitNewNotType = index => {
         const data = {
-            "english_name": fabricProps.formatName(newNotionType),
+            "english_name": newNotionType,
             "approved_by_admin": false
         }
 
@@ -437,42 +427,46 @@ const NPFNotions = props => {
             body: JSON.stringify(data)
         }
 
-        fetch(
-            `${config.API_URL}/api/notions/notion-types`,
-            postRequestParams
-        )
-        .then(response => {
-            if (response.status >= 400) {
-                throw new Error("Server responded with an error!")
-            }
-
-            return response.json()
-        })
-        .then(newNotionType => {
-            const newNotionArray = [
-                ...notionTypeList,
-                {
-                    "id": newNotionType.id,
-                    "english_name": fabricProps.formatName(newNotionType.english_name),
-                    "approved_by_admin": newNotionType.approved_by_admin,
-                    "date_published": newNotionType.date_published
+        if (newNotionType === '') {
+            alert('Please enter a notion type')
+        } else {
+            fetch(
+                `${config.API_URL}/api/notions/notion-types`,
+                postRequestParams
+            )
+            .then(response => {
+                if (response.status >= 400) {
+                    throw new Error("Server responded with an error!")
                 }
-            ]
-
-            const alphaNotions = newNotionArray.sort((a, b) => a.english_name > b.english_name ? 1 : -1)
-            setNotionTypeList(alphaNotions)
-
-            const newNotionFields = [...notionFields]
-            newNotionFields[index]['typeId'] = newNotionType.id
-            setNotionFields(newNotionFields)
-        })
-        
-        setNotionTypePopUp(false)
-        setNewNotionType('')
+    
+                return response.json()
+            })
+            .then(newNotionType => {
+                const newNotionArray = [
+                    ...notionTypeList,
+                    {
+                        "id": newNotionType.id,
+                        "english_name": fabricProps.formatName(newNotionType.english_name),
+                        "approved_by_admin": newNotionType.approved_by_admin,
+                        "date_published": newNotionType.date_published
+                    }
+                ]
+    
+                const alphaNotions = newNotionArray.sort((a, b) => a.english_name > b.english_name ? 1 : -1)
+                setNotionTypeList(alphaNotions)
+    
+                const newNotionFields = [...notionFields]
+                newNotionFields[index]['typeId'] = newNotionType.id
+                setNotionFields(newNotionFields)
+            })
+            
+            setNotionTypePopUp(false)
+            setNewNotionType('')
+        }
     }
 
     return (
-        <div id='notions'>
+        <div id='notions' className='NPFNotions'>
             <FormPage title='Notions'>
                 <FormPromptWithSub
                     prompt='If the product includes notions such as zippers or buttons, list them here.'
@@ -480,222 +474,252 @@ const NPFNotions = props => {
                 />
                     {notionFields.map((notion, index) => {
                         return (
-                            <FormFieldset key={index}>
-                                <button
-                                    className='NewProductForm__remove'
-                                    type='button'
-                                    onClick={() => removeNotion(index)}
-                                >
-                                    REMOVE
-                                </button>
+                            <li key={index}>
+                                <FormFieldset key={index}>
+                                    <button
+                                        className='NewProductForm__remove'
+                                        type='button'
+                                        onClick={() => removeNotion(index)}
+                                    >
+                                        REMOVE
+                                    </button>
 
-                                <FormDropdown
-                                    id={'notion-type-' + index}
-                                    name='typeId'
-                                    prompt='Notion type'
-                                    currentValue={notion.typeId}
-                                    options={makeNotTypeOptions()}
-                                    handleChange={event => notChangeInput(event, index)} 
-                                />
-                
-                                <FormButton
-                                    buttonText='ADD A NOTION TYPE'
-                                    handleClick={() => setNotionTypePopUp(true)}
-                                />
-
-                                <FormPopUp
-                                    id='notion-type-pop-up'
-                                    status={notTypePopUpStatus()}
-                                    title='Add a Notion Type'
-                                    close={() => setNotionTypePopUp(false)}
-                                    submit={() => submitNewNotType(index)}
-                                    buttonText='SUBMIT NOTION TYPE'
-                                >
-                                    <FormTextInput 
-                                        id='new-not-type'
-                                        name='newNotType'
-                                        prompt='Notion type name' 
-                                        currentValue={newNotionType}
-                                        handleChange={event => setNewNotionType(event.target.value)}
-                                    />
-                                </FormPopUp>
-                
-                                <FormDropdown
-                                    id={'notion-location-' + index}
-                                    name='countryId'
-                                    prompt='Location of notion manufacturing'
-                                    currentValue={notion.countryId}
-                                    options={makeCountryOptions()}
-                                    handleChange={event => notChangeInput(event, index)} 
-                                />
-                
-                                <FormDropdown
-                                    id={'notion-factory-' + index}
-                                    name='factoryId'
-                                    prompt='Notion manufacturer'
-                                    currentValue={notion.factoryId}
-                                    options={makeFactoryOptions('manufacturer')}
-                                    handleChange={event => notChangeInput(event, index)} 
-                                />
-
-                                <FormButton
-                                    buttonText='ADD A MANUFACTURER'
-                                    handleClick={() => setNotFactPopUp(true)}
-                                />
-
-                                <FormPopUp
-                                    id='notion-factory-pop-up'
-                                    status={notFactPopUpStatus()}
-                                    title='Add a Manufacturer'
-                                    close={() => setNotFactPopUp(false)}
-                                    submit={() => submitNewManufacturer(index)}
-                                    buttonText='SUBMIT MANUFACTURER'
-                                >
-                                    <FormPromptWithSub prompt='Add a notion manufacturer' promptSubtitle='' />
-                                    
-                                    <FormTextInput 
-                                        id='notion-factory-name'
-                                        name='name'
-                                        prompt='Factory name' 
-                                        currentValue={fabricProps.newFact.name}
-                                        handleChange={event => newNotFactChangeInput(event)} 
-                                    />
-                                    
                                     <FormDropdown
-                                        id='notion-factory-location' 
+                                        id={'notion-type-' + index}
+                                        name='typeId'
+                                        prompt='Notion type'
+                                        currentValue={notion.typeId}
+                                        options={makeNotTypeOptions()}
+                                        handleChange={event => notChangeInput(event, index)} 
+                                    />
+
+                                    <FormPromptWithSub
+                                        promptSubtitle='Notion type not listed?'
+                                    />
+                    
+                                    <FormButton
+                                        buttonText='Add a notion type'
+                                        handleClick={() => setNotionTypePopUp(true)}
+                                    />
+
+                                    <FormPopUp
+                                        id='notion-type-pop-up'
+                                        status={notTypePopUpStatus()}
+                                        title='Add a Notion Type'
+                                        close={() => setNotionTypePopUp(false)}
+                                        submit={() => submitNewNotType(index)}
+                                        buttonText='Submit notion type'
+                                    >
+                                        <FormTextInput 
+                                            id='new-not-type'
+                                            name='newNotType'
+                                            prompt='Notion type name' 
+                                            currentValue={newNotionType}
+                                            handleChange={event => setNewNotionType(event.target.value)}
+                                        />
+                                    </FormPopUp>
+                    
+                                    <FormDropdown
+                                        id={'notion-location-' + index}
                                         name='countryId'
-                                        prompt='Location'
-                                        currentValue={fabricProps.newFact.countryId}
-                                        options={makeCountryOptions()}
-                                        handleChange={event => newNotFactChangeInput(event)}
+                                        prompt='Location of notion manufacturing'
+                                        currentValue={notion.countryId}
+                                        options={fabricProps.countries}
+                                        handleChange={event => notChangeInput(event, index)} 
                                     />
-                                    
-                                    <FormUrlInput 
-                                        id='notion-factory-website'
-                                        name='website'
-                                        prompt='Website'
-                                        currentValue={fabricProps.newFact.website}
-                                        handleChange={event => newNotFactChangeInput(event)}
+                    
+                                    <FormDropdown
+                                        id={'notion-factory-' + index}
+                                        name='factoryId'
+                                        prompt='Notion manufacturer'
+                                        currentValue={notion.factoryId}
+                                        options={makeFactoryOptions('manufacturer')}
+                                        handleChange={event => notChangeInput(event, index)} 
                                     />
-                                    
-                                    <FormTextInput
-                                        id='notion-factory-notes'
+
+                                    <FormPromptWithSub
+                                        promptSubtitle='Manufacturer not listed?'
+                                    />
+
+                                    <FormButton
+                                        buttonText='Add a manufacturer'
+                                        handleClick={() => setNotFactPopUp(true)}
+                                    />
+
+                                    <FormPopUp
+                                        id='notion-factory-pop-up'
+                                        status={notFactPopUpStatus()}
+                                        title='Add a Manufacturer'
+                                        close={() => setNotFactPopUp(false)}
+                                        submit={() => submitNewManufacturer(index)}
+                                        buttonText='Submit manufacturer'
+                                    >
+                                        <FormPromptWithSub prompt='Add a notion manufacturer' promptSubtitle='' />
+                                        
+                                        <FormTextInput 
+                                            id='notion-factory-name'
+                                            name='name'
+                                            prompt='Factory name' 
+                                            currentValue={fabricProps.newFact.name}
+                                            handleChange={event => newNotFactChangeInput(event)} 
+                                        />
+                                        
+                                        <FormDropdown
+                                            id='notion-factory-location' 
+                                            name='countryId'
+                                            prompt='Location'
+                                            currentValue={fabricProps.newFact.countryId}
+                                            options={fabricProps.countries}
+                                            handleChange={event => newNotFactChangeInput(event)}
+                                        />
+                                        
+                                        <FormUrlInput 
+                                            id='notion-factory-website'
+                                            name='website'
+                                            prompt='Website'
+                                            currentValue={fabricProps.newFact.website}
+                                            handleChange={event => newNotFactChangeInput(event)}
+                                        />
+                                        
+                                        <FormTextInput
+                                            id='notion-factory-notes'
+                                            name='notes'
+                                            prompt='Notes'
+                                            currentValue={fabricProps.newFact.notes}
+                                            handleChange={event => newNotFactChangeInput(event)}
+                                        />
+                                    </FormPopUp>
+
+                                    <FormDropdown
+                                        id={'notion-material-type-' + index}
+                                        name='materialTypeId'
+                                        prompt='Notion material'
+                                        currentValue={notion.materialTypeId}
+                                        options={makeMatTypeOptions()}
+                                        handleChange={event => notChangeInput(event, index)} 
+                                    />
+
+                                    <FormPromptWithSub
+                                        promptSubtitle='Material type not listed?'
+                                    />
+
+                                    <FormButton
+                                        buttonText='Add a material type'
+                                        handleClick={() => setMaterialPopUp(true)}
+                                    />
+
+                                    <FormPopUp
+                                        id='new-material'
+                                        status={notMaterialPopUpStatus()}
+                                        title='Add a Material'
+                                        close={() => setMaterialPopUp(false)}
+                                        submit={() => submitNewMaterial(index)}
+                                        buttonText='Submit material'
+                                    >
+                                        <FormTextInput
+                                            id='new-material-name'
+                                            name='name'
+                                            prompt='Material name'
+                                            currentValue={newNotionMaterial}
+                                            handleChange={event => {
+                                                setNewNotionMaterial(event.target.value)
+                                            }}
+                                        />
+                                    </FormPopUp>
+
+                                    <FormDropdown
+                                        id={'notion-material-origin-id-' + index}
+                                        name='materialOriginId'
+                                        prompt='Origin of notion material'
+                                        currentValue={notion.materialOriginId}
+                                        options={fabricProps.countries}
+                                        handleChange={event => notChangeInput(event, index)} 
+                                    />
+
+                                    <FormDropdown
+                                        id={'notion-material-producer-id-' + index}
+                                        name='materialProducerId'
+                                        prompt='Notion material producer'
+                                        currentValue={notion.materialProducerId}
+                                        options={makeFactoryOptions('producer')}
+                                        handleChange={event => notChangeInput(event, index)} 
+                                    />
+
+                                    <FormPromptWithSub
+                                        promptSubtitle='Manufacturer not listed?'
+                                    />
+
+                                    <FormButton
+                                        buttonText='Add a manufacturer'
+                                        handleClick={() => setNotFactPopUp(true)}
+                                    />
+
+                                    <p>Does the notion have any of the following cerfications?</p>
+                                    <FormCheckboxSection
+                                        id={'notion-certifications' + index}
+                                        name='certIds'
+                                        options={makeNotCertList(index)}
+                                        selectedOptions={notion.certIds}
+                                        handleChange={event => notCertChange(index, event.target.id)}
+                                    />
+
+                                    <FormPromptWithSub
+                                        promptSubtitle='Certification not listed?'
+                                    />
+
+                                    <FormButton 
+                                        buttonText='Add a certification'
+                                        handleClick={() => fabricProps.setCertPopUp(true)} 
+                                    />
+
+                                    <FormPopUp
+                                        id='not-cert-pop-up'
+                                        status={notCertPopUpStatus()}
+                                        title='New Certification'
+                                        close={() => fabricProps.setCertPopUp(false)}
+                                        submit={() => submitNewCert()}
+                                        buttonText='Submit certification'
+                                    >
+                                        <FormPromptWithSub prompt='Add a certification' promptSubtitle='' />
+
+                                        <FormTextInput 
+                                            id='not-cert-name'
+                                            name='name'
+                                            prompt='Certification name'
+                                            currentValue={fabricProps.newCert.name}
+                                            handleChange={event => newNotCertChangeInput(event)} 
+                                        />
+
+                                        <FormUrlInput
+                                            id='not-cert-website'
+                                            name='website'
+                                            prompt='Website'
+                                            currentValue={fabricProps.newCert.website}
+                                            handleChange={event => newNotCertChangeInput(event)}
+                                        />
+                                    </FormPopUp>
+                    
+                                    <FormTextarea
+                                        id={'notes' + index}
                                         name='notes'
-                                        prompt='Notes'
-                                        currentValue={fabricProps.newFact.notes}
-                                        handleChange={event => newNotFactChangeInput(event)}
+                                        prompt='If the brand offers additional information about notion materials or manufacturing, include them here.' 
+                                        currentValue={notion.notes}
+                                        handleChange={event => notChangeInput(event, index)} 
                                     />
-                                </FormPopUp>
+                                </FormFieldset>
 
-                                <FormDropdown
-                                    id={'notion-material-type-' + index}
-                                    name='materialTypeId'
-                                    prompt='Notion material'
-                                    currentValue={notion.materialTypeId}
-                                    options={makeMatTypeOptions()}
-                                    handleChange={event => notChangeInput(event, index)} 
+                            {notionFields.length < index
+                                ? <FormPromptWithSub
+                                    promptSubtitle='Does the product have additional notions?'
                                 />
-
-                                <FormButton
-                                    buttonText='ADD A MATERIAL TYPE'
-                                    handleClick={() => setMaterialPopUp(true)}
-                                />
-
-                                <FormPopUp
-                                    id='new-material'
-                                    status={notMaterialPopUpStatus()}
-                                    title='Add a Material'
-                                    close={() => setMaterialPopUp(false)}
-                                    submit={() => submitNewMaterial(index)}
-                                    buttonText='SUBMIT MATERIAL'
-                                >
-                                    <FormTextInput
-                                        id='new-material-name'
-                                        name='name'
-                                        prompt='Material name'
-                                        currentValue={newNotionMaterial}
-                                        handleChange={event => {
-                                            setNewNotionMaterial(event.target.value)
-                                        }}
-                                    />
-                                </FormPopUp>
-
-                                <FormDropdown
-                                    id={'notion-material-origin-id-' + index}
-                                    name='materialOriginId'
-                                    prompt='Origin of notion material'
-                                    currentValue={notion.materialOriginId}
-                                    options={makeCountryOptions()}
-                                    handleChange={event => notChangeInput(event, index)} 
-                                />
-
-                                <FormDropdown
-                                    id={'notion-material-producer-id-' + index}
-                                    name='materialProducerId'
-                                    prompt='Notion material producer'
-                                    currentValue={notion.materialProducerId}
-                                    options={makeFactoryOptions('producer')}
-                                    handleChange={event => notChangeInput(event, index)} 
-                                />
-
-                                <FormButton
-                                    buttonText='ADD A MANUFACTURER'
-                                    handleClick={() => setNotFactPopUp(true)}
-                                />
-
-                                <p>Does the notion have any of the following cerfications?</p>
-                                <FormCheckboxSection
-                                    id={'notion-certifications' + index}
-                                    name='certIds'
-                                    options={makeNotCertList(index)}
-                                    selectedOptions={notion.certIds}
-                                    handleChange={event => notCertChange(index, event.target.id)}
-                                />
-
-                                <FormButton 
-                                    buttonText='ADD A CERTIFICATION'
-                                    handleClick={() => fabricProps.setCertPopUp(true)} 
-                                />
-
-                                <FormPopUp
-                                    id='not-cert-pop-up'
-                                    status={notCertPopUpStatus()}
-                                    title='New Certification'
-                                    close={() => fabricProps.setCertPopUp(false)}
-                                    submit={() => submitNewCert()}
-                                    buttonText='SUBMIT CERTIFICATION'
-                                >
-                                    <FormPromptWithSub prompt='Add a certification' promptSubtitle='' />
-
-                                    <FormTextInput 
-                                        id='not-cert-name'
-                                        name='name'
-                                        prompt='Certification name'
-                                        currentValue={fabricProps.newCert.name}
-                                        handleChange={event => newNotCertChangeInput(event)} 
-                                    />
-
-                                    <FormUrlInput
-                                        id='not-cert-website'
-                                        name='website'
-                                        prompt='Website'
-                                        currentValue={fabricProps.newCert.website}
-                                        handleChange={event => newNotCertChangeInput(event)}
-                                    />
-                                </FormPopUp>
-                
-                                <FormTextInput 
-                                    id={'notes' + index}
-                                    name='notes'
-                                    prompt='If the brand offers additional information about notion materials or manufacturing, include them here.' 
-                                    currentValue={notion.notes}
-                                    handleChange={event => notChangeInput(event, index)} 
-                                />
-                            </FormFieldset>
+                                : null
+                            }
+                            </li>
                         )
                     })}
+
                 <FormButton
-                    buttonText='ADD A NOTION'
+                    buttonText='Add a notion'
                     handleClick={() => addNotion()}
                 />
             </FormPage>

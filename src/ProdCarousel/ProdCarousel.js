@@ -1,7 +1,7 @@
 import React from 'react'
-import './PhotoCarousel.css'
+import './ProdCarousel.css'
 
-const PhotoCarousel = props => {
+const ProdCarousel = props => {
     const {
         colorArray,
         id,
@@ -22,10 +22,8 @@ const PhotoCarousel = props => {
     const selectedColor = colorArray.filter(color => color.colorId === selectedColorId)[0]
     const imagesForColor = makeColorImages(selectedColor)
     const formattedImages = imagesForColor.map(image => {
-
         return <li key={'li-' + image.imageId}>
             <img
-                key={'image-' + image.imageId}
                 src={image.imageUrl}
                 alt={`${productName} ${selectedColor.colorEngName} ${image.imageId}`}
             />
@@ -35,34 +33,34 @@ const PhotoCarousel = props => {
     return (
         <div 
             id={id}
-            className='PhotoCarousel'
+            className='ProdCarousel'
         >
-            <ul className='PhotoCarousel__items'>
+            <ul className='ProdCarousel__items'>
                 {formattedImages}
             </ul>
         </div>
     )
 }
 
-PhotoCarousel.defaultProps = {
-    id: 0,
+ProdCarousel.defaultProps = {
+    id: '',
     colorArray: [
         {
-            color_description_id: 1,
-            color_english_name: '',
-            id: 1,
-            image_array: [
+            colorDescId: 1,
+            colorEngName: '',
+            colorId: 1,
+            imageArray: [
                 {
-                    id: 1,
-                    image_url: '',
-                    primary_image_for_color: true,
+                    imageId: 1,
+                    imageUrl: '',
+                    primaryImage: true,
                 }
             ],
-            swatch_image_url: ''
+            swatchUrl: ''
         }
     ],
     selectedColorId: 1,
     productName: ''
 }
 
-export default PhotoCarousel
+export default ProdCarousel

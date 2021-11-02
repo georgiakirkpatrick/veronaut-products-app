@@ -2,17 +2,23 @@ import React from 'react'
 import './FormPage.css'
 
 const FormPage = props => {
-    const title = props.title ? <h1>{props.title}</h1> : <div className='empty' />
+    const {
+        title,
+        children,
+        nextError
+    } = props
+
+    const formTitle = title ? <h1>{title}</h1> : <div className='empty' />
 
     return (
         <section className='FormPage'>
-            {title}                                                                                                                                                                                                                                                                               
-            <form id='form-page'>
-                {props.children}
+            {formTitle}                                                                                                                                                                                                                                                                               
+            <form id='form-page' autoComplete='off'>
+                {children}
             </form>
 
             <div>
-                {props.nextError}
+                {nextError}
             </div>
         </section>
     )
@@ -20,7 +26,8 @@ const FormPage = props => {
 
 FormPage.defaultProps = {
     title: '',
-    children: ''
+    children: '',
+    nextError: ''
 }
 
 export default FormPage

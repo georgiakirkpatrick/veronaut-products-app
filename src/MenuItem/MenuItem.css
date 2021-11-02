@@ -1,18 +1,16 @@
-.empty {
+.MenuItem.empty {
     height: 0;
     width: 0;
 }
 
 .MenuItem__primary, .MenuItem__secondary, .MenuItem__secondary-menu-header {
-    font-size: 18px;
+    font: 400 18px/22px Poppins, sans-serif;
     height: 50px;
     width: 100%;
-    padding: 0 30px;
     display: flex;
     align-items: center;
     border-radius: var(--border-radius);
     transition: background var(--speed);
-    padding: 0.5rem;
 }
 
 .MenuItem__primary, .MenuItem__secondary {
@@ -20,16 +18,24 @@
 }
 
 .MenuItem__secondary-menu-header {
-    font-weight: bold;
+    padding: 2vh;
 }
-
 
 .MenuItem__icon-left {
     margin-right: auto;
+    font-size: 10px;
+}
+
+.MenuItem__icon-left svg {
+    font-size: 18px;
 }
 
 .MenuItem__icon-right {
     margin-left: auto;
+}
+
+.MenuItem__icon-right svg {
+    font-size: 18px;
 }
 
 @media screen and (min-width: 768px) {   

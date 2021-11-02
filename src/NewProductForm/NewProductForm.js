@@ -25,11 +25,34 @@ import './NewProductForm.css'
 
 const makeCurrencyOptions = currencies.map((currency, index) => {
     return {
-        id: index + 1, 
+        id: index + 1,
         text: `${currency.code} - ${currency.name_plural} (${currency.symbol_native})`,
-        value: index + 1 
+        value: index + 1
     }
 })
+
+const countryQty = countries.length
+const sliceCountries = countries.slice(1, countryQty)
+const formatedCountries = sliceCountries.map((country, index) => ({
+    id: index + 2,
+    text: country.text,
+    value: index + 2
+}))
+
+const dropDownCountries = [
+    {
+        id: 0,
+        text: 'Select a country',
+        value: 0
+    },
+    {
+        id: 1,
+        text: 'Not disclosed',
+        value: 1
+    },
+    ...formatedCountries
+]
+
 
 const NewProductForm = props => {
     const {
@@ -93,7 +116,7 @@ const NewProductForm = props => {
                 .then(notionTypeArray => {
                     setNotionTypeList(notionTypeArray)
                 })
-            }
+        }
         getFactories()
         getFiberTypes()
         getNotionTypes()
@@ -124,7 +147,7 @@ const NewProductForm = props => {
         { 
             name: '',
             descriptionId: 0,
-            swatchUrl: '',
+            // swatchUrl: '',
             imageUrls: ['']
         }
     ])
@@ -334,10 +357,10 @@ const NewProductForm = props => {
 
     const formatName = name => {
         if (name) {
+
             const formattedName = name.toLowerCase().split(" ")
-            for (let i = 0; i < formattedName.length; i++) {
-                formattedName[i] = formattedName[i][0].toUpperCase() + formattedName[i].substr(1)
-            }
+
+            formattedName[0] = formattedName[0][0].toUpperCase() + formattedName[0].substr(1)
 
             return formattedName.join(" ")
         }
@@ -359,7 +382,7 @@ const NewProductForm = props => {
             colorArray.push({
                 name: formatName(color.name),
                 descriptionId: color.descriptionId,
-                swatchUrl: formatUrl(color.swatchUrl),
+                swatchUrl: urlArray[0],
                 imageUrls: urlArray
             })
         })
@@ -420,8 +443,6 @@ const NewProductForm = props => {
             }
         }
 
-        // const formattedName = formatName(newProductFields.name)
-
     const data = {
         "english_name": formatName(newProductFields.name),
         "brand_id": brandId,
@@ -432,6 +453,8 @@ const NewProductForm = props => {
         "cost_in_home_currency": newProductFields.price,
         "wash_id": Number(newProductFields.washId),
         "dry_id": Number(newProductFields.dryId),
+        "cmt_sew_country": sewFact.countryId,
+        "cmt_cut_country": cutFact.countryId,
         "cmt_notes": cmtNotes,
         "color_fieldsets": colorArray,
         "sew_fact": sewFact,
@@ -472,13 +495,14 @@ const NewProductForm = props => {
         fetch(`${config.API_URL}/api/products/product-form`,
             postRequestParams
         )
-            .then(response => {
-                if (response.status >= 400) {
-                    throw new Error('Server responded with an error!')
-                }
-                return response.json()
-            })
+        .then(response => {
+            if (response.status >= 400) {
+                throw new Error('Server responded with an error!')
+            }
+            return response.json()
+        })        
 }
+
 
 // FORM PAGES
     // BRAND
@@ -508,6 +532,7 @@ const NewProductForm = props => {
         <NPFColors
             colorFieldsets={colorFieldsets}
             currentPage={currentPage}
+            formatName={formatName}
             setColorFieldsets={setColorFieldsets}
             setPage={setPage}
         />
@@ -516,7 +541,7 @@ const NewProductForm = props => {
     const fabricProps = {
         certificationList: certificationList,
         certPopUp: certPopUp,
-        countries: countries,
+        countries: dropDownCountries,
         currentPage: currentPage,
         dyeFactPopUp: dyeFactPopUp,
         initCerts: initCerts,
@@ -608,7 +633,7 @@ const NewProductForm = props => {
 
     // FABRICS QUESTION PAGE
     const fabricsQuestion = (
-        <NPFFabricsQuestion 
+        <NPFFabricsQuestion
             currentPage={currentPage}
             linCheck={linCheck}
             primCheck={primCheck}
@@ -626,11 +651,14 @@ const NewProductForm = props => {
 
     // FINISH
     const finish = (
-        <div>
+        <div className='NPFFinish'>
             <FormPage>
-                <p className='NewProductForm__big-text'>
-                    That's it!
-                </p>
+                <header>
+                    <h1>
+                        That's it!
+                    </h1>
+                </header>
+
                 <Link className='NewProductForm__button-like' to='/'>HOME</Link>
             </FormPage>
 
@@ -655,7 +683,6 @@ const NewProductForm = props => {
     // MANUFACTURING
     const manufacturing = (
         <NPFManufacturing
-            brandId={brandId}
             certChecks={manCertChecks}
             cmtNotes={cmtNotes}
             currentPage={currentPage} 
@@ -692,8 +719,8 @@ const NewProductForm = props => {
     const notPermitted = (
         <div>
             <FormPage>
-                <p className='NewProductForm__big-text'>
-                    Veronaut does accept products made with synthetic fabrics, with exceptions for outerwear, shoes, and swimwear
+                <p>
+                    Veronaut does not accept products made with more than 10% synthetic fibers, with exceptions for the following categories: outerwear, underwear, shoes, socks and tights, and swimwear.
                 </p>
 
                 <Link 

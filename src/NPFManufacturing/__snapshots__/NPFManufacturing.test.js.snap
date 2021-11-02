@@ -11,6 +11,7 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
       Manufacturing
     </h1>
     <form
+      autoComplete="off"
       id="form-page"
     >
       <div
@@ -30,9 +31,9 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
       <fieldset
         className="FormFieldset"
       >
-        <p>
+        <h2>
           Sewing factory
-        </p>
+        </h2>
         <div
           className="FormDropdown"
         >
@@ -41,19 +42,13 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
           >
             Location
           </label>
+          
           <select
             name="countryId"
             onChange={[Function]}
             required={true}
             value=""
-          >
-            <option
-              id={0}
-              value={0}
-            >
-              Select a country
-            </option>
-          </select>
+          />
         </div>
         <div
           className="FormDropdown"
@@ -63,6 +58,7 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
           >
             Factory
           </label>
+          
           <select
             name="factoryId"
             onChange={[Function]}
@@ -83,20 +79,34 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
             </option>
           </select>
         </div>
+        <div
+          className="FormPromptWithSub"
+        >
+          <p
+            className="FormPromptWithSub__prompt"
+          >
+            Factory not listed above?
+          </p>
+          <p
+            className="FormPromptWithSub__subtitle"
+          >
+            
+          </p>
+        </div>
         <button
           className="FormButton"
           onClick={[Function]}
           type="button"
         >
-          ADD A FACTORY
+          Add a factory
         </button>
       </fieldset>
       <fieldset
         className="FormFieldset"
       >
-        <p>
+        <h2>
           Cutting factory
-        </p>
+        </h2>
         <div
           className="FormDropdown"
         >
@@ -105,19 +115,13 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
           >
             Location
           </label>
+          
           <select
             name="countryId"
             onChange={[Function]}
             required={true}
             value=""
-          >
-            <option
-              id={0}
-              value={0}
-            >
-              Select a country
-            </option>
-          </select>
+          />
         </div>
         <div
           className="FormDropdown"
@@ -127,6 +131,7 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
           >
             Factory
           </label>
+          
           <select
             name="factoryId"
             onChange={[Function]}
@@ -147,20 +152,34 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
             </option>
           </select>
         </div>
+        <div
+          className="FormPromptWithSub"
+        >
+          <p
+            className="FormPromptWithSub__prompt"
+          >
+            Factory not listed above?
+          </p>
+          <p
+            className="FormPromptWithSub__subtitle"
+          >
+            
+          </p>
+        </div>
         <button
           className="FormButton"
           onClick={[Function]}
           type="button"
         >
-          ADD A FACTORY
+          Add a factory
         </button>
       </fieldset>
       <fieldset
         className="FormFieldset"
       >
-        <p>
+        <h2>
           Does the product have any of the following certifications?
-        </p>
+        </h2>
         <div
           className="FormCheckboxSection"
         >
@@ -171,62 +190,76 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
             className="FormCheckboxSection__options-container"
           />
         </div>
+        <div
+          className="FormPromptWithSub"
+        >
+          <p
+            className="FormPromptWithSub__prompt"
+          >
+            Certification not listed above?
+          </p>
+          <p
+            className="FormPromptWithSub__subtitle"
+          >
+            
+          </p>
+        </div>
         <button
           className="FormButton"
           onClick={[Function]}
           type="button"
         >
-          ADD A CERTIFICATION
+          Add a certification
         </button>
       </fieldset>
       <fieldset
         className="FormFieldset"
       >
-        <p>
-          Are there any additional notes about how the product was cut, sewn, or finished?
-        </p>
+        <div />
         <div
-          className="FormText"
+          className="FormTextarea"
         >
           <label
             htmlFor="additional-notes"
           >
-            
+            Are there any additional notes about how the product was cut, sewn, or finished?
           </label>
-          <input
+          <textarea
             id="additional-notes"
             name="cmtNotes"
             onChange={[Function]}
             required={true}
-            type="text"
+            rows="1"
             value=""
           />
         </div>
       </fieldset>
     </form>
-    <div />
+    <div>
+      
+    </div>
   </section>
   <footer
     className="NPFFooter"
   >
     <button
-      className="NPFFooter_previous"
+      className="NPFFooter__previous"
       onClick={[Function]}
       type="button"
     >
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-arrow-left fa-w-14 NPFFooter_arrow"
-        data-icon="arrow-left"
+        className="svg-inline--fa fa-angle-left fa-w-8 NPFFooter__left-arrow"
+        data-icon="angle-left"
         data-prefix="fas"
         focusable="false"
         role="img"
         style={Object {}}
-        viewBox="0 0 448 512"
+        viewBox="0 0 256 512"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"
+          d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
           fill="currentColor"
           style={Object {}}
         />
@@ -236,7 +269,7 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
       </span>
     </button>
     <button
-      className="NPFFooter_next"
+      className="NPFFooter__next"
       onClick={[Function]}
       type="button"
     >
@@ -245,17 +278,17 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
       </span>
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-arrow-right fa-w-14 NPFFooter_arrow"
-        data-icon="arrow-right"
+        className="svg-inline--fa fa-angle-right fa-w-8 NPFFooter__right-arrow"
+        data-icon="angle-right"
         data-prefix="fas"
         focusable="false"
         role="img"
         style={Object {}}
-        viewBox="0 0 448 512"
+        viewBox="0 0 256 512"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+          d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
           fill="currentColor"
           style={Object {}}
         />
@@ -263,7 +296,7 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
     </button>
   </footer>
   <section
-    className="FormPopUp__pop-up"
+    className="FormPopUp"
     id="addSewFact"
   >
     <button
@@ -309,7 +342,7 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
       </p>
     </div>
     <div
-      className="FormText"
+      className="FormTextInput"
     >
       <label
         htmlFor="sew-factory-name"
@@ -331,21 +364,15 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
       <label
         htmlFor="sew-factory-location"
       >
-        Factory location
+        Factory location.  Select 'Not disclosed' if not included on the product page.
       </label>
+      
       <select
         name="countryId"
         onChange={[Function]}
         required={true}
         value=""
-      >
-        <option
-          id={0}
-          value={0}
-        >
-          Select a country
-        </option>
-      </select>
+      />
     </div>
     <div
       className="FormUrlInput"
@@ -353,31 +380,31 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
       <label
         htmlFor="sew-factory-website"
       >
-        Factory website
+        Factory website.  Leave blank if not included on the product page.
       </label>
       <input
-        defaultValue=""
         id="sew-factory-website"
         name="website"
         onChange={[Function]}
         required={true}
         type="url"
+        value=""
       />
     </div>
     <div
-      className="FormText"
+      className="FormTextarea"
     >
       <label
         htmlFor="sew-factory-notes"
       >
-        Notes
+        Are there any additional notes about the sewing factory provided on the product page?  If so, copy them and paste them here.
       </label>
-      <input
+      <textarea
         id="sew-factory-notes"
-        name="notes"
+        name="sewNotes"
         onChange={[Function]}
         required={true}
-        type="text"
+        rows="1"
         value=""
       />
     </div>
@@ -390,7 +417,7 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
     </button>
   </section>
   <section
-    className="FormPopUp__pop-up"
+    className="FormPopUp"
     id="addCutFact"
   >
     <button
@@ -432,11 +459,11 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
       <p
         className="FormPromptWithSub__subtitle"
       >
-        Include the factory website if it is provided on the product page.  Copy and paste all available information about the factory in the 'notes' field
+        Include the factory website if it is provided on the product page.
       </p>
     </div>
     <div
-      className="FormText"
+      className="FormTextInput"
     >
       <label
         htmlFor="cut-factory-name"
@@ -458,21 +485,15 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
       <label
         htmlFor="cut-factory-location"
       >
-        Factory location
+        Factory location.  Select 'Not disclosed' if not included on the product page.
       </label>
+      
       <select
         name="countryId"
         onChange={[Function]}
         required={true}
         value=""
-      >
-        <option
-          id={0}
-          value={0}
-        >
-          Select a country
-        </option>
-      </select>
+      />
     </div>
     <div
       className="FormUrlInput"
@@ -480,31 +501,31 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
       <label
         htmlFor="cut-factory-website"
       >
-        Factory website
+        Factory website.  Leave blank if not included on the product page.
       </label>
       <input
-        defaultValue=""
         id="cut-factory-website"
         name="website"
         onChange={[Function]}
         required={true}
         type="url"
+        value=""
       />
     </div>
     <div
-      className="FormText"
+      className="FormTextarea"
     >
       <label
         htmlFor="cut-factory-notes"
       >
-        Notes
+        Are there any additional notes about the cutting factory provided on the product page?
       </label>
-      <input
+      <textarea
         id="cut-factory-notes"
-        name="notes"
+        name="cutNotes"
         onChange={[Function]}
         required={true}
-        type="text"
+        rows="1"
         value=""
       />
     </div>
@@ -517,7 +538,7 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
     </button>
   </section>
   <section
-    className="FormPopUp__pop-up"
+    className="FormPopUp"
     id="cert-pop-up"
   >
     <button
@@ -563,7 +584,7 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
       </p>
     </div>
     <div
-      className="FormText"
+      className="FormTextInput"
     >
       <label
         htmlFor="man-cert-name"
@@ -585,15 +606,15 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
       <label
         htmlFor="man-cert-website"
       >
-        Website
+        Website.  Leave blank if not included on the product page.
       </label>
       <input
-        defaultValue=""
         id="man-cert-website"
         name="website"
         onChange={[Function]}
         required={true}
         type="url"
+        value=""
       />
     </div>
     <button
@@ -601,7 +622,7 @@ exports[`NPFManufacturing render the UI as expected 1`] = `
       onClick={[Function]}
       type="submit"
     >
-      CREATE CERTIFICATION
+      Create certification
     </button>
   </section>
 </div>

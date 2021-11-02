@@ -1,29 +1,91 @@
 .FabricCarousel {
     max-height: 80vh;
     overflow: scroll;
-    width: 100%;
+}
+
+.FabricCarousel div,
+.FabricCarousel__items  {
+    padding: 0 0 10px;
+}
+
+.FabricCarousel__fabric-title {
+    font: italic 600 16px/20px Poppins, sans-serif;
+    color: #6d6d6d;
+    text-decoration: none;
+}
+
+.FabricCarousel__fiber {
+    padding-bottom: 1vh;
+}
+
+.FabricCarousel__fiber-title {
+    font: 400 16px/20px Poppins, sans-serif;
+    text-decoration: underline;
+    color: #000
 }
 
 .FabricCarousel__items {
     display: flex;
     flex-direction: row;
     overflow: scroll;
+    width: max-content;
 }
 
-.FabricCarousel__items > img {
+.FabricCarousel__fabric {
+    padding: 3vh 7vw 1vh;
+    margin: 3vh 2vw 1vh;
+    border: 1px solid #e3e2e2;
+    border-radius: 20px;
     width: 80vw;
-    padding: 0 10px 0 0;
-}
-
-.FabricCarousel__items > li {
-    padding: 0 10px 0 0;
-    width: 90vw;
 }
 
 .FabricCarousel__stage {
     text-decoration: underline;
 }
 
-#section-carousel > .FabricCarousel__items {
-    width: 150%;
+@media screen and (min-width: 768px) {
+   .FabricCarousel__fabric {
+        width: 35vw;
+        padding: 2vh 3vw;
+        margin: 1vh 1vw;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .FabricCarousel__items  {
+        padding: 2vh 0;
+    }
+
+    .FabricCarousel__fabric {
+        padding: 4vh 3vw;
+        margin: 0 2vw 0 0;
+    }
+
+    .FabricCarousel__fiber,
+    .FabricCarousel__fiber div {
+        padding: 0;
+    }
+}
+
+@media screen and (min-width: 1024px) and (min-height: 1366px) {
+    .FabricCarousel__items {
+        padding: 1vh 0;
+    }
+
+    .FabricCarousel__fabric {
+        padding: 2vh 3vw;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .FabricCarousel__fabric {
+        width: 25vw;
+    }
+}
+
+@media screen and (min-width: 2560px) {
+    .FabricCarousel__fabric {
+        width: 18vw;
+        padding: 2vh 2vw;
+    }
 }

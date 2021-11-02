@@ -5,10 +5,15 @@ import '../FontAwesomeIcons/FontAwesomeIcons'
 import './ReadMoreLink.css'
 
 const ReadMoreLink = props => {
+    const {
+        link,
+        text
+    } = props
+    
     return (
-        <Link className='ReadMoreLink' to={props.link}>
+        <Link className='ReadMoreLink' to={link}>
             <p>
-                <span>{props.text} </span>
+                <span>{text} </span>
                 <FontAwesomeIcon icon="arrow-right" />
             </p>
         </Link>

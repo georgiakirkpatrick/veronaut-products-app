@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PhotoCarousel renders the UI as expected 1`] = `
+exports[`ProdCarousel renders the UI as expected 1`] = `
 <div
-  className="PhotoCarousel"
-  id={0}
+  className="ProdCarousel"
+  id=""
 >
   <ul
-    className="PhotoCarousel__items"
+    className="ProdCarousel__items"
   >
     <li>
       <img

@@ -1,11 +1,11 @@
 .FormUrlInput {
     width: 100%;
-    margin-top: 10px;
+    margin-bottom: 2vh;
 }
 
 .FormUrlInput input {
     width: 100%;
-    margin: 2px 0px 10px;
+    margin: 5px 0px 10px;
     padding: 10px;
     font: inherit;
 }

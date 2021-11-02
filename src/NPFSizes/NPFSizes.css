@@ -1,3 +1,80 @@
 .NPFSizes .FormCheckboxSection__options-container {
-    height: 350px;
+    height: 55vh;
+}
+
+@media screen and (min-width: 360px) {
+    .NPFSizes .FormCheckboxSection__options-container {
+        height: 50vh;
+    }
+}
+
+@media screen and (min-width: 375px) {
+    .NPFSizes .FormCheckboxSection__options-container {
+        height: 50vh;
+    }
+}
+
+@media screen and (min-width: 375px) and (min-height: 812px) {
+    .NPFSizes .FormCheckboxSection__options-container {
+        height: 43vh;
+    }
+}
+
+@media screen and (min-width: 411px) {
+    .NPFSizes .FormCheckboxSection__options-container {
+        height: 45vh;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .NPFSizes .FormCheckboxSection {
+        padding: 1vh 3vw;
+        margin: 1vh 0;
+    }
+
+    .NPFSizes .FormCheckboxSection__options-container {
+        height: 20vh;
+    }
+
+    .NPFSizes .FormCheckboxSection__option {
+        padding: 5px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .NPFSizes .FormCheckboxSection__options-container {
+        height: 30vh;
+    }
+}
+
+@media screen and (min-width: 1024px) and (min-height: 1366px) {
+    .NPFSizes .FormCheckboxSection {
+        padding: 1vh 3vw;
+    }
+
+    .NPFSizes .FormCheckboxSection__options-container {
+        height: 17vh;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .NPFSizes .FormCheckboxSection {
+        height: 27vh;
+        padding: 1vh 3vw;
+    }
+
+    .NPFSizes .FormCheckboxSection__options-container {
+        height: 22vh;
+    }
+}
+
+@media screen and (min-width: 2560px) {
+    .NPFSizes .FormCheckboxSection {
+        height: 20vh;
+        padding: 1vh 3vw;
+    }
+
+    .NPFSizes .FormCheckboxSection__options-container {
+        height: 15vh;
+    }
 }

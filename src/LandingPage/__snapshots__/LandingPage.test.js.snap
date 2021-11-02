@@ -7,200 +7,183 @@ exports[`LandingPage renders the UI as expected 1`] = `
   <div
     className="LandingPage__hero"
   >
-    <img
-      alt="KowTow Faculty Pant in Sand"
-      src="https://cdn.shopify.com/s/files/1/0767/5207/products/KOWTOW_Faculty_Pant_Sand_Canvas_1456_web_1186x1186.jpg?v=1581027100"
-    />
-    <div
+    <section
       className="LandingPage__hero-title"
     >
       <header>
         <h1>
-          Your guide to the best-designed clothes with upstanding supply chains.
+          <span
+            className="fashion"
+          >
+            TRUTH 
+          </span>
+          <br />
+          <span
+            className="fashion"
+          >
+            IS IN FASHION
+          </span>
         </h1>
       </header>
-    </div>
+      <p
+        className="subhero"
+      >
+        <span
+          className="subero1"
+        >
+          We're here to help you
+        </span>
+        <br />
+        <span
+          className="subero2"
+        >
+          find it
+        </span>
+      </p>
+    </section>
   </div>
   <div
-    className="TextBlock"
+    className="LandingPage__body"
   >
-    <p>
-      <span>
-        It is tough to be a responsible consumer when it comes to fashion.
-      </span>
-      <br />
-      <span
-        className="bold"
+    <section
+      className="LandingPage__categories"
+    >
+      <header>
+        <h2>
+          Categories
+        </h2>
+      </header>
+      <div
+        className="CatCarousel"
+        id="category-carousel"
       >
-        Veronaut helps you make an informed decision.
-      </span>
-    </p>
+        <ul
+          className="CatCarousel__list"
+        >
+          <li>
+            <div>
+              <img
+                alt="Activewear"
+                src="https://media.sezane.com/image/upload/c_crop,fl_progressive:semi,h_1,q_auto:best,w_0.97125097125097,x_0.014374514374514,y_0/if_w_gt_2000,c_scale,w_2000/arablu6tfcvzhw7j7c7k.jpg"
+              />
+            </div>
+            <p>
+              Activewear
+            </p>
+          </li>
+          <li>
+            <div>
+              <img
+                alt="Blazers"
+                src="https://n.io.nordstrommedia.com/id/sr3/f7103502-e685-4fce-be64-12fd6388f718.jpeg?trim=color&pad_color=FFF&format=jpeg&w=350&h=536&trimcolor=FFF"
+              />
+            </div>
+            <p>
+              Blazers
+            </p>
+          </li>
+          <li>
+            <div>
+              <img
+                alt="Coats and Jackets"
+                src="https://media.sezane.com/image/upload/c_crop,fl_progressive:semi,h_1,q_auto:best,w_0.97125097125097,x_0.014374514374514,y_0/if_w_gt_2000,c_scale,w_2000/arablu6tfcvzhw7j7c7k.jpg"
+              />
+            </div>
+            <p>
+              Coats and Jackets
+            </p>
+          </li>
+          <li>
+            <div>
+              <img
+                alt="Dresses"
+                src="https://media.sezane.com/image/upload/c_crop,fl_progressive:semi,h_1,q_auto:best,w_0.97125097125097,x_0.014374514374514,y_0/if_w_gt_2000,c_scale,w_2000/arablu6tfcvzhw7j7c7k.jpg"
+              />
+            </div>
+            <p>
+              Dresses
+            </p>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section
+      className="PrincipleList"
+    >
+      <header>
+        <h2>
+          Transparency is key
+        </h2>
+        <p>
+          Veronaut helps you understand product descriptions and points out the information brands choose to omit.
+        </p>
+      </header>
+      <ul>
+        <li
+          className="Principle"
+        >
+          <svg
+            aria-hidden="true"
+            className="svg-inline--fa fa-leaf fa-w-18 fa-lg "
+            data-icon="leaf"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            style={Object {}}
+            viewBox="0 0 576 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M546.2 9.7c-5.6-12.5-21.6-13-28.3-1.2C486.9 62.4 431.4 96 368 96h-80C182 96 96 182 96 288c0 7 .8 13.7 1.5 20.5C161.3 262.8 253.4 224 384 224c8.8 0 16 7.2 16 16s-7.2 16-16 16C132.6 256 26 410.1 2.4 468c-6.6 16.3 1.2 34.9 17.5 41.6 16.4 6.8 35-1.1 41.8-17.3 1.5-3.6 20.9-47.9 71.9-90.6 32.4 43.9 94 85.8 174.9 77.2C465.5 467.5 576 326.7 576 154.3c0-50.2-10.8-102.2-29.8-144.6z"
+              fill="currentColor"
+              style={Object {}}
+            />
+          </svg>
+          <h3>
+            Sustainability is subjective
+          </h3>
+          <p>
+            We’re not going to tell you which product to purchase or which brand to boycott.  What makes a garment’s supply chain “sustainable” is not only a complex issue, it also depends on who you ask.  We want to help you make informed decisions by making it as easy as possible to find the facts.
+          </p>
+        </li>
+        <li
+          className="Principle"
+        >
+          <svg
+            aria-hidden="true"
+            className="svg-inline--fa fa-tshirt fa-w-20 fa-lg "
+            data-icon="tshirt"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            style={Object {}}
+            viewBox="0 0 640 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M631.2 96.5L436.5 0C416.4 27.8 371.9 47.2 320 47.2S223.6 27.8 203.5 0L8.8 96.5c-7.9 4-11.1 13.6-7.2 21.5l57.2 114.5c4 7.9 13.6 11.1 21.5 7.2l56.6-27.7c10.6-5.2 23 2.5 23 14.4V480c0 17.7 14.3 32 32 32h256c17.7 0 32-14.3 32-32V226.3c0-11.8 12.4-19.6 23-14.4l56.6 27.7c7.9 4 17.5.8 21.5-7.2L638.3 118c4-7.9.8-17.6-7.1-21.5z"
+              fill="currentColor"
+              style={Object {}}
+            />
+          </svg>
+          <h3>
+            Product research, but make it shopping
+          </h3>
+          <p>
+            Finding the right clothes to fit your style, budget, and body can be tricky.  Add in your ethical-production standards and it can be downright frustrating to find products that check all the boxes.  That’s why we present product information in a way that feels like online shopping.  We think understanding the socioeconomic and environmental impacts of your purchase should be part of your shopping experience rather than an extra step.
+          </p>
+        </li>
+      </ul>
+      
+    </section>
+    <section
+      className="LandingPage__new-products"
+    >
+      <div>
+         Loading... 
+      </div>
+    </section>
   </div>
-  <section
-    className="PrincipleList"
-  >
-    <h2>
-      Principles
-    </h2>
-    <ul>
-      <li
-        className="Principle"
-      >
-        <h3>
-          Good design
-        </h3>
-        <p>
-          Clothing and accessories should be flattering, versatile, functional, and built to last.
-        </p>
-      </li>
-      <li
-        className="Principle"
-      >
-        <h3>
-          Transparent
-        </h3>
-        <p>
-          Product listings should include information about who, where, and how products are manufactured throughout the supply chain.
-        </p>
-      </li>
-      <li
-        className="Principle"
-      >
-        <h3>
-          Ethical
-        </h3>
-        <p>
-          Clothing and accessories should be made in workplaces that prioritize employee safety, living wages, and freedom of association (the right to join a union).
-        </p>
-      </li>
-      <li
-        className="Principle"
-      >
-        <h3>
-          Sustainable
-        </h3>
-        <p>
-          Fashion products should be made with renewable, non-polluting resources whenever possible.  Production should minimize waste.
-        </p>
-      </li>
-    </ul>
-    <a
-      className="ReadMoreLink"
-      href="/principles"
-      onClick={[Function]}
-    >
-      <p>
-        <span>
-          Read more about our principles
-           
-        </span>
-        <svg
-          aria-hidden="true"
-          className="svg-inline--fa fa-arrow-right fa-w-14 "
-          data-icon="arrow-right"
-          data-prefix="fas"
-          focusable="false"
-          role="img"
-          style={Object {}}
-          viewBox="0 0 448 512"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
-            fill="currentColor"
-            style={Object {}}
-          />
-        </svg>
-      </p>
-    </a>
-  </section>
-  <section
-    className="LandingCategoryList__section"
-  >
-    <header>
-      <h2>
-        Categories
-      </h2>
-    </header>
-    <ul
-      className="LandingCategoryList__list"
-    >
-      <li
-        className="Category"
-      >
-        <a
-          className="main-link"
-          href="/category/4/dresses"
-          onClick={[Function]}
-        >
-          <h2
-            className="Category__title"
-          >
-            Dresses
-          </h2>
-        </a>
-      </li>
-      <li
-        className="Category"
-      >
-        <a
-          className="main-link"
-          href="/category/4/dresses"
-          onClick={[Function]}
-        >
-          <h2
-            className="Category__title"
-          >
-            Dresses
-          </h2>
-        </a>
-      </li>
-      <li
-        className="Category"
-      >
-        <a
-          className="main-link"
-          href="/category/4/dresses"
-          onClick={[Function]}
-        >
-          <h2
-            className="Category__title"
-          >
-            Dresses
-          </h2>
-        </a>
-      </li>
-    </ul>
-    <a
-      className="ReadMoreLink"
-      href="/all-categories"
-      onClick={[Function]}
-    >
-      <p>
-        <span>
-          More categories
-           
-        </span>
-        <svg
-          aria-hidden="true"
-          className="svg-inline--fa fa-arrow-right fa-w-14 "
-          data-icon="arrow-right"
-          data-prefix="fas"
-          focusable="false"
-          role="img"
-          style={Object {}}
-          viewBox="0 0 448 512"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
-            fill="currentColor"
-            style={Object {}}
-          />
-        </svg>
-      </p>
-    </a>
-  </section>
   <section
     className="EmailSignUp"
   >
@@ -210,7 +193,7 @@ exports[`LandingPage renders the UI as expected 1`] = `
       </h2>
     </header>
     <p>
-      Create an account and save items to buy later.
+      Create an account to save your favorite products.
     </p>
     <form>
       <fieldset>
@@ -230,7 +213,7 @@ exports[`LandingPage renders the UI as expected 1`] = `
         onClick={[Function]}
         type="button"
       >
-        CREATE ACCOUNT
+        Create account
       </button>
     </form>
   </section>

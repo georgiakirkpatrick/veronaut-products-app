@@ -30,11 +30,8 @@ const NPFBrand = props => {
         setPage
     } = props
 
-    console.log('brandArray', brandArray)
 
     const addBrand = brand => {
-        console.log('addBrand ran brand is ', brand)
-
         const newBrandArray = [
             ...brandArray,
             {
@@ -47,7 +44,6 @@ const NPFBrand = props => {
         ]
 
         setBrandArray(newBrandArray)
-
         setCurrentBrandId(brand.id)
     }
 
@@ -65,8 +61,6 @@ const NPFBrand = props => {
         const missingFields = []
 
         Object.keys(newBrandFields).forEach(key => {
-            console.log('newBrandFields', newBrandFields)
-            console.log('key', key)
             !newBrandFields[key] && missingFields.push(key.replace( /([A-Z])/g, " $1" ).toLowerCase())
         })
 
@@ -141,9 +135,9 @@ const NPFBrand = props => {
 
     const newBrandPopUp = () => {
         if (brandPopUp === true) {
-            return 'FormPopUp__pop-up active'
+            return 'FormPopUp active'
         }
-        return 'FormPopUp__pop-up'
+        return 'FormPopUp'
     }
 
     const submitNewBrand = () => {
@@ -154,8 +148,6 @@ const NPFBrand = props => {
             "website": formatUrl(newBrandFields.website),
             "approved_by_admin": false
         }
-
-        console.log('data', data)
 
         const postRequestParams = {
             method: 'POST',
@@ -172,7 +164,6 @@ const NPFBrand = props => {
                 return response.json()
             })
             .then(responseJson => {
-                console.log('responseJson', responseJson)
                 addBrand(responseJson)
             })
     }
@@ -209,7 +200,7 @@ const NPFBrand = props => {
                 />
 
                 <FormButton
-                    buttonText='ADD A BRAND'
+                    buttonText='Add a brand'
                     handleClick={() => setBrandPopUp(true)} 
                     type='button'
                 />

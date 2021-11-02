@@ -1,0 +1,15 @@
+.FormTextarea {
+    width: 100%;
+}
+
+.FormTextarea textarea {
+    margin: 5px 0px 10px;
+    padding: 10px;
+    font: inherit;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.FormTextarea textarea:focus {
+    height: 10vh;
+}

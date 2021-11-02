@@ -11,7 +11,7 @@ button {
     background: #fff;
     color: #ffffff;
     font-family: sans-serif;
-    font-size: 1rem;
+    letter-spacing: 1px;
     cursor: pointer;
     text-align: center;
     transition: 250ms ease-in-out, 
@@ -22,19 +22,12 @@ button {
 
 main {
     width: 100vw;
-    margin-top: 10vh;
 }
 
 main a:hover {
-    color: purple;
+    color: #c5b1c3;
 }
     
 main a:active {
-    color: plum;
-}
-
-@media screen and (min-width: 768px) {
-    main {
-        margin-top: 15vh;
-    }
+    color: #c5b1c3;
 }

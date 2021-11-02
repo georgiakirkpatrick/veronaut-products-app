@@ -11,6 +11,7 @@ exports[`NPFNewProduct render the UI as expected 1`] = `
       New Product
     </h1>
     <form
+      autoComplete="off"
       id="form-page"
     >
       <div
@@ -28,7 +29,7 @@ exports[`NPFNewProduct render the UI as expected 1`] = `
         </p>
       </div>
       <div
-        className="FormText"
+        className="FormTextInput"
       >
         <label
           htmlFor="product-name"
@@ -53,12 +54,12 @@ exports[`NPFNewProduct render the UI as expected 1`] = `
           Product URL
         </label>
         <input
-          defaultValue=""
           id="product-url"
           name="url"
           onChange={[Function]}
           required={true}
           type="url"
+          value=""
         />
       </div>
       <div
@@ -69,6 +70,7 @@ exports[`NPFNewProduct render the UI as expected 1`] = `
         >
           Category
         </label>
+        
         <select
           name="categoryId"
           onChange={[Function]}
@@ -188,16 +190,16 @@ exports[`NPFNewProduct render the UI as expected 1`] = `
           Feature image URL
         </label>
         <input
-          defaultValue=""
           id="feature-image-url"
           name="featureImageUrl"
           onChange={[Function]}
           required={true}
           type="url"
+          value=""
         />
       </div>
       <div
-        className="FormText"
+        className="FormTextInput"
       >
         <label
           htmlFor="price"
@@ -221,10 +223,12 @@ exports[`NPFNewProduct render the UI as expected 1`] = `
         >
           Washing instructions
         </label>
+        
         <select
           name="washId"
           onChange={[Function]}
           required={true}
+          value=""
         >
           <option
             id={0}
@@ -248,13 +252,13 @@ exports[`NPFNewProduct render the UI as expected 1`] = `
             id={3}
             value={3}
           >
-            Machine wash cold (&lt;85°F/&lt;30°C)
+            Machine wash cold (≤85°F/≤30°C)
           </option>
           <option
             id={4}
             value={4}
           >
-            Machine wash warm (&lt;105°F/&lt;40°C)
+            Machine wash warm (≤105°F/≤40°C)
           </option>
           <option
             id={5}
@@ -314,10 +318,12 @@ exports[`NPFNewProduct render the UI as expected 1`] = `
         >
           Drying instructions
         </label>
+        
         <select
           name="dryId"
           onChange={[Function]}
           required={true}
+          value=""
         >
           <option
             id={0}
@@ -394,29 +400,31 @@ exports[`NPFNewProduct render the UI as expected 1`] = `
         </select>
       </div>
     </form>
-    <div />
+    <div>
+      
+    </div>
   </section>
   <footer
     className="NPFFooter"
   >
     <button
-      className="NPFFooter_previous"
+      className="NPFFooter__previous"
       onClick={[Function]}
       type="button"
     >
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-arrow-left fa-w-14 NPFFooter_arrow"
-        data-icon="arrow-left"
+        className="svg-inline--fa fa-angle-left fa-w-8 NPFFooter__left-arrow"
+        data-icon="angle-left"
         data-prefix="fas"
         focusable="false"
         role="img"
         style={Object {}}
-        viewBox="0 0 448 512"
+        viewBox="0 0 256 512"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"
+          d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
           fill="currentColor"
           style={Object {}}
         />
@@ -426,7 +434,7 @@ exports[`NPFNewProduct render the UI as expected 1`] = `
       </span>
     </button>
     <button
-      className="NPFFooter_next"
+      className="NPFFooter__next"
       onClick={[Function]}
       type="button"
     >
@@ -435,17 +443,17 @@ exports[`NPFNewProduct render the UI as expected 1`] = `
       </span>
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-arrow-right fa-w-14 NPFFooter_arrow"
-        data-icon="arrow-right"
+        className="svg-inline--fa fa-angle-right fa-w-8 NPFFooter__right-arrow"
+        data-icon="angle-right"
         data-prefix="fas"
         focusable="false"
         role="img"
         style={Object {}}
-        viewBox="0 0 448 512"
+        viewBox="0 0 256 512"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+          d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
           fill="currentColor"
           style={Object {}}
         />

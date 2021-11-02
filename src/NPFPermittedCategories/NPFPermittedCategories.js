@@ -1,6 +1,6 @@
 import React from 'react'
-import FormPage from '../FormPage/FormPage'
 import FormCheckboxSection from '../FormCheckboxSection/FormCheckboxSection'
+import FormPage from '../FormPage/FormPage'
 import FormPromptWithSub from '../FormPromptWithSub/FormPromptWithSub'
 import NPFFooter from '../NPFFooter/NPFFooter'
 import formData from '../FORM_DATA'
@@ -13,20 +13,30 @@ const noneOption = [
     }
 ]
 
-const NPFPermittedCats = props => {
+const NPFPermittedCategories = props => {
+    const {
+        currentPage,
+        none,
+        noneChange,
+        pageTurns,
+        pCatChange,
+        pCategories,
+        setPage,
+    } = props
+
     const nextButton = () => {
         const permCats = []
 
-        Object.keys(props.pCategories).forEach(key => {
-            if (props.pCategories[key]) {
+        Object.keys(pCategories).forEach(key => {
+            if (pCategories[key]) {
                 permCats.push(key)
             }
         })
 
-        if (permCats.length === 0 && !props.none[101]) {
+        if (permCats.length === 0 && !none[101]) {
             alert('Please select an option.')
         } else {
-            props.setPage(props.currentPage + props.pageTurns)
+            setPage(currentPage + pageTurns)
         }
     }
 
@@ -35,37 +45,39 @@ const NPFPermittedCats = props => {
             <FormPage title='Categories'>
                 <FormPromptWithSub
                     prompt='Does the product fall into one of the following categories?'
-                    promptSubtitle="Check all that apply and click 'next'."
+                    promptSubtitle="Check any that apply or 'none of these' and then 'next'."
                 />
 
                 <FormCheckboxSection 
                     options={formData.permittedCategories}
-                    selectedOptions={props.pCategories}
-                    handleChange={event => props.pCatChange(event)}
+                    selectedOptions={pCategories}
+                    handleChange={event => pCatChange(event)}
                 />
 
                 <FormCheckboxSection 
                     options={noneOption}
-                    selectedOptions={props.none}
-                    handleChange={event => props.noneChange(event)}
+                    selectedOptions={none}
+                    handleChange={event => noneChange(event)}
                 />
             </FormPage>
 
             <NPFFooter 
                 buttons='prevNext' 
-                previousButton={() => props.setPage(props.currentPage - 1)} 
+                previousButton={() => setPage(currentPage - 1)} 
                 nextButton={() => nextButton()} 
             />
         </div>
     )
 }
 
-NPFPermittedCats.defaultProps = {
-    buttons: 'prev',
-    handleChange: () => {},
-    nextButton: () => {},
-    previousButton: () => {},
-    selectedOptions: []
+NPFPermittedCategories.defaultProps = {
+    currentPage: 1,
+    none: {},
+    noneChange: () => {},
+    pageTurns: () => {},
+    pCatChange: () => {},
+    pCategories: {},
+    setPage: () => {}
 }
 
-export default NPFPermittedCats
+export default NPFPermittedCategories

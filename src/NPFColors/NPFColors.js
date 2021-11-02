@@ -10,12 +10,12 @@ import FormTextInput from '../FormTextInput/FormTextInput'
 import formData from '../FORM_DATA'
 
 const NPFColors = props => {
-
     const {
         colorFieldsets,
         currentPage,
+        formatName,
         setColorFieldsets,
-        setPage,
+        setPage
     } = props
 
     const addColor = () => {
@@ -23,9 +23,8 @@ const NPFColors = props => {
             [
                 ...colorFieldsets, 
                 {
-                    name: '', 
-                    descriptionId: 0, 
-                    swatchUrl: '',
+                    name: '',
+                    descriptionId: 0,
                     imageUrls: ['']
                 }
             ]
@@ -34,13 +33,9 @@ const NPFColors = props => {
 
     const colorsChangeInput = (index, event) => {
         const values = [...colorFieldsets]
-        console.log('values', values)
         values[index][event.target.name] = event.target.value
-        console.log('values[index][event.target.name]', values[index][event.target.name])
 
         setColorFieldsets(values)
-        console.log('values', values)
-
     }
 
     const makeColorOptions = () => {
@@ -84,12 +79,22 @@ const NPFColors = props => {
         if (missingFields.length >= 1) {
             alert(`Please enter a description for each color option.  Remove any unneeded color fields by clicking 'remove'.`)
         } else if (missingFields.length === 0) {
+            const formattedColors = () => {
+                const fieldsetArray = colorFieldsets.map(fieldset => {
+                    return {
+                        ...fieldset,
+                        name: formatName(fieldset.name)
+                    }
+                })
+
+                return fieldsetArray
+            }
+
+            setColorFieldsets(formattedColors())
             setPage(currentPage + 1)
         }
     }
-    
-    // const nextButton = () => {setPage(currentPage + 1)}
-    
+        
     const removeColor = (index) => {
         const values = [...colorFieldsets]
         values.splice(index, 1)
@@ -99,49 +104,50 @@ const NPFColors = props => {
     return (
         <div id='colors'>
             <FormPage title='Colors'>
-                <div id='color-inputs'>
-                    <FormPromptWithSub 
-                        prompt='Enter all color options listed on the product webpage'
-                        promptSubtitle='If the product has multiple colors, what is the dominant color?'
-                    />
-                    {colorFieldsets.map((colorFieldset, index) => (
-                        <FormFieldset key={index} className='NewProductForm__fieldset'>
-                            <button 
-                                className='NewProductForm__remove' 
-                                type='button' 
-                                onClick={() => removeColor(index)}
-                            >
-                                REMOVE
-                            </button>
-                            <FormTextInput 
-                                id={'color-name' + index}
-                                name='name'
-                                prompt='Color name'
-                                currentValue={colorFieldset.name} 
-                                handleChange={event => {
-                                    colorsChangeInput(index, event)
-                                }}
-                            />
-                            <FormDropdown 
-                                id={'color-description' + index} 
-                                name='descriptionId'
-                                prompt='Color description'
-                                // 'If the product has multiple colors, what is the dominant color?'
-                                options={makeColorOptions()}
-                                currentValue={colorFieldset.descriptionId} 
-                                handleChange={event => {
-                                    colorsChangeInput(index, event)
-                                }}
-                            />
-                        </ FormFieldset>
-                    ))}
-                </div>
+                <FormPromptWithSub 
+                    prompt='Enter all color options listed on the product webpage'
+                    promptSubtitle='If a product color option contains multiple colors, what is the dominant color?'
+                />
+
+                {colorFieldsets.map((colorFieldset, index) => (
+                    <FormFieldset key={index} className='NewProductForm__fieldset'>
+                        <button 
+                            className='NewProductForm__remove' 
+                            type='button' 
+                            onClick={() => removeColor(index)}
+                        >
+                            REMOVE
+                        </button>
+
+                        <FormTextInput 
+                            id={'color-name' + index}
+                            name='name'
+                            prompt='Color name'
+                            currentValue={colorFieldset.name} 
+                            handleChange={event => {
+                                colorsChangeInput(index, event)
+                            }}
+                        />
+
+                        <FormDropdown 
+                            id={'color-description' + index} 
+                            name='descriptionId'
+                            prompt='Color description'
+                            options={makeColorOptions()}
+                            currentValue={colorFieldset.descriptionId} 
+                            handleChange={event => {
+                                colorsChangeInput(index, event)
+                            }}
+                        />
+                    </ FormFieldset>
+                ))}
     
                 <FormButton 
-                    buttonText='ADD A COLOR' 
+                    buttonText='Add a color option' 
                     handleClick={() => addColor() } 
                 />                
             </FormPage>
+
             <NPFFooter
                 buttons='prevNext'
                 previousButton={() => setPage(currentPage - 1)} 
@@ -156,6 +162,7 @@ const NPFColors = props => {
 NPFColors.defaultProps = {
     currentPage: 0,
     colorFieldsets: [],
+    formatName: () => {},
     setColorFieldsets: () => {},
     setPage: () => {},
 }

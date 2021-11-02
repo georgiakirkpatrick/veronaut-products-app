@@ -4,7 +4,11 @@ exports[`Principle renders the UI as expected 1`] = `
 <li
   className="Principle"
 >
-  <h3 />
-  <p />
+  <h3>
+    
+  </h3>
+  <p>
+    
+  </p>
 </li>
 `;

@@ -9,9 +9,12 @@ exports[`FormDropdown render the UI as expected 1`] = `
   >
     
   </label>
+  
   <select
     name=""
+    onChange={[Function]}
     required={true}
+    value=""
   />
 </div>
 `;

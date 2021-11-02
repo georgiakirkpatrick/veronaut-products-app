@@ -1,7 +1,76 @@
-
 .FormFieldset {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin: 10px 0;
+    background-color: #F2E7F1;
+    border: none;
+    padding: 5vh 5vw;
+    margin: 1vh 0 4vh;
+    width: 100%;
+}
+
+.FormFieldset .FormButton {
+    background-color: #fff;
+    padding: 2vh 5vh;
+    line-height: 20px;
+    margin: 5vh auto;
+}
+
+.FormFieldset > h2 {
+    font: 300 20px/24px Poppins, sans-serif;
+    margin-bottom: 5vh;
+}
+
+.FormFieldset .FormCheckboxSection__options-container {
+    padding: 0;
+}
+
+.FormFieldset .FormCheckboxSection__option {
+    padding: 1vh 0;
+}
+
+.FormFieldset .FormPopUp__close-button {
+    background-color: #0000;
+    padding: 0;
+    font-size: 10px;
+}
+
+.FormFieldset .NewProductForm__remove,
+.FormFieldset .NewProductForm__remove-image {
+    padding: 0;
+    background-color: #F2E7F1;
+    font: 500 14px Poppins, sans-serif;
+}
+
+@media screen and (min-width: 768px) {
+    .FormFieldset {
+        margin: 1vh 0;
+    }
+    
+    .FormDropdown > select {
+        margin: 5px 0 0;
+    }
+
+    .FormPromptWithSub__prompt {
+        padding-bottom: 1vh;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .FormFieldset {
+        padding: 10vh 5vw;
+    }
+}
+
+@media screen and (min-width: 1024px) and (min-height: 1366px) {
+    .FormFieldset {
+        padding: 5vh 5vw;
+    }
+
+    .FormFieldset .FormButton {
+        padding: 1vh 3vh;
+        line-height: 20px;
+        margin: 1vh auto 3vh;
+    }
 }

@@ -4,38 +4,55 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './FormPopUp.css'
 
 const FormPopUp = props => {
+    const {
+        buttonText,
+        buttonType,
+        children,
+        close,
+        id,
+        status,
+        submit,
+        title
+    } = props
+
     return (
-        <section className={props.status}
-            id={props.id}
+        <section className={status}
+            id={id}
         >
             <button
                 className='FormPopUp__close-button' 
                 type='button'
-                onClick={props.close}
+                onClick={close}
             >
                 <FontAwesomeIcon icon='times' size='lg' />
             </button>
             
             <header>
                 <h1>
-                    {props.title}
+                    {title}
                 </h1>
             </header>
-                {props.children}
+            
+            {children}
+
             <FormButton 
-                buttonText={props.buttonText}
-                handleClick={props.submit}
-                type={props.buttonType}
+                buttonText={buttonText}
+                handleClick={submit}
+                type={buttonType}
             />
         </section>
     )
 }
 
 FormPopUp.defaultProps = {
-    id: 1,
+    buttonText: '',
+    buttonType: 'button',
+    children: <div />,
     close: () => {},
-    title: '',
-    children: ''
+    id: 1,
+    status: '',
+    submit: () => {},
+    title: ''
 }
 
 export default FormPopUp

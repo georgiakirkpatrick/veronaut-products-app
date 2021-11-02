@@ -1,26 +1,37 @@
 import React from 'react'
 import FormButton from '../FormButton/FormButton'
 import FormPage from '../FormPage/FormPage'
+import FormPromptWithSub from '../FormPromptWithSub/FormPromptWithSub'
 import NPFFooter from '../NPFFooter/NPFFooter'
 
 const NPFSubmit = props => {
+    const {
+        currentPage,
+        setPage,
+        submitProduct
+    } = props
+
     const submitButton = () => {
-        props.submitProduct()
-        props.setPage(props.currentPage + 1)
+        submitProduct()
+        setPage(currentPage + 1)
     }
 
     return (
         <div>
             <FormPage title='Ready to submit?'>
+                <FormPromptWithSub 
+                    prompt="To make changes, click the 'Previous' button"
+                />
+
                 <FormButton 
-                    buttonText='SUBMIT PRODUCT' 
+                    buttonText='Submit product' 
                     handleClick={() => submitButton()}
                 />
             </FormPage>
 
             <NPFFooter 
                 buttons='prev' 
-                previousButton={() => props.setPage(props.currentPage - 1)}
+                previousButton={() => setPage(currentPage - 1)}
             />
         </div>
     )

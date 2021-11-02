@@ -3,7 +3,11 @@ import FooterSocialLink from '../FooterSocialLink/FooterSocialLink'
 import './FooterSocialLinkList.css'
 
 const FooterSocialLinkList = props => {
-    const generateSocialLinks = props.socialLinks.map(link => (
+    const {
+        socialLinks
+    } = props
+
+    const generateSocialLinks = socialLinks.map(link => (
         <FooterSocialLink
             key={link.id}
             id={link.id}

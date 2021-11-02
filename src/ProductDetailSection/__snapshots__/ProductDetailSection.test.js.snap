@@ -2,8 +2,11 @@
 
 exports[`ProductDetailSection renders the UI as expected 1`] = `
 Array [
-  <hr />,
+  <hr
+    className="ProductDetailSection__line"
+  />,
   <section
+    className="ProductDetailSection"
     id={1}
   >
     <button
@@ -36,11 +39,11 @@ Array [
         
       </h3>
     </header>
-    <ul
-      className="ProductDetailSection"
+    <div
+      className="ProductDetailSection__body"
     >
       
-    </ul>
+    </div>
   </section>,
 ]
 `;

@@ -1,19 +1,28 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import '../FontAwesomeIcons/FontAwesomeIcons';
 import React from 'react';
 import './Principle.css';
 
 const Principle = props => {
+    const {
+        title,
+        description,
+        symbol
+    } = props
+
     return (
-        <li className='Principle' key={props.id}>
-            <h3>{props.title}</h3>
-            <p>{props.description}</p>
+        <li className='Principle'>
+            <FontAwesomeIcon icon={symbol} size='lg' />
+            <h3>{title}</h3>
+            <p>{description}</p>
         </ li>
     )
 }
 
 Principle.defaultProps = {
-    id: 0,
-    description: [],
-    title: []
+    title: '',
+    description: '',
+    symbol: ''
 }
 
 export default Principle;

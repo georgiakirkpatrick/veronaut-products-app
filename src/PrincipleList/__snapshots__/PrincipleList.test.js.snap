@@ -4,9 +4,14 @@ exports[`PrincipleList renders the UI as expected 1`] = `
 <section
   className="PrincipleList"
 >
-  <h2>
-    Principles
-  </h2>
+  <header>
+    <h2>
+      Transparency is key
+    </h2>
+    <p>
+      Veronaut helps you understand product descriptions and points out the information brands choose to omit.
+    </p>
+  </header>
   <ul>
     <li
       className="Principle"
@@ -39,5 +44,6 @@ exports[`PrincipleList renders the UI as expected 1`] = `
       </p>
     </li>
   </ul>
+  
 </section>
 `;

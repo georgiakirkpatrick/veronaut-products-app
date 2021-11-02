@@ -6,48 +6,79 @@ import './ProductListPage.css'
 const ProductListPage = props => {
     const {
         categoryList,
-        // catProdError,
-        // catProdLoaded,
         productArray,
         routeProps,
-        setProductArray,
-        // selectedCategoryId,
-        // setSelectedCategoryId
+        setProductArray
     } = props
 
     const [catProdError, setCatProdError] = useState(null)
     const [catProdLoaded, setCatProdLoaded] = useState(false)
+    const [newProdLoaded, setNewProdLoaded] = useState(false)
+    const [newProdError, setNewProdError] = useState(false)
+
+    const categoryId = routeProps.match.params.categoryId
+
+    const listTitle = routeProps.match.path === '/'
+        ? 'New products'
+        : categoryList[categoryId - 1].english_name
 
     useEffect(() => {
-        // setSelectedCategoryId(routeProps.match.params.categoryId)
-
-
-        const getProductsForCategory = categoryId => {
-          fetch(`${config.API_URL}/api/categories/${categoryId}/products`, {
-              method: 'GET',
-              headers: {
-                  'Content-type': 'application/json'
-              }
-          })
-          .then(response => {
-              if (response.status >= 400) {
-                  console.log('There was a problem.  Status code: ' + response.status)
-                  throw new Error("Server responded with an error!")
-              }
+        const getProductsForCategory = id => {
+            fetch(`${config.API_URL}/api/categories/${id}/products`, {
+                method: 'GET',
+                headers: {
+                    'Content-type': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.status >= 400) {
+                    console.log('There was a problem.  Status code: ' + response.status)
+                    throw new Error("Server responded with an error!")
+                }
               
-              return response.json()
-          })
-          .then(products => {
-              setProductArray(products)
-              setCatProdLoaded(true)
-          },
-          err => {
-              setCatProdError(err)
-              setCatProdLoaded(false)
-          })
+                return response.json()
+            })
+            .then(products => {
+                setProductArray(products)
+                setCatProdLoaded(true)
+            },
+            err => {
+                setCatProdError(err)
+                setCatProdLoaded(false)
+            })
         }
-        getProductsForCategory(routeProps.match.params.categoryId)
-      }, [routeProps.match.params.categoryId, setProductArray])
+
+        const getFeaturedProducts = () => {
+            fetch(`${config.API_URL}/api/products/featured`, {
+                method: 'GET',
+                headers: {
+                    'Content-type': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.status >= 400) {
+                    console.log('There was a problem.  Status code: ' + response.status)
+                    throw new Error("Server responded with an error!")
+                }
+              
+                return response.json()
+            })
+            .then(products => {
+                setProductArray(products)
+                setNewProdLoaded(true)
+            },
+            err => {
+                setNewProdError(err)
+                setNewProdLoaded(false)
+            })
+        }
+
+        if (routeProps.match.params.categoryId) {
+            getProductsForCategory(routeProps.match.params.categoryId)
+        } else {
+            getFeaturedProducts()
+        }
+    }, [routeProps.match.params.categoryId, setProductArray])
 
     const makeProductSlug = product => {
         const brandProduct = `${product.brand_name} ${product.english_name}`
@@ -58,20 +89,17 @@ const ProductListPage = props => {
             .toLowerCase()
     }
 
-    const productList = <ul className='ProductArrayPage__product-list'>
+    const productList = <ul className='ProductListPage__product-list'>
         {productArray.map(product => (
             <Product
-                key={product.id}
-                id={product.id}
-                productTitle={product.english_name}
                 brand={product.brand_name}
-                brandCurrencyId={product.brand_currency}
-                pathToImg={product.feature_image_url}
-                colorOptions={product.multiple_color_options}
-                brandCurrency={product.brand_currency}
-                price={product.cost_in_home_currency}
+                id={product.id}
                 imgAlt={product.brand_name + ' ' + product.english_name}
+                key={product.id}
+                pathToImg={product.feature_image_url}
+                price={product.cost_in_home_currency}
                 productSlug={makeProductSlug(product)}
+                productTitle={product.english_name}
             />
         ))}
     </ul>
@@ -80,20 +108,22 @@ const ProductListPage = props => {
         ? <div className='ProductListPage__no-products'>
             <p>Sorry, there are not any products in this category yet.</p>
         </div>
-        : productList     
+        : productList
         
     if (catProdError) {
         return <div> {catProdError.message} </div>
-    } else if (!catProdLoaded) {
+    } else if (newProdError) {
+        return <div> {newProdError.message} </div>
+    } else if (!catProdLoaded && !newProdLoaded) {
         return <div> Loading... </div>
     } else {
         return (
             <>
                 <section className='ProductListPage'>
                     <header>
-                        <h1>
-                            {categoryList[routeProps.match.params.categoryId - 1].english_name}
-                        </h1>
+                        <h2>
+                            {listTitle}
+                        </h2>
                     </header>
                     
                     {results}
@@ -101,23 +131,25 @@ const ProductListPage = props => {
             </>
         )
     }
-
 }
 
 ProductListPage.defaultProps = {
-    categoryList: [],
-    catProdError: null,
-    catProdLoaded: false,
-    productArray: [],    
+    categoryList: [
+        {
+            category_class: '',
+            english_name: '',
+            id: 1
+        }
+    ],
+    productArray: [],
     routeProps: {
         match: {
             params: {
-                categoryId: '4'
+                categoryId: '1'
             }
         }
-    }
-    // selectedCategoryId: 1,
-    // setSelectedCategoryId: () => {}
+    },
+    setProductArray: () => {}
 }
 
 export default ProductListPage

@@ -1,8 +1,10 @@
 import React from 'react'
 import FormCheckboxSection from '../FormCheckboxSection/FormCheckboxSection'
+import FormFieldset from '../FormFieldset/FormFieldset'
 import FormPage from '../FormPage/FormPage'
 import FormPromptWithSub from '../FormPromptWithSub/FormPromptWithSub'
 import NPFFooter from '../NPFFooter/NPFFooter'
+import './NPFFabricsQuestion.css'
 
 const NPFFabricsQuestion = props => {
     const {
@@ -22,7 +24,7 @@ const NPFFabricsQuestion = props => {
 
     const linCheckOption = [
         {
-            text: 'Yes',
+            text: 'Yes, the product has a lining fabric or material',
             id: 'lining-fabric',
             name: 'lining-fabric',
             checked: linCheck
@@ -53,7 +55,7 @@ const NPFFabricsQuestion = props => {
 
     const primCheckOption = [
         {
-            text: 'Yes',
+            text: 'The product has a primary fabric or material',
             id: 'primary-fabric',
             name: 'primary-fabric',
             checked: primCheck
@@ -62,49 +64,55 @@ const NPFFabricsQuestion = props => {
     
     const secCheckOption = [
         {
-            text: 'Yes',
+            text: 'Yes, the product has a secondary fabric or material',
             id: 'secondary-fabric',
             name: 'secondary-fabric',
             checked: secCheck
         }
     ]
 
-
     return (
-        <div id='fabric-question'>
+        <div id='fabric-question' className='NPFFabricsQuestion'>
             <FormPage title='Fabrics'>
                 <FormPromptWithSub 
-                    prompt='The primary fabric (or material) is the main fabric used in the garment or accessory.'
+                    prompt="Select the product's material types below"
                 />
 
-                <FormCheckboxSection 
-                    prompt='The primary fabric (or material) is required.'
-                    options={primCheckOption}
-                    selectedOptions={{'primary-fabric': primCheck}}
-                    handleChange={() => setPrimCheck(primCheck)}
-                />
+                <FormFieldset>
+                    {/* <FormPromptWithSub 
+                        prompt='The primary fabric or material is the main fabric used in the garment or accessory.'
+                        promptSubtitle='The primary fabric is required.'
+                    /> */}
 
-                <FormPromptWithSub 
-                    prompt='Garments and accessories sometimes include secondary fabrics as trims or accents.'
-                />
+                    <FormCheckboxSection 
+                        prompt='The primary fabric or material is the main fabric used in the garment or accessory.  The primary fabric is required.'
+                        options={primCheckOption}
+                        selectedOptions={{'primary-fabric': primCheck}}
+                        handleChange={() => setPrimCheck(primCheck)}
+                    />
 
-                <FormCheckboxSection 
-                    prompt='Does this product include a secondary fabric?'
-                    options={secCheckOption}
-                    selectedOptions={{'secondary-fabric': secCheck}}
-                    handleChange={() => setSecCheck(!secCheck)}
-                />
+                    {/* <FormPromptWithSub 
+                        promptSubtitle=''
+                    /> */}
 
-                <FormPromptWithSub 
-                    prompt='Garments and accessories sometimes include lining fabrics - an inner layer of fabric on the interior of the product.'
-                />
+                    <FormCheckboxSection 
+                        prompt='Garments and accessories sometimes include secondary fabrics as trims or accents.  Does this product include a secondary fabric?'
+                        options={secCheckOption}
+                        selectedOptions={{'secondary-fabric': secCheck}}
+                        handleChange={() => setSecCheck(!secCheck)}
+                    />
 
-                <FormCheckboxSection 
-                    prompt='Does this product include a lining fabric?'
-                    options={linCheckOption}
-                    selectedOptions={{'lining-fabric': linCheck}}
-                    handleChange={() => setLinCheck(!linCheck)}
-                />
+                    {/* <FormPromptWithSub 
+                        promptSubtitle='Garments and accessories sometimes include lining fabrics - an inner layer of fabric on the interior of the product.'
+                    /> */}
+
+                    <FormCheckboxSection 
+                        prompt='Garments and accessories sometimes include lining fabrics - an inner layer of fabric on the interior of the product.  Does this product include a lining fabric?'
+                        options={linCheckOption}
+                        selectedOptions={{'lining-fabric': linCheck}}
+                        handleChange={() => setLinCheck(!linCheck)}
+                    />
+                </FormFieldset>
             </FormPage>
 
             <NPFFooter 

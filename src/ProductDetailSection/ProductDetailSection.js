@@ -15,12 +15,15 @@ const ProductDetailSection = props => {
 
     const handleClick = sectionOpen ? closeButton : openButton
     const displayButton = sectionOpen ? 'times' : 'angle-down'
-    const sectionClass = sectionOpen ? 'ProductDetailSection active' : 'ProductDetailSection'
+    const sectionClass = sectionOpen ? 'ProductDetailSection__body active' : 'ProductDetailSection__body'
     return (
         <>
-            <hr></hr>
+            <hr className='ProductDetailSection__line'></hr>
 
-            <section id={id}>
+            <section 
+                id={id}
+                className='ProductDetailSection'
+            >
                 <button 
                     className='ProductDetailSection__button' 
                     type='button' 
@@ -34,9 +37,9 @@ const ProductDetailSection = props => {
                     </h3>
                 </header>
 
-                <ul className={sectionClass}>
+                <div className={sectionClass}>
                     {children}
-                </ul>
+                </div>
             </section>
         </>
     )

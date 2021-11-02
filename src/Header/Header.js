@@ -9,6 +9,11 @@ import MenuItem from '../MenuItem/MenuItem'
 import './Header.css'
 
 const Header = props => {
+    const {
+        categoryList,
+        background
+    } = props
+
     const [mobMenuOpen, setMobMenuOpen] = useState(false)
     const [activeMenu, setActiveMenu] = useState('main')
 
@@ -27,7 +32,7 @@ const Header = props => {
     }
 
     return (
-        <nav className='Header'>
+        <nav className={`Header ${background}`}>
             <div className='Header__top'>
                 <div className='Header__item'>
                     <button 
@@ -35,7 +40,11 @@ const Header = props => {
                         type='button' 
                         onClick={handleHamClick}
                     >
-                        <FontAwesomeIcon icon='bars' size='lg'/>
+                        <div className='bars'>
+                            <div className='bar-1'></div>
+                            <div className='bar-2'></div>
+                            <div className='bar-3'></div>
+                        </div>
                     </button>
                 </div>
                 
@@ -68,7 +77,7 @@ const Header = props => {
                     className='Header__menu-primary'
                 >
                     <div>
-                        <div onClick={handleCloseClick}>
+                        <div className='Header__primary-item' onClick={handleCloseClick}>
                             <MenuItem
                                 to='/'
                                 itemType='primary'
@@ -135,7 +144,7 @@ const Header = props => {
                 <CSSTransition 
                     in={activeMenu === 'categories'} // when activeMenu === 'main', we will render the children inside this component
                     unmountOnExit // removes children when not active
-                    timeout={0} //defines length of animation
+                    timeout={1} //defines length of animation
                     className='Header__menu-secondary'
                 >
                     <div 
@@ -154,10 +163,10 @@ const Header = props => {
                             Categories
                         </MenuItem>
 
-                        {props.categoryList.map(category => {
+                        {categoryList.map(category => {
                             const slug = makeCategorySlug(category.english_name)
                             return (
-                                <div key={category.id} onClick={handleCloseClick}>
+                                <div key={category.id} className='Header__secondary-item' onClick={handleCloseClick}>
                                     <MenuItem
                                         to={`/category/${category.id}/${slug}`}
                                         goToMenu='main'

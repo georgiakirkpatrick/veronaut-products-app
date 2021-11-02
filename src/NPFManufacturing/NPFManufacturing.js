@@ -5,6 +5,7 @@ import FormCheckboxSection from '../FormCheckboxSection/FormCheckboxSection'
 import FormDropdown from '../FormDropdown/FormDropdown'
 import FormFieldset from '../FormFieldset/FormFieldset'
 import NPFFooter from '../NPFFooter/NPFFooter'
+import FormTextarea from '../FormTextarea/FormTextarea'
 import FormTextInput from '../FormTextInput/FormTextInput'
 import FormUrlInput from '../FormUrlInput/FormUrlInput'
 import FormPopUp from '../FormPopUp/FormPopUp'
@@ -12,26 +13,27 @@ import FormPromptWithSub from '../FormPromptWithSub/FormPromptWithSub'
 import config from '../config'
 
 const NPFManufacturing = props => {
-    const makeCountryOptions = () => {
-        const countries = props.fabricProps.countries.map((country, index) => ({
-            id: index + 2,
-            text: country.text,
-            value: index + 2
-        }))
-
-        return [
-            {
-                id: 0,
-                text: 'Select a country',
-                value: 0
-            },
-            ...countries
-        ]
-    }
+    const {
+        certChecks,
+        cmtNotes,
+        currentPage,
+        cutFact,
+        cutFactPopUp,
+        fabricProps,
+        setCutFact,
+        setCutFactPopUp,
+        sewFact,
+        sewFactPopUp,
+        setCertChecks,
+        setCmtNotes,
+        setPage,
+        setSewFact,
+        setSewFactPopUp
+    } = props
 
     const makeFactoryOptions = () => {
-        const factoryQty = props.fabricProps.factoryList.length
-        const mills = props.fabricProps.factoryList.slice(1, factoryQty)
+        const factoryQty = fabricProps.factoryList.length
+        const mills = fabricProps.factoryList.slice(1, factoryQty)
         const alphaMills = mills.sort((a, b) => a.english_name > b.english_name ? 1 : -1)
 
         const formatedMills = alphaMills.map(mill => (
@@ -58,8 +60,8 @@ const NPFManufacturing = props => {
     }
 
     const addFactory = (stage, factory) => {
-        props.fabricProps.setFactoryList([
-            ...props.fabricProps.factoryList,
+        fabricProps.setFactoryList([
+            ...fabricProps.factoryList,
             {
                 "id": Number(factory.id),
                 "english_name": factory.english_name,
@@ -70,22 +72,22 @@ const NPFManufacturing = props => {
             }
         ])
             
-        const newFactory = {...props.sewFact}
+        const newFactory = {...sewFact}
         newFactory.factoryId = factory.id
 
         if (stage === 's') {
-            props.setSewFact(newFactory)
+            setSewFact(newFactory)
         } else if (stage === 'c') {
-            props.setCutFact(newFactory)
+            setCutFact(newFactory)
         }
     }
 
     const submitNewFactory = stage => {
         const data = {
-            "english_name": props.fabricProps.newFact.name,
-            "country": props.fabricProps.newFact.countryId,
-            "website": props.fabricProps.newFact.website,
-            "notes": props.fabricProps.newFact.notes,
+            "english_name": fabricProps.newFact.name,
+            "country": fabricProps.newFact.countryId,
+            "website": fabricProps.newFact.website,
+            "notes": fabricProps.newFact.notes,
             "approved_by_admin": false
         }
 
@@ -106,7 +108,7 @@ const NPFManufacturing = props => {
                 addFactory(stage, responseJson)
             })
 
-        props.fabricProps.setNewFact({
+        fabricProps.setNewFact({
             name: '',
             countryId: 0,
             website: '',
@@ -115,73 +117,61 @@ const NPFManufacturing = props => {
     }
 
     const handleFactoryPopSubmit = stage => {
-        const missingFields = []
+        if (fabricProps.newFact.name === '') {
+            alert("Please complete the 'Factory name' field.")
 
-        Object.keys(props.fabricProps.newFact).forEach(key => {
-            if (props.fabricProps.newFact[key] === '' || 0) {
-                missingFields.push(key.replace( /([A-Z])/g, " $1" ).toLowerCase())
-            }
-        })
-
-        if (missingFields.length === 1) {
-            alert(`Please complete the '${missingFields[0]}' field`)
-        } else if (missingFields.length > 1) {
-            alert(`Please complete the following fields: ${missingFields.map(field => `
-                ${field}`)}
-            `)
-        } else if (missingFields.length === 0) {
+        } else {
             submitNewFactory(stage)
             handlePopUpClose()
-
         }
     }
 
     // NEW FACTORY
     const sewFactPopUpStatus = () => {
-        if (props.sewFactPopUp === true) {
-            return 'FormPopUp__pop-up active'
+        if (sewFactPopUp === true) {
+            return 'FormPopUp active'
         }
-        return 'FormPopUp__pop-up'
+        return 'FormPopUp'
     }
 
     const cutFactPopUpStatus = () => {
-        if (props.cutFactPopUp === true) {
-            return 'FormPopUp__pop-up active'
+        if (cutFactPopUp === true) {
+            return 'FormPopUp active'
         }
-        return 'FormPopUp__pop-up'
+        return 'FormPopUp'
     }
 
     const newFactChangeInput = event => {
-        const newFactFields = {...props.fabricProps.newFact}
+        const newFactFields = {...fabricProps.newFact}
         newFactFields[event.target.name] = event.target.value
-        props.fabricProps.setNewFact(newFactFields)
+        fabricProps.setNewFact(newFactFields)
     }
 
     const handlePopUpClose = () => {
-        props.fabricProps.setCertPopUp(false)
-        props.setSewFactPopUp(false)
-        props.setCutFactPopUp(false)
+        fabricProps.setCertPopUp(false)
+        setSewFactPopUp(false)
+        setCutFactPopUp(false)
 
     }
 
     // SEWING FACTORY
     const sewingChangeInput = event => {
-        const sewingFactory = {...props.sewFact}
+        const sewingFactory = {...sewFact}
         sewingFactory[event.target.name] = event.target.value
-        props.setSewFact(sewingFactory)
+        setSewFact(sewingFactory)
     }
 
     // CUTTING FACTORY
     const cuttingChangeInput = event => {
-        const cuttingFactory = {...props.cutFact}
+        const cuttingFactory = {...cutFact}
         cuttingFactory[event.target.name] = event.target.value
-        props.setCutFact(cuttingFactory)
+        setCutFact(cuttingFactory)
     }
 
     // CERTIFICATIONS
     const addCertification = certification => {
         const newCertList = [
-            ...props.fabricProps.certificationList,
+            ...fabricProps.certificationList,
             {
                 id: certification.id,
                 name: certification.name,
@@ -192,37 +182,37 @@ const NPFManufacturing = props => {
         ]
             
         newCertList.sort((a, b) => a.text > b.text ? 1 : -1)
-        props.fabricProps.setCertificationList(newCertList)
+        fabricProps.setCertificationList(newCertList)
     }
 
     const certificationChange = event => {
-        props.setCertChecks({
-            ...props.certChecks, 
-            [event.target.name]: !props.certChecks[event.target.name]})
+        setCertChecks({
+            ...certChecks, 
+            [event.target.name]: !certChecks[event.target.name]})
     }
 
     const certPopUpStatus = () => {
-        if (props.fabricProps.certPopUp === true) {
-            return 'FormPopUp__pop-up active'
+        if (fabricProps.certPopUp === true) {
+            return 'FormPopUp active'
         }
-        return 'FormPopUp__pop-up'
+        return 'FormPopUp'
     }
     
     const cmtNotesChange = event => {
         const newNotes = event.target.value
-        props.setCmtNotes(newNotes)
+        setCmtNotes(newNotes)
     }
 
     const newCertChangeInput = event => {
-        const newCertFields = {...props.fabricProps.newCert}
+        const newCertFields = {...fabricProps.newCert}
         newCertFields[event.target.name] = event.target.value
-        props.fabricProps.setNewCert(newCertFields)
+        fabricProps.setNewCert(newCertFields)
     }
 
     const submitNewCert = () => {
         const data = {
-            "english_name": props.fabricProps.formatName(props.fabricProps.newCert.name),
-            "website": props.fabricProps.formatUrl(props.fabricProps.newCert.website),
+            "english_name": fabricProps.formatName(fabricProps.newCert.name),
+            "website": fabricProps.formatUrl(fabricProps.newCert.website),
             "approved_by_admin": false
         }
 
@@ -249,8 +239,8 @@ const NPFManufacturing = props => {
     const handleCertPopSubmit = () => {
         const missingFields = []
 
-        Object.keys(props.fabricProps.newCert).forEach(key => {
-            props.fabricProps.newCert[key] === '' && missingFields.push(
+        Object.keys(fabricProps.newCert).forEach(key => {
+            fabricProps.newCert[key] === '' && missingFields.push(
                 key.replace( /([A-Z])/g, " $1" ).toLowerCase()
             )
         })
@@ -264,7 +254,7 @@ const NPFManufacturing = props => {
         } else if (missingFields.length === 0) {
             submitNewCert()
             handlePopUpClose()
-            props.fabricProps.setNewCert(
+            fabricProps.setNewCert(
                 {
                     name: '',
                     website: ''
@@ -272,8 +262,6 @@ const NPFManufacturing = props => {
             )
         }
     }
-
-    // const nextButton = () => {props.fabricProps.setPage(props.fabricProps.currentPage + 1)}
 
     const nextButton = () => {
         const missingFields = []
@@ -284,7 +272,7 @@ const NPFManufacturing = props => {
         }
 
         Object.keys(requiredSewFields).forEach(key => {
-            if (props.sewFact[key] === 0) {
+            if (sewFact[key] === 0) {
                 missingFields.push(requiredSewFields[key])
             }
         })
@@ -295,7 +283,7 @@ const NPFManufacturing = props => {
         }
 
         Object.keys(requiredCutFields).forEach(key => {
-            if (props.cutFact[key] === 0) {
+            if (cutFact[key] === 0) {
                 missingFields.push(requiredCutFields[key])
             }
         })
@@ -307,7 +295,7 @@ const NPFManufacturing = props => {
                 ${field}`)}
             `)
         } else if (missingFields.length === 0) {
-            props.fabricProps.setPage(props.fabricProps.currentPage + 1)
+            fabricProps.setPage(fabricProps.currentPage + 1)
         }
     }
 
@@ -326,8 +314,8 @@ const NPFManufacturing = props => {
                         id='sewing-location'
                         name='countryId'
                         prompt='Location'
-                        currentValue={props.sewFact.countryId}
-                        options={makeCountryOptions()}
+                        currentValue={sewFact.countryId}
+                        options={fabricProps.countries}
                         handleChange={event => sewingChangeInput(event)} 
                     />
 
@@ -335,14 +323,19 @@ const NPFManufacturing = props => {
                         id='sewing-factory'
                         name='factoryId'
                         prompt='Factory'
-                        currentValue={props.sewFact.factoryId}
+                        currentValue={sewFact.factoryId}
                         options={makeFactoryOptions()}
                         handleChange={event => sewingChangeInput(event)} 
                     />
 
+                    <FormPromptWithSub
+                        prompt='Factory not listed above?'
+                        promptSubtitle=''
+                    />
+
                     <FormButton 
-                        buttonText='ADD A FACTORY'
-                        handleClick={() => props.setSewFactPopUp(true)} 
+                        buttonText='Add a factory'
+                        handleClick={() => setSewFactPopUp(true)} 
                     />
                 </FormFieldset>
                 
@@ -354,22 +347,27 @@ const NPFManufacturing = props => {
                         id='cutting-location'
                         name='countryId'
                         prompt='Location'
-                        currentValue={props.cutFact.countryId}
-                        options={makeCountryOptions()}
+                        currentValue={cutFact.countryId}
+                        options={fabricProps.countries}
                         handleChange={event => cuttingChangeInput(event)} 
                     />
                     <FormDropdown
                         id='cutting-factory'
                         name='factoryId'
                         prompt='Factory'
-                        currentValue={props.cutFact.factoryId}
+                        currentValue={cutFact.factoryId}
                         options={makeFactoryOptions()}
                         handleChange={event => cuttingChangeInput(event)} 
                     />
 
+                    <FormPromptWithSub
+                        prompt='Factory not listed above?'
+                        promptSubtitle=''
+                    />
+
                     <FormButton
-                        buttonText='ADD A FACTORY'
-                        handleClick={() => props.setCutFactPopUp(true)}
+                        buttonText='Add a factory'
+                        handleClick={() => setCutFactPopUp(true)}
                     />
                 </FormFieldset>
 
@@ -379,25 +377,29 @@ const NPFManufacturing = props => {
                 >
                     <FormCheckboxSection
                         prompt=''
-                        options={props.fabricProps.certificationList}
-                        selectedOptions={props.certChecks}
+                        options={fabricProps.certificationList}
+                        selectedOptions={certChecks}
                         handleChange={event => certificationChange(event)}
                     />
+
+                    <FormPromptWithSub
+                        prompt='Certification not listed above?'
+                        promptSubtitle=''
+                    />
+
                     <FormButton 
-                        buttonText='ADD A CERTIFICATION'
-                        handleClick={() => props.fabricProps.setCertPopUp(true)} 
+                        buttonText='Add a certification'
+                        handleClick={() => fabricProps.setCertPopUp(true)} 
                     />
                 </FormFieldset>
 
-                <FormFieldset
-                    prompt='Are there any additional notes about how the product was cut, sewn, or finished?'
-                    subprompt=''
-                >
-                    <FormTextInput
+                <FormFieldset>
+                    <FormTextarea
+                        currentValue={cmtNotes}
+                        handleChange={event => cmtNotesChange(event)}
                         id='additional-notes'
                         name='cmtNotes'
-                        currentValue={props.cmtNotes}
-                        handleChange={event => cmtNotesChange(event)}
+                        prompt='Are there any additional notes about how the product was cut, sewn, or finished?'
                     />
                 </FormFieldset>
             </FormPage>
@@ -405,7 +407,7 @@ const NPFManufacturing = props => {
 
             <NPFFooter 
                 buttons='prevNext' 
-                previousButton={() => props.setPage(props.currentPage - 1)} 
+                previousButton={() => setPage(currentPage - 1)} 
                 nextButton={event => nextButton(event)}
             />
 
@@ -427,33 +429,33 @@ const NPFManufacturing = props => {
                     id='sew-factory-name'
                     name='name'
                     prompt='Factory name'
-                    currentValue={props.fabricProps.newFact.name}
+                    currentValue={fabricProps.newFact.name}
                     handleChange={event => newFactChangeInput(event)} 
                 />
 
                 <FormDropdown
                     id='sew-factory-location'
                     name='countryId'
-                    prompt='Factory location'
-                    currentValue={props.fabricProps.newFact.countryId}
-                    options={makeCountryOptions()}
+                    prompt="Factory location.  Select 'Not disclosed' if not included on the product page."
+                    currentValue={fabricProps.newFact.countryId}
+                    options={fabricProps.countries}
                     handleChange={event => newFactChangeInput(event)} 
                 />
 
                 <FormUrlInput 
                     id='sew-factory-website'
                     name='website'
-                    prompt='Factory website'
-                    currentValue={props.fabricProps.newFact.website}
+                    prompt='Factory website.  Leave blank if not included on the product page.'
+                    currentValue={fabricProps.newFact.website}
                     handleChange={event => newFactChangeInput(event)}
                 />
 
-                <FormTextInput
-                    id='sew-factory-notes'
-                    name='notes'
-                    prompt='Notes'
-                    currentValue={props.fabricProps.newFact.notes}
+                <FormTextarea
+                    currentValue={fabricProps.newFact.notes}
                     handleChange={event => newFactChangeInput(event)}
+                    id='sew-factory-notes'
+                    name='sewNotes'
+                    prompt='Are there any additional notes about the sewing factory provided on the product page?  If so, copy them and paste them here.'
                 />
             </FormPopUp>
 
@@ -468,40 +470,40 @@ const NPFManufacturing = props => {
             >
                 <FormPromptWithSub 
                     prompt='Add a factory'
-                    promptSubtitle={`Include the factory website if it is provided on the product page.  Copy and paste all available information about the factory in the 'notes' field`}
+                    promptSubtitle={`Include the factory website if it is provided on the product page.`}
                 />
 
                 <FormTextInput 
                     id='cut-factory-name'
                     name='name'
                     prompt='Factory name'
-                    currentValue={props.fabricProps.newFact.name}
+                    currentValue={fabricProps.newFact.name}
                     handleChange={event => newFactChangeInput(event)} 
                 />
 
                 <FormDropdown
                     id='cut-factory-location'
                     name='countryId'
-                    prompt='Factory location'
-                    currentValue={props.fabricProps.newFact.countryId}
-                    options={makeCountryOptions()}
+                    prompt="Factory location.  Select 'Not disclosed' if not included on the product page."
+                    currentValue={fabricProps.newFact.countryId}
+                    options={fabricProps.countries}
                     handleChange={event => newFactChangeInput(event)} 
                 />
 
                 <FormUrlInput 
                     id='cut-factory-website'
                     name='website'
-                    prompt='Factory website'
-                    currentValue={props.fabricProps.newFact.website}
+                    prompt='Factory website.  Leave blank if not included on the product page.'
+                    currentValue={fabricProps.newFact.website}
                     handleChange={event => newFactChangeInput(event)}
                 />
 
-                <FormTextInput
-                    id='cut-factory-notes'
-                    name='notes'
-                    prompt='Notes'
-                    currentValue={props.fabricProps.newFact.notes}
+                <FormTextarea
+                    currentValue={fabricProps.newFact.notes}
                     handleChange={event => newFactChangeInput(event)}
+                    id='cut-factory-notes'
+                    name='cutNotes'
+                    prompt='Are there any additional notes about the cutting factory provided on the product page?'
                 />
             </FormPopUp>
 
@@ -511,7 +513,7 @@ const NPFManufacturing = props => {
                 title='New Certification'
                 close={() => handlePopUpClose()}
                 submit={() => handleCertPopSubmit()}
-                buttonText='CREATE CERTIFICATION'
+                buttonText='Create certification'
                 buttonType='submit'
             >
                 <FormPromptWithSub prompt='Add a certification' promptSubtitle='' />
@@ -520,15 +522,15 @@ const NPFManufacturing = props => {
                     id='man-cert-name'
                     name='name'
                     prompt='Certification name'
-                    currentValue={props.fabricProps.newCert.name}
+                    currentValue={fabricProps.newCert.name}
                     handleChange={event => newCertChangeInput(event)} 
                 />
                 
                 <FormUrlInput
                     id='man-cert-website'
                     name='website'
-                    prompt='Website'
-                    currentValue={props.fabricProps.newCert.website}
+                    prompt='Website.  Leave blank if not included on the product page.'
+                    currentValue={fabricProps.newCert.website}
                     handleChange={event => newCertChangeInput(event)}
                 />
             </FormPopUp>

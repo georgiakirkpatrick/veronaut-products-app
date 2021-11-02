@@ -1,107 +1,102 @@
-import React from 'react'
-import LandingCategoryList from '../LandingCategoryList/LandingCategoryList'
-import PrincipleList from '../PrincipleList/PrincipleList'
+import React, { useState } from 'react'
+import CatCarousel from '../CatCarousel/CatCarousel'
 import EmailSignUp from '../EmailSignUp/EmailSignUp'
-import TextBlock from '../TextBlock/TextBlock'
-import ReadMoreLink from '../ReadMoreLink/ReadMoreLink'
+import PrincipleList from '../PrincipleList/PrincipleList'
+import ProductListPage from '../ProductListPage/ProductListPage'
 import './LandingPage.css'
 
-const LandingPage = () => {
+const LandingPage = props => {
+    const {
+        categoryList,
+        routeProps,
+    } = props
+
+    const [newProdArray, setNewProdArray] = useState([])
+
     const principles = [
         {
             id: 1,
-            title: 'Good design', 
-            description: 'Clothing and accessories should be flattering, versatile, functional, and built to last.'
+            title: 'Sustainability is subjective', 
+            description: 'We’re not going to tell you which product to purchase or which brand to boycott.  What makes a garment’s supply chain “sustainable” is not only a complex issue, it also depends on who you ask.  We want to help you make informed decisions by making it as easy as possible to find the facts.',
+            symbol: 'leaf'
         },
         {
             id: 2,
-            title: 'Transparent',
-            description: 'Product listings should include information about who, where, and how products are manufactured throughout the supply chain.'
+            title: 'Product research, but make it shopping',
+            description: 'Finding the right clothes to fit your style, budget, and body can be tricky.  Add in your ethical-production standards and it can be downright frustrating to find products that check all the boxes.  That’s why we present product information in a way that feels like online shopping.  We think understanding the socioeconomic and environmental impacts of your purchase should be part of your shopping experience rather than an extra step.',
+            symbol: 'tshirt'
+        }
+    ]
+
+    const testImages = [
+        {
+            id: 1,
+            url: 'https://media.sezane.com/image/upload/c_crop,fl_progressive:semi,h_1,q_auto:best,w_0.97125097125097,x_0.014374514374514,y_0/if_w_gt_2000,c_scale,w_2000/arablu6tfcvzhw7j7c7k.jpg',
+            category: 'Activewear',
+            slug: 'activewear'
+        },
+        {
+            id: 2,
+            url: 'https://n.io.nordstrommedia.com/id/sr3/f7103502-e685-4fce-be64-12fd6388f718.jpeg?trim=color&pad_color=FFF&format=jpeg&w=350&h=536&trimcolor=FFF',
+            category: 'Blazers',
+            slug: 'blazers'
         },
         {
             id: 3,
-            title: 'Ethical',
-            description: 'Clothing and accessories should be made in workplaces that prioritize employee safety, living wages, and freedom of association (the right to join a union).'
+            url: 'https://media.sezane.com/image/upload/c_crop,fl_progressive:semi,h_1,q_auto:best,w_0.97125097125097,x_0.014374514374514,y_0/if_w_gt_2000,c_scale,w_2000/arablu6tfcvzhw7j7c7k.jpg',
+            category: 'Coats and Jackets',
+            slug: 'coats-and-jackets'
         },
         {
             id: 4,
-            title: 'Sustainable',
-            description: 'Fashion products should be made with renewable, non-polluting resources whenever possible.  Production should minimize waste.'
-        }
-    ]
-
-    const categories = [
-        {
-            key: 1,
-            id: 4,
-            picPath: 'https://cdn.shopify.com/s/files/1/0767/5207/products/9754_Analina_Blue_Depths_3480_web_1186x1186.jpg?v=1580429686',
-            imgAlt: 'Analina Shirt Dress in Blue Depths',
-            name: 'Dresses',
-            slug: 'dresses'
-        },
-        {
-            key: 2,
-            id: 4,
-            picPath: 'https://cdn.shopify.com/s/files/1/0767/5207/products/9754_Analina_Blue_Depths_3480_web_1186x1186.jpg?v=1580429686',
-            imgAlt: 'Analina Shirt Dress in Blue Depths',
-            name: 'Dresses',
-            slug: 'dresses'
-        },
-        {
-            key: 3,
-            id: 4,
-            picPath: 'https://cdn.shopify.com/s/files/1/0767/5207/products/9754_Analina_Blue_Depths_3480_web_1186x1186.jpg?v=1580429686',
-            imgAlt: 'Analina Shirt Dress in Blue Depths',
-            name: 'Dresses',
+            url: 'https://media.sezane.com/image/upload/c_crop,fl_progressive:semi,h_1,q_auto:best,w_0.97125097125097,x_0.014374514374514,y_0/if_w_gt_2000,c_scale,w_2000/arablu6tfcvzhw7j7c7k.jpg',
+            category: 'Dresses',
             slug: 'dresses'
         }
     ]
-
-    const textBlock = (
-        <p>
-            <span>
-                It is tough to be a responsible consumer when it comes to fashion.  
-            </span>
-            <br />
-            <span className='bold'>
-                Veronaut helps you make an informed decision.
-            </span>
-        </p>
-    )
-
-    const princReadMore = (
-        <ReadMoreLink 
-            link='/principles' 
-            text='Read more about our principles'
-        />
-    )
-    
 
     return (
         <section className='LandingPage'>
             <div className='LandingPage__hero'>
-                <img 
-                    src='https://cdn.shopify.com/s/files/1/0767/5207/products/KOWTOW_Faculty_Pant_Sand_Canvas_1456_web_1186x1186.jpg?v=1581027100' 
-                    alt='KowTow Faculty Pant in Sand' 
-                />
-
-                <div className='LandingPage__hero-title'>
+                <section className='LandingPage__hero-title'>
                     <header>
                         <h1>
-                            Your guide to the best-designed clothes with upstanding supply chains.
+                            <span className='fashion'>TRUTH </span>
+                            <br></br>
+                            <span className='fashion'>IS IN FASHION</span>
                         </h1>
                     </header>
-                </div>
+
+                    <p className='subhero'>
+                        <span className='subero1'>We're here to help you</span>
+                        <br></br>
+                        <span className='subero2'>find it</span>
+                    </p>
+                </section>
             </div>
-            
-            <TextBlock text={textBlock} />
+                
+            <div className='LandingPage__body'>
+                <section className='LandingPage__categories'>
+                    <header>
+                        <h2>Categories</h2>
+                    </header>
+                    
+                    <CatCarousel id='category-carousel' images={testImages}/>
+                </section>
 
-            <PrincipleList
-                principles={principles}
-                readMore={princReadMore}
-            />
+                <PrincipleList
+                    principles={principles}
+                />
 
-            <LandingCategoryList categories={categories} />
+                <section className='LandingPage__new-products'>
+                    <ProductListPage
+                        categoryList={categoryList}
+                        productArray={newProdArray}
+                        routeProps={routeProps}
+                        setProductArray={setNewProdArray}
+                    />
+                </section>
+            </div>
 
             <EmailSignUp />
         </section>

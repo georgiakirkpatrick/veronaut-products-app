@@ -3,5 +3,7 @@
 exports[`TextBlock renders the UI as expected 1`] = `
 <div
   className="TextBlock"
-/>
+>
+  
+</div>
 `;

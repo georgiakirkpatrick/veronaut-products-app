@@ -2,7 +2,7 @@
 
 exports[`FormTextInput render the UI as expected 1`] = `
 <div
-  className="FormText"
+  className="FormTextInput"
 >
   <label
     htmlFor={1}

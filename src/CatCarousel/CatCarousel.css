@@ -1,0 +1,73 @@
+.CatCarousel {
+    overflow: scroll;
+    width: 100%;
+}
+
+.CatCarousel__list {
+    display: flex;
+    flex-direction: row;
+}
+
+.CatCarousel__list li {
+    margin: 0 10px 0 0;
+}
+
+.CatCarousel__list > li > div {
+    height: 60vh;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.CatCarousel__list > li > p {
+    font: 500 18px Poppins;
+    letter-spacing: 1px;
+    text-align: center;
+    padding: 15px;
+    color: #E1D8E3;
+}
+
+.CatCarousel__list img {
+    height: 60vh;
+}
+
+@media screen and (min-width: 375px) {
+    .CatCarousel__list > li > div {
+        height: 50vh;
+    }
+
+    .CatCarousel__list img {
+        height: 50vh;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .CatCarousel__list > li > div {
+        height: 30vh;
+        object-fit: cover;
+        overflow: hidden;
+    }
+
+    .CatCarousel__list img {
+        height: 30vh;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .CatCarousel__list > li > div {
+        height: 50vh;
+    }
+
+    .CatCarousel__list img {
+        height: 50vh;
+    }
+}
+
+@media screen and (min-width: 1024px) and (min-height: 1366px) {
+    .CatCarousel__list > li > div {
+        height: 30vh;
+    }
+
+    .CatCarousel__list img {
+        height: 30vh;
+    }
+}

@@ -3,33 +3,44 @@ import Principle from '../Principle/Principle'
 import './PrincipleList.css'
 
 const PrincipleList = props => {
-    const generatePrinciples = props.principles.map(principle => (
+    const {
+        principles,
+        readMore
+    } = props
+
+    const generatePrinciples = principles.map(principle => (
         <Principle
             key={principle.id}
-            id={principle.id}
             title={principle.title} 
             description={principle.description}
+            symbol={principle.symbol}
         />
     ))
     
     return (
-        <>
-            {/* <Header allCategories={props.allCategories}/> */}
-            <section className='PrincipleList'>
+        <section className='PrincipleList'>
+            <header>
                 <h2>
-                    Principles
+                    Transparency is key
                 </h2>
-                <ul>
-                    {generatePrinciples}
-                </ul>
-                {props.readMore}
-            </section>
-        </>
+
+                <p>
+                    Veronaut helps you understand product descriptions and points out the information brands choose to omit.
+                </p>
+            </header>
+
+            <ul>
+                {generatePrinciples}
+            </ul>
+
+            {readMore}
+        </section>
     )
 }
 
 PrincipleList.defaultProps = {
-    principles: []
+    principles: [],
+    readMore: ''
 }
 
 export default PrincipleList;

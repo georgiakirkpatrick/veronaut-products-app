@@ -11,6 +11,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
       Sizes
     </h1>
     <form
+      autoComplete="off"
       id="form-page"
     >
       <div
@@ -41,7 +42,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={1}
-              name="sXXS"
+              name={1}
               onChange={[Function]}
               type="checkbox"
             />
@@ -56,7 +57,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={2}
-              name="sXS"
+              name={2}
               onChange={[Function]}
               type="checkbox"
             />
@@ -71,7 +72,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={3}
-              name="sS"
+              name={3}
               onChange={[Function]}
               type="checkbox"
             />
@@ -86,7 +87,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={4}
-              name="sM"
+              name={4}
               onChange={[Function]}
               type="checkbox"
             />
@@ -101,7 +102,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={5}
-              name="sL"
+              name={5}
               onChange={[Function]}
               type="checkbox"
             />
@@ -116,7 +117,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={6}
-              name="sXL"
+              name={6}
               onChange={[Function]}
               type="checkbox"
             />
@@ -131,7 +132,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={7}
-              name="s2X"
+              name={7}
               onChange={[Function]}
               type="checkbox"
             />
@@ -146,7 +147,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={8}
-              name="s3X"
+              name={8}
               onChange={[Function]}
               type="checkbox"
             />
@@ -161,7 +162,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={9}
-              name="s4X"
+              name={9}
               onChange={[Function]}
               type="checkbox"
             />
@@ -176,7 +177,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={26}
-              name="s00"
+              name={26}
               onChange={[Function]}
               type="checkbox"
             />
@@ -191,7 +192,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={27}
-              name="s0"
+              name={27}
               onChange={[Function]}
               type="checkbox"
             />
@@ -206,7 +207,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={28}
-              name="s2"
+              name={28}
               onChange={[Function]}
               type="checkbox"
             />
@@ -221,7 +222,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={29}
-              name="s4"
+              name={29}
               onChange={[Function]}
               type="checkbox"
             />
@@ -236,7 +237,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={30}
-              name="s6"
+              name={30}
               onChange={[Function]}
               type="checkbox"
             />
@@ -251,7 +252,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={31}
-              name="s8"
+              name={31}
               onChange={[Function]}
               type="checkbox"
             />
@@ -266,7 +267,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={32}
-              name="s10"
+              name={32}
               onChange={[Function]}
               type="checkbox"
             />
@@ -281,7 +282,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={33}
-              name="s12"
+              name={33}
               onChange={[Function]}
               type="checkbox"
             />
@@ -296,7 +297,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={34}
-              name="s14"
+              name={34}
               onChange={[Function]}
               type="checkbox"
             />
@@ -311,7 +312,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={35}
-              name="s16"
+              name={35}
               onChange={[Function]}
               type="checkbox"
             />
@@ -326,7 +327,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={36}
-              name="s18"
+              name={36}
               onChange={[Function]}
               type="checkbox"
             />
@@ -341,7 +342,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={37}
-              name="s20"
+              name={37}
               onChange={[Function]}
               type="checkbox"
             />
@@ -356,7 +357,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={38}
-              name="s22"
+              name={38}
               onChange={[Function]}
               type="checkbox"
             />
@@ -371,7 +372,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={39}
-              name="s24"
+              name={39}
               onChange={[Function]}
               type="checkbox"
             />
@@ -386,7 +387,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={40}
-              name="s26"
+              name={40}
               onChange={[Function]}
               type="checkbox"
             />
@@ -401,7 +402,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={41}
-              name="s28"
+              name={41}
               onChange={[Function]}
               type="checkbox"
             />
@@ -427,7 +428,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={106}
-              name="pXXS"
+              name={106}
               onChange={[Function]}
               type="checkbox"
             />
@@ -442,7 +443,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={107}
-              name="pXS"
+              name={107}
               onChange={[Function]}
               type="checkbox"
             />
@@ -457,7 +458,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={108}
-              name="pS"
+              name={108}
               onChange={[Function]}
               type="checkbox"
             />
@@ -472,7 +473,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={109}
-              name="pM"
+              name={109}
               onChange={[Function]}
               type="checkbox"
             />
@@ -487,7 +488,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={110}
-              name="pL"
+              name={110}
               onChange={[Function]}
               type="checkbox"
             />
@@ -502,7 +503,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={111}
-              name="pXL"
+              name={111}
               onChange={[Function]}
               type="checkbox"
             />
@@ -517,7 +518,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={112}
-              name="p2X"
+              name={112}
               onChange={[Function]}
               type="checkbox"
             />
@@ -532,7 +533,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={113}
-              name="p3X"
+              name={113}
               onChange={[Function]}
               type="checkbox"
             />
@@ -547,7 +548,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={114}
-              name="p4X"
+              name={114}
               onChange={[Function]}
               type="checkbox"
             />
@@ -562,7 +563,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={131}
-              name="p00"
+              name={131}
               onChange={[Function]}
               type="checkbox"
             />
@@ -577,7 +578,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={132}
-              name="p0"
+              name={132}
               onChange={[Function]}
               type="checkbox"
             />
@@ -592,7 +593,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={133}
-              name="p2"
+              name={133}
               onChange={[Function]}
               type="checkbox"
             />
@@ -607,7 +608,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={134}
-              name="p4"
+              name={134}
               onChange={[Function]}
               type="checkbox"
             />
@@ -622,7 +623,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={135}
-              name="p6"
+              name={135}
               onChange={[Function]}
               type="checkbox"
             />
@@ -637,7 +638,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={136}
-              name="p8"
+              name={136}
               onChange={[Function]}
               type="checkbox"
             />
@@ -652,7 +653,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={137}
-              name="p10"
+              name={137}
               onChange={[Function]}
               type="checkbox"
             />
@@ -667,7 +668,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={138}
-              name="p12"
+              name={138}
               onChange={[Function]}
               type="checkbox"
             />
@@ -682,7 +683,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={139}
-              name="p14"
+              name={139}
               onChange={[Function]}
               type="checkbox"
             />
@@ -697,7 +698,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={140}
-              name="p16"
+              name={140}
               onChange={[Function]}
               type="checkbox"
             />
@@ -712,7 +713,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={141}
-              name="p18"
+              name={141}
               onChange={[Function]}
               type="checkbox"
             />
@@ -727,7 +728,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={142}
-              name="p20"
+              name={142}
               onChange={[Function]}
               type="checkbox"
             />
@@ -742,7 +743,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={143}
-              name="p22"
+              name={143}
               onChange={[Function]}
               type="checkbox"
             />
@@ -757,7 +758,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={144}
-              name="p24"
+              name={144}
               onChange={[Function]}
               type="checkbox"
             />
@@ -772,7 +773,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={145}
-              name="p26"
+              name={145}
               onChange={[Function]}
               type="checkbox"
             />
@@ -787,7 +788,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={146}
-              name="p28"
+              name={146}
               onChange={[Function]}
               type="checkbox"
             />
@@ -813,7 +814,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={211}
-              name="tXXS"
+              name={211}
               onChange={[Function]}
               type="checkbox"
             />
@@ -828,7 +829,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={212}
-              name="tXS"
+              name={212}
               onChange={[Function]}
               type="checkbox"
             />
@@ -843,7 +844,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={213}
-              name="tS"
+              name={213}
               onChange={[Function]}
               type="checkbox"
             />
@@ -858,7 +859,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={214}
-              name="tM"
+              name={214}
               onChange={[Function]}
               type="checkbox"
             />
@@ -873,7 +874,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={215}
-              name="tL"
+              name={215}
               onChange={[Function]}
               type="checkbox"
             />
@@ -888,7 +889,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={216}
-              name="tXL"
+              name={216}
               onChange={[Function]}
               type="checkbox"
             />
@@ -903,7 +904,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={217}
-              name="t2X"
+              name={217}
               onChange={[Function]}
               type="checkbox"
             />
@@ -918,7 +919,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={218}
-              name="t3X"
+              name={218}
               onChange={[Function]}
               type="checkbox"
             />
@@ -933,7 +934,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={219}
-              name="t4X"
+              name={219}
               onChange={[Function]}
               type="checkbox"
             />
@@ -948,7 +949,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={236}
-              name="t00"
+              name={236}
               onChange={[Function]}
               type="checkbox"
             />
@@ -963,7 +964,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={237}
-              name="t0"
+              name={237}
               onChange={[Function]}
               type="checkbox"
             />
@@ -978,7 +979,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={238}
-              name="t2"
+              name={238}
               onChange={[Function]}
               type="checkbox"
             />
@@ -993,7 +994,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={239}
-              name="t4"
+              name={239}
               onChange={[Function]}
               type="checkbox"
             />
@@ -1008,7 +1009,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={240}
-              name="t6"
+              name={240}
               onChange={[Function]}
               type="checkbox"
             />
@@ -1023,7 +1024,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={241}
-              name="t8"
+              name={241}
               onChange={[Function]}
               type="checkbox"
             />
@@ -1038,7 +1039,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={242}
-              name="t10"
+              name={242}
               onChange={[Function]}
               type="checkbox"
             />
@@ -1053,7 +1054,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={243}
-              name="t12"
+              name={243}
               onChange={[Function]}
               type="checkbox"
             />
@@ -1068,7 +1069,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={244}
-              name="t14"
+              name={244}
               onChange={[Function]}
               type="checkbox"
             />
@@ -1083,7 +1084,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={245}
-              name="t16"
+              name={245}
               onChange={[Function]}
               type="checkbox"
             />
@@ -1098,7 +1099,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={246}
-              name="t18"
+              name={246}
               onChange={[Function]}
               type="checkbox"
             />
@@ -1113,7 +1114,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={247}
-              name="t20"
+              name={247}
               onChange={[Function]}
               type="checkbox"
             />
@@ -1128,7 +1129,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={248}
-              name="t22"
+              name={248}
               onChange={[Function]}
               type="checkbox"
             />
@@ -1143,7 +1144,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={249}
-              name="t24"
+              name={249}
               onChange={[Function]}
               type="checkbox"
             />
@@ -1158,7 +1159,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={250}
-              name="t26"
+              name={250}
               onChange={[Function]}
               type="checkbox"
             />
@@ -1173,7 +1174,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={251}
-              name="t28"
+              name={251}
               onChange={[Function]}
               type="checkbox"
             />
@@ -1199,7 +1200,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={316}
-              name="mXXS"
+              name={316}
               onChange={[Function]}
               type="checkbox"
             />
@@ -1214,7 +1215,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={317}
-              name="mXS"
+              name={317}
               onChange={[Function]}
               type="checkbox"
             />
@@ -1229,7 +1230,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={318}
-              name="mS"
+              name={318}
               onChange={[Function]}
               type="checkbox"
             />
@@ -1244,7 +1245,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={319}
-              name="mM"
+              name={319}
               onChange={[Function]}
               type="checkbox"
             />
@@ -1259,7 +1260,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={320}
-              name="mL"
+              name={320}
               onChange={[Function]}
               type="checkbox"
             />
@@ -1274,7 +1275,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={321}
-              name="mXL"
+              name={321}
               onChange={[Function]}
               type="checkbox"
             />
@@ -1289,7 +1290,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={322}
-              name="m2X"
+              name={322}
               onChange={[Function]}
               type="checkbox"
             />
@@ -1304,7 +1305,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={323}
-              name="m3X"
+              name={323}
               onChange={[Function]}
               type="checkbox"
             />
@@ -1319,7 +1320,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={324}
-              name="m4X"
+              name={324}
               onChange={[Function]}
               type="checkbox"
             />
@@ -1334,7 +1335,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={341}
-              name="m00"
+              name={341}
               onChange={[Function]}
               type="checkbox"
             />
@@ -1349,7 +1350,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={342}
-              name="m0"
+              name={342}
               onChange={[Function]}
               type="checkbox"
             />
@@ -1364,7 +1365,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={343}
-              name="m2"
+              name={343}
               onChange={[Function]}
               type="checkbox"
             />
@@ -1379,7 +1380,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={344}
-              name="m4"
+              name={344}
               onChange={[Function]}
               type="checkbox"
             />
@@ -1394,7 +1395,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={345}
-              name="m6"
+              name={345}
               onChange={[Function]}
               type="checkbox"
             />
@@ -1409,7 +1410,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={346}
-              name="m8"
+              name={346}
               onChange={[Function]}
               type="checkbox"
             />
@@ -1424,7 +1425,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={347}
-              name="m10"
+              name={347}
               onChange={[Function]}
               type="checkbox"
             />
@@ -1439,7 +1440,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={348}
-              name="m12"
+              name={348}
               onChange={[Function]}
               type="checkbox"
             />
@@ -1454,7 +1455,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={349}
-              name="m14"
+              name={349}
               onChange={[Function]}
               type="checkbox"
             />
@@ -1469,7 +1470,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={350}
-              name="m16"
+              name={350}
               onChange={[Function]}
               type="checkbox"
             />
@@ -1484,7 +1485,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={351}
-              name="m18"
+              name={351}
               onChange={[Function]}
               type="checkbox"
             />
@@ -1499,7 +1500,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={352}
-              name="m20"
+              name={352}
               onChange={[Function]}
               type="checkbox"
             />
@@ -1514,7 +1515,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={353}
-              name="m22"
+              name={353}
               onChange={[Function]}
               type="checkbox"
             />
@@ -1529,7 +1530,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={354}
-              name="m24"
+              name={354}
               onChange={[Function]}
               type="checkbox"
             />
@@ -1544,7 +1545,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={355}
-              name="m26"
+              name={355}
               onChange={[Function]}
               type="checkbox"
             />
@@ -1559,7 +1560,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
           >
             <input
               id={356}
-              name="m28"
+              name={356}
               onChange={[Function]}
               type="checkbox"
             />
@@ -1572,29 +1573,31 @@ exports[`NPFSizes renders the UI as expected 1`] = `
         </div>
       </div>
     </form>
-    <div />
+    <div>
+      
+    </div>
   </section>
   <footer
     className="NPFFooter"
   >
     <button
-      className="NPFFooter_previous"
+      className="NPFFooter__previous"
       onClick={[Function]}
       type="button"
     >
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-arrow-left fa-w-14 NPFFooter_arrow"
-        data-icon="arrow-left"
+        className="svg-inline--fa fa-angle-left fa-w-8 NPFFooter__left-arrow"
+        data-icon="angle-left"
         data-prefix="fas"
         focusable="false"
         role="img"
         style={Object {}}
-        viewBox="0 0 448 512"
+        viewBox="0 0 256 512"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"
+          d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
           fill="currentColor"
           style={Object {}}
         />
@@ -1604,7 +1607,7 @@ exports[`NPFSizes renders the UI as expected 1`] = `
       </span>
     </button>
     <button
-      className="NPFFooter_next"
+      className="NPFFooter__next"
       onClick={[Function]}
       type="button"
     >
@@ -1613,17 +1616,17 @@ exports[`NPFSizes renders the UI as expected 1`] = `
       </span>
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-arrow-right fa-w-14 NPFFooter_arrow"
-        data-icon="arrow-right"
+        className="svg-inline--fa fa-angle-right fa-w-8 NPFFooter__right-arrow"
+        data-icon="angle-right"
         data-prefix="fas"
         focusable="false"
         role="img"
         style={Object {}}
-        viewBox="0 0 448 512"
+        viewBox="0 0 256 512"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+          d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
           fill="currentColor"
           style={Object {}}
         />

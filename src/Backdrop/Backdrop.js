@@ -2,10 +2,15 @@ import React from 'react'
 import './Backdrop.css'
 
 const Backdrop = props => {
+    const {
+        handleClick,
+        mobMenuOpen
+    } = props
+
     return (
         <div 
-            onClick={props.handleClick} 
-            className={props.mobMenuOpen ? 'Backdrop active' : 'Backdrop'} 
+            onClick={handleClick} 
+            className={mobMenuOpen ? 'Backdrop active' : 'Backdrop'} 
         />
     )
 }

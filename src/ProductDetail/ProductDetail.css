@@ -1,14 +1,27 @@
-.ProductDetail > section {
+.ProductDetail {
+    font: 400 16px/20px Poppins, sans-serif;
+    letter-spacing: 1px;
+    display: flex;
+    flex-direction: column;
+}
+
+.ProductDetail h2 {
+    font: 500 18px/22px Poppins, sans-serif;
+}
+
+.ProductDetail h3 {
+    font: 600 16px/20px Poppins, sans-serif;
+}
+
+.ProductDetail__basic-info {
     padding: 10px;
+    position: relative;
+    padding: 4vw;
 }
 
-.ProductDetail > section {
-    position: relative
-}
-
-.ProductDetail__brand-name {
-    font-weight: 500;
-    font-size: 20px;
+.ProductDetail__brand {
+    font: italic 400 18px/22px Poppins, sans-serif;
+    letter-spacing: 0;
 }
 
 .ProductDetail__button-like {
@@ -25,7 +38,7 @@
 .ProductDetail__button-section {
     position: absolute;
     top: 10px;
-    right: 10px;
+    right: 4vw;
     height: 50%;
     width: 30%;
     display: flex;
@@ -41,25 +54,36 @@
 }
 
 .ProductDetail__color {
-    padding: 0 10px 0 0;
+    padding: 1vh;
+    width: 25%
 }
 
 .ProductDetail__color > button {
-    width: 50px;
-    height: 50px;
-    padding: 0 10px 0 0;
-    border-radius: 10px;
+    padding: 0;
+    border-radius: 100px;
 }
 
-.ProductDetail__color > button > img {
+.ProductDetail__color img {
     width: 100%;
-    /* padding: 0 10px 0 0; */
-    border-radius: 20px;
-
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 40px;
 }
 
 .ProductDetail__color-section {
-    width: 100%;
+    width: 100%
+}
+
+.ProductDetail__color-section,
+.ProductDetail__info-section > p,
+.ProductDetail__info-section > div {
+    width: 70%;
+    padding: 1vh 0;
+}
+
+.ProductDetail__container {
+    display: flex;
+    flex-direction: column;
 }
 
 .ProductDetail__heart, 
@@ -70,44 +94,199 @@
     width: 30px;
 }
 
-.ProductDetail__fabric {
-    box-sizing: content-box;
-    width: 100%;
-    overflow: hidden;
-}
-
-.ProductDetail__fabric-list {
-    width: 150%;
-    box-sizing: content-box;
-    display: flex;
-    flex-direction: row;
-    overflow: scroll;
-}
-
-.ProductDetail__info-section {
-    width: 70%;
-}
-
-.ProductDetail__carousel-item {
-    box-sizing: content-box;
-    margin: 0 10px 0 0;
-    width: 300px;
+.ProductDetail__production-section, .ProductDetail__wash-dry {
+    padding: 1vh 0;
 }
 
 .ProductDetail__section.active {
     display: initial;
 }
 
-.ProductDetail__section {
-    display: none;
+.ProductDetail__wash-dry {
+    padding: 1vh 0;
 }
 
-.ProductDetail__product-name {
-    font-size: 20px;
+@media screen and (min-width: 768px) {
+    .ProductDetail h2 {
+        padding: 5px 0;
+    }
+
+    .ProductDetail__basic-info {
+        padding: 2vh 4vw 1vh;
+    }
+
+    .ProductDetail__button-section {
+        top: 2vh;
+        right: 4vw;
+    }
+
+    .ProductDetail__color {
+        padding: 2vh;
+        width: 20%
+    }
+
+    .ProductDetail__color-section,
+    .ProductDetail__info-section > p,
+    .ProductDetail__info-section > div {
+        width: 70%;
+        padding: 5px 0;
+    }
+
+    .ProductDetail__heart {
+        font-size: 20px;
+    }
 }
 
-.ProductDetail__section-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+@media screen and (min-width: 1024px) {
+    .ProductDetail {
+        padding: 1vh 3vw 5vh;
+        flex-direction: row;
+    }
+
+    .ProductDetail header {
+        padding: 2vh 0;
+    }    
+
+    .ProductDetail__button-section {
+        padding: 2vh 3vw;
+    }
+
+    .ProductDetail__color {
+        width: 30%;
+        padding: 2vh;
+    }
+
+    .ProductDetail__container {
+        width: 60%;
+        padding: 5vh 0;
+    }
+
+    .ProductDetail__color-section > p,
+    .ProductDetail__info-section > p,
+    .ProductDetail__info-section > div {
+        width: 70%;
+        padding: 2vh 0;
+    }
+
+    .ProductDetail__production-section {
+        padding: 2vh 0;
+    }
+
+    .ProductDetail__wash-dry p {
+        padding: 1vh 0;
+    }
+}
+
+@media screen and (min-width: 1024px) and (min-height: 1366px) {
+    .ProductDetail {
+        flex-direction: row;
+    }
+
+    .ProductDetail header {
+        padding: 5px 0;
+    }
+
+    .ProductDetail__basic-info {
+        padding: 1vh 4vw;
+    }
+
+    .ProductDetail__button-section {
+        padding: 2vh 3vw;
+    }
+
+    .ProductDetail__color {
+        width: 25%;
+        padding: 1vh;
+    }
+
+    .ProductDetail__container {
+        width: 60%;
+        padding: 0;
+    }
+
+    .ProductDetail__color-section > p,
+    .ProductDetail__info-section > p,
+    .ProductDetail__info-section > div {
+        width: 70%;
+        padding: 1vh 0;
+    }
+
+    .ProductDetail__production-section {
+        padding: 5px 0;
+    }
+
+    .ProductDetail__wash-dry p {
+        padding: 5px 0;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .ProductDetail {
+        padding: 1vh 15vw 5vh;
+    }
+
+    .ProductDetail header {
+        padding: 1vh 0;
+    }
+
+    .ProductDetail__basic-info {
+        padding: 15px 45px;
+    }
+
+    .ProductDetail__button-section {
+        padding: 2vh 3vw;
+        align-items: center;
+    }
+
+    .ProductDetail__color {
+        width: 20%;
+        padding: 1vh;
+    }
+
+    .ProductDetail__color-section > p,
+    .ProductDetail__info-section > p,
+    .ProductDetail__info-section > div {
+        padding: 1vh 0;
+    }
+
+    .ProductDetail__production-section {
+        padding: 1vh 0;
+    }
+
+    .ProductDetail__wash-dry p {
+        padding: 1vh 0;
+    }
+}
+
+@media screen and (min-width: 2560px) {
+    .ProductDetail {
+        padding: 1vh 20vw 5vh;
+        font: 400 20px/28px Poppins, sans-serif;
+    }
+
+    .ProductDetail h2 {
+        font: 500 26px/30px Poppins, sans-serif;
+    }
+    
+    .ProductDetail h3 {
+        font: 600 20px/28px Poppins, sans-serif;
+    }
+
+    .ProductDetail__basic-info {
+        padding: 100px 45px 15px;
+    }
+
+    .ProductDetail__brand {
+        font: italic 400 22px/26px Poppins, sans-serif;
+        letter-spacing: 0;
+    }
+
+    .ProductDetail__button-section {
+        top: 100px;
+        right: 4vw;
+    }
+
+    .ProductDetail__container {
+        width: 50%;
+    }
 }

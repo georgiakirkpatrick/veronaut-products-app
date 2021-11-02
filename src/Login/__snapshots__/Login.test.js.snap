@@ -15,7 +15,7 @@ exports[`Login renders the UI as expected 1`] = `
     className="Login__fieldset"
   >
     <div
-      className="FormText"
+      className="FormTextInput"
     >
       <label
         htmlFor="login-email"
@@ -32,7 +32,7 @@ exports[`Login renders the UI as expected 1`] = `
       />
     </div>
     <div
-      className="FormText"
+      className="FormTextInput"
     >
       <label
         htmlFor="login-password"

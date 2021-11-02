@@ -1,7 +1,8 @@
 .NPFFooter {
     height: 10vh;
     width: 100%;
-    background-color: rgb(71, 48, 92);
+    padding: 0 5vw;
+    background-color: #2F3B51;
     color: #fff;
     display: flex;
     flex-direction: row;
@@ -11,23 +12,82 @@
     position: absolute;
     bottom: 0;
     left: 0;
+    font: 400 16px Poppins;
+    border: none;
+    border-radius: 0;
 }
 
 .NPFFooter button {
+    height: 100%;
     background: rgba(255, 255, 255, 0);
-    font-weight: bold;
-    font-size: 16px;
+    font: 500 16px/20px Poppins, sans-serif;
+    color: #fff;
+    border: none;
+    margin: 0;
 }
 
-.NPFFooter_previous {
-    padding: 1rem 1rem 1rem 0;
+.NPFFooter__next {
+    text-align: right;
 }
 
-.NPFFooter_next {
-    padding: 1rem 0 1rem 1rem;
+.NPFFooter__previous {
+    text-align: left;
 }
 
-.NPFFooter_arrow {
-    margin-left: 10px;
-    margin-right: 10px;
+.NPFFooter__next,
+.NPFFooter__previous {
+    padding: 0;
+}
+
+.NPFFooter__left-arrow,
+.NPFFooter__right-arrow {
+    font: 500 16px/20px;
+    letter-spacing: 1px;
+    font-weight: 100;
+}
+
+.NPFFooter__left-arrow {
+    margin-right: 3vw;
+}
+
+.NPFFooter__right-arrow {
+    margin-left: 3vw;
+}
+
+@media screen and (min-width: 768px) {
+    .NPFFooter {
+        padding: 0 7vw;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .NPFFooter {
+        padding: 0 7vw;
+    }
+    
+    .NPFFooter button {
+        margin: 0;
+        width: 30%;
+        height: 100%;
+    }
+}
+
+@media screen and (min-width: 1024px) and (min-height: 1366px) {
+    .NPFFooter {
+        height: 7vh;
+        padding: 0 10vw;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .NPFFooter {
+        padding: 0 15vw;
+    }
+}
+
+@media screen and (min-width: 2560px) {
+    .NPFFooter {
+        padding: 0 25vw;
+        height: 10vh;
+    }
 }

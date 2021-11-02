@@ -5,8 +5,8 @@ import './FabricCarousel.css'
 const FabricCarousel = props => {
     const {
         certArray,
-        fabricArray,
-        factoryList
+        factoryList,
+        ordFabArray
     } = props
 
     const getFactory = factoryId => factoryList.filter(factory => factory.id === factoryId)[0].english_name
@@ -21,59 +21,55 @@ const FabricCarousel = props => {
         }
     }
 
-    const orderedFabrics = () => {
-        const inOrder = []
-
-        const primaryFabric = fabricArray.find(fabric => fabric.relationship === 'primary')
-        if (primaryFabric) inOrder.push(primaryFabric)
-
-        const secondaryFabric = fabricArray.find(fabric => fabric.relationship === 'secondary')
-        if (secondaryFabric) inOrder.push(secondaryFabric)
-
-        const liningFabric = fabricArray.find(fabric => fabric.relationship === 'lining')
-        if (liningFabric) inOrder.push(liningFabric)
-
-        return inOrder
-    }
-
-    const formattedfabrics = orderedFabrics().map(fabric => {
+    const formattedfabrics = ordFabArray.map(fabric => {
         if (fabric) {
             const formattedTitle = fabric.relationship[0].toUpperCase() + fabric.relationship.substr(1)
-            const formattedFibers = fabric.fibers.map(fiber => (
+            const orderedFibers = fabric.fibers.sort((a, b) => a.percent_of_fabric < b.percent_of_fabric ? 1 : -1)
+            const formattedFibers = orderedFibers.map(fiber => (
                 <li key={'fiber-' + fiber.id}>
-                    {/* <h4>{fabric.fibers.length === 1 ? 'Fiber' : 'Fibers'}</h4> */}
-                    <p className="FabricCarousel__fiber">
-                        {fiber.fiber_type_id === 1 ? 'Fiber type: ' : null}
-                        {fiber.percent_of_fabric ? `${fiber.percent_of_fabric}%` : null}
-                        {fiber.fiber_type}
-                    </p>
-                    <p>Origin: {countries[fiber.factory_country - 1].text}</p>
-                    <p>Producer: {fiber.producer}</p>
-
-                    <p className="FabricCarousel__stage">Fiber certifications</p>
-                    <p>{formatCerts(fiber)}</p>
+                    <div>
+                        <p>
+                            {fiber.fiber_type_id === 1 ? 'Fiber type: ' : null}
+                            {fiber.percent_of_fabric ? `${fiber.percent_of_fabric}% ` : null}
+                            {fiber.fiber_type}
+                        </p>
+                        <p>Origin: {countries[fiber.factory_country - 1].text}</p>
+                        <p>Producer: {fiber.producer}</p>
+                        <p>Fiber certifications: {formatCerts(fiber)}</p>
+                    </div>
                 </li>
             ))
+            
+            return (
+                <li key={'fabric-' + fabric.id} className='FabricCarousel__fabric'>
+                    <section>
+                        <h4 className='FabricCarousel__fabric-title'>{formattedTitle} fabric</h4>
+                        <div>
+                            <p className='FabricCarousel__stage'>Dyeing and finishing</p>
+                            <p>Factory: {getFactory(fabric.dye_print_finish_id)}</p>
+                            <p>Country: {countries[fabric.dye_print_finish_country - 1].text}</p>
+                        </div>
 
-            return <li key={'fabric-' + fabric.id}>
-                <section>
-                    <h4>{formattedTitle} fabric</h4>
-                    <p className="FabricCarousel__stage">Dyeing and finishing</p>
-                    <p>Country: {countries[fabric.dye_print_finish_country - 1].text}</p>
-                    <p>Factory: {getFactory(fabric.dye_print_finish_id)}</p>
+                        <div>
+                            <p className='FabricCarousel__stage'>Fabric mill</p>
+                            <p>Mill: {getFactory(fabric.fabric_mill_id)}</p>
+                            <p>Country: {countries[fabric.fabric_mill_country - 1].text}</p>
+                        </div>
 
-                    <p className="FabricCarousel__stage">Fabric mill</p>
-                    <p>Country: {countries[fabric.fabric_mill_country - 1].text}</p>
-                    <p>Factory: {getFactory(fabric.fabric_mill_id)}</p>
-                    <p className="FabricCarousel__stage">Fabric certifications</p>
-                    <p>{formatCerts(fabric)}</p>
-                </section>
+                        <div>  
+                            <p className='FabricCarousel__stage'>Fabric certifications</p>
+                            <p>{formatCerts(fabric)}</p>
+                        </div>
+                    </section>
 
-                <ul>
-                    <h4>{fabric.fibers.length === 1 ? 'Fiber' : 'Fibers'}</h4>
-                    {formattedFibers}
-                </ul>
-            </li>
+                    <section className='FabricCarousel__fiber'>
+                        <h4 className='FabricCarousel__fiber-title'>{fabric.fibers.length === 1 ? 'Fiber' : 'Fibers'}</h4>
+                        <ul>
+                            {formattedFibers}
+                        </ul>
+                    </section>
+                </li>
+            )
         } else {
             return null
         }
@@ -90,8 +86,8 @@ const FabricCarousel = props => {
 
 FabricCarousel.defaultProps = {
     certArray: [],
-    fabricArray: [],
-    factoryList: []
+    factoryList: [],
+    ordFabArray: []
 }
 
 export default FabricCarousel

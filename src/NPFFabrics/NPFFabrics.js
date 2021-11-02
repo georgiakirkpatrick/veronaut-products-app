@@ -4,21 +4,24 @@ import FormButton from '../FormButton/FormButton'
 import FormCheckboxSection from '../FormCheckboxSection/FormCheckboxSection'
 import FormDropdown from '../FormDropdown/FormDropdown'
 import FormFieldset from '../FormFieldset/FormFieldset'
+import FormNumberInput from '../FormNumberInput/FormNumberInput'
 import FormPage from '../FormPage/FormPage'
 import FormPopUp from '../FormPopUp/FormPopUp'
-import NPFFooter from '../NPFFooter/NPFFooter'
 import FormPromptWithSub from '../FormPromptWithSub/FormPromptWithSub'
+import FormTextarea from '../FormTextarea/FormTextarea'
 import FormTextInput from '../FormTextInput/FormTextInput'
 import FormUrlInput from '../FormUrlInput/FormUrlInput'
-import FormNumberInput from '../FormNumberInput/FormNumberInput'
+import NPFFooter from '../NPFFooter/NPFFooter'
+import './NPFFabrics.css'
 
 const NPFFabrics = props => {
-    const{ 
+    const { 
         certChecks,
         fabFact,
         fabricProps,
         fiberFieldsets,
         id,
+        linBackPageTurns,
         pageTurns,
         setFabFact,
         setFiberFieldsets,
@@ -84,9 +87,9 @@ const NPFFabrics = props => {
 
     const certPopUpStatus = () => {
         if (fabricProps.certPopUp === true) {
-            return 'FormPopUp__pop-up active'
+            return 'FormPopUp active'
         }
-        return 'FormPopUp__pop-up'
+        return 'FormPopUp'
     }
 
     const handleClose = () => {
@@ -112,9 +115,9 @@ const NPFFabrics = props => {
 
     const factPopUpStatus = () => {
         if (fabricProps.dyeFactPopUp === true) {
-            return 'FormPopUp__pop-up active'
+            return 'FormPopUp active'
         }
-        return 'FormPopUp__pop-up'
+        return 'FormPopUp'
     }
 
     const fibCertChange = (fiberIndex, certName) => {
@@ -124,34 +127,23 @@ const NPFFabrics = props => {
         setFiberFieldsets(updatedFibers)
     }
 
-    const fibChangeInput = (index, event) => {
+    const fibChangeNum = (index, event) => {
         const values = [...fiberFieldsets]
         values[index][event.target.name] = Number(event.target.value)
         setFiberFieldsets(values)
     }
 
-    const fibPopUpStatus = () => {
-        if (fabricProps.fiberPopUp === true) {
-            return 'FormPopUp__pop-up active'
-        }
-        return 'FormPopUp__pop-up'
+    const fibChangeText = (index, event) => {
+        const values = [...fiberFieldsets]
+        values[index][event.target.name] = event.target.value
+        setFiberFieldsets(values)
     }
 
-    const makeCountryOptions = () => {
-        const countries = fabricProps.countries.map((country, index) => ({
-            id: index + 2,
-            text: country.text,
-            value: index + 2
-        }))
-
-        return [
-            {
-                id: 0,
-                text: 'Select a country',
-                value: 0
-            },
-            ...countries
-        ]
+    const fibPopUpStatus = () => {
+        if (fabricProps.fiberPopUp === true) {
+            return 'FormPopUp active'
+        }
+        return 'FormPopUp'
     }
 
     const makeFactoryOptions = factType => {
@@ -183,27 +175,38 @@ const NPFFabrics = props => {
     }
 
     const makeFiberOptions = () => {
-        const fibers = fabricProps.fiberTypeList.map(fiberType => ({
-            id: fiberType.id,
-            text: fiberType.english_name,
-            value: fiberType.id
-        }))
+        const fiberQty = fabricProps.fiberTypeList.length
+        const fibers = fabricProps.fiberTypeList.slice(1, fiberQty)
+        const alphaFibers = fibers.sort((a, b) => a.english_name > b.english_name ? 1 : -1)
 
+        const formattedFibers = alphaFibers.map(fiberType => (
+            {
+                id: fiberType.id,
+                text: fiberType.english_name,
+                value: fiberType.id
+            }
+        ))
+        
         return [
             {
                 id: 0,
                 text: 'Select a fiber or material',
                 value: 0
             },
-            ...fibers
+            {
+                id: 1,
+                text: 'Not disclosed',
+                value: 1
+            },
+            ...formattedFibers
         ]
     }
 
     const millPopUpStatus = () => {
         if (fabricProps.millPopUp === true) {
-            return 'FormPopUp__pop-up active'
+            return 'FormPopUp active'
         }
-        return 'FormPopUp__pop-up'
+        return 'FormPopUp'
     }
     
     const newCertChange = event => {
@@ -230,60 +233,50 @@ const NPFFabrics = props => {
         fabricProps.setNewProducer(newFields)
     }
 
-    // const nextButton = () => {
-    //     const missingFabricFields = []
-
-    //     const requiredFabFields = {
-    //         'dyeFinCountryId': 'dyeing and finishing country',
-    //         'dyeFinId': 'dyeing and finishing factory',
-    //         'wovKnitCountryId': 'knitting or weaving country',
-    //         'wovKnitId': 'knitting or weaving fabric mill'
-    //     }
-
-    //     Object.keys(requiredFabFields).forEach(key => {
-    //         if (Number(fabFact[key]) === 0) {
-    //             missingFabricFields.push(requiredFabFields[key])
-    //         }
-    //     })
-            
-    //     if (missingFabricFields.length === 1) {
-    //         alert(`Please complete the '${missingFabricFields[0]}' field`)
-    //     } else if (missingFabricFields.length > 1) {
-    //         alert(`Please complete the following fields: ${missingFabricFields.map(field => `
-    //             ${field}`)}
-    //         `)
-    //     } else if (missingFabricFields.length === 0) {
-    //         fiberFieldsets.forEach(fiber => {
-    //             if (Number(fiber.fiberTypeId) === 0) {
-    //                 alert(`Please select an option for each 'fiber type' field.  Remove any unused fiber sections with the 'remove' button.`)
-    //             } else if (Number(fiber.originId) === 0) {
-    //                 alert(`Please select an option for each 'fiber origin' field.  Remove any unused fiber sections with the 'remove' button.`)
-    //             } else if (Number(fiber.producerId) === 0) {
-    //                 alert(`Please select an option for each 'fiber producer' field.  Remove any unused fiber sections with the 'remove' button.`)
-    //             } else {
-    //                 fabricProps.setPage(fabricProps.currentPage + pageTurns)
-    //             }
-    //         })
-    //     }
-    // }
-
     const nextButton = () => {
-        fabricProps.setPage(fabricProps.currentPage + pageTurns)
+        const missingFabricFields = []
 
-        window.scroll({
-            top: 0, 
-            left: 0, 
-            behavior: 'smooth'
+        const requiredFabFields = {
+            'dyeFinCountryId': 'dyeing and finishing country',
+            'dyeFinId': 'dyeing and finishing factory',
+            'wovKnitCountryId': 'knitting or weaving country',
+            'wovKnitId': 'knitting or weaving fabric mill'
+        }
+
+        Object.keys(requiredFabFields).forEach(key => {
+            if (Number(fabFact[key]) === 0) {
+                missingFabricFields.push(requiredFabFields[key])
+            }
         })
+            
+        if (missingFabricFields.length === 1) {
+            alert(`Please complete the '${missingFabricFields[0]}' field`)
+        } else if (missingFabricFields.length > 1) {
+            alert(`Please complete the following fields: ${missingFabricFields.map(field => `
+                ${field}`)}
+            `)
+        } else if (missingFabricFields.length === 0) {
+            fiberFieldsets.forEach(fiber => {
+                if (Number(fiber.fiberTypeId) === 0) {
+                    alert(`Please select an option for each 'fiber type' field.  Remove any unused fiber sections with the 'remove' button.`)
+                } else if (Number(fiber.originId) === 0) {
+                    alert(`Please select an option for each 'fiber origin' field.  Remove any unused fiber sections with the 'remove' button.`)
+                } else if (Number(fiber.producerId) === 0) {
+                    alert(`Please select an option for each 'fiber producer' field.  Remove any unused fiber sections with the 'remove' button.`)
+                } else {
+                    fabricProps.setPage(fabricProps.currentPage + pageTurns)
+                }
+            })
+        }
     }
 
-    const prevButton = id === 'lin' ? () => fabricProps.setPage(fabricProps.currentPage - props.linBackPageTurns) : () => fabricProps.setPage(fabricProps.currentPage - 1)
+    const prevButton = id === 'lin' ? () => fabricProps.setPage(fabricProps.currentPage -linBackPageTurns) : () => fabricProps.setPage(fabricProps.currentPage - 1)
 
     const prodPopUpStatus = () => {
         if (fabricProps.producerPopUp === true) {
-            return 'FormPopUp__pop-up active'
+            return 'FormPopUp active'
         }
-        return 'FormPopUp__pop-up'
+        return 'FormPopUp'
     }
 
     const removeFiber = (index) => {
@@ -556,9 +549,9 @@ const NPFFabrics = props => {
     }
 
     return (
-        <div id='fabrics'>
+        <div id='fabrics' className='NPFFabrics'>
             <FormPage title={title}>
-                <FormPromptWithSub 
+                <FormPromptWithSub
                     prompt='Please enter the fabric details provided on the product webpage.'
                     promptSubtitle='If the product page does not provide the information detailed below, please select "not disclosed" from the dropdown.'
                 />
@@ -571,7 +564,7 @@ const NPFFabrics = props => {
                         name='dyeFinCountryId'
                         prompt='Dyeing and finishing country'
                         currentValue={fabFact.dyeFinCountryId}
-                        options={makeCountryOptions()}
+                        options={fabricProps.countries}
                         handleChange={event => fabChange(event)} 
                     />
 
@@ -583,18 +576,22 @@ const NPFFabrics = props => {
                         options={makeFactoryOptions('factory')}
                         handleChange={event => fabChange(event)} 
                     />
+                    
+                    <FormPromptWithSub
+                        promptSubtitle='Factory not listed above?'
+                    />
 
                     <FormButton 
-                        buttonText='ADD A FACTORY' 
+                        buttonText='Add a factory' 
                         handleClick={() => fabricProps.setDyeFactPopUp(true)}
                     />
 
-                    <FormTextInput
+                    <FormTextarea
+                        currentValue={fabFact.dyeFinNotes}
+                        handleChange={event => fabChange(event)}
                         id='dye-fin-notes'
                         name='dyeFinNotes'
                         prompt='Whether or not the factory is listed, are there notes about the dyeing/printing/finishing mill?  If so, copy them and paste them here.'
-                        currentValue={fabFact.dyeFinNotes}
-                        handleChange={event => fabChange(event)} 
                     />
                 </FormFieldset>
 
@@ -606,7 +603,7 @@ const NPFFabrics = props => {
                         name='wovKnitCountryId'
                         prompt='Knitting or weaving country'
                         currentValue={fabFact.wovKnitCountryId}
-                        options={makeCountryOptions()}
+                        options={fabricProps.countries}
                         handleChange={event => fabChange(event)} 
                     />
 
@@ -618,18 +615,22 @@ const NPFFabrics = props => {
                         options={makeFactoryOptions('fabric mill')}
                         handleChange={event => fabChange(event)} 
                     />
+                    
+                    <FormPromptWithSub
+                        promptSubtitle='Factory not listed above?'
+                    />
 
                     <FormButton 
-                        buttonText='ADD A FABRIC MILL' 
+                        buttonText='Add a fabric mill' 
                         handleClick={() => fabricProps.setMillPopUp(true)}
                     />
 
-                    <FormTextInput 
+                    <FormTextarea
+                        currentValue={fabFact.wovKnitNotes}
+                        handleChange={event => fabChange(event)}
                         id='wov-knit-notes'
                         name='wovKnitNotes'
-                        prompt='Whether or not the factory is listed, are there notes about the dyeing/printing/finishing mill?  If so, copy them and paste them here.'
-                        currentValue={fabFact.wovKnitNotes}
-                        handleChange={event => fabChange(event)} 
+                        prompt='Whether or not the fabric mill is listed, are there notes about where the fabric or material was made?  If so, copy them and paste them here.'
                     />
                 </FormFieldset>
 
@@ -642,8 +643,12 @@ const NPFFabrics = props => {
                         handleChange={event => fabCertChange(event)}
                     />
 
+                    <FormPromptWithSub
+                        promptSubtitle='Certification not listed above?'
+                    />
+
                     <FormButton
-                        buttonText='ADD A CERTIFICATION'
+                        buttonText='Add a certification'
                         handleClick={() => {
                             fabricProps.setCertPopUp(true)
                         }}
@@ -666,7 +671,7 @@ const NPFFabrics = props => {
                         return formattedCerts
                     }
                     
-                    return <fieldset key={index} className='NewProductForm__fieldset'>
+                    return <fieldset key={'fiber-fieldset' + index} className='FormFieldset'>
                         <button
                             className='NewProductForm__remove'
                             type='button'
@@ -681,11 +686,15 @@ const NPFFabrics = props => {
                             prompt='Fiber or material'
                             options={makeFiberOptions()}
                             currentValue={fiberFieldset.fiberTypeId} 
-                            handleChange={event => {fibChangeInput(index, event)}}
+                            handleChange={event => {fibChangeNum(index, event)}}
+                        />
+
+                        <FormPromptWithSub
+                            promptSubtitle='Fiber or material not listed above?'
                         />
 
                         <FormButton
-                            buttonText='ADD A FIBER OR MATERIAL TYPE'
+                            buttonText='Add a fiber or material type'
                             handleClick={() => fabricProps.setFiberPopUp(true)}
                         />
 
@@ -694,16 +703,16 @@ const NPFFabrics = props => {
                             name='percentage'
                             prompt='Percentage of fabric content, if available'
                             currentValue={fiberFieldset.percentage === 0 ? '' : fiberFieldset.percentage} 
-                            handleChange={event => {fibChangeInput(index, event)}}
+                            handleChange={event => {fibChangeNum(index, event)}}
                         />
     
                         <FormDropdown 
                             id={'fiber-origin' + index}
                             name='originId'
                             prompt='Fiber origin'
-                            options={makeCountryOptions()}
+                            options={fabricProps.countries}
                             currentValue={fiberFieldset.originId} 
-                            handleChange={event => {fibChangeInput(index, event)}}
+                            handleChange={event => {fibChangeNum(index, event)}}
                         />
 
                         <FormDropdown 
@@ -711,12 +720,16 @@ const NPFFabrics = props => {
                             name='producerId'
                             prompt='Fiber or material producer'
                             options={makeFactoryOptions('producer')}
-                            currentValue={fiberFieldset.producerId}
-                            handleChange={event => {fibChangeInput(index, event)}}
+                            currentValue={fiberFieldsets.producerId}
+                            handleChange={event => {fibChangeNum(index, event)}}
+                        />
+
+                        <FormPromptWithSub
+                            promptSubtitle='Producer not listed above?'
                         />
 
                         <FormButton 
-                            buttonText='ADD A PRODUCER'
+                            buttonText='Add a producer'
                             handleClick={() => {
                                 fabricProps.setProducerPopUp(true)
                             }}
@@ -743,7 +756,7 @@ const NPFFabrics = props => {
                                 name='countryId'
                                 prompt='Location'
                                 currentValue={fabricProps.newProducer.countryId}
-                                options={makeCountryOptions()}
+                                options={fabricProps.countries}
                                 handleChange={event => newProducerChange(event)} 
                             />
 
@@ -755,21 +768,21 @@ const NPFFabrics = props => {
                                 handleChange={event => newProducerChange(event)}
                             />
 
-                            <FormTextInput 
+                            <FormTextarea
+                                currentValue={fabricProps.newProducer.notes}
+                                handleChange={event => newProducerChange(event)} 
                                 id={id + 'NewProducerNotes'}
                                 name='notes'
                                 prompt='Notes'
-                                currentValue={fabricProps.newProducer.notes}
-                                handleChange={event => newProducerChange(event)} 
                             />
                         </FormPopUp>
 
-                        <FormTextInput
+                        <FormTextarea
+                            currentValue={fiberFieldset.producerNotes}
+                            handleChange={event => {fibChangeText(index, event)}}
                             id={'producer-notes' + index}
                             name='producerNotes'
                             prompt='Whether or not the producer is listed, are there notes about the fiber or material producer?  If so, copy them and paste them here.'
-                            currentValue={fiberFieldset.producerNotes}
-                            handleChange={event => {fibChangeInput(index, event)}}
                         />
 
                         <FormPromptWithSub 
@@ -781,12 +794,16 @@ const NPFFabrics = props => {
                             id={'fabric-certifications' + index}
                             name='certIds'
                             options={fiberCertOptions()} 
-                            selectedOptions={fiberFieldsets[index].certIds}
+                            selectedOptions={fiberFieldset.certIds}
                             handleChange={event => fibCertChange(index, event.target.name)}
                         />
 
+                        <FormPromptWithSub
+                            promptSubtitle='Certification not listed above?'
+                        />
+
                         <FormButton
-                            buttonText='ADD A CERTIFICATION'
+                            buttonText='Add a certification'
                             handleClick={() => {
                                 fabricProps.setCertPopUp(true)
                             }}
@@ -794,8 +811,12 @@ const NPFFabrics = props => {
                     </fieldset>
                 })}
 
+                <FormPromptWithSub
+                    promptSubtitle='Does this fabric have more than one fiber?'
+                />
+
                 <FormButton 
-                    buttonText='THIS FABRIC HAS ADDITIONAL FIBERS' 
+                    buttonText='Add a fiber' 
                     handleClick={() => {addFiber()}}
                 />
             </FormPage>
@@ -826,7 +847,7 @@ const NPFFabrics = props => {
                     name='countryId'
                     prompt='Location'
                     currentValue={fabricProps.newFact.countryId}
-                    options={makeCountryOptions()}
+                    options={fabricProps.countries}
                     handleChange={event => newFactChange(event)} 
                 />
                 <FormUrlInput
@@ -836,12 +857,12 @@ const NPFFabrics = props => {
                     currentValue={fabricProps.newFact.website}
                     handleChange={event => newFactChange(event)}
                 />
-                <FormTextInput 
+                <FormTextarea
+                    currentValue={fabricProps.newFact.notes}
+                    handleChange={event => newFactChange(event)} 
                     id={id + 'NewFactNotes'}
                     name='notes'
                     prompt='Notes'
-                    currentValue={fabricProps.newFact.notes}
-                    handleChange={event => newFactChange(event)} 
                 />
             </FormPopUp>
 
@@ -851,7 +872,7 @@ const NPFFabrics = props => {
                 title='New Fabric Mill'
                 close={() => handleClose()}
                 submit={() => submitMill()}
-                buttonText='SUBMIT FABRIC MILL'
+                buttonText='Submit fabric mill'
             >
                 <FormTextInput 
                     id={id + '-new-mill-name'}
@@ -866,7 +887,7 @@ const NPFFabrics = props => {
                     name='countryId'
                     prompt='Location'
                     currentValue={fabricProps.newMill.countryId}
-                    options={makeCountryOptions()}
+                    options={fabricProps.countries}
                     handleChange={event => newMillChange(event)} 
                 />
 
@@ -878,12 +899,12 @@ const NPFFabrics = props => {
                     handleChange={event => newMillChange(event)}
                 />
 
-                <FormTextInput 
+                <FormTextarea
+                    currentValue={fabricProps.newMill.notes}
+                    handleChange={event => newMillChange(event)}
                     id={id + 'NewMillNotes'}
                     name='notes'
                     prompt='Notes'
-                    currentValue={fabricProps.newMill.notes}
-                    handleChange={event => newMillChange(event)} 
                 />
             </FormPopUp>
 
@@ -893,7 +914,7 @@ const NPFFabrics = props => {
                 title='New Fiber'
                 close={() => handleClose()}
                 submit={() => submitFiber()}
-                buttonText='SUBMIT FIBER'
+                buttonText='Submit fiber'
             >
                 <FormTextInput 
                     id={'new-fiber-name'}
@@ -911,13 +932,12 @@ const NPFFabrics = props => {
             </FormPopUp>
 
             <FormPopUp
-
                 id={id + 'NewCert'} 
                 status={certPopUpStatus()}
                 title='New Certification'
                 close={() => handleClose()}
                 submit={() => submitNewCert()}
-                buttonText='SUBMIT CERTIFICATION'
+                buttonText='Submit certification'
             >
                 <FormTextInput 
                     id={id + '-new-cert-name'}
@@ -1011,9 +1031,12 @@ NPFFabrics.defaultProps = {
             certIds: []
         }
     ],
+    id: 1,
+    pageTurns: 0,
     setFabFact: () => {},
     setCertChecks: () => {},
-    setFiberFieldsets: () => {}
+    setFiberFieldsets: () => {},
+    title: ''
 }
 
 export default NPFFabrics

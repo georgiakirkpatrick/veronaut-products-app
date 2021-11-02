@@ -111,7 +111,7 @@ const formData = {
 
     permittedCategories: [
         {
-            text: 'Coats and jackets',
+            text: 'Outerwear',
             id: 1,
             checked: false
         },
@@ -121,8 +121,18 @@ const formData = {
             checked: false
         },
         {
-            text: 'Swimwear',
+            text: 'Socks and tights',
             id: 3,
+            checked: false
+        },
+        {
+            text: 'Swimwear',
+            id: 4,
+            checked: false
+        },
+        {
+            text: 'Underwear',
+            id: 5,
             checked: false
         }
     ],
@@ -217,6 +227,11 @@ const formData = {
 
     prohibitedFibers: [
         {
+            text: 'Not sure',
+            id: 101,
+            checked: false
+        },
+        {
             text: 'Acetate',
             id: 1,
             checked: false
@@ -267,8 +282,18 @@ const formData = {
             checked: false
         },
         {
-            text: 'Not sure',
+            text: 'Elastane',
             id: 11,
+            checked: false
+        },
+        {
+            text: 'Spandex',
+            id: 12,
+            checked: false
+        },
+        {
+            text: 'Lycra',
+            id: 13,
             checked: false
         }
     ],

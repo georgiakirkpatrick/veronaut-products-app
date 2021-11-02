@@ -2,27 +2,35 @@ import React from 'react'
 import './FormUrlInput.css'
 
 const FormUrlInput = props => {
+    const {
+        currentValue,
+        handleChange,
+        id,
+        name,
+        prompt
+    } = props
+
     return (
         <div className='FormUrlInput'>
-            <label htmlFor={props.id}>{props.prompt}</label>
+            <label htmlFor={id}>{prompt}</label>
             <input 
                 required
                 type='url'
-                id={props.id} 
-                name={props.name}
-                defaultValue={props.currentValue} 
-                onChange={props.handleChange}  
+                id={id} 
+                name={name}
+                value={currentValue} 
+                onChange={handleChange}  
             />
         </div>
     )
 }
 
 FormUrlInput.defaultProps = {
-    id: 1,
-    prompt: '',
-    name: '',
     currentValue: '',
-    onChange: () => {}
+    handleChange: () => {},
+    id: 1,
+    name: '',
+    prompt: '',
 }
 
 export default FormUrlInput

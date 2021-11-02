@@ -1,25 +1,40 @@
 .FormDropdown {
     width: 100%;
-    margin-top: 10px;
+    margin-bottom: 2vh;
 }
 
 .FormDropdown > label {
-    display: block;
-    font-weight: 400;
-    font-size: 16px;
+    padding-bottom: 2vh;
 }
 
 .FormDropdown > p {
     font-weight: 400;
-    font-size: 13px;
+    font-size: 16px;
     padding: 5px 0;
-
+    color: #585858
 }
 
 .FormDropdown > select {
     display: block;
     width: 100%;
-    margin: 2px 0px 10px;
+    margin: 5px 0px 10px;
     padding: 10px;
-    font: inherit;
+    font: 400 16px/20px Poppins, sans-serif;
+    border-radius: 5px;
+    background: #fff;
+    appearance: none;
+}
+
+.FormPromptWithSub {
+    display: block;
+    margin-bottom: 1vh;
+    font: 400 16px/20px Poppins, sans-serif;
+}
+
+.FormPromptWithSub__prompt {
+    padding-bottom: 2vh;
+}
+
+.FormPromptWithSub__subtitle {
+    color: #585858
 }

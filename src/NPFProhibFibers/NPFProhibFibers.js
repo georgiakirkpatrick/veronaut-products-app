@@ -5,13 +5,28 @@ import FormCheckboxSection from '../FormCheckboxSection/FormCheckboxSection'
 import FormPromptWithSub from '../FormPromptWithSub/FormPromptWithSub'
 import NPFFooter from '../NPFFooter/NPFFooter'
 
-const noneOption = [
+const noneNotSure = [
     {
         text: 'None of these',
         id: 100,
         checked: false
     }
 ]
+
+const options = formData.prohibitedFibers.slice(1, formData.prohibitedFibers.length)
+
+const formattedProhib = options.sort((a, b) => 
+    a.text > b.text ? 1 : -1
+)
+
+const prohibOptions = [
+    ...formattedProhib,
+    {
+        text: 'Not sure',
+        id: 101,
+        checked: false
+    }
+] 
 
 const NPFProhibFibers = props => {
     const {
@@ -49,13 +64,13 @@ const NPFProhibFibers = props => {
                 />
 
                 <FormCheckboxSection 
-                    options={formData.prohibitedFibers}
+                    options={prohibOptions}
                     selectedOptions={pFiberChecks}
                     handleChange={pFiberChange}
                 />
 
                 <FormCheckboxSection  
-                    options={noneOption}
+                    options={noneNotSure}
                     selectedOptions={none}
                     handleChange={noneChange}
                 />

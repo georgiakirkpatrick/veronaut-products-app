@@ -1,36 +1,58 @@
 .FormPopUp__close-button {
     position: absolute;
     top: 0;
-    right: 0;
+    right: 3vw;
     border: 0;
     color: #000;
-    padding: 0.25rem 0.5rem;
-    margin: 0.25rem;
+    padding: 1vw;
+    margin: 1vw;
     cursor: pointer;
     border: none;
+    font: 10px;
 }
 
-.FormPopUp__pop-up {
-    padding: 5vh 10px 15vh;
+.FormPopUp {
+    padding: 0 5vw 15vh;
     position: fixed;
-    top: 10vh;
+    top: 9vh;
     left: 0;
-    height: 90vh;
-    width: 100vw;
+    height: 91vh;
+    width: 100%;
     overflow: scroll;
     border: none;
-    background-color: rgb(255 255 255);
+    background-color: #fff;
     z-index: 3;
     transform: translateX(-107%);
     transition: transform 0.3s ease-out;
     overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font: 16px/20px Poppins, sans-serif;
 }
 
-.FormPopUp__pop-up.active {
+.FormPopUp .FormButton {
+    font: 400 16px/22px Poppins, sans-serif;
+    margin: 5vh auto;
+    background-color: #F2E7F1;
+}
+
+.FormPopUp h1 {
+    text-align: center;
+    font: 300 30px Poppins, sans-serif;
+    padding: 5vh 0;
+}
+
+.FormPopUp header {
+    width: 100%;
+    text-align: center;
+}
+
+.FormPopUp.active {
     transform: translateX(0);
 }
 
-.FormPopUp__pop-up fieldset {
+.FormPopUp fieldset {
     position: relative;
     width: 100%;
     padding: 10px;
@@ -39,9 +61,60 @@
     border: none;
 }
 
-.FormPopUp__pop-up h1 {
-    text-align: center;
-    padding: 0 0 25px;
-    font-size: 30px;
-    font-weight: 500;
+.FormPopUp input {
+    margin: 5px 0px 10px;
+}
+
+@media screen and (min-width: 768px) {
+    .FormPopUp {
+        padding: 0 7vw 15vh;
+    }
+
+    .FormPopUp__close-button {
+        right: 5vw;
+    }    
+}
+
+@media screen and (min-width: 1024px) and (min-height: 1366px) {
+    .FormPopUp {
+        top: 7vh;
+        height: 93vh;
+        padding: 0 10vw 15vh;
+    }
+    
+    .FormPage h1 {
+        text-align: center;
+        padding: 5vh 0;
+        font: 300 40px Poppins, sans-serif;
+    }
+
+    .FormPopUp input {
+        margin: 5px 0 10px;
+    }
+
+    .FormPopUp__close-button {
+        right: 8vw;
+    }    
+}
+
+@media screen and (min-width: 1440px) {
+    .FormPopUp {
+        top: 10vh;
+        height: 91vh;
+        padding: 5vh 15vw 10vh;
+    }
+
+    .FormPopUp__close-button {
+        right: 13vw;
+    }
+}
+
+@media screen and (min-width: 2560px) {
+    .FormPopUp {
+        padding: 5vh 25vw 10vh;
+    }
+
+    .FormPopUp__close-button {
+        right: 23vw;
+    }
 }

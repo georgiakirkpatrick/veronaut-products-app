@@ -67,8 +67,6 @@ const NPFNewProduct = props => {
         }
     }
 
-    // const nextButton = () => {setPage(currentPage + 1)}
-
     return (
         <div className='NPFNewProduct'>
             <FormPage title='New Product'>

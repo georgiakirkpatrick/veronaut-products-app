@@ -4,43 +4,50 @@ import '../FontAwesomeIcons/FontAwesomeIcons';
 import './NPFFooter.css'
 
 const NPFFooter = props => {
+    const {
+        backType,
+        buttons,
+        nextButton,
+        nextType,
+        previousButton
+    } = props
 
-    const buttons = () => {
-        if (props.buttons === 'prev') {
+    const footerButtons = () => {
+        if (buttons === 'prev') {
             return (
-                <button className='NPFFooter_previous' onClick={props.previousButton}>
-                    <FontAwesomeIcon className='NPFFooter_arrow' icon="arrow-left" />
+                <button className='NPFFooter__previous' onClick={previousButton}>
+                    <FontAwesomeIcon className='NPFFooter__left-arrow' icon="angle-left" />
                     <span>PREVIOUS</span>
                 </button>
             )
-        } if (props.buttons === 'next') {
-            return (
+        } if (buttons === 'next') {
+             return (
                 <>
-                <button className='NPFFooter_next' onClick={props.nextButton}>
+                <button className='NPFFooter__next' onClick={nextButton}>
                     <span>NEXT</span>
-                    <FontAwesomeIcon className={nextButtonClass()} icon="arrow-right" />
+                    <FontAwesomeIcon className='NPFFooter__right-arrow' icon="angle-right" />
                 </button>
                 </>
             )
-        } if (props.buttons === 'prevNext') {
+        } if (buttons === 'prevNext') {
             return (
                 <>
                     <button 
-                        className='NPFFooter_previous' 
-                        onClick={props.previousButton}
-                        type={props.backType}
+                        className='NPFFooter__previous' 
+                        onClick={previousButton}
+                        type={backType}
                     >
-                        <FontAwesomeIcon className='NPFFooter_arrow' icon="arrow-left" />
+                        <FontAwesomeIcon className='NPFFooter__left-arrow' icon="angle-left" />
                         <span>PREVIOUS</span>
                     </button>
 
                     <button 
-                        className={nextButtonClass()} 
-                        onClick={props.nextButton}
-                        type={props.nextType}
+                        className='NPFFooter__next' 
+                        onClick={nextButton}
+                        type={nextType}
                     >
                         <span>NEXT</span>
-                        <FontAwesomeIcon className='NPFFooter_arrow' icon="arrow-right" />
+                        <FontAwesomeIcon className='NPFFooter__right-arrow' icon="angle-right" />
                     </button>
                 </>
             )
@@ -48,14 +55,10 @@ const NPFFooter = props => {
             return <div />
         }
     }
-    
-    const nextButtonClass = () => props.next 
-        ? 'NPFFooter_next active' 
-        : 'NPFFooter_next'
 
     return (
         <footer className='NPFFooter'>
-            {buttons()}
+            {footerButtons()}
         </footer>
     )
 }

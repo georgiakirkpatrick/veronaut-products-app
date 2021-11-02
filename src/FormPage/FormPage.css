@@ -3,28 +3,88 @@
 }
 
 .FormPage {
-    padding: 5vh 10px 15vh;
+    padding: 0 5vw 15vh;
     height: 90vh;
     overflow: scroll;
-    position: relative
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font: 16px/20px Poppins, sans-serif;
+}
+
+.FormPage button {
+    font: 400 16px/22px Poppins, sans-serif;
 }
 
 .FormPage form {
+    width: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     align-items: flex-start;
 }
 
 .FormPage h1 {
     text-align: center;
-    padding: 0 0 25px;
-    font-size: 30px;
-    font-weight: 500;
+    padding: 5vh 0;
+    font: 300 30px Poppins, sans-serif;
 }
 
-.FormPage fieldset {
-    padding: 10px;
-    margin: 5px 0;
-    background-color: rgb(238, 238, 238);
-    border: none;
+.FormPage li {
+    list-style: none;
+}
+
+.FormPage select {
+    width: 100%;
+}
+
+.FormPage .NPFImages__preview-images {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 0 auto 0;
+}
+
+.FormPage .NPFImages__preview-img { 
+    width: 23%;
+    margin: 5px 2% 0 0;
+}
+
+.FormPage .NPFImages__preview-img img { 
+    width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    .FormPage {
+        padding: 0 7vw 15vh;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .FormPage {
+        padding: 0 7vw 15vh;
+    }
+}
+
+@media screen and (min-width: 1024px) and (min-height: 1366px) {
+    .FormPage {
+        padding: 0 10vw 15vh;
+        height: 93vh;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .FormPage {
+        padding: 5vh 15vw 10vh;
+        height: 90vh;
+    }
+}
+
+@media screen and (min-width: 2560px) {
+    .FormPage {
+        padding: 5vh 25vw 10vh;
+    }
 }

@@ -6,13 +6,13 @@ exports[`Category renders the UI as expected 1`] = `
 >
   <a
     className="main-link"
-    href="/category/1/dresses"
+    href="/category/1/s"
     onClick={[Function]}
   >
     <h2
       className="Category__title"
     >
-      Dresses
+      s
     </h2>
   </a>
 </li>

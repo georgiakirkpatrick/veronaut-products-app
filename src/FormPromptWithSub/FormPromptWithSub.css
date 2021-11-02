@@ -1,13 +1,13 @@
 .FormPromptWithSub {
     display: block;
+    margin-bottom: 1vh;
+    font: 400 16px/20px Poppins, sans-serif;
 }
 
 .FormPromptWithSub__prompt {
-    font-weight: bold;
-    padding: 0 0 10px;
+    padding-bottom: 2vh;
 }
 
 .FormPromptWithSub__subtitle {
-    font-weight: 600;
-    color: rgb(88, 88, 88)
+    color: #585858
 }

@@ -2,6 +2,7 @@
 
 exports[`NPFFabrics render the UI as expected 1`] = `
 <div
+  className="NPFFabrics"
   id="fabrics"
 >
   <section
@@ -11,6 +12,7 @@ exports[`NPFFabrics render the UI as expected 1`] = `
       className="empty"
     />
     <form
+      autoComplete="off"
       id="form-page"
     >
       <div
@@ -30,9 +32,9 @@ exports[`NPFFabrics render the UI as expected 1`] = `
       <fieldset
         className="FormFieldset"
       >
-        <p>
+        <h2>
           Fabric Dyeing, Printing, and Finishing
-        </p>
+        </h2>
         <div
           className="FormDropdown"
         >
@@ -41,19 +43,13 @@ exports[`NPFFabrics render the UI as expected 1`] = `
           >
             Dyeing and finishing country
           </label>
+          
           <select
             name="dyeFinCountryId"
             onChange={[Function]}
             required={true}
             value=""
-          >
-            <option
-              id={0}
-              value={0}
-            >
-              Select a country
-            </option>
-          </select>
+          />
         </div>
         <div
           className="FormDropdown"
@@ -63,6 +59,7 @@ exports[`NPFFabrics render the UI as expected 1`] = `
           >
             Dyeing and finishing factory
           </label>
+          
           <select
             name="dyeFinId"
             onChange={[Function]}
@@ -83,27 +80,41 @@ exports[`NPFFabrics render the UI as expected 1`] = `
             </option>
           </select>
         </div>
+        <div
+          className="FormPromptWithSub"
+        >
+          <p
+            className="FormPromptWithSub__prompt"
+          >
+            
+          </p>
+          <p
+            className="FormPromptWithSub__subtitle"
+          >
+            Factory not listed above?
+          </p>
+        </div>
         <button
           className="FormButton"
           onClick={[Function]}
           type="button"
         >
-          ADD A FACTORY
+          Add a factory
         </button>
         <div
-          className="FormText"
+          className="FormTextarea"
         >
           <label
             htmlFor="dye-fin-notes"
           >
             Whether or not the factory is listed, are there notes about the dyeing/printing/finishing mill?  If so, copy them and paste them here.
           </label>
-          <input
+          <textarea
             id="dye-fin-notes"
             name="dyeFinNotes"
             onChange={[Function]}
             required={true}
-            type="text"
+            rows="1"
             value=""
           />
         </div>
@@ -111,9 +122,9 @@ exports[`NPFFabrics render the UI as expected 1`] = `
       <fieldset
         className="FormFieldset"
       >
-        <p>
+        <h2>
           Knitting and Weaving
-        </p>
+        </h2>
         <div
           className="FormDropdown"
         >
@@ -122,19 +133,13 @@ exports[`NPFFabrics render the UI as expected 1`] = `
           >
             Knitting or weaving country
           </label>
+          
           <select
             name="wovKnitCountryId"
             onChange={[Function]}
             required={true}
             value=""
-          >
-            <option
-              id={0}
-              value={0}
-            >
-              Select a country
-            </option>
-          </select>
+          />
         </div>
         <div
           className="FormDropdown"
@@ -144,6 +149,7 @@ exports[`NPFFabrics render the UI as expected 1`] = `
           >
             Knitting/weaving fabric mill
           </label>
+          
           <select
             name="wovKnitId"
             onChange={[Function]}
@@ -164,27 +170,41 @@ exports[`NPFFabrics render the UI as expected 1`] = `
             </option>
           </select>
         </div>
+        <div
+          className="FormPromptWithSub"
+        >
+          <p
+            className="FormPromptWithSub__prompt"
+          >
+            
+          </p>
+          <p
+            className="FormPromptWithSub__subtitle"
+          >
+            Factory not listed above?
+          </p>
+        </div>
         <button
           className="FormButton"
           onClick={[Function]}
           type="button"
         >
-          ADD A FABRIC MILL
+          Add a fabric mill
         </button>
         <div
-          className="FormText"
+          className="FormTextarea"
         >
           <label
             htmlFor="wov-knit-notes"
           >
-            Whether or not the factory is listed, are there notes about the dyeing/printing/finishing mill?  If so, copy them and paste them here.
+            Whether or not the fabric mill is listed, are there notes about where the fabric or material was made?  If so, copy them and paste them here.
           </label>
-          <input
+          <textarea
             id="wov-knit-notes"
             name="wovKnitNotes"
             onChange={[Function]}
             required={true}
-            type="text"
+            rows="1"
             value=""
           />
         </div>
@@ -192,9 +212,9 @@ exports[`NPFFabrics render the UI as expected 1`] = `
       <fieldset
         className="FormFieldset"
       >
-        <p>
+        <h2>
           Does the primary fabric have any of the following certifications?
-        </p>
+        </h2>
         <div
           className="FormCheckboxSection"
         >
@@ -205,12 +225,26 @@ exports[`NPFFabrics render the UI as expected 1`] = `
             className="FormCheckboxSection__options-container"
           />
         </div>
+        <div
+          className="FormPromptWithSub"
+        >
+          <p
+            className="FormPromptWithSub__prompt"
+          >
+            
+          </p>
+          <p
+            className="FormPromptWithSub__subtitle"
+          >
+            Certification not listed above?
+          </p>
+        </div>
         <button
           className="FormButton"
           onClick={[Function]}
           type="button"
         >
-          ADD A CERTIFICATION
+          Add a certification
         </button>
       </fieldset>
       <div
@@ -228,7 +262,7 @@ exports[`NPFFabrics render the UI as expected 1`] = `
         </p>
       </div>
       <fieldset
-        className="NewProductForm__fieldset"
+        className="FormFieldset"
       >
         <button
           className="NewProductForm__remove"
@@ -245,6 +279,7 @@ exports[`NPFFabrics render the UI as expected 1`] = `
           >
             Fiber or material
           </label>
+          
           <select
             name="fiberTypeId"
             onChange={[Function]}
@@ -257,14 +292,34 @@ exports[`NPFFabrics render the UI as expected 1`] = `
             >
               Select a fiber or material
             </option>
+            <option
+              id={1}
+              value={1}
+            >
+              Not disclosed
+            </option>
           </select>
+        </div>
+        <div
+          className="FormPromptWithSub"
+        >
+          <p
+            className="FormPromptWithSub__prompt"
+          >
+            
+          </p>
+          <p
+            className="FormPromptWithSub__subtitle"
+          >
+            Fiber or material not listed above?
+          </p>
         </div>
         <button
           className="FormButton"
           onClick={[Function]}
           type="button"
         >
-          ADD A FIBER OR MATERIAL TYPE
+          Add a fiber or material type
         </button>
         <div
           className="FormNumber"
@@ -291,19 +346,13 @@ exports[`NPFFabrics render the UI as expected 1`] = `
           >
             Fiber origin
           </label>
+          
           <select
             name="originId"
             onChange={[Function]}
             required={true}
             value={0}
-          >
-            <option
-              id={0}
-              value={0}
-            >
-              Select a country
-            </option>
-          </select>
+          />
         </div>
         <div
           className="FormDropdown"
@@ -313,11 +362,12 @@ exports[`NPFFabrics render the UI as expected 1`] = `
           >
             Fiber or material producer
           </label>
+          
           <select
             name="producerId"
             onChange={[Function]}
             required={true}
-            value={0}
+            value=""
           >
             <option
               id={0}
@@ -333,16 +383,30 @@ exports[`NPFFabrics render the UI as expected 1`] = `
             </option>
           </select>
         </div>
+        <div
+          className="FormPromptWithSub"
+        >
+          <p
+            className="FormPromptWithSub__prompt"
+          >
+            
+          </p>
+          <p
+            className="FormPromptWithSub__subtitle"
+          >
+            Producer not listed above?
+          </p>
+        </div>
         <button
           className="FormButton"
           onClick={[Function]}
           type="button"
         >
-          ADD A PRODUCER
+          Add a producer
         </button>
         <section
-          className="FormPopUp__pop-up"
-          id="fabricundefinedNewFibProducer"
+          className="FormPopUp"
+          id="fabric1NewFibProducer"
         >
           <button
             className="FormPopUp__close-button"
@@ -373,15 +437,15 @@ exports[`NPFFabrics render the UI as expected 1`] = `
             </h1>
           </header>
           <div
-            className="FormText"
+            className="FormTextInput"
           >
             <label
-              htmlFor="undefinedNewProducerName"
+              htmlFor="1NewProducerName"
             >
               Factory name
             </label>
             <input
-              id="undefinedNewProducerName"
+              id="1NewProducerName"
               name="name"
               onChange={[Function]}
               required={true}
@@ -393,55 +457,49 @@ exports[`NPFFabrics render the UI as expected 1`] = `
             className="FormDropdown"
           >
             <label
-              htmlFor="undefinedNewProducerLocation"
+              htmlFor="1NewProducerLocation"
             >
               Location
             </label>
+            
             <select
               name="countryId"
               onChange={[Function]}
               required={true}
               value={0}
-            >
-              <option
-                id={0}
-                value={0}
-              >
-                Select a country
-              </option>
-            </select>
+            />
           </div>
           <div
             className="FormUrlInput"
           >
             <label
-              htmlFor="undefinedNewProducerWebsite"
+              htmlFor="1NewProducerWebsite"
             >
               Website
             </label>
             <input
-              defaultValue=""
-              id="undefinedNewProducerWebsite"
+              id="1NewProducerWebsite"
               name="website"
               onChange={[Function]}
               required={true}
               type="url"
+              value=""
             />
           </div>
           <div
-            className="FormText"
+            className="FormTextarea"
           >
             <label
-              htmlFor="undefinedNewProducerNotes"
+              htmlFor="1NewProducerNotes"
             >
               Notes
             </label>
-            <input
-              id="undefinedNewProducerNotes"
+            <textarea
+              id="1NewProducerNotes"
               name="notes"
               onChange={[Function]}
               required={true}
-              type="text"
+              rows="1"
               value=""
             />
           </div>
@@ -454,19 +512,19 @@ exports[`NPFFabrics render the UI as expected 1`] = `
           </button>
         </section>
         <div
-          className="FormText"
+          className="FormTextarea"
         >
           <label
             htmlFor="producer-notes0"
           >
             Whether or not the producer is listed, are there notes about the fiber or material producer?  If so, copy them and paste them here.
           </label>
-          <input
+          <textarea
             id="producer-notes0"
             name="producerNotes"
             onChange={[Function]}
             required={true}
-            type="text"
+            rows="1"
             value=""
           />
         </div>
@@ -494,45 +552,75 @@ exports[`NPFFabrics render the UI as expected 1`] = `
             className="FormCheckboxSection__options-container"
           />
         </div>
+        <div
+          className="FormPromptWithSub"
+        >
+          <p
+            className="FormPromptWithSub__prompt"
+          >
+            
+          </p>
+          <p
+            className="FormPromptWithSub__subtitle"
+          >
+            Certification not listed above?
+          </p>
+        </div>
         <button
           className="FormButton"
           onClick={[Function]}
           type="button"
         >
-          ADD A CERTIFICATION
+          Add a certification
         </button>
       </fieldset>
+      <div
+        className="FormPromptWithSub"
+      >
+        <p
+          className="FormPromptWithSub__prompt"
+        >
+          
+        </p>
+        <p
+          className="FormPromptWithSub__subtitle"
+        >
+          Does this fabric have more than one fiber?
+        </p>
+      </div>
       <button
         className="FormButton"
         onClick={[Function]}
         type="button"
       >
-        THIS FABRIC HAS ADDITIONAL FIBERS
+        Add a fiber
       </button>
     </form>
-    <div />
+    <div>
+      
+    </div>
   </section>
   <footer
     className="NPFFooter"
   >
     <button
-      className="NPFFooter_previous"
+      className="NPFFooter__previous"
       onClick={[Function]}
       type="button"
     >
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-arrow-left fa-w-14 NPFFooter_arrow"
-        data-icon="arrow-left"
+        className="svg-inline--fa fa-angle-left fa-w-8 NPFFooter__left-arrow"
+        data-icon="angle-left"
         data-prefix="fas"
         focusable="false"
         role="img"
         style={Object {}}
-        viewBox="0 0 448 512"
+        viewBox="0 0 256 512"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"
+          d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
           fill="currentColor"
           style={Object {}}
         />
@@ -542,7 +630,7 @@ exports[`NPFFabrics render the UI as expected 1`] = `
       </span>
     </button>
     <button
-      className="NPFFooter_next"
+      className="NPFFooter__next"
       onClick={[Function]}
       type="button"
     >
@@ -551,17 +639,17 @@ exports[`NPFFabrics render the UI as expected 1`] = `
       </span>
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-arrow-right fa-w-14 NPFFooter_arrow"
-        data-icon="arrow-right"
+        className="svg-inline--fa fa-angle-right fa-w-8 NPFFooter__right-arrow"
+        data-icon="angle-right"
         data-prefix="fas"
         focusable="false"
         role="img"
         style={Object {}}
-        viewBox="0 0 448 512"
+        viewBox="0 0 256 512"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+          d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
           fill="currentColor"
           style={Object {}}
         />
@@ -569,8 +657,8 @@ exports[`NPFFabrics render the UI as expected 1`] = `
     </button>
   </footer>
   <section
-    className="FormPopUp__pop-up"
-    id="undefinedNewFact"
+    className="FormPopUp"
+    id="1NewFact"
   >
     <button
       className="FormPopUp__close-button"
@@ -601,15 +689,15 @@ exports[`NPFFabrics render the UI as expected 1`] = `
       </h1>
     </header>
     <div
-      className="FormText"
+      className="FormTextInput"
     >
       <label
-        htmlFor="undefinedNewFactName"
+        htmlFor="1NewFactName"
       >
         Factory name
       </label>
       <input
-        id="undefinedNewFactName"
+        id="1NewFactName"
         name="name"
         onChange={[Function]}
         required={true}
@@ -621,55 +709,49 @@ exports[`NPFFabrics render the UI as expected 1`] = `
       className="FormDropdown"
     >
       <label
-        htmlFor="undefinedNewFactLocation"
+        htmlFor="1NewFactLocation"
       >
         Location
       </label>
+      
       <select
         name="countryId"
         onChange={[Function]}
         required={true}
         value=""
-      >
-        <option
-          id={0}
-          value={0}
-        >
-          Select a country
-        </option>
-      </select>
+      />
     </div>
     <div
       className="FormUrlInput"
     >
       <label
-        htmlFor="undefinedNewFactWebsite"
+        htmlFor="1NewFactWebsite"
       >
         Website
       </label>
       <input
-        defaultValue=""
-        id="undefinedNewFactWebsite"
+        id="1NewFactWebsite"
         name="website"
         onChange={[Function]}
         required={true}
         type="url"
+        value=""
       />
     </div>
     <div
-      className="FormText"
+      className="FormTextarea"
     >
       <label
-        htmlFor="undefinedNewFactNotes"
+        htmlFor="1NewFactNotes"
       >
         Notes
       </label>
-      <input
-        id="undefinedNewFactNotes"
+      <textarea
+        id="1NewFactNotes"
         name="notes"
         onChange={[Function]}
         required={true}
-        type="text"
+        rows="1"
         value={1}
       />
     </div>
@@ -682,8 +764,8 @@ exports[`NPFFabrics render the UI as expected 1`] = `
     </button>
   </section>
   <section
-    className="FormPopUp__pop-up"
-    id="undefinedNewMill"
+    className="FormPopUp"
+    id="1NewMill"
   >
     <button
       className="FormPopUp__close-button"
@@ -714,15 +796,15 @@ exports[`NPFFabrics render the UI as expected 1`] = `
       </h1>
     </header>
     <div
-      className="FormText"
+      className="FormTextInput"
     >
       <label
-        htmlFor="undefined-new-mill-name"
+        htmlFor="1-new-mill-name"
       >
         Fabric mill name
       </label>
       <input
-        id="undefined-new-mill-name"
+        id="1-new-mill-name"
         name="name"
         onChange={[Function]}
         required={true}
@@ -734,55 +816,49 @@ exports[`NPFFabrics render the UI as expected 1`] = `
       className="FormDropdown"
     >
       <label
-        htmlFor="undefinedNewMillLocation"
+        htmlFor="1NewMillLocation"
       >
         Location
       </label>
+      
       <select
         name="countryId"
         onChange={[Function]}
         required={true}
         value=""
-      >
-        <option
-          id={0}
-          value={0}
-        >
-          Select a country
-        </option>
-      </select>
+      />
     </div>
     <div
       className="FormUrlInput"
     >
       <label
-        htmlFor="undefinedNewMillWebsite"
+        htmlFor="1NewMillWebsite"
       >
         Website
       </label>
       <input
-        defaultValue=""
-        id="undefinedNewMillWebsite"
+        id="1NewMillWebsite"
         name="website"
         onChange={[Function]}
         required={true}
         type="url"
+        value=""
       />
     </div>
     <div
-      className="FormText"
+      className="FormTextarea"
     >
       <label
-        htmlFor="undefinedNewMillNotes"
+        htmlFor="1NewMillNotes"
       >
         Notes
       </label>
-      <input
-        id="undefinedNewMillNotes"
+      <textarea
+        id="1NewMillNotes"
         name="notes"
         onChange={[Function]}
         required={true}
-        type="text"
+        rows="1"
         value=""
       />
     </div>
@@ -791,11 +867,11 @@ exports[`NPFFabrics render the UI as expected 1`] = `
       onClick={[Function]}
       type="button"
     >
-      SUBMIT FABRIC MILL
+      Submit fabric mill
     </button>
   </section>
   <section
-    className="FormPopUp__pop-up"
+    className="FormPopUp"
     id="new-fiber"
   >
     <button
@@ -827,7 +903,7 @@ exports[`NPFFabrics render the UI as expected 1`] = `
       </h1>
     </header>
     <div
-      className="FormText"
+      className="FormTextInput"
     >
       <label
         htmlFor="new-fiber-name"
@@ -848,12 +924,12 @@ exports[`NPFFabrics render the UI as expected 1`] = `
       onClick={[Function]}
       type="button"
     >
-      SUBMIT FIBER
+      Submit fiber
     </button>
   </section>
   <section
-    className="FormPopUp__pop-up"
-    id="undefinedNewCert"
+    className="FormPopUp"
+    id="1NewCert"
   >
     <button
       className="FormPopUp__close-button"
@@ -884,15 +960,15 @@ exports[`NPFFabrics render the UI as expected 1`] = `
       </h1>
     </header>
     <div
-      className="FormText"
+      className="FormTextInput"
     >
       <label
-        htmlFor="undefined-new-cert-name"
+        htmlFor="1-new-cert-name"
       >
         Certification name
       </label>
       <input
-        id="undefined-new-cert-name"
+        id="1-new-cert-name"
         name="name"
         onChange={[Function]}
         required={true}
@@ -904,17 +980,17 @@ exports[`NPFFabrics render the UI as expected 1`] = `
       className="FormUrlInput"
     >
       <label
-        htmlFor="undefined-new-cert-website"
+        htmlFor="1-new-cert-website"
       >
         Website
       </label>
       <input
-        defaultValue=""
-        id="undefined-new-cert-website"
+        id="1-new-cert-website"
         name="website"
         onChange={[Function]}
         required={true}
         type="url"
+        value=""
       />
     </div>
     <button
@@ -922,7 +998,7 @@ exports[`NPFFabrics render the UI as expected 1`] = `
       onClick={[Function]}
       type="button"
     >
-      SUBMIT CERTIFICATION
+      Submit certification
     </button>
   </section>
 </div>

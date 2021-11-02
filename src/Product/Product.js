@@ -1,25 +1,33 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-// import currencies from '../CURRENCIES'
 import './Product.css'
 
 const Product = props => {
-    // const currencySymbol = currencies[props.brandCurrencyId]
-
+    const {
+        brand,
+        id,
+        imgAlt,
+        pathToImg,
+        price,
+        productSlug,
+        productTitle
+    } = props
+    
     return (
-        <li className='Product' id={props.id}>
+        <li className='Product' id={id}>
             <Link 
-                to={`/product/${props.id}/${props.productSlug}`}
-                onClick={() => props.setProductId}
+                to={`/product/${id}/${productSlug}`}
             >
                 <div className='Product__cropped'>
-                    <img src={props.pathToImg } alt={props.imgAlt} />
+                    <img src={pathToImg } alt={imgAlt} />
                 </div>
+                
                 <p className='Product__brand-and-title'>
-                    <span >{props.brand} </span>
-                    <span>{props.productTitle}</span>
+                    <span >{brand} </span>
+                    <span>{productTitle}</span>
                 </p>
-                <p className='Product__price'>${props.price}</p>
+                
+                <p className='Product__price'>${price}</p>
             </Link>
         </li>
     )
@@ -27,7 +35,6 @@ const Product = props => {
 
 Product.defaultProps = {
     brand: '',
-    key: 0,
     id: 0,
     imgAlt: '',
     pathToImg: '',

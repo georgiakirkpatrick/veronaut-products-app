@@ -1,5 +1,204 @@
 footer {
-    background-color: rgb(236, 236, 236);
-    padding: 20px 10px;
-    color: black;
+    background-color: #666491;
+    padding: 5vh 5vw;
+    color: #fff;
+    border: solid #666491;
+    border-radius: 0 150px 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font: 400 16px Poppins;
+    letter-spacing: 1px;
+}
+
+footer a {
+    color: #fff;
+}
+
+footer a:active {
+    color: #e5e9c2
+}
+
+footer a:visited {
+    color: #fff
+}
+
+footer button {
+    width: 100%;
+    color: #041516;
+    background-color: #F2E7F1;
+    border: 1px solid #F2E7F1;
+    border-radius: 40px;
+    padding: 2vh;
+    margin: 5vh 0;
+}
+
+footer div {
+    padding: 5vh;
+}
+
+footer div, footer h2, footer p {
+    padding: 2vh;
+}
+
+footer fieldset {
+    width: 100%;
+    border: none;
+}
+
+footer form {
+    width: 100%;
+    border: none;
+    padding: 5vh 0;
+}
+
+footer h2 {
+    font: 400 30px Poppins;
+}
+
+footer label {
+    display: block;
+    padding: 10px 0 0;
+    margin: 0 2vh;
+}
+
+footer input {
+    background-color: rgb(255, 255, 255);
+    border: solid 1px #041516;
+    border-radius: 30px;
+    padding: 2vh;
+    width: 100%;
+    font-size: 18px;
+}
+
+footer .connect {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+@media screen and (min-width: 768px) {
+    footer {
+        padding: 5vh 8vw;
+    }
+    
+    footer button {
+        width: 30%;
+        height: 63px;
+        padding: 1vh;
+        margin: 2vh 3vw;
+    }
+
+    footer form {
+        padding: 2vh 0;
+    }
+
+    footer input {
+        width: 50%;
+    }
+
+    footer label {
+        width: 80%;
+    }
+
+    footer p {
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    footer button {
+        width: 20%;
+        height: 50px;
+        padding: 0;
+        margin: 0 5vw;
+    }
+
+    footer input {
+        padding: 2vh;
+        height: 50px;
+    }
+
+    footer label {
+        padding: 1vh 0;
+    }
+}
+
+@media screen and (min-width: 1024px) and (min-height: 1366px) {
+    footer button {
+        width: 20%;
+        height: 50px;
+        padding: 0;
+        margin: 0 5vw;
+    }
+
+    footer form {
+        padding: 2vh 0;
+    }
+
+    footer input {
+        background-color: rgb(255, 255, 255);
+        border: solid 1px #041516;
+        border-radius: 30px;
+        padding: 1vh;
+        width: 40%;
+        height: 50px;
+    }
+
+    footer label {
+        width: 70%;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    footer {
+        padding: 10vh 15vw;
+    }
+
+    footer button {
+        width: 20%;
+    }
+
+    .LandingPage input {
+        background-color: rgb(255, 255, 255);
+        border: solid 1px #041516;
+        border-radius: 30px;
+        padding: 1vh;
+        width: 40%;
+        height: 50px;
+    }
+}
+
+@media screen and (min-width: 2560px) {
+    footer {
+        padding: 5vh 25vw;
+        font: 400 20px/24px Poppins;
+    }
+
+    footer button {
+        width: 15%;
+        margin: 0 1vw
+    }
+
+    footer div, footer h2, footer p {
+        padding: 2vh;
+    }
+
+    footer form {
+        padding: 1vh 0;
+    }
+
+    footer input {
+        width: 20%;
+    }
+
+    footer label {
+        font: 400 20px/28px Poppins;
+        padding: 0;
+        width: 20%;
+    }
+
+    footer p {
+        font-size: 20px;
+    }
 }

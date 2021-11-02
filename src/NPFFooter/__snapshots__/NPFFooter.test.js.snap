@@ -5,22 +5,22 @@ exports[`NPFFooter render the UI as expected 1`] = `
   className="NPFFooter"
 >
   <button
-    className="NPFFooter_previous"
+    className="NPFFooter__previous"
     onClick={[Function]}
   >
     <svg
       aria-hidden="true"
-      className="svg-inline--fa fa-arrow-left fa-w-14 NPFFooter_arrow"
-      data-icon="arrow-left"
+      className="svg-inline--fa fa-angle-left fa-w-8 NPFFooter__left-arrow"
+      data-icon="angle-left"
       data-prefix="fas"
       focusable="false"
       role="img"
       style={Object {}}
-      viewBox="0 0 448 512"
+      viewBox="0 0 256 512"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"
+        d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
         fill="currentColor"
         style={Object {}}
       />

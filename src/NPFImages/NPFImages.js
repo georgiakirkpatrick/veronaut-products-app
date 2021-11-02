@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '@fortawesome/react-fontawesome'
 import FormPage from '../FormPage/FormPage'
 import FormButton from '../FormButton/FormButton'
 import FormFieldset from '../FormFieldset/FormFieldset'
 import FormPromptWithSub from '../FormPromptWithSub/FormPromptWithSub'
 import FormUrlInput from '../FormUrlInput/FormUrlInput'
-import NPFFooter from '../NPFFooter/NPFFooter';
+import NPFFooter from '../NPFFooter/NPFFooter'
+import './NPFImages.css'
 
 const NPFImages = props => {
     const {
@@ -15,41 +16,25 @@ const NPFImages = props => {
         setPage
     } = props
 
+    const [images, setImages] = useState(false)
+
     const addImage = (index) => {
         const fieldsetToUpdate = colorFieldsets[index]
         fieldsetToUpdate.imageUrls.push('')
-        setColorFieldsets([ ...colorFieldsets ])    
-    }
-
-    const changeSwatchInput = (event, index) => {
-        const values = [...colorFieldsets]
-        console.log('values', values)
-
-        values[index][event.target.name] = event.target.value
-        console.log('values[index][event.target.name]', values[index][event.target.name])
-
-        setColorFieldsets(values)
+        setColorFieldsets([ ...colorFieldsets ])
     }
 
     const changeImageInput = (index, i, event) => {
-        console.log('index', index)
-        console.log('i', i)
-        console.log('event', event)
-
         const values = [...colorFieldsets]
-    
         values[index][event.target.name][i] = event.target.value
+
+        setImages(values[index].imageUrls + 1)
     }
 
     const nextButton = () => {
-        const missingSwatches = []
         const missingUrls = []
 
         colorFieldsets.forEach(fieldset => {
-            if (fieldset.swatchUrl === '' || null) {
-                missingSwatches.push(fieldset.name)
-            }
-
             fieldset.imageUrls.forEach(field => {
                 if (field === '' || null) {
                     missingUrls.push(
@@ -59,53 +44,42 @@ const NPFImages = props => {
             })
         })
         
-        if (missingSwatches.length === 1) {
-            alert(`Please complete the '${missingSwatches[0]}' swatch url field`)
-        } else if (missingSwatches.length > 1) {
-            alert(`Please complete the following fields: ${missingSwatches.map(field => `
-                '${field}' swatch url`)}
-            `)
-        } else if (missingSwatches.length === 0) {
-            if (missingUrls.length >= 1) {
-                alert(`Please enter at least one image url for each color and remove any empty fields`)
-            } else {
-                setPage(currentPage + 1)
-            }
+        if (missingUrls.length >= 1) {
+            alert(`Please enter at least one image url for each color and remove any empty fields.  Having trouble getting an image URL?  Just remove any empty fields and click 'Next'.`)
+        } else {
+            setPage(currentPage + 1)
         }
     }
-
-    // const nextButton = () => {setPage(currentPage + 1)}
 
     const removeImage = (index, i) => {
         const newColors = [...colorFieldsets]
         newColors[index].imageUrls.splice(i, 1)
+   
         setColorFieldsets(newColors)
     }
 
     return (
-        <div>
+        <div className='NPFImages'>
             <FormPage title='Images'>
                 <FormPromptWithSub 
-                    prompt='Enter the color swatch URL and image URL(s) for each color'
-                    promptSubtitle=''
+                    prompt='Enter the image URLs of up to four images for each color option, one URL per line.'
+                    promptSubtitle={`To copy an image URL from a product page, follow these steps: on a computer, right-click on the image, then select 'Copy Image Address'.  
+                    On a mobile device, tap and hold the image, then select 'Copy'.  If 'Copy' is not an option, select 'Share...', then 'Copy'.
+                    
+                    Remove any empty fields before tapping 'Next'.`}
                 />
+
                 {colorFieldsets.map((colorFieldset, index) => {
-                    return <FormFieldset key={index} className='NPFImages__fieldset'>
-                        <FormPromptWithSub prompt={colorFieldset.name} promptSubtitle='' />
-                        <FormUrlInput 
-                            id={'color-swatch-url-' + index}
-                            name='swatchUrl'
-                            prompt='Color swatch URL'
-                            currentValue={colorFieldset.swatchUrl}
-                            handleChange={(event) => {
-                                changeSwatchInput(event, index)
-                            }}
+                    return <FormFieldset key={index}>
+                        <FormPromptWithSub
+                            prompt={colorFieldset.name[0].toUpperCase() + colorFieldset.name.substr(1)}
+                            promptSubtitle={`Enter the image URLs of up to four product images in ${colorFieldset.name}, one URL per line.`}
                         />
                         
-                        {colorFieldset.imageUrls.map((colorImageUrl, i) => (
-                            <div key={i} className='NewProductForm__image-field'>
+                        {colorFieldset.imageUrls.map((colorImageUrl, i) => {
+                            return <div key={i} className='NPFImages__image-field'>
                                 <button 
-                                    className='NewProductForm__remove-image'
+                                    className='NPFImages__remove-image'
                                     type='button'
                                     onClick={() => removeImage(index, i)}
                                 >
@@ -122,14 +96,41 @@ const NPFImages = props => {
                                     }}
                                 />
                             </div>
-                        ))}
-                        
+                        })}
+
+                                                
                         <FormButton
-                            buttonText='ADD AN IMAGE FOR THIS COLOR'
+                            buttonText='Add an image for this color'
                             handleClick={() => addImage(index)}
                         />
+
+                        {images 
+                            ? <div>
+                                <p>Image preview</p>
+
+                                <ul className='NPFImages__preview-images'>
+                                    {
+                                        colorFieldset.imageUrls.map((colorImageUrl, i) => (
+                                            colorImageUrl.length > 3
+                                                ? <li key={index + '-' + i} className='NPFImages__preview-img'>
+                                                    <img
+                                                        src={colorImageUrl}
+                                                        alt={colorFieldset.name + '-image-' + i}
+                                                    />
+                                                </li>
+                                                : <li key={index + '-' + i} className='NPFImages__preview-img'>
+                                                    <br/>
+                                                </li>
+
+                                        ))
+                                    }
+                                </ul>
+                            </div>
+                            : <br />
+                        }
                    </ FormFieldset>
                 })}
+
             </FormPage>
 
             <NPFFooter 
@@ -144,9 +145,8 @@ const NPFImages = props => {
 NPFImages.defaultProps = {
     colorFieldsets: [
         { 
-            name: '', 
+            name: 'test name', 
             descriptionId: '1' ,
-            swatchUrl: '',
             imageUrls: ['']
         }
     ],

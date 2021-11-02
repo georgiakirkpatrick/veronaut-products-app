@@ -2,6 +2,7 @@
 
 exports[`NPFFabricsQuestion render the UI as expected 1`] = `
 <div
+  className="NPFFabricsQuestion"
   id="fabric-question"
 >
   <section
@@ -11,6 +12,7 @@ exports[`NPFFabricsQuestion render the UI as expected 1`] = `
       Fabrics
     </h1>
     <form
+      autoComplete="off"
       id="form-page"
     >
       <div
@@ -19,7 +21,7 @@ exports[`NPFFabricsQuestion render the UI as expected 1`] = `
         <p
           className="FormPromptWithSub__prompt"
         >
-          The primary fabric (or material) is the main fabric used in the garment or accessory.
+          Select the product's material types below
         </p>
         <p
           className="FormPromptWithSub__subtitle"
@@ -27,139 +29,118 @@ exports[`NPFFabricsQuestion render the UI as expected 1`] = `
           
         </p>
       </div>
-      <div
-        className="FormCheckboxSection"
+      <fieldset
+        className="FormFieldset"
       >
-        <p>
-          The primary fabric (or material) is required.
-        </p>
+        <div />
         <div
-          className="FormCheckboxSection__options-container"
+          className="FormCheckboxSection"
         >
+          <p>
+            The primary fabric or material is the main fabric used in the garment or accessory.  The primary fabric is required.
+          </p>
           <div
-            className="FormCheckboxSection__option"
+            className="FormCheckboxSection__options-container"
           >
-            <input
-              checked={false}
-              id="primary-fabric"
-              name="primary-fabric"
-              onChange={[Function]}
-              type="checkbox"
-            />
-            <label
-              htmlFor="primary-fabric"
+            <div
+              className="FormCheckboxSection__option"
             >
-              Yes
-            </label>
+              <input
+                checked={false}
+                id="primary-fabric"
+                name="primary-fabric"
+                onChange={[Function]}
+                type="checkbox"
+              />
+              <label
+                htmlFor="primary-fabric"
+              >
+                The product has a primary fabric or material
+              </label>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        className="FormPromptWithSub"
-      >
-        <p
-          className="FormPromptWithSub__prompt"
-        >
-          Garments and accessories sometimes include secondary fabrics as trims or accents.
-        </p>
-        <p
-          className="FormPromptWithSub__subtitle"
-        >
-          
-        </p>
-      </div>
-      <div
-        className="FormCheckboxSection"
-      >
-        <p>
-          Does this product include a secondary fabric?
-        </p>
         <div
-          className="FormCheckboxSection__options-container"
+          className="FormCheckboxSection"
         >
+          <p>
+            Garments and accessories sometimes include secondary fabrics as trims or accents.  Does this product include a secondary fabric?
+          </p>
           <div
-            className="FormCheckboxSection__option"
+            className="FormCheckboxSection__options-container"
           >
-            <input
-              checked={false}
-              id="secondary-fabric"
-              name="secondary-fabric"
-              onChange={[Function]}
-              type="checkbox"
-            />
-            <label
-              htmlFor="secondary-fabric"
+            <div
+              className="FormCheckboxSection__option"
             >
-              Yes
-            </label>
+              <input
+                checked={false}
+                id="secondary-fabric"
+                name="secondary-fabric"
+                onChange={[Function]}
+                type="checkbox"
+              />
+              <label
+                htmlFor="secondary-fabric"
+              >
+                Yes, the product has a secondary fabric or material
+              </label>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        className="FormPromptWithSub"
-      >
-        <p
-          className="FormPromptWithSub__prompt"
-        >
-          Garments and accessories sometimes include lining fabrics - an inner layer of fabric on the interior of the product.
-        </p>
-        <p
-          className="FormPromptWithSub__subtitle"
-        >
-          
-        </p>
-      </div>
-      <div
-        className="FormCheckboxSection"
-      >
-        <p>
-          Does this product include a lining fabric?
-        </p>
         <div
-          className="FormCheckboxSection__options-container"
+          className="FormCheckboxSection"
         >
+          <p>
+            Garments and accessories sometimes include lining fabrics - an inner layer of fabric on the interior of the product.  Does this product include a lining fabric?
+          </p>
           <div
-            className="FormCheckboxSection__option"
+            className="FormCheckboxSection__options-container"
           >
-            <input
-              checked={false}
-              id="lining-fabric"
-              name="lining-fabric"
-              onChange={[Function]}
-              type="checkbox"
-            />
-            <label
-              htmlFor="lining-fabric"
+            <div
+              className="FormCheckboxSection__option"
             >
-              Yes
-            </label>
+              <input
+                checked={false}
+                id="lining-fabric"
+                name="lining-fabric"
+                onChange={[Function]}
+                type="checkbox"
+              />
+              <label
+                htmlFor="lining-fabric"
+              >
+                Yes, the product has a lining fabric or material
+              </label>
+            </div>
           </div>
         </div>
-      </div>
+      </fieldset>
     </form>
-    <div />
+    <div>
+      
+    </div>
   </section>
   <footer
     className="NPFFooter"
   >
     <button
-      className="NPFFooter_previous"
+      className="NPFFooter__previous"
       onClick={[Function]}
       type="button"
     >
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-arrow-left fa-w-14 NPFFooter_arrow"
-        data-icon="arrow-left"
+        className="svg-inline--fa fa-angle-left fa-w-8 NPFFooter__left-arrow"
+        data-icon="angle-left"
         data-prefix="fas"
         focusable="false"
         role="img"
         style={Object {}}
-        viewBox="0 0 448 512"
+        viewBox="0 0 256 512"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"
+          d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
           fill="currentColor"
           style={Object {}}
         />
@@ -169,7 +150,7 @@ exports[`NPFFabricsQuestion render the UI as expected 1`] = `
       </span>
     </button>
     <button
-      className="NPFFooter_next"
+      className="NPFFooter__next"
       onClick={[Function]}
       type="button"
     >
@@ -178,17 +159,17 @@ exports[`NPFFabricsQuestion render the UI as expected 1`] = `
       </span>
       <svg
         aria-hidden="true"
-        className="svg-inline--fa fa-arrow-right fa-w-14 NPFFooter_arrow"
-        data-icon="arrow-right"
+        className="svg-inline--fa fa-angle-right fa-w-8 NPFFooter__right-arrow"
+        data-icon="angle-right"
         data-prefix="fas"
         focusable="false"
         role="img"
         style={Object {}}
-        viewBox="0 0 448 512"
+        viewBox="0 0 256 512"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"
+          d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
           fill="currentColor"
           style={Object {}}
         />

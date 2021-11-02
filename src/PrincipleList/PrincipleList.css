@@ -1,12 +1,26 @@
 .PrincipleList {
+    background-color: white;
     list-style-type: none;
-    padding: 20px 10px;
-    /* height: 90vh; */
+    padding: 15vh 15vw 15vh 10vw;
+    margin: 20vh 0;
+    width: 100%;
+    border: solid white;
+    border-radius: 0 150px 150px 0px;
+    height: 270vh;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
-    font: arial;
+}
+
+.PrincipleList h2 {
+    padding: 3vh 0;
+}
+
+.PrincipleList header p {
+    font: 400 16px/24px Poppins;
+    letter-spacing: 1px;
+    color: #041516;
 }
 
 .PrincipleList > ul {
@@ -14,9 +28,89 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
 .PrincipleList > a {
     padding: 15px 0;
+}
+
+@media screen and (min-width: 360px) {
+    .PrincipleList {
+        height: 240vh;
+        padding: 15vh 15vw 15vh 10vw;
+
+    }
+}
+
+@media screen and (min-width: 375px) {
+    .PrincipleList {
+        height: 230vh;
+        padding: 18vh 15vw 18vh 10vw;
+    }
+}
+
+@media screen and (min-width: 375px) and (min-height: 812px) {
+    .PrincipleList {
+        height: 200vh;
+        padding: 15vh 15vw 15vh 10vw;
+    }
+}
+
+@media screen and (min-width: 411px) {
+    .PrincipleList {
+        margin: 20vh 0;
+        height: 190vh;
+        padding: 12vh 15vw 12vh 10vw;
+    }
+}
+
+@media screen and (min-width: 540px) {
+    .PrincipleList {
+        margin: 20vh 0;
+        height: 170vh;
+        padding: 12vh 15vw 12vh 10vw;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .PrincipleList {
+        height: 85vh;
+        padding: 5vh;
+        margin: 10vh 0;
+    }
+
+    .PrincipleList h2 {
+        padding: 2vh 0;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .PrincipleList {
+        height: 120vh;
+        padding: 10vh 8vw 10vh 5vw;
+    }
+}
+
+@media screen and (min-width: 1024px) and (min-height: 1366px) {
+    .PrincipleList {
+        height: 70vh;
+        padding: 7vh 12vw 7vh 8vw;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .PrincipleList {
+        padding: 10vh 10vw 10vh 5vw;
+        margin: 20vh 0;
+        height: 90vh;
+    }    
+}
+
+@media screen and (min-width: 2560px) {
+    .PrincipleList {
+        padding: 5vh 10vw 5vh 5vw;
+        margin: 10vh 0;
+        height: 60vh;
+    }
 }
