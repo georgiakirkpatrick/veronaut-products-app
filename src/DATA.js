@@ -202,7 +202,7 @@ const data = {
         }
     ],
     
-    productList: [
+    productArray: [
         {
             id: 1,
             category: 'Dresses',

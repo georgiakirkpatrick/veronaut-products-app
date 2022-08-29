@@ -9,6 +9,7 @@ import FormTextInput from '../FormTextInput/FormTextInput'
 import FormUrlInput from '../FormUrlInput/FormUrlInput'
 import NPFFooter from '../NPFFooter/NPFFooter'
 import sizeData from '../SIZES'
+import TokenService from '../services/token-service'
 
 const NPFBrand = props => {
     const { 
@@ -151,7 +152,10 @@ const NPFBrand = props => {
 
         const postRequestParams = {
             method: 'POST',
-            headers: { 'Content-type': 'application/json' },
+            headers: { 
+                'Content-type': 'application/json',
+                'Authorization': `basic ${TokenService.getAuthToken()}`
+            },
             body: JSON.stringify(data)
         }
 
@@ -177,7 +181,7 @@ const NPFBrand = props => {
     }
 
     return (
-        <div id='NPFBrand' className='relative'>
+        <div className='NPFBrand'>
             <FormPage title='Brand'>
                 <FormDropdown
                     id='brand'
@@ -204,14 +208,14 @@ const NPFBrand = props => {
                     handleClick={() => setBrandPopUp(true)} 
                     type='button'
                 />
+            </FormPage>
 
-                <NPFFooter
+            <NPFFooter
                     buttons='prevNext'
                     previousButton={() => setPage(currentPage - pageTurns)} 
                     nextButton={event => {nextButton(event)}}
                     nextType='button'
                 />
-            </FormPage>
 
             <FormPopUp
                 id='add-brand'

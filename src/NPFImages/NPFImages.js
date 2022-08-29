@@ -70,10 +70,14 @@ const NPFImages = props => {
                 />
 
                 {colorFieldsets.map((colorFieldset, index) => {
+                    const formattedColor = colorFieldset.name.length > 2
+                        ? colorFieldset.name[0].toUpperCase() + colorFieldset.name.substr(1)
+                        : 'Color ' + index
+
                     return <FormFieldset key={index}>
                         <FormPromptWithSub
-                            prompt={colorFieldset.name[0].toUpperCase() + colorFieldset.name.substr(1)}
-                            promptSubtitle={`Enter the image URLs of up to four product images in ${colorFieldset.name}, one URL per line.`}
+                            prompt={formattedColor}
+                            promptSubtitle={`Enter the image URLs of up to four product images in ${formattedColor}, one URL per line.`}
                         />
                         
                         {colorFieldset.imageUrls.map((colorImageUrl, i) => {

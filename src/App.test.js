@@ -6,7 +6,7 @@ import App from './App'
 
 const data = [
   {
-    productList: [
+    productArray: [
       {
         id: 'c90672ba-e529-4fd7-a06f-dbfe6579fced',
         category: 'Dresses',

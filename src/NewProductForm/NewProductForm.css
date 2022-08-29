@@ -4,6 +4,11 @@
     right: 0;
 }
 
+.NewProductForm > div > .FormPage {
+    position: relative;
+    min-height: 80vh;
+}
+
 .NewProductForm input {
     border: 1px solid #767676;
     border-radius: 5px;
@@ -21,6 +26,10 @@
 .NewProductForm .NPFNewProduct .FormPromptWithSub p {
     font-weight: initial;
     padding: 0 0 10px;
+}
+
+.NPFSubmit .FormPromptWithSub {
+    margin: 0 auto 5vh
 }
 
 .NewProductForm__not-permitted {
@@ -118,8 +127,18 @@
     }
 }
 
+@media screen and (min-width: 1024px) {
+    .NewProductForm .NPFPermittedCategories {
+        height: 90vh;
+    }
+}
+
 @media screen and (min-width: 1024px) and (min-height: 1366px) {
     .NewProductForm input {
         margin: 5px 0 10px;
+    }
+
+    .NewProductForm .NPFPermittedCategories {
+        height: 100%;
     }
 }

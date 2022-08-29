@@ -12,6 +12,7 @@ import FormTextarea from '../FormTextarea/FormTextarea'
 import FormTextInput from '../FormTextInput/FormTextInput'
 import FormUrlInput from '../FormUrlInput/FormUrlInput'
 import NPFFooter from '../NPFFooter/NPFFooter'
+import TokenService from '../services/token-service'
 import './NPFFabrics.css'
 
 const NPFFabrics = props => {
@@ -30,8 +31,8 @@ const NPFFabrics = props => {
     } = props
 
     const addCertification = certification => {
-        fabricProps.setCertificationList([
-            ...fabricProps.certificationList,
+        fabricProps.setCertificationArray([
+            ...fabricProps.certificationArray,
             {
                 id: certification.id,
                 name: certification.name,
@@ -48,8 +49,8 @@ const NPFFabrics = props => {
     }
 
     const addFactory = newFactory => {
-        fabricProps.setFactoryList([
-            ...fabricProps.factoryList,
+        fabricProps.setFactoryArray([
+            ...fabricProps.factoryArray,
             {
                 id: newFactory.id,
                 english_name: newFactory.english_name,
@@ -62,7 +63,7 @@ const NPFFabrics = props => {
     }
 
     const addFiber = () => {
-        const initialCertChecks = fabricProps.certificationList.map(c => [c.name, false])
+        const initialCertChecks = fabricProps.certificationArray.map(c => [c.name, false])
         const initialObject = Object.fromEntries(initialCertChecks)
 
         setFiberFieldsets([
@@ -79,8 +80,8 @@ const NPFFabrics = props => {
     }
 
     const addFiberType = newFiberType => {
-        fabricProps.setFiberTypeList([
-            ...fabricProps.fiberTypeList,
+        fabricProps.setFiberTypeArray([
+            ...fabricProps.fiberTypeArray,
             newFiberType
         ])
     }
@@ -147,8 +148,8 @@ const NPFFabrics = props => {
     }
 
     const makeFactoryOptions = factType => {
-        const factoryQty = fabricProps.factoryList.length
-        const factories = fabricProps.factoryList.slice(1, factoryQty)
+        const factoryQty = fabricProps.factoryArray.length
+        const factories = fabricProps.factoryArray.slice(1, factoryQty)
         const alphaFactories = factories.sort((a, b) => a.english_name > b.english_name ? 1 : -1)
 
         const formatedFactories = alphaFactories.map(mill => (
@@ -175,8 +176,8 @@ const NPFFabrics = props => {
     }
 
     const makeFiberOptions = () => {
-        const fiberQty = fabricProps.fiberTypeList.length
-        const fibers = fabricProps.fiberTypeList.slice(1, fiberQty)
+        const fiberQty = fabricProps.fiberTypeArray.length
+        const fibers = fabricProps.fiberTypeArray.slice(1, fiberQty)
         const alphaFibers = fibers.sort((a, b) => a.english_name > b.english_name ? 1 : -1)
 
         const formattedFibers = alphaFibers.map(fiberType => (
@@ -318,7 +319,10 @@ const NPFFabrics = props => {
 
         const postRequestParams = {
             method: 'POST',
-            headers: { 'Content-type': 'application/json' },
+            headers: { 
+                'Content-type': 'application/json',
+                'Authorization': `basic ${TokenService.getAuthToken()}`
+            },
             body: JSON.stringify(data)
         }
 
@@ -359,14 +363,17 @@ const NPFFabrics = props => {
         }
     }
 
-    const submitFiber = () => {
+    const submitFiberType = () => {
         const data = {
             "english_name": fabricProps.formatName(fabricProps.newFiber.name)
         }
 
         const postRequestParams = {
             method: 'POST',
-            headers: { 'Content-type': 'application/json' },
+            headers: { 
+                'Content-type': 'application/json',
+                'Authorization': `basic ${TokenService.getAuthToken()}`
+            },
             body: JSON.stringify(data)
         }
 
@@ -403,7 +410,10 @@ const NPFFabrics = props => {
 
         const postRequestParams = {
             method: 'POST',
-            headers: { 'Content-type': 'application/json' },
+            headers: { 
+                'Content-type': 'application/json',
+                'Authorization': `basic ${TokenService.getAuthToken()}`
+            },
             body: JSON.stringify(data)
         }
 
@@ -454,7 +464,10 @@ const NPFFabrics = props => {
 
         const postRequestParams = {
             method: 'POST',
-            headers: { 'Content-type': 'application/json' },
+            headers: { 
+                'Content-type': 'application/json',
+                'Authorization': `basic ${TokenService.getAuthToken()}`
+            },
             body: JSON.stringify(data)
         }
 
@@ -524,7 +537,10 @@ const NPFFabrics = props => {
 
             const postRequestParams = {
                 method: 'POST',
-                headers: { 'Content-type': 'application/json' },
+                headers: {
+                'Content-type': 'application/json',
+                'Authorization': `basic ${TokenService.getAuthToken()}`
+                },
                 body: JSON.stringify(data)
             }
 
@@ -638,7 +654,7 @@ const NPFFabrics = props => {
                     prompt='Does the primary fabric have any of the following certifications?'
                 >
                     <FormCheckboxSection
-                        options={fabricProps.certificationList} 
+                        options={fabricProps.certificationArray} 
                         selectedOptions={certChecks}
                         handleChange={event => fabCertChange(event)}
                     />
@@ -662,7 +678,7 @@ const NPFFabrics = props => {
 
                 {fiberFieldsets.map((fiberFieldset, index) => {
                     const fiberCertOptions = () => {
-                        const formattedCerts = fabricProps.certificationList.map(cert => (
+                        const formattedCerts = fabricProps.certificationArray.map(cert => (
                             {
                                 ...cert,
                                 id: index + '-' + cert.id
@@ -697,6 +713,29 @@ const NPFFabrics = props => {
                             buttonText='Add a fiber or material type'
                             handleClick={() => fabricProps.setFiberPopUp(true)}
                         />
+
+                        <FormPopUp
+                            id={'fabric' + id + 'new-fiber'} 
+                            status={fibPopUpStatus()}
+                            title='New Fiber'
+                            close={() => handleClose()}
+                            submit={() => submitFiberType(index)}
+                            buttonText='Submit fiber'
+                        >
+                            <FormTextInput 
+                                id={'fabric' + id + 'new-fiber-name'}
+                                name='name'
+                                prompt='Fiber name'
+                                currentValue={fabricProps.newFiber.name}
+                                handleChange={event => {
+                                    fabricProps.setNewFiber(
+                                        {
+                                            name: event.target.value
+                                        }
+                                    )
+                                }} 
+                            />
+                        </FormPopUp>
 
                         <FormNumberInput 
                             id={'fiber-type-percentage-' + index}
@@ -909,29 +948,6 @@ const NPFFabrics = props => {
             </FormPopUp>
 
             <FormPopUp
-                id={'new-fiber'} 
-                status={fibPopUpStatus()}
-                title='New Fiber'
-                close={() => handleClose()}
-                submit={() => submitFiber()}
-                buttonText='Submit fiber'
-            >
-                <FormTextInput 
-                    id={'new-fiber-name'}
-                    name='name'
-                    prompt='Fiber name'
-                    currentValue={fabricProps.newFiber.name}
-                    handleChange={event => {
-                        fabricProps.setNewFiber(
-                            {
-                                name: event.target.value
-                            }
-                        )
-                    }} 
-                />
-            </FormPopUp>
-
-            <FormPopUp
                 id={id + 'NewCert'} 
                 status={certPopUpStatus()}
                 title='New Certification'
@@ -970,15 +986,15 @@ NPFFabrics.defaultProps = {
         wovKnitNotes: ''
     },
     fabricProps: {
-        certificationList: [],
+        certificationArray: [],
         certPopUp: false,
         countries: [],
         currentPage: 0,
         dyeFactPopUp: false,
         initCerts: {},
-        factoryList: [],
+        factoryArray: [],
         fiberPopUp: false,
-        fiberTypeList: [],
+        fiberTypeArray: [],
         millPopUp: false,
         newCert: {
             name: '',
@@ -1005,11 +1021,11 @@ NPFFabrics.defaultProps = {
             notes: ''
         },
         producerPopUp: false,
-        setCertificationList: () => {},
-        setFiberTypeList: () => {},
+        setCertificationArray: () => {},
+        setFiberTypeArray: () => {},
         setCertPopUp: () => {},
         setDyeFactPopUp: () => {},
-        setFactoryList: () => {},
+        setFactoryArray: () => {},
         setFiberPopUp: () => {},
         setInitCerts: () => {},
         setMillPopUp: () => {},

@@ -21,6 +21,7 @@ import NPFSizes from '../NPFSizes/NPFSizes'
 import NPFSubmit from '../NPFSubmit/NPFSubmit'
 import ScrollToTop from '../ScrollToTop/ScrollToTop'
 import config from '../config'
+import TokenService from '../services/token-service'
 import './NewProductForm.css'
 
 const makeCurrencyOptions = currencies.map((currency, index) => {
@@ -53,20 +54,20 @@ const dropDownCountries = [
     ...formatedCountries
 ]
 
-
 const NewProductForm = props => {
     const {
         brandArray,
         brandId,
-        certificationList,
-        factoryList,
+        certificationArray,
+        factoryArray,
         setBrandArray,
         setBrandId,
-        setCertificationList,
-        setFactoryList,
+        setCertificationArray,
+        setFactoryArray,
     } = props
-    const [fiberTypeList, setFiberTypeList] = useState([])
-    const [notionTypeList, setNotionTypeList] = useState([])
+
+    const [fiberTypeArray, setFiberTypeArray] = useState([])
+    const [notionTypeArray, setNotionTypeArray] = useState([])
 
     useEffect(() => {
         const getRequestParams = {
@@ -74,20 +75,6 @@ const NewProductForm = props => {
             headers: {
                 'Content-type': 'application/json'
             }
-        }
-        
-        const getFactories = () => {
-          fetch(`${config.API_URL}/api/factories`, getRequestParams)
-            .then(response => {
-                if (response.status >= 400) {
-                    console.log('There was a problem.  Status code: ' + response.status)
-                    throw new Error("Server responded with an error!")
-                }
-                return response.json()
-            })
-            .then(factoryArray => {
-                setFactoryList(factoryArray)
-            })
         }
 
         const getFiberTypes = () => {
@@ -99,8 +86,8 @@ const NewProductForm = props => {
                     }
                     return response.json()
                 })
-                .then(fiberTypeList => {
-                    setFiberTypeList(fiberTypeList)
+                .then(fiberTypeArray => {
+                    setFiberTypeArray(fiberTypeArray)
                 })
         }
 
@@ -114,13 +101,12 @@ const NewProductForm = props => {
                     return response.json()
                 })
                 .then(notionTypeArray => {
-                    setNotionTypeList(notionTypeArray)
+                    setNotionTypeArray(notionTypeArray)
                 })
         }
-        getFactories()
         getFiberTypes()
         getNotionTypes()
-    }, [setFactoryList])
+    }, [])
 
 // STATE
     // FORM PAGE
@@ -139,7 +125,7 @@ const NewProductForm = props => {
 
     // CERTIFICATIONS
     const [initCerts, setInitCerts] = useState({})
-    const initialCertChecks = certificationList.map(c => [c.name, false])
+    const initialCertChecks = certificationArray.map(c => [c.text, false])
     const initialObject = Object.fromEntries(initialCertChecks)
 
     // COLOR AND IMAGE STATE
@@ -292,12 +278,11 @@ const NewProductForm = props => {
 
     // SET INITIAL CHECKBOX STATE VALUES
         // CERTIFICATION CHECKBOX VALUES
-        React.useEffect(() => {
-            const initialCertChecks = certificationList.map(c => [c.name, false])
+        useEffect(() => {
+            const initialCertChecks = certificationArray.map(c => [c.text, false])
             const initialObject = Object.fromEntries(initialCertChecks)
-
             setInitCerts(initialObject)
-        }, [certificationList])
+        }, [certificationArray])
         
         // PERMITTED CATEGORIES
         const initialPCategories = formData.permittedCategories.map(cert => [cert.id, false])
@@ -328,6 +313,36 @@ const NewProductForm = props => {
             return sizeObject
         }
         const [selectedSizeOptions, setSelectedSizeOptions] = useState(allSizeIds())
+
+    // PREPARE FORM
+    // const NPFContent = () => {
+    //     if (TokenService.getAuthToken()) {
+    //         return <FormButton 
+    //             buttonText='START'
+    //             handleClick={() => setPage(currentPage + 1)}
+    //         />
+    //     } else {
+    //         return <div className='login-links'>
+    //             <p>
+    //                 Want to add a product to Veronaut's product listings?
+    //             </p>
+
+    //             <p>
+    //                 To get started, sign into your account or create an account now.
+    //             </p>
+                
+    //             <Link
+    //                 to='/login'>
+    //                 Log in
+    //             </Link>
+    
+    //             <Link 
+    //                 to='/create-account'>
+    //                 Create an account
+    //             </Link>
+    //         </div> 
+    //     }
+    // }
 
     // PREPARE DATA
     const certArray = certObject => {
@@ -488,7 +503,10 @@ const NewProductForm = props => {
     // POST THE DATA
         const postRequestParams = {
             method: 'POST',
-            headers: { 'Content-type': 'application/json' },
+            headers: { 
+                'Content-type': 'application/json',
+                'Authorization': `basic ${TokenService.getAuthToken()}`
+            },
             body: JSON.stringify(data)
         }
 
@@ -539,15 +557,15 @@ const NewProductForm = props => {
     )
 
     const fabricProps = {
-        certificationList: certificationList,
+        certificationArray: certificationArray,
         certPopUp: certPopUp,
         countries: dropDownCountries,
         currentPage: currentPage,
         dyeFactPopUp: dyeFactPopUp,
         initCerts: initCerts,
-        factoryList: factoryList,
+        factoryArray: factoryArray,
         fiberPopUp: fiberPopUp,
-        fiberTypeList: fiberTypeList,
+        fiberTypeArray: fiberTypeArray,
         formatName: formatName,
         formatUrl: formatUrl,
         millPopUp: millPopUp,
@@ -557,10 +575,10 @@ const NewProductForm = props => {
         newMill: newMill,
         newProducer: newProducer,
         producerPopUp: producerPopUp,
-        setCertificationList: setCertificationList,
+        setCertificationArray: setCertificationArray,
         setDyeFactPopUp: setDyeFactPopUp,
-        setFiberTypeList: setFiberTypeList,
-        setFactoryList: setFactoryList,
+        setFiberTypeArray: setFiberTypeArray,
+        setFactoryArray: setFactoryArray,
         setCertPopUp: setCertPopUp,
         setFiberPopUp: setFiberPopUp,
         setInitCerts: setInitCerts,
@@ -747,22 +765,22 @@ const NewProductForm = props => {
         <NPFNotions
             backPageTurns={backPageTurns}
             fabricProps={fabricProps}
-            fiberTypeList={fiberTypeList}
+            fiberTypeArray={fiberTypeArray}
             materialPopUp={materialPopUp}
             newNotionMaterial={newNotionMaterial}
             newNotionType={newNotionType}
             notFactPopUp={notFactPopUp}
             notionFields={notionFields}
-            notionTypeList={notionTypeList}
+            notionTypeArray={notionTypeArray}
             notionTypePopUp={notionTypePopUp}
-            setFiberTypeList={setFiberTypeList}
+            setFiberTypeArray={setFiberTypeArray}
             setNewNotionMaterial={setNewNotionMaterial}
             setNewNotionType={setNewNotionType}
             setNotFactPopUp={setNotFactPopUp}
             setNotionTypePopUp={setNotionTypePopUp}
             setMaterialPopUp={setMaterialPopUp}
             setNotionFields={setNotionFields}
-            setNotionTypeList={setNotionTypeList}
+            setNotionTypeArray={setNotionTypeArray}
         />
     )
 
@@ -868,8 +886,11 @@ const NewProductForm = props => {
 
     const start = (
         <div>
-            <FormPage title='Add a Product'>
-                <FormButton buttonText='START' handleClick={() => setPage(currentPage + 1)}/>
+            <FormPage title='Add a product'>
+                {<FormButton 
+                    buttonText='START'
+                    handleClick={() => setPage(currentPage + 1)}
+            />}
             </FormPage>
         </div>
     )
@@ -887,7 +908,7 @@ const NewProductForm = props => {
         start,
         prohibitedFibers,
         permittedCategories,
-        notPermitted,
+        notPermitted, 
         brand,
         newProduct,
         manufacturing,
@@ -903,13 +924,12 @@ const NewProductForm = props => {
         finish
     ]
 
-    if (Object.keys(manCertChecks) < 1) {
-        return <div> Loading... </div>
-    } else if (Object.keys(manCertChecks) < 1) {
-        return <div> Loading... </div>
-    } else if (Object.keys(manCertChecks) < 1) {
-        return <div> Loading... </div>
-    } else if (Object.keys(manCertChecks) < 1) {
+    if (
+        certificationArray.length < 1
+        || factoryArray.length < 1 
+        || fiberTypeArray.length < 1
+        || notionTypeArray.length < 1
+    ) { 
         return <div> Loading... </div>
     } else {
         return (
@@ -923,11 +943,11 @@ const NewProductForm = props => {
 NewProductForm.defaultProps = {
     brandArray: [],
     brandId: 0,
-    certificationList: [],
-    factoryList: [],
+    certificationArray: [],
+    factoryArray: [],
     setBrandId: () => {},
-    setCertificationList: () => {},
-    setFactoryList: () => {}
+    setCertificationArray: () => {},
+    setFactoryArray: () => {}
 }
 
 export default NewProductForm

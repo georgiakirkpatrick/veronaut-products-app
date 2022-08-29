@@ -6,11 +6,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import '../FontAwesomeIcons/FontAwesomeIcons'
 import Backdrop from '../Backdrop/Backdrop'
 import MenuItem from '../MenuItem/MenuItem'
+import TokenService from '../services/token-service'
 import './Header.css'
 
 const Header = props => {
     const {
-        categoryList,
+        categoryArray,
         background
     } = props
 
@@ -21,6 +22,35 @@ const Header = props => {
     const handleCloseClick = () => {
         setMobMenuOpen(false)
     }
+
+    const handleLogOutClick = () => {
+        setMobMenuOpen(false)
+        TokenService.clearAuthToken()
+    }
+
+    const logInOutToggle = () => TokenService.hasAuthToken() 
+        ? handleLogOutClick()
+        : setMobMenuOpen(false)
+
+    const logInLink = <MenuItem
+            to='/login'
+            itemType='primary'
+            setActiveMenu={setActiveMenu}
+        >
+        Log in
+    </MenuItem>
+
+    const logOutLink = <MenuItem
+        // to='/'
+        itemType='primary'
+        setActiveMenu={setActiveMenu}
+    >
+        Log out
+    </MenuItem>
+
+    const accountLink = TokenService.hasAuthToken() 
+        ? logOutLink
+        : logInLink
 
     const makeCategorySlug = categoryName => {
         return categoryName
@@ -76,8 +106,8 @@ const Header = props => {
                     timeout={0} //defines length of animation
                     className='Header__menu-primary'
                 >
-                    <div>
-                        <div className='Header__primary-item' onClick={handleCloseClick}>
+                    <ul>
+                        <li className='Header__primary-item' onClick={handleCloseClick}>
                             <MenuItem
                                 to='/'
                                 itemType='primary'
@@ -85,9 +115,9 @@ const Header = props => {
                             >
                                 Home
                             </MenuItem>
-                        </div>
+                        </li>
                         
-                        <div className='Header__primary-item'>
+                        <li className='Header__primary-item'>
                             <MenuItem
                                 to='#'
                                 itemType='primary'
@@ -97,9 +127,9 @@ const Header = props => {
                             >
                                 Categories
                             </MenuItem>
-                        </div>
+                        </li>
 
-                        <div className='Header__primary-item'  onClick={handleCloseClick}>
+                        <li className='Header__primary-item'  onClick={handleCloseClick}>
                             <MenuItem
                                 to='/about'
                                 itemType='primary'
@@ -107,9 +137,19 @@ const Header = props => {
                             >
                                 About
                             </MenuItem>
-                        </div>
+                        </li>
 
-                        <div className='Header__primary-item' onClick={handleCloseClick}>
+                        <li className='Header__primary-item'  onClick={handleCloseClick}>
+                            <MenuItem
+                                to='/account'
+                                itemType='primary'
+                                setActiveMenu={setActiveMenu} 
+                            >
+                                Account
+                            </MenuItem>
+                        </li>
+
+                        <li className='Header__primary-item' onClick={handleCloseClick}>
                             <MenuItem
                                 to='/add-product'
                                 itemType='primary'
@@ -117,28 +157,12 @@ const Header = props => {
                             >
                                 Add a Product
                             </MenuItem>
-                        </div>
+                        </li>
 
-                        <div className='Header__primary-item' onClick={handleCloseClick}>
-                            <MenuItem
-                                to='/create-account'
-                                itemType='primary'
-                                setActiveMenu={setActiveMenu}
-                            >
-                                Create an account
-                            </MenuItem>
-                        </div>
-
-                        <div className='Header__primary-item' onClick={handleCloseClick}>
-                            <MenuItem
-                                to='/login'
-                                itemType='primary'
-                                setActiveMenu={setActiveMenu}
-                            >
-                                Log in
-                            </MenuItem>
-                        </div>
-                    </div>
+                        <li className='Header__primary-item' onClick={logInOutToggle}>
+                            {accountLink}
+                        </li>
+                    </ul>
                 </CSSTransition>
 
                 <CSSTransition 
@@ -163,8 +187,8 @@ const Header = props => {
                             Categories
                         </MenuItem>
 
-                        {categoryList.map(category => {
-                            const slug = makeCategorySlug(category.english_name)
+                        {categoryArray.map(category => {
+                            const slug = makeCategorySlug(category.text)
                             return (
                                 <div key={category.id} className='Header__secondary-item' onClick={handleCloseClick}>
                                     <MenuItem
@@ -174,7 +198,7 @@ const Header = props => {
                                         setActiveMenu={setActiveMenu}
                                         handleCloseClick={handleCloseClick}
                                     >
-                                        {category.english_name}    
+                                        {category.text}    
                                     </MenuItem>
                                 </div>
                             )
@@ -187,7 +211,7 @@ const Header = props => {
 }
 
 Header.defaultProps = {
-    categoryList: []
+    categoryArray: []
 }
 
 export default Header

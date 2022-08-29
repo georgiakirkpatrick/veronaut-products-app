@@ -4,12 +4,13 @@
 
 .Header {
     border: none;
-    top: 0;
-    left: 0;
+    /* top: 0;
+    left: 0; */
     height: 10vh;
     width: 100%;
     font: 400 'Poppins', sans-serif;
     z-index: 1;
+    /* position: relative; */
 }
 
 .Header a {
@@ -212,7 +213,7 @@ Header.dark .Header__menu a:hover {
 
 @media screen and (min-width: 1024px) {
     .Header {
-        padding: 5vw;
+        padding: 0 5vw;
     }
 }
 

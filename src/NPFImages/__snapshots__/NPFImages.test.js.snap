@@ -46,7 +46,7 @@ exports[`NPFImages render the UI as expected 1`] = `
           <p
             className="FormPromptWithSub__subtitle"
           >
-            Enter the image URLs of up to four product images in test name, one URL per line.
+            Enter the image URLs of up to four product images in Test name, one URL per line.
           </p>
         </div>
         <div

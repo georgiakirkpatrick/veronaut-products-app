@@ -4,15 +4,15 @@ import './AllCategories.css'
 
 const AllCategories = props => {
     const {
-        categoryList
+        categoryArray
     } = props
 
-    const categories = categoryList.map(category => (
+    const categories = categoryArray.map(category => (
         <Category
             key={category.id}
             id={category.id}
-            imgAlt={category.english_name}
-            categoryName={category.english_name}
+            imgAlt={category.text}
+            categoryName={category.text}
         />
     ))
 
@@ -34,7 +34,7 @@ const AllCategories = props => {
 }
 
 AllCategories.defaultProps = {
-    categoryList: []
+    categoryArray: []
 }
 
 export default AllCategories

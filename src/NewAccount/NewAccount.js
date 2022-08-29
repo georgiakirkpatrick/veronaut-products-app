@@ -1,18 +1,79 @@
 import React, { useState } from 'react'
+import config from '../config'
 import { Link } from 'react-router-dom'
 import FormButton from '../FormButton/FormButton'
 import FormTitle from '../FormTitle/FormTitle'
 import FormTextInput from '../FormTextInput/FormTextInput'
+import TokenService from '../services/token-service'
 import './NewAccount.css'
 
-const NewAccount = () => {
-    const [createEmail, setCreateEmail] = useState('')
-    const [createPassword, setCreatePassword] = useState('')
-    const [repeatPassword, setRepeatPassword] = useState('')
+const NewAccount = props => {
+    const { routeProps } = props
+
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
+
+    const submitNewAccount = () => {
+        const missingFields = []
+
+        const requiredFields = {
+            email: email,
+            password: password
+        }
+
+        Object.keys(requiredFields).forEach(key => {
+            !requiredFields[key] && missingFields.push(key.replace( /([A-Z])/g, " $1" ).toLowerCase())
+        })
+
+        if (missingFields.length === 1) {
+            alert(`Please complete the '${missingFields[0]}' field`)
+        } else if (missingFields.length > 1) {
+            alert(`Please complete the following fields: ${missingFields.map(field => `
+                ${field}`)}
+            `)
+        } else if (password !== confirmPassword) {
+            alert(`The passwords do not match`)
+        } else if (missingFields.length === 0) {
+            const data = {
+                "email": email,
+                "password": password       
+            }
+
+            const postRequestParams = {
+                method: 'POST',
+                headers: { 
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            }
+
+            fetch(`${config.API_URL}/api/users`,
+                postRequestParams
+            )
+            .then(response => {
+                if (response.status >= 400) {
+                    throw new Error('Server responded with an error!')
+                }
+                return response.json()
+            })
+            .then(responseJson => {
+                TokenService.saveAuthToken(
+                    TokenService.makeBasicAuthToken(responseJson.email, responseJson.password)
+                )
+            })
+
+            routeProps.history.goBack()
+            
+            setEmail('')
+            setPassword('')
+            setConfirmPassword('')
+        }
+    }
 
     return (
         <form 
-        className='NewAccount'
+            className='NewAccount'
         >
             <header>
                 <FormTitle titleText='Create an account' />
@@ -22,31 +83,31 @@ const NewAccount = () => {
                 <FormTextInput
                     id='create-email'
                     prompt='Email'
-                    name='createEmail'
-                    currentValue={createEmail}
-                    handleChange={event => {setCreateEmail(event.target.value)}}
+                    name='email'
+                    currentValue={email}
+                    handleChange={event => {setEmail(event.target.value)}}
                 />
 
                 <FormTextInput
                     id='create-password'
                     prompt='Password'
-                    name='createPassword'
-                    currentValue={createPassword}
-                    handleChange={event => {setCreatePassword(event.target.value)}}
+                    name='password'
+                    currentValue={password}
+                    handleChange={event => {setPassword(event.target.value)}}
                 />
 
                 <FormTextInput
                     id='repeat-password'
                     prompt='Repeat password'
-                    name='repeatPassword'
-                    currentValue={repeatPassword}
-                    handleChange={event => {setRepeatPassword(event.target.value)}}
+                    name='confirmPassword'
+                    currentValue={confirmPassword}
+                    handleChange={event => {setConfirmPassword(event.target.value)}}
                 />
             </fieldset>
 
             <FormButton 
                 buttonText='CREATE ACCOUNT'
-                handleClick={() => {}}
+                handleClick={() => submitNewAccount()}
             />
 
             <Link to='/login'>Log in</Link>

@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NPFPermittedCategories renders the UI as expected 1`] = `
-<div>
+<div
+  className="NPFPermittedCategories"
+>
   <section
     className="FormPage"
   >

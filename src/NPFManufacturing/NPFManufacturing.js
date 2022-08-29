@@ -10,6 +10,7 @@ import FormTextInput from '../FormTextInput/FormTextInput'
 import FormUrlInput from '../FormUrlInput/FormUrlInput'
 import FormPopUp from '../FormPopUp/FormPopUp'
 import FormPromptWithSub from '../FormPromptWithSub/FormPromptWithSub'
+import TokenService from '../services/token-service'
 import config from '../config'
 
 const NPFManufacturing = props => {
@@ -22,18 +23,18 @@ const NPFManufacturing = props => {
         fabricProps,
         setCutFact,
         setCutFactPopUp,
-        sewFact,
-        sewFactPopUp,
         setCertChecks,
         setCmtNotes,
         setPage,
         setSewFact,
-        setSewFactPopUp
+        setSewFactPopUp,
+        sewFact,
+        sewFactPopUp
     } = props
 
     const makeFactoryOptions = () => {
-        const factoryQty = fabricProps.factoryList.length
-        const mills = fabricProps.factoryList.slice(1, factoryQty)
+        const factoryQty = fabricProps.factoryArray.length
+        const mills = fabricProps.factoryArray.slice(1, factoryQty)
         const alphaMills = mills.sort((a, b) => a.english_name > b.english_name ? 1 : -1)
 
         const formatedMills = alphaMills.map(mill => (
@@ -60,8 +61,8 @@ const NPFManufacturing = props => {
     }
 
     const addFactory = (stage, factory) => {
-        fabricProps.setFactoryList([
-            ...fabricProps.factoryList,
+        fabricProps.setFactoryArray([
+            ...fabricProps.factoryArray,
             {
                 "id": Number(factory.id),
                 "english_name": factory.english_name,
@@ -93,7 +94,10 @@ const NPFManufacturing = props => {
 
         const postRequestParams = {
             method: 'POST',
-            headers: { 'Content-type': 'application/json' },
+            headers: { 
+                'Content-type': 'application/json',
+                'Authorization': `basic ${TokenService.getAuthToken()}`
+            },
             body: JSON.stringify(data)
         }
 
@@ -170,19 +174,20 @@ const NPFManufacturing = props => {
 
     // CERTIFICATIONS
     const addCertification = certification => {
-        const newCertList = [
-            ...fabricProps.certificationList,
+        const newCertArray = [
+            ...fabricProps.certificationArray,
             {
                 id: certification.id,
-                name: certification.name,
-                text: certification.english_name,
+                text: certification.text,
+                value: certification.id,
                 website: certification.website,
-                approved: certification.approved_by_admin
+                approved: certification.approved,
+                published: certification.published
             }
         ]
             
-        newCertList.sort((a, b) => a.text > b.text ? 1 : -1)
-        fabricProps.setCertificationList(newCertList)
+        newCertArray.sort((a, b) => a.text > b.text ? 1 : -1)
+        fabricProps.setCertificationArray(newCertArray)
     }
 
     const certificationChange = event => {
@@ -218,7 +223,10 @@ const NPFManufacturing = props => {
 
         const postRequestParams = {
             method: 'POST',
-            headers: { 'Content-type': 'application/json' },
+            headers: { 
+                'Content-type': 'application/json',
+                'Authorization': `basic ${TokenService.getAuthToken()}`
+            },
             body: JSON.stringify(data)
         }
 
@@ -377,7 +385,7 @@ const NPFManufacturing = props => {
                 >
                     <FormCheckboxSection
                         prompt=''
-                        options={fabricProps.certificationList}
+                        options={fabricProps.certificationArray}
                         selectedOptions={certChecks}
                         handleChange={event => certificationChange(event)}
                     />
@@ -522,7 +530,7 @@ const NPFManufacturing = props => {
                     id='man-cert-name'
                     name='name'
                     prompt='Certification name'
-                    currentValue={fabricProps.newCert.name}
+                    currentValue={fabricProps.newCert.text}
                     handleChange={event => newCertChangeInput(event)} 
                 />
                 
@@ -546,14 +554,14 @@ NPFManufacturing.defaultProps = {
         factoryId: ''
     },
     fabricProps: {
-        certificationList: [],
+        certificationArray: [],
         certPopUp: false,
         countries: [],
         currentPage: 0,
         factPopUp: false,
-        factoryList: [],
+        factoryArray: [],
         fiberPopUp: false,
-        fiberTypeList: [],
+        fiberTypeArray: [],
         millPopUp: false,
         newCert: {
             name: '',
@@ -574,9 +582,9 @@ NPFManufacturing.defaultProps = {
             website: '',
             notes: ''
         },
-        setCertificationList: () => {},
-        setFiberTypeList: () => {},
-        setFactoryList: () => {},
+        setCertificationArray: () => {},
+        setFiberTypeArray: () => {},
+        setFactoryArray: () => {},
         setCertPopUp: () => {},
         setFiberPopUp: () => {},
 

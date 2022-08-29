@@ -19,7 +19,7 @@ const Footer = () => {
             </div>
             <form>
                 <p>
-                    Love facts?  Put your email address here and we'll send you some! 
+                    Love facts?  We'll send you some! 
                 </p>
 
                 <fieldset>

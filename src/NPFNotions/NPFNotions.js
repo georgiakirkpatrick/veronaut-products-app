@@ -12,34 +12,41 @@ import FormTextarea from '../FormTextarea/FormTextarea'
 import FormTextInput from '../FormTextInput/FormTextInput'
 import FormUrlInput from '../FormUrlInput/FormUrlInput'
 import NPFFooter from '../NPFFooter/NPFFooter'
+import TokenService from '../services/token-service'
 import './NPFNotions.css'
 
 const NPFNotions = props => {
     const {
         backPageTurns,
         fabricProps,
-        fiberTypeList,
+        fiberTypeArray,
         materialPopUp,
         newNotionMaterial,
         newNotionType,
         notFactPopUp,
         notionFields,
-        notionTypeList,
+        notionTypeArray,
         notionTypePopUp,
         setCertChecks,
-        setFiberTypeList,
+        setFiberTypeArray,
         setNewNotionMaterial,
         setNewNotionType,
         setNotFactPopUp,
         setNotionTypePopUp,
         setMaterialPopUp,
         setNotionFields,
-        setNotionTypeList
+        setNotionTypeArray
     } = props
 
+    console.log('notionFields', notionFields)
+
+    const notionsClass = notionFields.length === 0
+        ? 'NPFNotions empty'
+        : 'NPFNotions'
+
     const addCertification = certification => {
-        fabricProps.setCertificationList([
-            ...fabricProps.certificationList,
+        fabricProps.setCertificationArray([
+            ...fabricProps.certificationArray,
             {
                 id: certification.id,
                 name: certification.name,
@@ -56,7 +63,7 @@ const NPFNotions = props => {
     }
 
     const addNotion = () => {
-        const initialCertChecks = fabricProps.certificationList.map(c => [c.name, false])
+        const initialCertChecks = fabricProps.certificationArray.map(c => [c.name, false])
         const initialObject = Object.fromEntries(initialCertChecks)
 
         setNotionFields(
@@ -77,8 +84,8 @@ const NPFNotions = props => {
     }
 
     const makeFactoryOptions = factType => {
-        const factoryQty = fabricProps.factoryList.length
-        const factories = fabricProps.factoryList.slice(1, factoryQty)
+        const factoryQty = fabricProps.factoryArray.length
+        const factories = fabricProps.factoryArray.slice(1, factoryQty)
         const alphaFactories = factories.sort((a, b) => a.english_name > b.english_name ? 1 : -1)
 
         const formattedFacts = alphaFactories.map(factory => ({
@@ -103,8 +110,8 @@ const NPFNotions = props => {
     }
 
     const makeMatTypeOptions = () => {
-        const matTypeQty = fabricProps.fiberTypeList.length
-        const matTypes = fabricProps.fiberTypeList.slice(1, matTypeQty)
+        const matTypeQty = fabricProps.fiberTypeArray.length
+        const matTypes = fabricProps.fiberTypeArray.slice(1, matTypeQty)
         const alphaMatTypes = matTypes.sort((a, b) => a.english_name > b.english_name ? 1 : -1)
 
         const materials = alphaMatTypes.map(matType => ({
@@ -128,21 +135,21 @@ const NPFNotions = props => {
         ]
     }
 
-    const makeNotCertList = index => {
-        const notCertList = []
+    const makeNotCertArray = index => {
+        const notCertArray = []
 
-        fabricProps.certificationList.forEach(cert => {
-            notCertList.push({
+        fabricProps.certificationArray.forEach(cert => {
+            notCertArray.push({
                 ...cert,
                 id: index + '-' + cert.id
             })
         })
 
-        return notCertList
+        return notCertArray
     }
 
     const makeNotTypeOptions = () => {
-        const notionTypes = notionTypeList.map(notionType => {
+        const notionTypes = notionTypeArray.map(notionType => {
             return {
                 id: notionType.id,
                 text: notionType.english_name,
@@ -273,7 +280,10 @@ const NPFNotions = props => {
 
             const postRequestParams = {
                 method: 'POST',
-                headers: { 'Content-type': 'application/json' },
+                headers: { 
+                    'Content-type': 'application/json',
+                    'Authorization': `basic ${TokenService.getAuthToken()}`
+                },
                 body: JSON.stringify(data)
             }
 
@@ -294,7 +304,7 @@ const NPFNotions = props => {
                 name: '',
                 website: ''
             })
-        }    
+        }
     }
 
     const submitNewManufacturer = index => {
@@ -307,7 +317,10 @@ const NPFNotions = props => {
 
         const postRequestParams = {
             method: 'POST',
-            headers: { 'Content-type': 'application/json' },
+            headers: { 
+                'Content-type': 'application/json',
+                'Authorization': `basic ${TokenService.getAuthToken()}`
+            },
             body: JSON.stringify(data)
         }
 
@@ -340,7 +353,7 @@ const NPFNotions = props => {
                 })
                 .then(newFactory => {
                     const newFactArray = [
-                        ...fabricProps.factoryList,
+                        ...fabricProps.factoryArray,
                         {
                             "id": Number(newFactory.id),
                             "english_name": newFactory.english_name,
@@ -354,7 +367,7 @@ const NPFNotions = props => {
                     const factory = newFactArray.length
                     const factories = newFactArray.slice(1, factory)
                     const alphaFactories = factories.sort((a, b) => a.english_name > b.english_name ? 1 : -1)
-                    fabricProps.setFactoryList(alphaFactories)
+                    fabricProps.setFactoryArray(alphaFactories)
         
                     const newNotFields = [...notionFields]
                     newNotFields[index]['factoryId'] = newFactory.id
@@ -398,12 +411,12 @@ const NPFNotions = props => {
             })
             .then(newMaterial => {
                 const matTypes = [
-                    ...fiberTypeList,
+                    ...fiberTypeArray,
                     newMaterial
                 ]
 
                 const alphaMatTypes = matTypes.sort((a, b) => a.english_name > b.english_name ? 1 : -1)
-                setFiberTypeList(alphaMatTypes)
+                setFiberTypeArray(alphaMatTypes)
                 const newNotionFields = [...notionFields]
                 newNotionFields[index]['materialTypeId'] = newMaterial.id
     
@@ -423,7 +436,10 @@ const NPFNotions = props => {
 
         const postRequestParams = {
             method: 'POST',
-            headers: { 'Content-type': 'application/json' },
+            headers: { 
+                'Content-type': 'application/json',
+                'Authorization': `basic ${TokenService.getAuthToken()}`
+            },
             body: JSON.stringify(data)
         }
 
@@ -443,7 +459,7 @@ const NPFNotions = props => {
             })
             .then(newNotionType => {
                 const newNotionArray = [
-                    ...notionTypeList,
+                    ...notionTypeArray,
                     {
                         "id": newNotionType.id,
                         "english_name": fabricProps.formatName(newNotionType.english_name),
@@ -453,7 +469,7 @@ const NPFNotions = props => {
                 ]
     
                 const alphaNotions = newNotionArray.sort((a, b) => a.english_name > b.english_name ? 1 : -1)
-                setNotionTypeList(alphaNotions)
+                setNotionTypeArray(alphaNotions)
     
                 const newNotionFields = [...notionFields]
                 newNotionFields[index]['typeId'] = newNotionType.id
@@ -466,7 +482,7 @@ const NPFNotions = props => {
     }
 
     return (
-        <div id='notions' className='NPFNotions'>
+        <div id='notions' className={notionsClass}>
             <FormPage title='Notions'>
                 <FormPromptWithSub
                     prompt='If the product includes notions such as zippers or buttons, list them here.'
@@ -658,7 +674,7 @@ const NPFNotions = props => {
                                     <FormCheckboxSection
                                         id={'notion-certifications' + index}
                                         name='certIds'
-                                        options={makeNotCertList(index)}
+                                        options={makeNotCertArray(index)}
                                         selectedOptions={notion.certIds}
                                         handleChange={event => notCertChange(index, event.target.id)}
                                     />
@@ -735,12 +751,12 @@ const NPFNotions = props => {
 
 NPFNotions.defaultProps = {
     fabricProps: {
-        certificationList: [],
+        certificationArray: [],
         certPopUp: false,
         countries: [],
         currentPage: 0,
-        factoryList: [],
-        fiberTypeList: [],
+        factoryArray: [],
+        fiberTypeArray: [],
         newCert: {
             name: '',
             website: ''
@@ -751,9 +767,9 @@ NPFNotions.defaultProps = {
             website: '',
             notes: ''
         },
-        setCertificationList: () => {},
-        setFiberTypeList: () => {},
-        setFactoryList: () => {},
+        setCertificationArray: () => {},
+        setFiberTypeArray: () => {},
+        setFactoryArray: () => {},
         setCertPopUp: () => {},
         setNewCert: () => {},
         setNewFact: () => {},
@@ -772,14 +788,14 @@ NPFNotions.defaultProps = {
             notes: ''
         }
     ],
-    notionTypeList: [],
+    notionTypeArray: [],
     notionTypePopUp: false,
     setCertChecks: () => {},
     setMaterialPopUp: () => {},
     setNotFactPopUp: () => {},
     setNewNotionType: () => {},
     setNotionFields: () => {},
-    setNotionTypeList: () => {},
+    setNotionTypeArray: () => {},
     setNotionTypePopUp: () => {}
 }
 

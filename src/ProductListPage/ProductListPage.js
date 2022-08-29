@@ -5,7 +5,7 @@ import './ProductListPage.css'
 
 const ProductListPage = props => {
     const {
-        categoryList,
+        categoryArray,
         productArray,
         routeProps,
         setProductArray
@@ -20,7 +20,7 @@ const ProductListPage = props => {
 
     const listTitle = routeProps.match.path === '/'
         ? 'New products'
-        : categoryList[categoryId - 1].english_name
+        : categoryArray[categoryId - 1].text
 
     useEffect(() => {
         const getProductsForCategory = id => {
@@ -92,14 +92,14 @@ const ProductListPage = props => {
     const productList = <ul className='ProductListPage__product-list'>
         {productArray.map(product => (
             <Product
-                brand={product.brand_name}
-                id={product.id}
-                imgAlt={product.brand_name + ' ' + product.english_name}
-                key={product.id}
-                pathToImg={product.feature_image_url}
-                price={product.cost_in_home_currency}
-                productSlug={makeProductSlug(product)}
-                productTitle={product.english_name}
+                brand={product.productObject.brand_name}
+                id={product.productObject.id}
+                imgAlt={product.productObject.brand_name + ' ' + product.productObject.english_name}
+                key={product.productObject.id}
+                pathToImg={product.productObject.feature_image_url}
+                price={product.productObject.cost_in_home_currency}
+                productSlug={makeProductSlug(product.productObject)}
+                productTitle={product.productObject.english_name}
             />
         ))}
     </ul>
@@ -134,7 +134,7 @@ const ProductListPage = props => {
 }
 
 ProductListPage.defaultProps = {
-    categoryList: [
+    categoryArray: [
         {
             category_class: '',
             english_name: '',

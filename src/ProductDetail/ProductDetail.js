@@ -15,7 +15,7 @@ const ProductDetail = props => {
     const {
         buyClick,
         certArray,
-        factoryList,
+        factoryArray,
         productArray,
         routeProps,
         setProductArray
@@ -103,6 +103,7 @@ const ProductDetail = props => {
             })
             .then(productObject => {
                 const colsWithImgs = []
+
                 productObject.prodColorArray.forEach(color => {
                     const imagesForColor = []
                     
@@ -132,18 +133,16 @@ const ProductDetail = props => {
                     }
                 })
 
-                const filteredColorArray = () => {
-                    return colsWithImgs.reduce((newArray, color) => {
-                        const hasColor = !!newArray.find(uniqueColor => (
-                            uniqueColor.colorId === color.colorId
-                        ))
+                const filtColArray = () => {
+                    const filteredArray = []
 
-                        if (!hasColor) {
-                            return [...newArray, color]
-                        }
+                    colsWithImgs.forEach(color => {
+                        const hasColor = filteredArray.find(uniqueColor => uniqueColor.colorId === color.colorId)
+                        
+                        if (!hasColor) { filteredArray.push(color) }
+                    })
 
-                        return newArray
-                    }, [])
+                    return filteredArray
                 }
 
                 const notsWithCerts = productObject.prodNotArray.map(notion => {
@@ -164,7 +163,7 @@ const ProductDetail = props => {
                 const newProductObject = {
                     cmtFactArray: productObject.cmtFactArray,
                     prodCertArray: productObject.prodCertArray,
-                    prodColorArray: filteredColorArray(),
+                    prodColorArray: filtColArray(),
                     prodNotArray: notsWithCerts,
                     productObject: productObject.productObject
                 }
@@ -531,7 +530,7 @@ const ProductDetail = props => {
                         <FabricCarousel
                             certArray={certArray}
                             ordFabArray={ordFabArray}
-                            factoryList={factoryList}
+                            factoryArray={factoryArray}
                         />
                     </ProductDetailSection>
 
@@ -547,7 +546,7 @@ const ProductDetail = props => {
                         <NotionCarousel
                             certArray={certArray}
                             notionArray={product.prodNotArray}
-                            factoryList={factoryList}
+                            factoryArray={factoryArray}
                         />
                     </ProductDetailSection>
                 </div>
@@ -559,7 +558,7 @@ const ProductDetail = props => {
 ProductDetail.defaultProps = {
     buyClick: () => {},
     certArray: [],
-    factoryList: [],
+    factoryArray: [],
     productArray: [],
     routeProps: {
         match: {

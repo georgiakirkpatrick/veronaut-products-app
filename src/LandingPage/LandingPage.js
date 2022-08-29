@@ -7,10 +7,10 @@ import './LandingPage.css'
 
 const LandingPage = props => {
     const {
-        categoryList,
+        categoryArray,
         routeProps,
     } = props
-
+    
     const [newProdArray, setNewProdArray] = useState([])
 
     const principles = [
@@ -28,32 +28,23 @@ const LandingPage = props => {
         }
     ]
 
-    const testImages = [
+    const makeCategorySlug = cat => (
+        cat.text
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .replace(/\s+/g, '-')
+            .toLowerCase()
+    )
+
+    const catImages = categoryArray.map(cat => (
         {
-            id: 1,
-            url: 'https://media.sezane.com/image/upload/c_crop,fl_progressive:semi,h_1,q_auto:best,w_0.97125097125097,x_0.014374514374514,y_0/if_w_gt_2000,c_scale,w_2000/arablu6tfcvzhw7j7c7k.jpg',
-            category: 'Activewear',
-            slug: 'activewear'
-        },
-        {
-            id: 2,
-            url: 'https://n.io.nordstrommedia.com/id/sr3/f7103502-e685-4fce-be64-12fd6388f718.jpeg?trim=color&pad_color=FFF&format=jpeg&w=350&h=536&trimcolor=FFF',
-            category: 'Blazers',
-            slug: 'blazers'
-        },
-        {
-            id: 3,
-            url: 'https://media.sezane.com/image/upload/c_crop,fl_progressive:semi,h_1,q_auto:best,w_0.97125097125097,x_0.014374514374514,y_0/if_w_gt_2000,c_scale,w_2000/arablu6tfcvzhw7j7c7k.jpg',
-            category: 'Coats and Jackets',
-            slug: 'coats-and-jackets'
-        },
-        {
-            id: 4,
-            url: 'https://media.sezane.com/image/upload/c_crop,fl_progressive:semi,h_1,q_auto:best,w_0.97125097125097,x_0.014374514374514,y_0/if_w_gt_2000,c_scale,w_2000/arablu6tfcvzhw7j7c7k.jpg',
-            category: 'Dresses',
-            slug: 'dresses'
+            id: cat.id,
+            category: cat.text,
+            class: cat.category_class,
+            slug: makeCategorySlug(cat),
+            url: cat.featureImage
         }
-    ]
+    ))
 
     return (
         <section className='LandingPage'>
@@ -81,7 +72,7 @@ const LandingPage = props => {
                         <h2>Categories</h2>
                     </header>
                     
-                    <CatCarousel id='category-carousel' images={testImages}/>
+                    <CatCarousel id='category-carousel' images={catImages}/>
                 </section>
 
                 <PrincipleList
@@ -90,7 +81,7 @@ const LandingPage = props => {
 
                 <section className='LandingPage__new-products'>
                     <ProductListPage
-                        categoryList={categoryList}
+                        categoryArray={categoryArray}
                         productArray={newProdArray}
                         routeProps={routeProps}
                         setProductArray={setNewProdArray}
@@ -101,6 +92,25 @@ const LandingPage = props => {
             <EmailSignUp />
         </section>
     )
+}
+
+LandingPage.defaultProps = {
+    categoryArray: [
+        {
+            id: 0,
+            text: '',
+            value: 0,
+            class: '',
+            featureImage: ''
+        }
+    ],
+    routeProps: {
+        match: {
+            params: {
+                categoryId: '1'
+            }
+        }
+    },
 }
 
 export default LandingPage

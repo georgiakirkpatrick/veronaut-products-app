@@ -321,6 +321,63 @@ exports[`NPFFabrics render the UI as expected 1`] = `
         >
           Add a fiber or material type
         </button>
+        <section
+          className="FormPopUp"
+          id="fabric1new-fiber"
+        >
+          <button
+            className="FormPopUp__close-button"
+            onClick={[Function]}
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-times fa-w-11 fa-lg "
+              data-icon="times"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 352 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </button>
+          <header>
+            <h1>
+              New Fiber
+            </h1>
+          </header>
+          <div
+            className="FormTextInput"
+          >
+            <label
+              htmlFor="fabric1new-fiber-name"
+            >
+              Fiber name
+            </label>
+            <input
+              id="fabric1new-fiber-name"
+              name="name"
+              onChange={[Function]}
+              required={true}
+              type="text"
+              value=""
+            />
+          </div>
+          <button
+            className="FormButton"
+            onClick={[Function]}
+            type="button"
+          >
+            Submit fiber
+          </button>
+        </section>
         <div
           className="FormNumber"
         >
@@ -868,63 +925,6 @@ exports[`NPFFabrics render the UI as expected 1`] = `
       type="button"
     >
       Submit fabric mill
-    </button>
-  </section>
-  <section
-    className="FormPopUp"
-    id="new-fiber"
-  >
-    <button
-      className="FormPopUp__close-button"
-      onClick={[Function]}
-      type="button"
-    >
-      <svg
-        aria-hidden="true"
-        className="svg-inline--fa fa-times fa-w-11 fa-lg "
-        data-icon="times"
-        data-prefix="fas"
-        focusable="false"
-        role="img"
-        style={Object {}}
-        viewBox="0 0 352 512"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
-          fill="currentColor"
-          style={Object {}}
-        />
-      </svg>
-    </button>
-    <header>
-      <h1>
-        New Fiber
-      </h1>
-    </header>
-    <div
-      className="FormTextInput"
-    >
-      <label
-        htmlFor="new-fiber-name"
-      >
-        Fiber name
-      </label>
-      <input
-        id="new-fiber-name"
-        name="name"
-        onChange={[Function]}
-        required={true}
-        type="text"
-        value=""
-      />
-    </div>
-    <button
-      className="FormButton"
-      onClick={[Function]}
-      type="button"
-    >
-      Submit fiber
     </button>
   </section>
   <section

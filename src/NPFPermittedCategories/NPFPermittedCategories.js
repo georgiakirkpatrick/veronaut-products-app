@@ -41,7 +41,7 @@ const NPFPermittedCategories = props => {
     }
 
     return (
-        <div>
+        <div className='NPFPermittedCategories'>
             <FormPage title='Categories'>
                 <FormPromptWithSub
                     prompt='Does the product fall into one of the following categories?'

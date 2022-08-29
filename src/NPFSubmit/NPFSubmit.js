@@ -17,7 +17,7 @@ const NPFSubmit = props => {
     }
 
     return (
-        <div>
+        <div className='NPFSubmit'>
             <FormPage title='Ready to submit?'>
                 <FormPromptWithSub 
                     prompt="To make changes, click the 'Previous' button"

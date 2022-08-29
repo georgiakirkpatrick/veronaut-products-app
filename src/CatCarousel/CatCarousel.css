@@ -1,6 +1,12 @@
 .CatCarousel {
     overflow: scroll;
     width: 100%;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.CatCarousel::-webkit-scrollbar {
+    display: none;
 }
 
 .CatCarousel__list {

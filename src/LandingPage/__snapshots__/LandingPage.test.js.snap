@@ -63,45 +63,12 @@ exports[`LandingPage renders the UI as expected 1`] = `
           <li>
             <div>
               <img
-                alt="Activewear"
-                src="https://media.sezane.com/image/upload/c_crop,fl_progressive:semi,h_1,q_auto:best,w_0.97125097125097,x_0.014374514374514,y_0/if_w_gt_2000,c_scale,w_2000/arablu6tfcvzhw7j7c7k.jpg"
+                alt=""
+                src=""
               />
             </div>
             <p>
-              Activewear
-            </p>
-          </li>
-          <li>
-            <div>
-              <img
-                alt="Blazers"
-                src="https://n.io.nordstrommedia.com/id/sr3/f7103502-e685-4fce-be64-12fd6388f718.jpeg?trim=color&pad_color=FFF&format=jpeg&w=350&h=536&trimcolor=FFF"
-              />
-            </div>
-            <p>
-              Blazers
-            </p>
-          </li>
-          <li>
-            <div>
-              <img
-                alt="Coats and Jackets"
-                src="https://media.sezane.com/image/upload/c_crop,fl_progressive:semi,h_1,q_auto:best,w_0.97125097125097,x_0.014374514374514,y_0/if_w_gt_2000,c_scale,w_2000/arablu6tfcvzhw7j7c7k.jpg"
-              />
-            </div>
-            <p>
-              Coats and Jackets
-            </p>
-          </li>
-          <li>
-            <div>
-              <img
-                alt="Dresses"
-                src="https://media.sezane.com/image/upload/c_crop,fl_progressive:semi,h_1,q_auto:best,w_0.97125097125097,x_0.014374514374514,y_0/if_w_gt_2000,c_scale,w_2000/arablu6tfcvzhw7j7c7k.jpg"
-              />
-            </div>
-            <p>
-              Dresses
+              
             </p>
           </li>
         </ul>
