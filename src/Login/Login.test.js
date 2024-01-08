@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import renderer from 'react-test-renderer'
 import { BrowserRouter as Router } from 'react-router-dom'
 import Login from './Login'
+import { handleLoginSubmit } from './Login'
 
 describe ('Login', () => {
     it ('renders without crashing', () => {
@@ -17,4 +18,11 @@ describe ('Login', () => {
             .toJSON()
         expect(tree).toMatchSnapshot()    
     })
+
+    // it('checks that all required fields are supplied', () => {
+    //     const loginEmail = 'test@email.com'
+    //     const loginPassword = 'testpassword'
+
+    //     handleLoginSubmit()
+    // })
 })

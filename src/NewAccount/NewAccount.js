@@ -1,20 +1,22 @@
 import React, { useState } from 'react'
-import config from '../config'
+// import config from '../config'
 import { Link } from 'react-router-dom'
 import FormButton from '../FormButton/FormButton'
 import FormTitle from '../FormTitle/FormTitle'
 import FormTextInput from '../FormTextInput/FormTextInput'
-import TokenService from '../services/token-service'
+// import TokenService from '../services/token-service'
 import './NewAccount.css'
 
+const bcrypt = require("bcryptjs-react")
+
 const NewAccount = props => {
-    const { routeProps } = props
+    // const { routeProps } = props
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
 
-    const submitNewAccount = () => {
+    const submitNewAccount = event => {
         const missingFields = []
 
         const requiredFields = {
@@ -34,41 +36,53 @@ const NewAccount = props => {
             `)
         } else if (password !== confirmPassword) {
             alert(`The passwords do not match`)
-        } else if (missingFields.length === 0) {
-            const data = {
-                "email": email,
-                "password": password       
-            }
-
-            const postRequestParams = {
-                method: 'POST',
-                headers: { 
-                    'Content-type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            }
-
-            fetch(`${config.API_URL}/api/users`,
-                postRequestParams
-            )
-            .then(response => {
-                if (response.status >= 400) {
-                    throw new Error('Server responded with an error!')
-                }
-                return response.json()
-            })
-            .then(responseJson => {
-                TokenService.saveAuthToken(
-                    TokenService.makeBasicAuthToken(responseJson.email, responseJson.password)
-                )
-            })
-
-            routeProps.history.goBack()
-            
-            setEmail('')
-            setPassword('')
-            setConfirmPassword('')
         }
+        //  else if (missingFields.length === 0) {
+        //     event.preventDefault
+
+        //     const hashedPassword = pw => {
+        //         const salt = bcrypt.genSaltSync(10)
+        //         const hash = bcrypt.hashSync(pw, salt)
+    
+        //         return hash
+        //     }
+
+        //     const data = {
+        //         "email": email,
+        //         "password": hashedPassword()       
+        //     }
+
+        //     console.log('data', data)
+
+        //     const postRequestParams = {
+        //         method: 'POST',
+        //         headers: { 
+        //             'Content-type': 'application/json'
+        //         },
+        //         body: JSON.stringify(data)
+        //     }
+
+        //     fetch(`${config.API_URL}/api/users`,
+        //         postRequestParams
+        //     )
+        //     .then(response => {
+        //         if (response.status >= 400) {
+        //             throw new Error('Server responded with an error!')
+        //         }
+        //         return response.json()
+        //     })
+        //     .then(responseJson => {
+        //         TokenService.saveAuthToken(
+        //             TokenService.makeBasicAuthToken(responseJson.email, responseJson.password)
+        //         )
+        //     })
+
+        //     routeProps.history.goBack()
+            
+        //     setEmail('')
+        //     setPassword('')
+        //     setConfirmPassword('')
+        // }
     }
 
     return (

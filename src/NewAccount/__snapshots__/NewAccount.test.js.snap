@@ -24,7 +24,7 @@ exports[`NewAccount renders the UI as expected 1`] = `
       </label>
       <input
         id="create-email"
-        name="createEmail"
+        name="email"
         onChange={[Function]}
         required={true}
         type="text"
@@ -41,7 +41,7 @@ exports[`NewAccount renders the UI as expected 1`] = `
       </label>
       <input
         id="create-password"
-        name="createPassword"
+        name="password"
         onChange={[Function]}
         required={true}
         type="text"
@@ -58,7 +58,7 @@ exports[`NewAccount renders the UI as expected 1`] = `
       </label>
       <input
         id="repeat-password"
-        name="repeatPassword"
+        name="confirmPassword"
         onChange={[Function]}
         required={true}
         type="text"

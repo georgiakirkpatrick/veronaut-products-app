@@ -7,6 +7,8 @@ import FormTextInput from '../FormTextInput/FormTextInput'
 import TokenService from '../services/token-service'
 import './Login.css'
 
+const bcrypt = require("bcryptjs-react")
+
 const Login = props => {
     const {
         routeProps
@@ -61,9 +63,16 @@ const Login = props => {
         } else {
             event.preventDefault()
 
+            const hashedPassword = pw => {
+                const salt = bcrypt.genSaltSync(10)
+                const hash = bcrypt.hashSync(pw, salt)
+    
+                return hash
+            }
+
             AuthApiService.postLogin({
                 email: loginEmail,
-                password: loginPassword
+                password: hashedPassword(loginPassword)
             })
             .then(response => {
                 console.log('response', response)
