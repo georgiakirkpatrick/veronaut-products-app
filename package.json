@@ -1,29 +1,25 @@
 {
-  "name": "she-wants-pockets-app",
+  "name": "veronaut-pockets-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.30",
-    "@fortawesome/free-brands-svg-icons": "^5.15.4",
-    "@fortawesome/free-regular-svg-icons": "^5.15.1",
-    "@fortawesome/free-solid-svg-icons": "^5.15.1",
-    "@fortawesome/react-fontawesome": "^0.1.14",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "bcryptjs": "^2.4.3",
-    "cors": "^2.8.5",
-    "countries-list": "^2.6.1",
-    "currency": "^4.1.0",
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-brands-svg-icons": "^6.5.1",
+    "@fortawesome/free-regular-svg-icons": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@testing-library/jest-dom": "4.2.4",
+    "@testing-library/react": "9.5.0",
+    "@testing-library/user-event": "7.2.1",
+    "bcryptjs-react": "^2.4.6",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "^4.0.3",
-    "react-select-currency": "^1.0.7",
-    "react-transition-group": "^4.4.1",
-    "uuid": "^8.3.0"
+    "react-dom": "17.0.2",
+    "react-router-dom": "5.2.0",
+    "react-scripts": "^5.0.1",
+    "react-transition-group": "4.4.1"
   },
   "scripts": {
+    "preinstall": "npx npm-force-resolutions",
     "start": "react-scripts start",
     "predeploy": "env CI=true npm test && npm run build",
     "deploy": "vercel --prod",
@@ -47,6 +43,7 @@
     ]
   },
   "devDependencies": {
-    "react-test-renderer": "^16.13.1"
+    "react-test-renderer": "17.0.2",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.0"   
   }
 }

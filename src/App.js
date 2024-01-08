@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import config from './config'
-import '@fortawesome/react-fontawesome'
-import './FontAwesomeIcons/FontAwesomeIcons'
 import Account from './Account/Account'
 import AllCategories from './AllCategories/AllCategories'
 import Footer from './Footer/Footer'
@@ -20,6 +20,10 @@ import RequireAuth from './RequireAuth/RequireAuth'
 import ScrollToTop from './ScrollToTop/ScrollToTop'
 import './App.css'
 
+library.add(fab)
+
+console.log('hey its working 1')
+
 const App = () => {
     const [brandArray, setBrandArray] = useState([])
     const [brandId, setBrandId] = useState(0)
@@ -29,6 +33,8 @@ const App = () => {
     const [certificationArray, setCertificationArray] = useState([])
     const [factoryArray, setFactoryArray] = useState([])
     const [productArray, setProductArray] = useState([])
+
+    console.log('hey its working 2')
 
     useEffect(() => {
         const getRequestParams = {
@@ -251,22 +257,6 @@ const App = () => {
                                     setfactoryArray={setFactoryArray}
                                 />
                             </RequireAuth>
-
-                            {/* <Route path='/add-product' exact render={routeProps => (
-                                <>
-                                    <Header categoryArray={categoryArray} background='light' />
-                                    <NewProductForm
-                                        brandArray={brandArray}
-                                        brandId={brandId}
-                                        certificationArray={certificationArray}
-                                        factoryArray={factoryArray}
-                                        setBrandArray={setBrandArray}
-                                        setBrandId={setBrandId}
-                                        setCertificationArray={setCertificationArray}
-                                        setFactoryArray={setFactoryArray}
-                                    />
-                                </>
-                            )}/> */}
 
                             <Route path='/all-categories' render={routeProps => (
                                 <>
