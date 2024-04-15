@@ -1,5 +1,4 @@
-# veronaut-products-app
-Veronaut Products App
+# Veronaut Products App
 
 <a name="readme-top"></a>
 
@@ -17,6 +16,7 @@ Veronaut Products App
 
   <p align="center">
     Finding clothing and accessories that fit your body, style, budget is hard enough.  If you have sustainability standards for your fashion purchases, it can feel impossible to find products that check all the boxes.  That’s why I built Veronaut.  Veronaut presents product information alongside sustainability ratings so you can make an informed decision while shopping online - without the hours of research.
+    <br />
     <br />
     <a href="https://github.com/georgiakirkpatrick/veronaut-products-app/wiki"><strong>Explore the docs »</strong></a>
     <br />
@@ -38,7 +38,6 @@ Veronaut Products App
     <li><a href="#about-the-project">About the project</a></li>
     <li><a href="#features">Features</a></li>
     <li><a href="#getting-started">Getting started</a></li>
-    <li><a href="#features">Features</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -47,9 +46,13 @@ Veronaut Products App
 
 
 
-## About The Project
+## About the project
 
-### Built With
+Veronaut was created in 2020 as the capstone project for my Bloc (now Thinkful) Full-Stack Engineering bootcamp.  The requirements for my capstone project were to create a responsive, full-stack app using React.js, CSS, Node.js, Express, and PostgreSQL.  This was a solo project which I completed with occasional help from a mentor.
+
+The early vision of this app resulted from my professional background. Before I joined a software engineering bootcamp, I earned a biology degree with a focus on environmental conservation and additional studies in economics, conducted research of [smallholder](#smallholder) cotton farms in Peru, and founded a mission-based clothing brand, [Silvania](https://silvaniaperu.com).  My background in the fashion industry, as well as my personal experience shopping for clothes, has led me to see that finding sustainably-made clothing as a consumer is unnecessarily cumbersome.
+
+### Built with
 
 * [![React][react-shield]][react-url]
 * [![React Router][react-router-shield]][react-router-url]
@@ -60,7 +63,22 @@ Veronaut Products App
 
 
 
-## Getting Started
+## Features
+
+### Shop
+Want to buy a product listed on Veronaut?  Tap "Buy" on the product page to go to the brand's online shop where you can purchase the product.  Veronaut receive a commission on some products, but does not otherwise receive compensation from brands.
+
+### Accounts
+Create an account to save your favorite products.  To save a product as favorite, tap the heart button within each product page.  To see your list of favorite products, select "Account" from the main menu, then select "Favorites".
+
+### Add a product
+Want to add a product to Veronaut?  Use Veronaut's "Add a Product" form to submit a product.  Products are reviewed for accuracy before they are published.  To see a list of products you have added, select "Account" from the main menu, then select "Added products".
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+## Getting started
 
 To get a local copy of Veronaut Products App up and running follow these steps.
 
@@ -93,19 +111,6 @@ Install or update [Node.js](https://nodejs.org/en) and [npm](https://www.npmjs.c
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-## Features
-
-### Shop
-Want to buy a product listed on Veronaut?  Tap "Buy" on the product page to go to the brand's online shop where you can purchase the product.  Veronaut receive a commission on some products, but does not otherwise receive compensation from brands.
-
-### Accounts
-Create an account to save your favorite products.  To save a product as favorite, tap the heart button within each product page.  To see your list of favorite products, select "Account" from the main menu, then select "Favorites".
-
-### Add a product
-Want to add a product to Veronaut?  Use Veronaut's "Add a Product" form to submit a product.  Products are reviewed for accuracy before they are published.  To see a list of products you have added, select "Account" from the main menu, then select "Added products".
 
 
 
@@ -158,15 +163,12 @@ The best way to get in touch with me is to use the contact form on my website: [
 
 You can also connect with me on LinkedIn: [Georgia's LinkedIn][linkedin-url].
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 ## Acknowledgments
 
 * This project started during my Software Engineering course at Thinkful, now owned by Chegg Skills.  Alvaro P. was my mentor who guided me on the project and got me unstuck once a week while I was in the program.
 * The datasets in COUNTRIES.js ans CURRENCIES.js were adapted from Mansour Hussain Alnasser's [country-databases repository](https://github.com/mansourcodes/country-databases).
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

@@ -182,7 +182,7 @@ const NPFManufacturing = props => {
                 value: certification.id,
                 website: certification.website,
                 approved: certification.approved,
-                published: certification.published
+                createdAt: certification.createdAt
             }
         ]
             

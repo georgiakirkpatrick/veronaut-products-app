@@ -464,7 +464,7 @@ const NPFNotions = props => {
                         "id": newNotionType.id,
                         "english_name": fabricProps.formatName(newNotionType.english_name),
                         "approved_by_admin": newNotionType.approved_by_admin,
-                        "date_published": newNotionType.date_published
+                        "createdAt": newNotionType.created_at
                     }
                 ]
     
