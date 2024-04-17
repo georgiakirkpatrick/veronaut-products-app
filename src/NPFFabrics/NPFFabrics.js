@@ -342,7 +342,7 @@ const NPFFabrics = props => {
         if (missingFields.length >= 1) {
             alert(`The factory name and country fields are required.  Please complete both fields.`)
         } else {
-            fetch(`${config.API_URL}/api/factories`,
+            fetch(`${process.env.REACT_APP_API_URL}/api/factories`,
                 postRequestParams
             )
             .then(response => {
@@ -380,7 +380,7 @@ const NPFFabrics = props => {
         if (fabricProps.newFiber.name === '') {
             alert(`Please enter a new fiber.`)
         } else {
-            fetch(`${config.API_URL}/api/fibers/fiber-types`,
+            fetch(`${process.env.REACT_APP_API_URL}/api/fibers/fiber-types`,
                 postRequestParams
             )
             .then(response => {            
@@ -433,7 +433,7 @@ const NPFFabrics = props => {
         if (missingFields.length >= 1) {
             alert(`The factory name and country fields are required.  Please complete both fields.`)
         } else {
-            fetch(`${config.API_URL}/api/factories`,
+            fetch(`${process.env.REACT_APP_API_URL}/api/factories`,
                 postRequestParams
             )
             .then(response => {
@@ -487,7 +487,7 @@ const NPFFabrics = props => {
         if (missingFields.length >= 1) {
             alert(`The factory name and country fields are required.  Please complete both fields.`)
         } else {
-            fetch(`${config.API_URL}/api/factories`,
+            fetch(`${process.env.REACT_APP_API_URL}/api/factories`,
                 postRequestParams
             )
             .then(response => {
@@ -544,7 +544,7 @@ const NPFFabrics = props => {
                 body: JSON.stringify(data)
             }
 
-            fetch(`${config.API_URL}/api/certifications`,
+            fetch(`${process.env.REACT_APP_API_URL}/api/certifications`,
                 postRequestParams
             )
             .then(response => {

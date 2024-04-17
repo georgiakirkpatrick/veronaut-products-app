@@ -24,7 +24,7 @@ const ProductListPage = props => {
 
     useEffect(() => {
         const getProductsForCategory = id => {
-            fetch(`${config.API_URL}/api/categories/${id}/products`, {
+            fetch(`${process.env.REACT_APP_API_URL}/api/categories/${id}/products`, {
                 method: 'GET',
                 headers: {
                     'Content-type': 'application/json'
@@ -49,7 +49,7 @@ const ProductListPage = props => {
         }
 
         const getFeaturedProducts = () => {
-            fetch(`${config.API_URL}/api/products/featured`, {
+            fetch(`${process.env.REACT_APP_API_URL}/api/products/featured`, {
                 method: 'GET',
                 headers: {
                     'Content-type': 'application/json'

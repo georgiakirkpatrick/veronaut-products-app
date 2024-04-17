@@ -62,7 +62,7 @@ const NewAccount = props => {
         //         body: JSON.stringify(data)
         //     }
 
-        //     fetch(`${config.API_URL}/api/users`,
+        //     fetch(`${process.env.REACT_APP_API_URL}/api/users`,
         //         postRequestParams
         //     )
         //     .then(response => {

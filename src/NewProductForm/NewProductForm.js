@@ -78,7 +78,7 @@ const NewProductForm = props => {
         }
 
         const getFiberTypes = () => {
-            fetch(`${config.API_URL}/api/fibers/fiber-types`, getRequestParams)
+            fetch(`${process.env.REACT_APP_API_URL}/api/fibers/fiber-types`, getRequestParams)
                 .then(response => {
                     if (response.status >= 400) {
                         console.log('There was a problem.  Status code: ' + response.status)
@@ -92,7 +92,7 @@ const NewProductForm = props => {
         }
 
         const getNotionTypes = () => {
-            fetch(`${config.API_URL}/api/notions/notion-types`, getRequestParams)
+            fetch(`${process.env.REACT_APP_API_URL}/api/notions/notion-types`, getRequestParams)
                 .then(response => {
                     if (response.status >= 400) {
                         console.log('There was a problem.  Status code: ' + response.status)
@@ -510,7 +510,7 @@ const NewProductForm = props => {
             body: JSON.stringify(data)
         }
 
-        fetch(`${config.API_URL}/api/products/product-form`,
+        fetch(`${process.env.REACT_APP_API_URL}/api/products/product-form`,
             postRequestParams
         )
         .then(response => {

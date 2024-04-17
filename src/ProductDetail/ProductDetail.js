@@ -39,7 +39,7 @@ const ProductDetail = props => {
 
     useEffect(() => {
         const getFabrics = () => {
-            fetch(`${config.API_URL}/api/products/${selectedProductId}/fabrics`, {
+            fetch(`${process.env.REACT_APP_API_URL}/api/products/${selectedProductId}/fabrics`, {
                 method: 'GET',
                 headers: {
                     'Content-type': 'application/json'
@@ -63,7 +63,7 @@ const ProductDetail = props => {
         getFabrics()
 
         const getSizes = () => {
-            fetch(`${config.API_URL}/api/products/${selectedProductId}/sizes`, {
+            fetch(`${process.env.REACT_APP_API_URL}/api/products/${selectedProductId}/sizes`, {
                 method: 'GET',
                 headers: {
                     'Content-type': 'application/json'
@@ -87,7 +87,7 @@ const ProductDetail = props => {
         getSizes()
 
         const getProduct = productId => {
-            fetch(`${config.API_URL}/api/products/${productId}`, {
+            fetch(`${process.env.REACT_APP_API_URL}/api/products/${productId}`, {
                 method: 'GET',
                 headers: {
                     'Content-type': 'application/json'

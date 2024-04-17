@@ -159,7 +159,7 @@ const NPFBrand = props => {
             body: JSON.stringify(data)
         }
 
-        fetch(`${config.API_URL}/api/brands`, postRequestParams)
+        fetch(`${process.env.REACT_APP_API_URL}/api/brands`, postRequestParams)
             .then(response => {
                 if (response.status >= 400) {
                     throw new Error("Server responded with an error!")

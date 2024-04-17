@@ -287,7 +287,7 @@ const NPFNotions = props => {
                 body: JSON.stringify(data)
             }
 
-            fetch(`${config.API_URL}/api/certifications`,
+            fetch(`${process.env.REACT_APP_API_URL}/api/certifications`,
                 postRequestParams
             )
             .then(response => {
@@ -344,7 +344,7 @@ const NPFNotions = props => {
                 ${field}`)}
             `)
         } else if (missingFields.length === 0) {
-            fetch(`${config.API_URL}/api/factories`, postRequestParams)
+            fetch(`${process.env.REACT_APP_API_URL}/api/factories`, postRequestParams)
                 .then(response => {
                     if (response.status >= 400) {
                         throw new Error("Server responded with an error!")
@@ -400,7 +400,7 @@ const NPFNotions = props => {
         if (newNotionMaterial === '') {
             alert(`Please enter a new material.`)
         } else {
-            fetch(`${config.API_URL}/api/fibers/fiber-types`, 
+            fetch(`${process.env.REACT_APP_API_URL}/api/fibers/fiber-types`, 
                 postRequestParams
             )
             .then(response => {
@@ -447,7 +447,7 @@ const NPFNotions = props => {
             alert('Please enter a notion type')
         } else {
             fetch(
-                `${config.API_URL}/api/notions/notion-types`,
+                `${process.env.REACT_APP_API_URL}/api/notions/notion-types`,
                 postRequestParams
             )
             .then(response => {

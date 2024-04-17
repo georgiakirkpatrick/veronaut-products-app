@@ -49,7 +49,7 @@ const App = () => {
     
     // getAllCategories fetches clothing category data from the veronaut-products-api.
     const getCategories = () => {
-      fetch(`${config.API_URL}/api/category`, getRequestParams)
+      fetch(`${process.env.REACT_APP_API_URL}/api/category`, getRequestParams)
       .then(response => {
         if (response.ok) {
           setCatsError(null)
@@ -87,7 +87,7 @@ const App = () => {
 
     // getBrands fetches clothing brand data from the veronaut-products-api.
     const getBrands = () => {
-      fetch(`${config.API_URL}/api/brands`, getRequestParams)
+      fetch(`${process.env.REACT_APP_API_URL}/api/brands`, getRequestParams)
       .then(response => {
         if (response.ok) {
           setBrandError(null)
@@ -123,7 +123,7 @@ const App = () => {
 
     // getCertifications fetches certification data from the veronaut-products-api.
     const getCertifications = () => {
-      fetch(`${config.API_URL}/api/certifications`, getRequestParams)
+      fetch(`${process.env.REACT_APP_API_URL}/api/certifications`, getRequestParams)
       .then(response => {
         if (response.ok) {
           setCertError(null)
@@ -159,7 +159,7 @@ const App = () => {
     
     // getFactories fetches clothing brand data from veronaut-products-api.
     const getFactories = () => {
-      fetch(`${config.API_URL}/api/factories`, getRequestParams)
+      fetch(`${process.env.REACT_APP_API_URL}/api/factories`, getRequestParams)
       .then(response => {
         if (response.ok) {
           return response.json()

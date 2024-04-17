@@ -23,7 +23,6 @@
     "start": "react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prebuild": "CI=true react-sripts test --colors",
     "build": "react-scripts build",
     "predeploy": "npm run build",
     "deploy": "vercel --prod"
