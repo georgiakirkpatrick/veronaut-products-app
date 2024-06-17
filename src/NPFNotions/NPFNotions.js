@@ -45,8 +45,8 @@ const NPFNotions = props => {
         : 'NPFNotions'
 
     const addCertification = certification => {
-        fabricProps.setCertificationArray([
-            ...fabricProps.certificationArray,
+        fabricProps.setCertArray([
+            ...fabricProps.certArray,
             {
                 id: certification.id,
                 name: certification.name,
@@ -63,7 +63,7 @@ const NPFNotions = props => {
     }
 
     const addNotion = () => {
-        const initialCertChecks = fabricProps.certificationArray.map(c => [c.name, false])
+        const initialCertChecks = fabricProps.certArray.map(c => [c.name, false])
         const initialObject = Object.fromEntries(initialCertChecks)
 
         setNotionFields(
@@ -84,8 +84,8 @@ const NPFNotions = props => {
     }
 
     const makeFactoryOptions = factType => {
-        const factoryQty = fabricProps.factoryArray.length
-        const factories = fabricProps.factoryArray.slice(1, factoryQty)
+        const factoryQty = fabricProps.factArray.length
+        const factories = fabricProps.factArray.slice(1, factoryQty)
         const alphaFactories = factories.sort((a, b) => a.english_name > b.english_name ? 1 : -1)
 
         const formattedFacts = alphaFactories.map(factory => ({
@@ -138,7 +138,7 @@ const NPFNotions = props => {
     const makeNotCertArray = index => {
         const notCertArray = []
 
-        fabricProps.certificationArray.forEach(cert => {
+        fabricProps.certArray.forEach(cert => {
             notCertArray.push({
                 ...cert,
                 id: index + '-' + cert.id
@@ -353,7 +353,7 @@ const NPFNotions = props => {
                 })
                 .then(newFactory => {
                     const newFactArray = [
-                        ...fabricProps.factoryArray,
+                        ...fabricProps.factArray,
                         {
                             "id": Number(newFactory.id),
                             "english_name": newFactory.english_name,
@@ -367,7 +367,7 @@ const NPFNotions = props => {
                     const factory = newFactArray.length
                     const factories = newFactArray.slice(1, factory)
                     const alphaFactories = factories.sort((a, b) => a.english_name > b.english_name ? 1 : -1)
-                    fabricProps.setFactoryArray(alphaFactories)
+                    fabricProps.setFactArray(alphaFactories)
         
                     const newNotFields = [...notionFields]
                     newNotFields[index]['factoryId'] = newFactory.id
@@ -751,11 +751,11 @@ const NPFNotions = props => {
 
 NPFNotions.defaultProps = {
     fabricProps: {
-        certificationArray: [],
+        certArray: [],
         certPopUp: false,
         countries: [],
         currentPage: 0,
-        factoryArray: [],
+        factArray: [],
         fiberTypeArray: [],
         newCert: {
             name: '',
@@ -767,9 +767,9 @@ NPFNotions.defaultProps = {
             website: '',
             notes: ''
         },
-        setCertificationArray: () => {},
+        setCertArray: () => {},
         setFiberTypeArray: () => {},
-        setFactoryArray: () => {},
+        setFactArray: () => {},
         setCertPopUp: () => {},
         setNewCert: () => {},
         setNewFact: () => {},

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import AuthApiService from '../services/auth-api-service'
 import FormTitle from '../FormTitle/FormTitle'
 import FormButton from '../FormButton/FormButton'
@@ -18,7 +18,7 @@ const Login = props => {
     const [loginEmail, setLoginEmail] = useState('')
     const [loginPassword, setLoginPassword] = useState('')
 
-    const history = useHistory()
+    const history = useNavigate()
 
     const advancePage = () => {
         console.log('routeProps', routeProps)

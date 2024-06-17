@@ -31,8 +31,8 @@ const NPFFabrics = props => {
     } = props
 
     const addCertification = certification => {
-        fabricProps.setCertificationArray([
-            ...fabricProps.certificationArray,
+        fabricProps.setCertArray([
+            ...fabricProps.certArray,
             {
                 id: certification.id,
                 name: certification.name,
@@ -49,8 +49,8 @@ const NPFFabrics = props => {
     }
 
     const addFactory = newFactory => {
-        fabricProps.setFactoryArray([
-            ...fabricProps.factoryArray,
+        fabricProps.setFactArray([
+            ...fabricProps.factArray,
             {
                 id: newFactory.id,
                 english_name: newFactory.english_name,
@@ -63,7 +63,7 @@ const NPFFabrics = props => {
     }
 
     const addFiber = () => {
-        const initialCertChecks = fabricProps.certificationArray.map(c => [c.name, false])
+        const initialCertChecks = fabricProps.certArray.map(c => [c.name, false])
         const initialObject = Object.fromEntries(initialCertChecks)
 
         setFiberFieldsets([
@@ -148,8 +148,8 @@ const NPFFabrics = props => {
     }
 
     const makeFactoryOptions = factType => {
-        const factoryQty = fabricProps.factoryArray.length
-        const factories = fabricProps.factoryArray.slice(1, factoryQty)
+        const factoryQty = fabricProps.factArray.length
+        const factories = fabricProps.factArray.slice(1, factoryQty)
         const alphaFactories = factories.sort((a, b) => a.english_name > b.english_name ? 1 : -1)
 
         const formatedFactories = alphaFactories.map(mill => (
@@ -654,7 +654,7 @@ const NPFFabrics = props => {
                     prompt='Does the primary fabric have any of the following certifications?'
                 >
                     <FormCheckboxSection
-                        options={fabricProps.certificationArray} 
+                        options={fabricProps.certArray}
                         selectedOptions={certChecks}
                         handleChange={event => fabCertChange(event)}
                     />
@@ -678,7 +678,7 @@ const NPFFabrics = props => {
 
                 {fiberFieldsets.map((fiberFieldset, index) => {
                     const fiberCertOptions = () => {
-                        const formattedCerts = fabricProps.certificationArray.map(cert => (
+                        const formattedCerts = fabricProps.certArray.map(cert => (
                             {
                                 ...cert,
                                 id: index + '-' + cert.id
@@ -986,13 +986,13 @@ NPFFabrics.defaultProps = {
         wovKnitNotes: ''
     },
     fabricProps: {
-        certificationArray: [],
+        certArray: [],
         certPopUp: false,
         countries: [],
         currentPage: 0,
         dyeFactPopUp: false,
         initCerts: {},
-        factoryArray: [],
+        factArray: [],
         fiberPopUp: false,
         fiberTypeArray: [],
         millPopUp: false,
@@ -1021,11 +1021,11 @@ NPFFabrics.defaultProps = {
             notes: ''
         },
         producerPopUp: false,
-        setCertificationArray: () => {},
+        setCertArray: () => {},
         setFiberTypeArray: () => {},
         setCertPopUp: () => {},
         setDyeFactPopUp: () => {},
-        setFactoryArray: () => {},
+        setFactArray: () => {},
         setFiberPopUp: () => {},
         setInitCerts: () => {},
         setMillPopUp: () => {},

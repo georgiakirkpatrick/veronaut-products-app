@@ -85,62 +85,7 @@ exports[`LandingPage renders the UI as expected 1`] = `
           Veronaut helps you understand product descriptions and points out the information brands choose to omit.
         </p>
       </header>
-      <ul>
-        <li
-          className="Principle"
-        >
-          <svg
-            aria-hidden="true"
-            className="svg-inline--fa fa-leaf fa-w-18 fa-lg "
-            data-icon="leaf"
-            data-prefix="fas"
-            focusable="false"
-            role="img"
-            style={Object {}}
-            viewBox="0 0 576 512"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M546.2 9.7c-5.6-12.5-21.6-13-28.3-1.2C486.9 62.4 431.4 96 368 96h-80C182 96 96 182 96 288c0 7 .8 13.7 1.5 20.5C161.3 262.8 253.4 224 384 224c8.8 0 16 7.2 16 16s-7.2 16-16 16C132.6 256 26 410.1 2.4 468c-6.6 16.3 1.2 34.9 17.5 41.6 16.4 6.8 35-1.1 41.8-17.3 1.5-3.6 20.9-47.9 71.9-90.6 32.4 43.9 94 85.8 174.9 77.2C465.5 467.5 576 326.7 576 154.3c0-50.2-10.8-102.2-29.8-144.6z"
-              fill="currentColor"
-              style={Object {}}
-            />
-          </svg>
-          <h3>
-            Sustainability is subjective
-          </h3>
-          <p>
-            We’re not going to tell you which product to purchase or which brand to boycott.  What makes a garment’s supply chain “sustainable” is not only a complex issue, it also depends on who you ask.  We want to help you make informed decisions by making it as easy as possible to find the facts.
-          </p>
-        </li>
-        <li
-          className="Principle"
-        >
-          <svg
-            aria-hidden="true"
-            className="svg-inline--fa fa-tshirt fa-w-20 fa-lg "
-            data-icon="tshirt"
-            data-prefix="fas"
-            focusable="false"
-            role="img"
-            style={Object {}}
-            viewBox="0 0 640 512"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M631.2 96.5L436.5 0C416.4 27.8 371.9 47.2 320 47.2S223.6 27.8 203.5 0L8.8 96.5c-7.9 4-11.1 13.6-7.2 21.5l57.2 114.5c4 7.9 13.6 11.1 21.5 7.2l56.6-27.7c10.6-5.2 23 2.5 23 14.4V480c0 17.7 14.3 32 32 32h256c17.7 0 32-14.3 32-32V226.3c0-11.8 12.4-19.6 23-14.4l56.6 27.7c7.9 4 17.5.8 21.5-7.2L638.3 118c4-7.9.8-17.6-7.1-21.5z"
-              fill="currentColor"
-              style={Object {}}
-            />
-          </svg>
-          <h3>
-            Product research, but make it shopping
-          </h3>
-          <p>
-            Finding the right clothes to fit your style, budget, and body can be tricky.  Add in your ethical-production standards and it can be downright frustrating to find products that check all the boxes.  That’s why we present product information in a way that feels like online shopping.  We think understanding the socioeconomic and environmental impacts of your purchase should be part of your shopping experience rather than an extra step.
-          </p>
-        </li>
-      </ul>
+      <ul />
       
     </section>
     <section

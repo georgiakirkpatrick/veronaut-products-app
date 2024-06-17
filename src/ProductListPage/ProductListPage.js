@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import Product from '../Product/Product'
 import config from '../config'
+import data from '../DATA'
 import './ProductListPage.css'
 
 const ProductListPage = props => {
     const {
-        categoryArray,
-        productArray,
+        catArray,
+        prodArray,
         routeProps,
-        setProductArray
+        setProdArray
     } = props
 
     const [catProdError, setCatProdError] = useState(null)
@@ -20,41 +21,54 @@ const ProductListPage = props => {
 
     const listTitle = routeProps.match.path === '/'
         ? 'New products'
-        : categoryArray[categoryId - 1].text
+        : catArray[categoryId - 1].text
 
+    const getRequestParams = {
+      method: 'GET',
+      headers: {
+          'Content-type': 'application/json'
+      }
+    }
+
+    // The useEffect React Hook synchronizes the App component with veronaut-products-api.
     useEffect(() => {
-        const getProductsForCategory = id => {
-            fetch(`${process.env.REACT_APP_API_URL}/api/categories/${id}/products`, {
-                method: 'GET',
-                headers: {
-                    'Content-type': 'application/json'
-                }
-            })
-            .then(response => {
-                if (response.status >= 400) {
-                    console.log('There was a problem.  Status code: ' + response.status)
-                    throw new Error("Server responded with an error!")
-                }
-              
-                return response.json()
-            })
-            .then(products => {
-                setProductArray(products)
-                setCatProdLoaded(true)
-            },
-            err => {
-                setCatProdError(err)
-                setCatProdLoaded(false)
-            })
-        }
+      // getCats fetches clothing category data from the veronaut-products-api.
+
+      // getProductsForCategory fetches product data for the category designated by "id" from the veronaut-products-api.
+      const getCatProds = id => {
+        fetch(`${process.env.REACT_APP_API_URL}/api/categories/${id}/product`, getRequestParams)
+        .then(response => {
+          if (response.ok) {
+            setCatProdError(null)
+  
+            return response.json()
+          } else {
+            // If an API error occurs, use data.placeholder.products data for the given category and create an API error message.
+            setCatProdError('There was a problem fetching the categories.  Status code: ' + response.status)
+
+            const prods = data.placeholder.products
+
+            const catProds = data.placeholder.products.filter(prod => prod.categoryId === Number(id))
+
+            console.log('prods', prods)
+
+            console.log('catProds', catProds)
+  
+            return catProds
+          }
+        })
+        .then(products => {
+            setProdArray(products)
+            setCatProdLoaded(true)
+        },
+        err => {
+            setCatProdError(err)
+            setCatProdLoaded(false)
+        })
+      }
 
         const getFeaturedProducts = () => {
-            fetch(`${process.env.REACT_APP_API_URL}/api/products/featured`, {
-                method: 'GET',
-                headers: {
-                    'Content-type': 'application/json'
-                }
-            })
+            fetch(`${process.env.REACT_APP_API_URL}/api/products/featured`, getRequestParams)
             .then(response => {
                 if (response.status >= 400) {
                     console.log('There was a problem.  Status code: ' + response.status)
@@ -64,7 +78,7 @@ const ProductListPage = props => {
                 return response.json()
             })
             .then(products => {
-                setProductArray(products)
+                setProdArray(products)
                 setNewProdLoaded(true)
             },
             err => {
@@ -74,11 +88,11 @@ const ProductListPage = props => {
         }
 
         if (routeProps.match.params.categoryId) {
-            getProductsForCategory(routeProps.match.params.categoryId)
+            getCatProds(routeProps.match.params.categoryId)
         } else {
             getFeaturedProducts()
         }
-    }, [routeProps.match.params.categoryId, setProductArray])
+    }, [routeProps.match.params.categoryId, setProdArray])
 
     const makeProductSlug = product => {
         const brandProduct = `${product.brand_name} ${product.english_name}`
@@ -90,7 +104,8 @@ const ProductListPage = props => {
     }
 
     const productList = <ul className='ProductListPage__product-list'>
-        {productArray.map(product => (
+        {prodArray.map(product => (
+          
             <Product
                 brand={product.productObject.brand_name}
                 id={product.productObject.id}
@@ -104,7 +119,7 @@ const ProductListPage = props => {
         ))}
     </ul>
 
-    const results = productArray.length === 0
+    const results = prodArray.length === 0
         ? <div className='ProductListPage__no-products'>
             <p>Sorry, there are not any products in this category yet.</p>
         </div>
@@ -134,14 +149,14 @@ const ProductListPage = props => {
 }
 
 ProductListPage.defaultProps = {
-    categoryArray: [
+    catArray: [
         {
             category_class: '',
             english_name: '',
             id: 1
         }
     ],
-    productArray: [],
+    prodArray: [],
     routeProps: {
         match: {
             params: {
@@ -149,7 +164,7 @@ ProductListPage.defaultProps = {
             }
         }
     },
-    setProductArray: () => {}
+    setProdArray: () => {}
 }
 
 export default ProductListPage

@@ -11,7 +11,7 @@ import './Header.css'
 
 const Header = props => {
     const {
-        categoryArray,
+        catArray,
         background
     } = props
 
@@ -187,7 +187,7 @@ const Header = props => {
                             Categories
                         </MenuItem>
 
-                        {categoryArray.map(category => {
+                        {catArray.map(category => {
                             const slug = makeCategorySlug(category.text)
                             return (
                                 <div key={category.id} className='Header__secondary-item' onClick={handleCloseClick}>
@@ -211,7 +211,7 @@ const Header = props => {
 }
 
 Header.defaultProps = {
-    categoryArray: []
+    catArray: []
 }
 
 export default Header

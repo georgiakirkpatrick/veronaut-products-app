@@ -36,7 +36,7 @@ const data = {
     brands: [
       {
         id: 1,
-        english_name: "",
+        english_name: "Mahershala",
         website: "",
         home_currency: 1,
         size_system: 1,
@@ -48,7 +48,7 @@ const data = {
     categories: [
       {
         id: 1,
-        english_name: "Activewear",
+        english_name: "Affogatto",
         category_class: "clothing",
         featureImage: "https://media.sezane.com/image/upload/c_fill,d_placeholder_dark.png,fl_progressive:semi,h_816,q_auto:best,w_582/avhc13dzwkv0pzgbmf7g.jpg"
       },
@@ -410,7 +410,78 @@ const data = {
         productTitle: "Dahlia Dress",
         price: 200
       }
-    ]
+    ],
+
+    // productsTwo: [
+    //   {
+    //     productObject: {
+    //       id: product.id,
+    //       english_name: xss(product.english_name),
+    //       brand_currency: product.brand_currency,
+    //       brand_id: product.brand_id,
+    //       brand_name: product.brand_name,
+    //       category_id: product.category_id,
+    //       product_url: xss(product.product_url),
+    //       feature_image_url: xss(product.feature_image_url),
+    //       multiple_color_options: product.multiple_color_options,
+    //       cost_in_home_currency: product.cost_in_home_currency,
+    //       wash_id: product.wash_id,
+    //       dry_id: product.dry_id,
+    //       cmt_sew_country: product.cmt_sew_country,
+    //       cmt_cut_country: product.cmt_cut_country,
+    //       cmt_notes: product.cmt_notes ? xss(product.cmt_notes) : null,
+    //       featured: product.featured,
+    //       approved_by_admin: product.approved_by_admin,
+    //       created_at: product.created_at,
+    //       updated_at: product.updated_at
+    //     },
+    //     prodCertArray: productCerts,
+    //     prodColorArray: makeColorArray(),
+    //     cmtFactArray: cmtFactories,
+    //     prodNotArray: productNotions
+    //   }
+
+    //   {
+    //     id: 1,
+    //     category: "Dresses",
+    //     categoryId: 4,
+    //     pathToImg: "https://media.sezane.com/image/upload/c_fill,d_placeholder_dark.png,fl_progressive:semi,h_816,q_auto:best,w_582/avhc13dzwkv0pzgbmf7g.jpg",
+    //     imgAlt: "Sezane Dahlia Dress",
+    //     brand: "Sezane",
+    //     productTitle: "Dahlia Dress",
+    //     price: 200
+    //   },
+    //   {
+    //     id: 2,
+    //     category: "Dresses",
+    //     categoryId: 4,
+    //     pathToImg: "https://media.sezane.com/image/upload/c_fill,d_placeholder_dark.png,fl_progressive:semi,h_816,q_auto:best,w_582/avhc13dzwkv0pzgbmf7g.jpg",
+    //     imgAlt: "Sezane Dahlia Dress",
+    //     brand: "Sezane",
+    //     productTitle: "Dahlia Dress",
+    //     price: 200
+    //   },
+    //   {
+    //     id: 3,
+    //     category: "Dresses",
+    //     categoryId: 4,
+    //     pathToImg: "https://media.sezane.com/image/upload/c_fill,d_placeholder_dark.png,fl_progressive:semi,h_816,q_auto:best,w_582/avhc13dzwkv0pzgbmf7g.jpg",
+    //     imgAlt: "Sezane Dahlia Dress",
+    //     brand: "Sezane",
+    //     productTitle: "Dahlia Dress",
+    //     price: 200
+    //   },
+    //   {
+    //     id: 4,
+    //     category: "Dresses",
+    //     categoryId: 4,
+    //     pathToImg: "https://media.sezane.com/image/upload/c_fill,d_placeholder_dark.png,fl_progressive:semi,h_816,q_auto:best,w_582/avhc13dzwkv0pzgbmf7g.jpg",
+    //     imgAlt: "Sezane Dahlia Dress",
+    //     brand: "Sezane",
+    //     productTitle: "Dahlia Dress",
+    //     price: 200
+    //   }
+    // ]
   }
 }
 

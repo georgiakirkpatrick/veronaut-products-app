@@ -58,12 +58,12 @@ const NewProductForm = props => {
     const {
         brandArray,
         brandId,
-        certificationArray,
-        factoryArray,
+        certArray,
+        factArray,
         setBrandArray,
         setBrandId,
-        setCertificationArray,
-        setFactoryArray,
+        setCertArray,
+        setFactArray,
     } = props
 
     const [fiberTypeArray, setFiberTypeArray] = useState([])
@@ -125,7 +125,7 @@ const NewProductForm = props => {
 
     // CERTIFICATIONS
     const [initCerts, setInitCerts] = useState({})
-    const initialCertChecks = certificationArray.map(c => [c.text, false])
+    const initialCertChecks = certArray.map(c => [c.text, false])
     const initialObject = Object.fromEntries(initialCertChecks)
 
     // COLOR AND IMAGE STATE
@@ -279,10 +279,10 @@ const NewProductForm = props => {
     // SET INITIAL CHECKBOX STATE VALUES
         // CERTIFICATION CHECKBOX VALUES
         useEffect(() => {
-            const initialCertChecks = certificationArray.map(c => [c.text, false])
+            const initialCertChecks = certArray.map(c => [c.text, false])
             const initialObject = Object.fromEntries(initialCertChecks)
             setInitCerts(initialObject)
-        }, [certificationArray])
+        }, [certArray])
         
         // PERMITTED CATEGORIES
         const initialPCategories = formData.permittedCategories.map(cert => [cert.id, false])
@@ -345,7 +345,7 @@ const NewProductForm = props => {
     // }
 
     // PREPARE DATA
-    const certArray = certObject => {
+    const selectedCertArray = certObject => {
         const checkedCerts = []
 
         for (const [key, value] of Object.entries(certObject)) {
@@ -363,7 +363,7 @@ const NewProductForm = props => {
         fibFieldsets.forEach(fiber => {
             formattedFieldsets.push({
                 ...fiber,
-                certIds: certArray(fiber.certIds)
+                certIds: selectedCertArray(fiber.certIds)
             })
         })
 
@@ -406,7 +406,7 @@ const NewProductForm = props => {
         const fabricArray = []
         if (primCheck) {
             fabricArray.push({
-                certs: certArray(primCertChecks),
+                certs: selectedCertArray(primCertChecks),
                 fabric_details: primFabFact,
                 fiber_array: formatFibers(primFiberFieldsets),
                 relationship: "primary"
@@ -415,7 +415,7 @@ const NewProductForm = props => {
 
         if (secCheck) {
             fabricArray.push({
-                certs: certArray(secCertChecks),
+                certs: selectedCertArray(secCertChecks),
                 fabric_details: secFabFact,
                 fiber_array: formatFibers(secFiberFieldsets),
                 relationship: "secondary"
@@ -424,7 +424,7 @@ const NewProductForm = props => {
 
         if (linCheck) {
             fabricArray.push({
-                certs: certArray(linCertChecks),
+                certs: selectedCertArray(linCertChecks),
                 fabric_details: linFabFact,
                 fiber_array: formatFibers(linFiberFieldsets),
                 relationship: "lining"
@@ -445,7 +445,7 @@ const NewProductForm = props => {
             notionFields.forEach(notion => {
                 notionArray.push({
                     ...notion,
-                    certIds: certArray(notion.certIds)
+                    certIds: selectedCertArray(notion.certIds)
                 })
             })
         }
@@ -474,7 +474,7 @@ const NewProductForm = props => {
         "color_fieldsets": colorArray,
         "sew_fact": sewFact,
         "cut_fact": cutFact,
-        "man_cert_checks": certArray(manCertChecks),
+        "man_cert_checks": selectedCertArray(manCertChecks),
         "fabrics": fabricArray,
         "notions": notionArray,
         "selected_sizes": sizeArray,
@@ -557,13 +557,13 @@ const NewProductForm = props => {
     )
 
     const fabricProps = {
-        certificationArray: certificationArray,
+        certArray: certArray,
         certPopUp: certPopUp,
         countries: dropDownCountries,
         currentPage: currentPage,
         dyeFactPopUp: dyeFactPopUp,
         initCerts: initCerts,
-        factoryArray: factoryArray,
+        factArray: factArray,
         fiberPopUp: fiberPopUp,
         fiberTypeArray: fiberTypeArray,
         formatName: formatName,
@@ -575,10 +575,10 @@ const NewProductForm = props => {
         newMill: newMill,
         newProducer: newProducer,
         producerPopUp: producerPopUp,
-        setCertificationArray: setCertificationArray,
+        setCertArray: setCertArray,
         setDyeFactPopUp: setDyeFactPopUp,
         setFiberTypeArray: setFiberTypeArray,
-        setFactoryArray: setFactoryArray,
+        setFactArray: setFactArray,
         setCertPopUp: setCertPopUp,
         setFiberPopUp: setFiberPopUp,
         setInitCerts: setInitCerts,
@@ -925,8 +925,8 @@ const NewProductForm = props => {
     ]
 
     if (
-        certificationArray.length < 1
-        || factoryArray.length < 1 
+        certArray.length < 1
+        || factArray.length < 1 
         || fiberTypeArray.length < 1
         || notionTypeArray.length < 1
     ) { 
@@ -943,11 +943,11 @@ const NewProductForm = props => {
 NewProductForm.defaultProps = {
     brandArray: [],
     brandId: 0,
-    certificationArray: [],
-    factoryArray: [],
+    certArray: [],
+    factArray: [],
     setBrandId: () => {},
-    setCertificationArray: () => {},
-    setFactoryArray: () => {}
+    setCertArray: () => {},
+    setFactArray: () => {}
 }
 
 export default NewProductForm

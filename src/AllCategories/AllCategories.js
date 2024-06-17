@@ -4,10 +4,10 @@ import './AllCategories.css'
 
 const AllCategories = props => {
     const {
-        categoryArray
+        catArray
     } = props
 
-    const categories = categoryArray.map(category => (
+    const categories = catArray.map(category => (
         <Category
             key={category.id}
             id={category.id}
@@ -34,7 +34,7 @@ const AllCategories = props => {
 }
 
 AllCategories.defaultProps = {
-    categoryArray: []
+    catArray: []
 }
 
 export default AllCategories

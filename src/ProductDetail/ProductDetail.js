@@ -15,10 +15,10 @@ const ProductDetail = props => {
     const {
         buyClick,
         certArray,
-        factoryArray,
-        productArray,
+        factArray,
+        prodArray,
         routeProps,
-        setProductArray
+        setProdArray
     } = props
 
     const [careOpen, setCareOpen] = useState(false)
@@ -33,32 +33,39 @@ const ProductDetail = props => {
 
     // FIND PRODUCT
     const selectedProductId = routeProps.match.params.productId
-    const selectedProduct = productArray.find(p => p.id === selectedProductId) === undefined
+    const selectedProduct = prodArray.find(p => p.id === selectedProductId) === undefined
         ? null
-        : [...productArray.find(p => p.id === selectedProductId)]
+        : [...prodArray.find(p => p.id === selectedProductId)]
+
+    const getRequestParams = {
+      method: 'GET',
+      headers: {
+          'Content-type': 'application/json'
+      }
+    }
 
     useEffect(() => {
         const getFabrics = () => {
-            fetch(`${process.env.REACT_APP_API_URL}/api/products/${selectedProductId}/fabrics`, {
-                method: 'GET',
-                headers: {
-                    'Content-type': 'application/json'
-                }
-            })
-            .then(response => {
-                if (response.status >= 400) {
-                    console.log('There was a problem.  Status code: ' + response.status)
-                    throw new Error("Server responded with an error!")
-                }
+          fetch(`${process.env.REACT_APP_API_URL}/api/products/${selectedProductId}/fabrics`, {
+            method: 'GET',
+            headers: {
+                'Content-type': 'application/json'
+            }
+          })
+          .then(response => {
+              if (response.status >= 400) {
+                  console.log('There was a problem.  Status code: ' + response.status)
+                  throw new Error("Server responded with an error!")
+              }
 
-                return response.json()
-            })
-            .then(fabrics => {
-                setFabricArray(fabrics)
-            },
-            err => {
-                setError(err)
-            })
+              return response.json()
+          })
+          .then(fabrics => {
+              setFabricArray(fabrics)
+          },
+          err => {
+              setError(err)
+          })
         }
         getFabrics()
 
@@ -88,10 +95,10 @@ const ProductDetail = props => {
 
         const getProduct = productId => {
             fetch(`${process.env.REACT_APP_API_URL}/api/products/${productId}`, {
-                method: 'GET',
-                headers: {
-                    'Content-type': 'application/json'
-                }
+              method: 'GET',
+              headers: {
+                  'Content-type': 'application/json'
+              }
             })
             .then(response => {
                 if (response.status >= 400) {
@@ -168,7 +175,7 @@ const ProductDetail = props => {
                     productObject: productObject.productObject
                 }
 
-                setProductArray([newProductObject])
+                setProdArray([newProductObject])
                 setSelectedColorId(productObject.prodColorArray[0].color_id)
                 setProdLoaded(true)
             },
@@ -184,7 +191,7 @@ const ProductDetail = props => {
         } else {
             getProduct(selectedProductId)
         }
-    }, [selectedProductId, selectedProduct, setProductArray])
+    }, [selectedProductId, selectedProduct, setProdArray])
 
     const openSection = setSection => {
         setSection(true)
@@ -201,7 +208,7 @@ const ProductDetail = props => {
     } else if (prodLoaded === true) {
 
         // FIND PRODUCT
-        const product = productArray.find(p => p.productObject.id === Number(selectedProductId))
+        const product = prodArray.find(p => p.productObject.id === Number(selectedProductId))
 
         // FORMAT COLOR OPTIONS
         const displayImage = colorId => {
@@ -530,7 +537,7 @@ const ProductDetail = props => {
                         <FabricCarousel
                             certArray={certArray}
                             ordFabArray={ordFabArray}
-                            factoryArray={factoryArray}
+                            factArray={factArray}
                         />
                     </ProductDetailSection>
 
@@ -546,7 +553,7 @@ const ProductDetail = props => {
                         <NotionCarousel
                             certArray={certArray}
                             notionArray={product.prodNotArray}
-                            factoryArray={factoryArray}
+                            factArray={factArray}
                         />
                     </ProductDetailSection>
                 </div>
@@ -558,8 +565,8 @@ const ProductDetail = props => {
 ProductDetail.defaultProps = {
     buyClick: () => {},
     certArray: [],
-    factoryArray: [],
-    productArray: [],
+    factArray: [],
+    prodArray: [],
     routeProps: {
         match: {
             params: {
@@ -577,7 +584,7 @@ ProductDetail.defaultProps = {
         price: 200,
         productTitle: ''
     },
-    setProductArray: () => {}
+    setProdArray: () => {}
 }
 
 export default ProductDetail

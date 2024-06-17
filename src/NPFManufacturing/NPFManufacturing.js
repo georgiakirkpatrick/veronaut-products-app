@@ -33,8 +33,8 @@ const NPFManufacturing = props => {
     } = props
 
     const makeFactoryOptions = () => {
-        const factoryQty = fabricProps.factoryArray.length
-        const mills = fabricProps.factoryArray.slice(1, factoryQty)
+        const factoryQty = fabricProps.factArray.length
+        const mills = fabricProps.factArray.slice(1, factoryQty)
         const alphaMills = mills.sort((a, b) => a.english_name > b.english_name ? 1 : -1)
 
         const formatedMills = alphaMills.map(mill => (
@@ -61,8 +61,8 @@ const NPFManufacturing = props => {
     }
 
     const addFactory = (stage, factory) => {
-        fabricProps.setFactoryArray([
-            ...fabricProps.factoryArray,
+        fabricProps.setFactArray([
+            ...fabricProps.factArray,
             {
                 "id": Number(factory.id),
                 "english_name": factory.english_name,
@@ -175,7 +175,7 @@ const NPFManufacturing = props => {
     // CERTIFICATIONS
     const addCertification = certification => {
         const newCertArray = [
-            ...fabricProps.certificationArray,
+            ...fabricProps.certArray,
             {
                 id: certification.id,
                 text: certification.text,
@@ -187,7 +187,7 @@ const NPFManufacturing = props => {
         ]
             
         newCertArray.sort((a, b) => a.text > b.text ? 1 : -1)
-        fabricProps.setCertificationArray(newCertArray)
+        fabricProps.setCertArray(newCertArray)
     }
 
     const certificationChange = event => {
@@ -385,7 +385,7 @@ const NPFManufacturing = props => {
                 >
                     <FormCheckboxSection
                         prompt=''
-                        options={fabricProps.certificationArray}
+                        options={fabricProps.certArray}
                         selectedOptions={certChecks}
                         handleChange={event => certificationChange(event)}
                     />
@@ -554,12 +554,12 @@ NPFManufacturing.defaultProps = {
         factoryId: ''
     },
     fabricProps: {
-        certificationArray: [],
+        certArray: [],
         certPopUp: false,
         countries: [],
         currentPage: 0,
         factPopUp: false,
-        factoryArray: [],
+        factArray: [],
         fiberPopUp: false,
         fiberTypeArray: [],
         millPopUp: false,
@@ -582,9 +582,9 @@ NPFManufacturing.defaultProps = {
             website: '',
             notes: ''
         },
-        setCertificationArray: () => {},
+        setCertArray: () => {},
         setFiberTypeArray: () => {},
-        setFactoryArray: () => {},
+        setFactArray: () => {},
         setCertPopUp: () => {},
         setFiberPopUp: () => {},
 

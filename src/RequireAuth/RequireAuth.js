@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Redirect } from 'react-router-dom'
+import { Route, Navigate } from 'react-router-dom'
 import config from '../config'
 import TokenService from '../services/token-service'
 
@@ -13,7 +13,7 @@ const RequireAuth = props => {
         {...rest} 
         render={routeProps => TokenService.getAuthToken(config.TOKEN_KEY)
             ? children
-            : <Redirect
+            : <Navigate
                 to={{
                     pathname: '/login',
                     state: { referrer: routeProps.location.pathname}

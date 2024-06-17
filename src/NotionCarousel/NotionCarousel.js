@@ -6,10 +6,10 @@ const NotionCarousel = props => {
     const {
         certArray,
         notionArray,
-        factoryArray
+        factArray
     } = props
 
-    const getFactory = factoryId => factoryArray.filter(factory => factory.id === factoryId)[0].english_name
+    const getFactory = factoryId => factArray.filter(factory => factory.id === factoryId)[0].english_name
     const formatCerts = notion => {
         const notionCerts = notion.certification_ids.map(id => certArray.filter(cert => cert.id === id)[0].text)
         return notionCerts.toString()
@@ -67,7 +67,7 @@ const NotionCarousel = props => {
 NotionCarousel.defaultProps = {
     certArray: [],
     notionArray: [],
-    factoryArray: []
+    factArray: []
 }
 
 export default NotionCarousel

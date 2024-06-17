@@ -7,7 +7,7 @@ import './LandingPage.css'
 
 const LandingPage = props => {
     const {
-        categoryArray,
+        catArray,
         principles,
         routeProps,
     } = props
@@ -37,7 +37,7 @@ const LandingPage = props => {
             .toLowerCase()
     )
 
-    const catImages = categoryArray.map(cat => (
+    const catImages = catArray.map(cat => (
         {
             id: cat.id,
             category: cat.text,
@@ -82,10 +82,10 @@ const LandingPage = props => {
 
                 <section className='LandingPage__new-products'>
                     <ProductListPage
-                        categoryArray={categoryArray}
-                        productArray={newProdArray}
+                        catArray={catArray}
+                        prodArray={newProdArray}
                         routeProps={routeProps}
-                        setProductArray={setNewProdArray}
+                        setProdArray={setNewProdArray}
                     />
                 </section>
             </div>
@@ -96,7 +96,7 @@ const LandingPage = props => {
 }
 
 LandingPage.defaultProps = {
-    categoryArray: [
+    catArray: [
         {
             id: 0,
             text: '',

@@ -5,11 +5,11 @@ import './FabricCarousel.css'
 const FabricCarousel = props => {
     const {
         certArray,
-        factoryArray,
+        factArray,
         ordFabArray
     } = props
 
-    const getFactory = factoryId => factoryArray.filter(factory => factory.id === factoryId)[0].english_name
+    const getFactory = factoryId => factArray.filter(factory => factory.id === factoryId)[0].english_name
     const formatCerts = f => {
         if (f.certification_ids.length > 0) {
             const certInfo = id => certArray.filter(cert => cert.id === id)
@@ -86,7 +86,7 @@ const FabricCarousel = props => {
 
 FabricCarousel.defaultProps = {
     certArray: [],
-    factoryArray: [],
+    factArray: [],
     ordFabArray: []
 }
 
