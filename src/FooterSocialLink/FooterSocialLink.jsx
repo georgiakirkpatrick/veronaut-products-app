@@ -1,12 +1,11 @@
 import React from 'react'
 import './FooterSocialLink.css'
 
-const FooterSocialLink = props => {    
-  const {
-    id,
-    pathToProfile,
-    platform
-  } = props
+const FooterSocialLink = ({
+  id = 1,
+  pathToProfile = '',
+  platform = ''
+}) => {
 
   return (
     <li className='Footer__social-link' key={id}>
@@ -15,12 +14,6 @@ const FooterSocialLink = props => {
       </a>
     </li>
   )
-}
-
-FooterSocialLink.defaultProps = {
-  id: 1,
-  pathToProfile: '',
-  platform: ''
 }
 
 export default FooterSocialLink

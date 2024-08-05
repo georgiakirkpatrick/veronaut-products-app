@@ -1,26 +1,40 @@
 import React, { useState, useEffect } from 'react'
 import config from '../config.js'
-import countries from '../COUNTRIES'
-import currencies from '../CURRENCIES'
-import formData from '../FORM_DATA'
+import countries from '../COUNTRIES.js'
+import currencies from '../CURRENCIES.js'
+import formData from '../FORM_DATA.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import '../FontAwesomeIcons/FontAwesomeIcons'
-import FabricCarousel from '../FabricCarousel/FabricCarousel'
-import NotionCarousel from '../NotionCarousel/NotionCarousel'
-import ProdCarousel from '../ProdCarousel/ProdCarousel'
-import ProductDetailSection from '../ProductDetailSection/ProductDetailSection'
+import '../FontAwesomeIcons/FontAwesomeIcons.js'
+import FabricCarousel from '../FabricCarousel/FabricCarousel.jsx'
+import NotionCarousel from '../NotionCarousel/NotionCarousel.jsx'
+import ProdCarousel from '../ProdCarousel/ProdCarousel.jsx'
+import ProductDetailSection from '../ProductDetailSection/ProductDetailSection.jsx'
 import './ProductDetail.css'
 
-const ProductDetail = props => {
-  const {
-    buyClick,
-    certArray,
-    factArray,
-    prodArray,
-    routeProps,
-    setProdArray
-  } = props
-
+const ProductDetail = ({
+  buyClick = () => {},
+  certArray = [],
+  factArray = [],
+  prodArray = [],
+  routeProps = {
+    match: {
+      params: {
+        productId: 4
+      }
+    }
+  },
+  productInfo = {
+    brand: '',
+    category: '',
+    categoryId: 1,
+    id: 1,
+    imgAlt: '',
+    pathToImg: '',
+    price: 200,
+    productTitle: ''
+  },
+  setProdArray = () => {}
+}) => {
   const [careOpen, setCareOpen] = useState(false)
   const [error, setError] = useState(null)
   const [fabricArray, setFabricArray] = useState([])
@@ -46,7 +60,7 @@ const ProductDetail = props => {
 
   useEffect(() => {
     const getFabrics = () => {
-      fetch(`${process.env.REACT_APP_API_URL}/api/products/${selectedProductId}/fabrics`, {
+      fetch(`${import.meta.env.development.VITE_API_URL}/api/products/${selectedProductId}/fabrics`, {
         method: 'GET',
         headers: {
             'Content-type': 'application/json'
@@ -70,7 +84,7 @@ const ProductDetail = props => {
     getFabrics()
 
     const getSizes = () => {
-        fetch(`${process.env.REACT_APP_API_URL}/api/products/${selectedProductId}/sizes`, {
+        fetch(`${import.meta.env.development.VITE_API_URL}/api/products/${selectedProductId}/sizes`, {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json'
@@ -94,7 +108,7 @@ const ProductDetail = props => {
     getSizes()
 
     const getProduct = productId => {
-      fetch(`${process.env.REACT_APP_API_URL}/api/products/${productId}`, {
+      fetch(`${import.meta.env.development.VITE_API_URL}/api/products/${productId}`, {
         method: 'GET',
         headers: {
           'Content-type': 'application/json'
@@ -555,31 +569,6 @@ const ProductDetail = props => {
       </div>
     )
   }
-}
-
-ProductDetail.defaultProps = {
-  buyClick: () => {},
-  certArray: [],
-  factArray: [],
-  prodArray: [],
-  routeProps: {
-    match: {
-      params: {
-        productId: 4
-      }
-    }
-  },
-  productInfo: {
-    brand: '',
-    category: '',
-    categoryId: 1,
-    id: 1,
-    imgAlt: '',
-    pathToImg: '',
-    price: 200,
-    productTitle: ''
-  },
-  setProdArray: () => {}
 }
 
 export default ProductDetail

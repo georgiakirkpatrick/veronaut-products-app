@@ -8,14 +8,18 @@ import FormUrlInput from '../FormUrlInput/FormUrlInput'
 import NPFFooter from '../NPFFooter/NPFFooter'
 import './NPFImages.css'
 
-const NPFImages = props => {
-  const {
-    colorFieldsets,
-    currentPage,
-    setColorFieldsets,
-    setPage
-  } = props
-
+const NPFImages = ({
+  colorFieldsets = [
+    { 
+      name: 'test name', 
+      descriptionId: '1' ,
+      imageUrls: ['']
+    }
+  ],
+  currentPage = 0,
+  setPage = () => {},
+  setColorFieldsets = () => {}
+}) => {
   const [images, setImages] = useState(false)
 
   const addImage = (index) => {
@@ -139,19 +143,6 @@ const NPFImages = props => {
       />
     </div>
   )
-}
-
-NPFImages.defaultProps = {
-  colorFieldsets: [
-    { 
-      name: 'test name', 
-      descriptionId: '1' ,
-      imageUrls: ['']
-    }
-  ],
-  currentPage: 0,
-  setPage: () => {},
-  setColorFieldsets: () => {}
 }
 
 export default NPFImages

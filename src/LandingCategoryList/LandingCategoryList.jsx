@@ -3,11 +3,10 @@ import Category from '../Category/Category'
 import ReadMoreLink from '../ReadMoreLink/ReadMoreLink'
 import './LandingCategoryList.css'
 
-const LandingCategoryList = props => {
-  const {
-    categories
-  } = props
-
+const LandingCategoryList = ({
+  categories = []
+}) => {
+  
   const generateCategoryList = categories.map(category => (
     <Category 
       key={category.key}
@@ -37,10 +36,6 @@ const LandingCategoryList = props => {
       />
     </section>
   )
-}
-
-LandingCategoryList.defaultProps = {
-  categories: []
 }
 
 export default LandingCategoryList

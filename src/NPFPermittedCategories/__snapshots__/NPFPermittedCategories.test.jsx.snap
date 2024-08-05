@@ -1,0 +1,438 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`NPFPermittedCategories > renders the UI as expected 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="NPFPermittedCategories"
+      >
+        <section
+          class="FormPage"
+        >
+          <h1>
+            Categories
+          </h1>
+          <form
+            autocomplete="off"
+            id="form-page"
+          >
+            <div
+              class="FormPromptWithSub"
+            >
+              <p
+                class="FormPromptWithSub__prompt"
+              >
+                Does the product fall into one of the following categories?
+              </p>
+              <p
+                class="FormPromptWithSub__subtitle"
+              >
+                Check any that apply or 'none of these' and then 'next'.
+              </p>
+            </div>
+            <div
+              class="FormCheckboxSection"
+            >
+              <div
+                class="empty"
+              />
+              <div
+                class="FormCheckboxSection__options-container"
+              >
+                <div
+                  class="FormCheckboxSection__option"
+                >
+                  <input
+                    id="1"
+                    name="1"
+                    type="checkbox"
+                  />
+                  <label
+                    for="1"
+                  >
+                    Outerwear
+                  </label>
+                </div>
+                <div
+                  class="FormCheckboxSection__option"
+                >
+                  <input
+                    id="2"
+                    name="2"
+                    type="checkbox"
+                  />
+                  <label
+                    for="2"
+                  >
+                    Shoes
+                  </label>
+                </div>
+                <div
+                  class="FormCheckboxSection__option"
+                >
+                  <input
+                    id="3"
+                    name="3"
+                    type="checkbox"
+                  />
+                  <label
+                    for="3"
+                  >
+                    Socks and tights
+                  </label>
+                </div>
+                <div
+                  class="FormCheckboxSection__option"
+                >
+                  <input
+                    id="4"
+                    name="4"
+                    type="checkbox"
+                  />
+                  <label
+                    for="4"
+                  >
+                    Swimwear
+                  </label>
+                </div>
+                <div
+                  class="FormCheckboxSection__option"
+                >
+                  <input
+                    id="5"
+                    name="5"
+                    type="checkbox"
+                  />
+                  <label
+                    for="5"
+                  >
+                    Underwear
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div
+              class="FormCheckboxSection"
+            >
+              <div
+                class="empty"
+              />
+              <div
+                class="FormCheckboxSection__options-container"
+              >
+                <div
+                  class="FormCheckboxSection__option"
+                >
+                  <input
+                    id="101"
+                    name="101"
+                    type="checkbox"
+                  />
+                  <label
+                    for="101"
+                  >
+                    None of these
+                  </label>
+                </div>
+              </div>
+            </div>
+          </form>
+          <div />
+        </section>
+        <footer
+          class="NPFFooter"
+        >
+          <button
+            class="NPFFooter__previous"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-angle-left NPFFooter__left-arrow"
+              data-icon="angle-left"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 320 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
+                fill="currentColor"
+              />
+            </svg>
+            <span>
+              PREVIOUS
+            </span>
+          </button>
+          <button
+            class="NPFFooter__next"
+            type="button"
+          >
+            <span>
+              NEXT
+            </span>
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-angle-right NPFFooter__right-arrow"
+              data-icon="angle-right"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 320 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </footer>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="NPFPermittedCategories"
+    >
+      <section
+        class="FormPage"
+      >
+        <h1>
+          Categories
+        </h1>
+        <form
+          autocomplete="off"
+          id="form-page"
+        >
+          <div
+            class="FormPromptWithSub"
+          >
+            <p
+              class="FormPromptWithSub__prompt"
+            >
+              Does the product fall into one of the following categories?
+            </p>
+            <p
+              class="FormPromptWithSub__subtitle"
+            >
+              Check any that apply or 'none of these' and then 'next'.
+            </p>
+          </div>
+          <div
+            class="FormCheckboxSection"
+          >
+            <div
+              class="empty"
+            />
+            <div
+              class="FormCheckboxSection__options-container"
+            >
+              <div
+                class="FormCheckboxSection__option"
+              >
+                <input
+                  id="1"
+                  name="1"
+                  type="checkbox"
+                />
+                <label
+                  for="1"
+                >
+                  Outerwear
+                </label>
+              </div>
+              <div
+                class="FormCheckboxSection__option"
+              >
+                <input
+                  id="2"
+                  name="2"
+                  type="checkbox"
+                />
+                <label
+                  for="2"
+                >
+                  Shoes
+                </label>
+              </div>
+              <div
+                class="FormCheckboxSection__option"
+              >
+                <input
+                  id="3"
+                  name="3"
+                  type="checkbox"
+                />
+                <label
+                  for="3"
+                >
+                  Socks and tights
+                </label>
+              </div>
+              <div
+                class="FormCheckboxSection__option"
+              >
+                <input
+                  id="4"
+                  name="4"
+                  type="checkbox"
+                />
+                <label
+                  for="4"
+                >
+                  Swimwear
+                </label>
+              </div>
+              <div
+                class="FormCheckboxSection__option"
+              >
+                <input
+                  id="5"
+                  name="5"
+                  type="checkbox"
+                />
+                <label
+                  for="5"
+                >
+                  Underwear
+                </label>
+              </div>
+            </div>
+          </div>
+          <div
+            class="FormCheckboxSection"
+          >
+            <div
+              class="empty"
+            />
+            <div
+              class="FormCheckboxSection__options-container"
+            >
+              <div
+                class="FormCheckboxSection__option"
+              >
+                <input
+                  id="101"
+                  name="101"
+                  type="checkbox"
+                />
+                <label
+                  for="101"
+                >
+                  None of these
+                </label>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div />
+      </section>
+      <footer
+        class="NPFFooter"
+      >
+        <button
+          class="NPFFooter__previous"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-angle-left NPFFooter__left-arrow"
+            data-icon="angle-left"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 320 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
+              fill="currentColor"
+            />
+          </svg>
+          <span>
+            PREVIOUS
+          </span>
+        </button>
+        <button
+          class="NPFFooter__next"
+          type="button"
+        >
+          <span>
+            NEXT
+          </span>
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-angle-right NPFFooter__right-arrow"
+            data-icon="angle-right"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 320 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </footer>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

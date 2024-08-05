@@ -9,12 +9,10 @@ import MenuItem from '../MenuItem/MenuItem'
 import TokenService from '../services/token-service'
 import './Header.css'
 
-const Header = props => {
-  const {
-    catArray,
-    background
-  } = props
-
+const Header = ({
+  catArray = [],
+  background = ''
+}) => {
   const [mobMenuOpen, setMobMenuOpen] = useState(false)
   const [activeMenu, setActiveMenu] = useState('main')
 
@@ -208,10 +206,6 @@ const Header = props => {
       </div>
     </nav>
   )
-}
-
-Header.defaultProps = {
-  catArray: []
 }
 
 export default Header

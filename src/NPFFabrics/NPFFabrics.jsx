@@ -15,21 +15,85 @@ import NPFFooter from '../NPFFooter/NPFFooter'
 import TokenService from '../services/token-service'
 import './NPFFabrics.css'
 
-const NPFFabrics = props => {
-  const { 
-    certChecks,
-    fabFact,
-    fabricProps,
-    fiberFieldsets,
-    id,
-    linBackPageTurns,
-    pageTurns,
-    setFabFact,
-    setFiberFieldsets,
-    setCertChecks,
-    title
-  } = props
-
+const NPFFabrics = ({
+  certChecks = {},
+  fabFact = {
+    dyeFinCountryId: '',
+    dyeFinId: '',
+    dyeFinNotes: '',
+    wovKnitCountryId: '',
+    wovKnitId: '',
+    wovKnitNotes: ''
+  },
+  fabricProps = {
+    certArray: [],
+    certPopUp: false,
+    countries: [],
+    currentPage: 0,
+    dyeFactPopUp: false,
+    initCerts: {},
+    factArray: [],
+    fiberPopUp: false,
+    fiberTypeArray: [],
+    millPopUp: false,
+    newCert: {
+      name: '',
+      website: ''
+    },
+    newFact: {
+      name: '',
+      countryId: '',
+      website: '',
+    },
+    newFiber: {
+      name: ''
+    },
+    newMill: {
+      name: '',
+      countryId: '',
+      website: '',
+      notes: ''
+    },
+    newProducer: {
+      name: '',
+      countryId: 0,
+      website: '',
+      notes: ''
+    },
+    producerPopUp: false,
+    setCertArray: () => {},
+    setFiberTypeArray: () => {},
+    setCertPopUp: () => {},
+    setDyeFactPopUp: () => {},
+    setFactArray: () => {},
+    setFiberPopUp: () => {},
+    setInitCerts: () => {},
+    setMillPopUp: () => {},
+    setNewCert:  () => {},
+    setNewFact:  () => {},
+    setNewFiber: () => {},
+    setNewMill: () => {},
+    setNewProducer: () => {},
+    setPage: () => {},
+    setProducerPopUp: () => {}
+  },
+  fiberFieldsets = [
+    {
+      fiberTypeId: 0,
+      percentage: '',
+      originId: 0,
+      producerId: 0,
+      producerNotes: '',
+      certIds: []
+    }
+  ],
+  id = 1,
+  pageTurns = 0,
+  setFabFact = () => {},
+  setCertChecks = () => {},
+  setFiberFieldsets = () => {},
+  title = ''
+}) => {
   const addCertification = certification => {
     fabricProps.setCertArray([
       ...fabricProps.certArray,
@@ -342,7 +406,7 @@ const NPFFabrics = props => {
     if (missingFields.length >= 1) {
       alert(`The factory name and country fields are required.  Please complete both fields.`)
     } else {
-      fetch(`${process.env.REACT_APP_API_URL}/api/factories`,
+      fetch(`${import.meta.env.development.VITE_API_URL}/api/factories`,
         postRequestParams
       )
       .then(response => {
@@ -380,7 +444,7 @@ const NPFFabrics = props => {
     if (fabricProps.newFiber.name === '') {
       alert(`Please enter a new fiber.`)
     } else {
-      fetch(`${process.env.REACT_APP_API_URL}/api/fibers/fiber-types`,
+      fetch(`${import.meta.env.development.VITE_API_URL}/api/fibers/fiber-types`,
         postRequestParams
       )
       .then(response => {            
@@ -433,7 +497,7 @@ const NPFFabrics = props => {
     if (missingFields.length >= 1) {
         alert(`The factory name and country fields are required.  Please complete both fields.`)
     } else {
-      fetch(`${process.env.REACT_APP_API_URL}/api/factories`,
+      fetch(`${import.meta.env.development.VITE_API_URL}/api/factories`,
         postRequestParams
       )
       .then(response => {
@@ -487,7 +551,7 @@ const NPFFabrics = props => {
     if (missingFields.length >= 1) {
       alert(`The factory name and country fields are required.  Please complete both fields.`)
     } else {
-      fetch(`${process.env.REACT_APP_API_URL}/api/factories`,
+      fetch(`${import.meta.env.development.VITE_API_URL}/api/factories`,
         postRequestParams
       )
       .then(response => {
@@ -544,7 +608,7 @@ const NPFFabrics = props => {
         body: JSON.stringify(data)
       }
 
-      fetch(`${process.env.REACT_APP_API_URL}/api/certifications`,
+      fetch(`${import.meta.env.development.VITE_API_URL}/api/certifications`,
         postRequestParams
       )
       .then(response => {
@@ -976,86 +1040,6 @@ const NPFFabrics = props => {
       </FormPopUp>
     </div>
   )    
-}
-
-NPFFabrics.defaultProps = {
-  certChecks: {},
-  fabFact: {
-    dyeFinCountryId: '',
-    dyeFinId: '',
-    dyeFinNotes: '',
-    wovKnitCountryId: '',
-    wovKnitId: '',
-    wovKnitNotes: ''
-  },
-  fabricProps: {
-    certArray: [],
-    certPopUp: false,
-    countries: [],
-    currentPage: 0,
-    dyeFactPopUp: false,
-    initCerts: {},
-    factArray: [],
-    fiberPopUp: false,
-    fiberTypeArray: [],
-    millPopUp: false,
-    newCert: {
-      name: '',
-      website: ''
-    },
-    newFact: {
-      name: '',
-      countryId: '',
-      website: '',
-    },
-    newFiber: {
-      name: ''
-    },
-    newMill: {
-      name: '',
-      countryId: '',
-      website: '',
-      notes: ''
-    },
-    newProducer: {
-      name: '',
-      countryId: 0,
-      website: '',
-      notes: ''
-    },
-    producerPopUp: false,
-    setCertArray: () => {},
-    setFiberTypeArray: () => {},
-    setCertPopUp: () => {},
-    setDyeFactPopUp: () => {},
-    setFactArray: () => {},
-    setFiberPopUp: () => {},
-    setInitCerts: () => {},
-    setMillPopUp: () => {},
-    setNewCert:  () => {},
-    setNewFact:  () => {},
-    setNewFiber: () => {},
-    setNewMill: () => {},
-    setNewProducer: () => {},
-    setPage: () => {},
-    setProducerPopUp: () => {}
-  },
-  fiberFieldsets: [
-    {
-      fiberTypeId: 0,
-      percentage: '',
-      originId: 0,
-      producerId: 0,
-      producerNotes: '',
-      certIds: []
-    }
-  ],
-  id: 1,
-  pageTurns: 0,
-  setFabFact: () => {},
-  setCertChecks: () => {},
-  setFiberFieldsets: () => {},
-  title: ''
 }
 
 export default NPFFabrics

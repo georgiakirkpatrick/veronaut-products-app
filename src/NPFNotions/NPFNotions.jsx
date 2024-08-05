@@ -15,31 +15,57 @@ import NPFFooter from '../NPFFooter/NPFFooter'
 import TokenService from '../services/token-service'
 import './NPFNotions.css'
 
-const NPFNotions = props => {
-  const {
-    backPageTurns,
-    fabricProps,
-    fiberTypeArray,
-    materialPopUp,
-    newNotionMaterial,
-    newNotionType,
-    notFactPopUp,
-    notionFields,
-    notionTypeArray,
-    notionTypePopUp,
-    setCertChecks,
-    setFiberTypeArray,
-    setNewNotionMaterial,
-    setNewNotionType,
-    setNotFactPopUp,
-    setNotionTypePopUp,
-    setMaterialPopUp,
-    setNotionFields,
-    setNotionTypeArray
-  } = props
-
-  console.log('notionFields', notionFields)
-
+const NPFNotions = ({
+  fabricProps = {
+    certArray: [],
+    certPopUp: false,
+    countries: [],
+    currentPage: 0,
+    factArray: [],
+    fiberTypeArray: [],
+    newCert: {
+        name: '',
+        website: ''
+    },
+    newFact: {
+        name: '',
+        countryId: '',
+        website: '',
+        notes: ''
+    },
+    setCertArray: () => {},
+    setFiberTypeArray: () => {},
+    setFactArray: () => {},
+    setCertPopUp: () => {},
+    setNewCert: () => {},
+    setNewFact: () => {},
+    setPage: () => {},
+  },
+  materialPopUp = false,
+  newNotMaterial,
+  newNotionType = '',
+  notFactPopUp = false,
+  notionFields = [
+    {
+      typeId: 0,
+      materialTypeId: 0,
+      countryId: 0,
+      materialOriginId: 0,
+      factoryId: 0,
+      notes: ''
+    }
+  ],
+  notionTypeArray = [],
+  notionTypePopUp = false,
+  setCertChecks = () => {},
+  setMaterialPopUp = () => {},
+  setNewNotMaterial = () => {},
+  setNotFactPopUp = () => {},
+  setNewNotionType = () => {},
+  setNotionFields = () => {},
+  setNotionTypeArray = () => {},
+  setNotionTypePopUp = () => {}
+}) => {
   const notionsClass = notionFields.length === 0
     ? 'NPFNotions empty'
     : 'NPFNotions'
@@ -287,7 +313,7 @@ const NPFNotions = props => {
         body: JSON.stringify(data)
       }
 
-      fetch(`${process.env.REACT_APP_API_URL}/api/certifications`,
+      fetch(`${import.meta.env.development.VITE_API_URL}/api/certifications`,
         postRequestParams
       )
       .then(response => {
@@ -344,7 +370,7 @@ const NPFNotions = props => {
         ${field}`)}
       `)
     } else if (missingFields.length === 0) {
-      fetch(`${process.env.REACT_APP_API_URL}/api/factories`, postRequestParams)
+      fetch(`${import.meta.env.development.VITE_API_URL}/api/factories`, postRequestParams)
       .then(response => {
         if (response.status >= 400) {
           throw new Error("Server responded with an error!")
@@ -387,7 +413,7 @@ const NPFNotions = props => {
 
   const submitNewMaterial = index => {
     const data = {
-      "english_name": fabricProps.formatName(newNotionMaterial),
+      "english_name": fabricProps.formatName(newNotMaterial),
       "fiber_type_class": "undetermined"
     }
 
@@ -397,10 +423,10 @@ const NPFNotions = props => {
       body: JSON.stringify(data)
     }
 
-    if (newNotionMaterial === '') {
+    if (newNotMaterial === '') {
         alert(`Please enter a new material.`)
     } else {
-      fetch(`${process.env.REACT_APP_API_URL}/api/fibers/fiber-types`, 
+      fetch(`${import.meta.env.development.VITE_API_URL}/api/fibers/fiber-types`, 
         postRequestParams
       )
       .then(response => {
@@ -424,7 +450,7 @@ const NPFNotions = props => {
       })
     }
 
-    setNewNotionMaterial('')
+    setNewNotMaterial('')
     setMaterialPopUp(false)
   }
 
@@ -447,7 +473,7 @@ const NPFNotions = props => {
       alert('Please enter a notion type')
     } else {
       fetch(
-        `${process.env.REACT_APP_API_URL}/api/notions/notion-types`,
+        `${import.meta.env.development.VITE_API_URL}/api/notions/notion-types`,
         postRequestParams
       )
       .then(response => {
@@ -636,9 +662,9 @@ const NPFNotions = props => {
                       id='new-material-name'
                       name='name'
                       prompt='Material name'
-                      currentValue={newNotionMaterial}
+                      currentValue={newNotMaterial}
                       handleChange={event => {
-                        setNewNotionMaterial(event.target.value)
+                        setNewNotMaterial(event.target.value)
                       }}
                     />
                   </FormPopUp>
@@ -750,56 +776,6 @@ const NPFNotions = props => {
       />
     </div>
   )
-}
-
-NPFNotions.defaultProps = {
-  fabricProps: {
-    certArray: [],
-    certPopUp: false,
-    countries: [],
-    currentPage: 0,
-    factArray: [],
-    fiberTypeArray: [],
-    newCert: {
-        name: '',
-        website: ''
-    },
-    newFact: {
-        name: '',
-        countryId: '',
-        website: '',
-        notes: ''
-    },
-    setCertArray: () => {},
-    setFiberTypeArray: () => {},
-    setFactArray: () => {},
-    setCertPopUp: () => {},
-    setNewCert: () => {},
-    setNewFact: () => {},
-    setPage: () => {},
-  },
-  materialPopUp: false,
-  newNotionType: '',
-  notFactPopUp: false,
-  notionFields: [
-    {
-      typeId: 0,
-      materialTypeId: 0,
-      countryId: 0,
-      materialOriginId: 0,
-      factoryId: 0,
-      notes: ''
-    }
-  ],
-  notionTypeArray: [],
-  notionTypePopUp: false,
-  setCertChecks: () => {},
-  setMaterialPopUp: () => {},
-  setNotFactPopUp: () => {},
-  setNewNotionType: () => {},
-  setNotionFields: () => {},
-  setNotionTypeArray: () => {},
-  setNotionTypePopUp: () => {}
 }
 
 export default NPFNotions

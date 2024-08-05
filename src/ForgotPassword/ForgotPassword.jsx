@@ -6,11 +6,9 @@ import FormPromptWithSub from '../FormPromptWithSub/FormPromptWithSub'
 import FormTextInput from '../FormTextInput/FormTextInput'
 import './ForgotPassword.css'
 
-const ForgotPassword = props => {
-  const {
-    setLoginInfo
-  } = props
-
+const ForgotPassword = ({
+  setLoginInfo = () => {}
+}) => {
   const [forgotEmail, setForgotEmail] = useState('')
 
   const handleSubmitBasicAuth = event => {
@@ -67,10 +65,6 @@ const ForgotPassword = props => {
       </Link>
     </form>
   )
-}
-
-ForgotPassword.defaultProps = {
-  setLoginInfo: () => {}
 }
 
 export default ForgotPassword

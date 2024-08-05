@@ -5,15 +5,18 @@ import FormTitle from '../FormTitle/FormTitle'
 import FormButton from '../FormButton/FormButton'
 import FormTextInput from '../FormTextInput/FormTextInput'
 import TokenService from '../services/token-service'
+import bcrypt from "bcryptjs-react"
 import './Login.css'
 
-const bcrypt = require("bcryptjs-react")
-
-const Login = props => {
-  const {
-    routeProps
-  } = props
-
+const Login = ({
+  routeProps = {
+    match: {
+      params: {
+        categoryId: '1'
+      }
+    }
+  }
+}) => {
   const [error, setError] = useState(null)
   const [loginEmail, setLoginEmail] = useState('')
   const [loginPassword, setLoginPassword] = useState('')
@@ -29,29 +32,6 @@ const Login = props => {
 
     history.push(referrer)
   }
-
-  // const handleSubmitJwtAuth = event => {
-  //     event.presentDefault()
-
-  //     AuthApiService.postLogin({
-  //         email: loginEmail,
-  //         password: loginPassword
-  //     })
-  //     .then(response => {
-  //         setLoginEmail('')
-  //         setLoginPassword('')
-  //         TokenService.saveAuthToken(response.authToken)
-  //     })
-  //     .catch(response => {
-  //         setError(response.error)
-  //     })
-  // }
-
-  // const saveAuthToken = (email, password) => {
-  //     const authToken = TokenService.makeBasicAuthToken(email, password)
-      
-  //     TokenService.saveAuthToken(authToken)
-  // }
 
   const handleLoginSubmit = event => {
     if (loginEmail === '' && loginPassword === '') {

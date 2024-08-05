@@ -1,0 +1,1862 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`NPFFabrics > render the UI as expected 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="NPFFabrics"
+        id="fabrics"
+      >
+        <section
+          class="FormPage"
+        >
+          <div
+            class="empty"
+          />
+          <form
+            autocomplete="off"
+            id="form-page"
+          >
+            <div
+              class="FormPromptWithSub"
+            >
+              <p
+                class="FormPromptWithSub__prompt"
+              >
+                Please enter the fabric details provided on the product webpage.
+              </p>
+              <p
+                class="FormPromptWithSub__subtitle"
+              >
+                If the product page does not provide the information detailed below, please select "not disclosed" from the dropdown.
+              </p>
+            </div>
+            <fieldset
+              class="FormFieldset"
+            >
+              <h2>
+                Fabric Dyeing, Printing, and Finishing
+              </h2>
+              <div
+                class="FormDropdown"
+              >
+                <label
+                  for="dye-finish-country-id"
+                >
+                  Dyeing and finishing country
+                </label>
+                <select
+                  name="dyeFinCountryId"
+                  required=""
+                />
+              </div>
+              <div
+                class="FormDropdown"
+              >
+                <label
+                  for="dye-fin-id"
+                >
+                  Dyeing and finishing factory
+                </label>
+                <select
+                  name="dyeFinId"
+                  required=""
+                >
+                  <option
+                    id="0"
+                    value="0"
+                  >
+                    Select a factory
+                  </option>
+                  <option
+                    id="1"
+                    value="1"
+                  >
+                    Not disclosed
+                  </option>
+                </select>
+              </div>
+              <div
+                class="FormPromptWithSub"
+              >
+                <p
+                  class="FormPromptWithSub__prompt"
+                />
+                <p
+                  class="FormPromptWithSub__subtitle"
+                >
+                  Factory not listed above?
+                </p>
+              </div>
+              <button
+                class="FormButton"
+                type="button"
+              >
+                Add a factory
+              </button>
+              <div
+                class="FormTextarea"
+              >
+                <label
+                  for="dye-fin-notes"
+                >
+                  Whether or not the factory is listed, are there notes about the dyeing/printing/finishing mill?  If so, copy them and paste them here.
+                </label>
+                <textarea
+                  id="dye-fin-notes"
+                  name="dyeFinNotes"
+                  required=""
+                  rows="1"
+                />
+              </div>
+            </fieldset>
+            <fieldset
+              class="FormFieldset"
+            >
+              <h2>
+                Knitting and Weaving
+              </h2>
+              <div
+                class="FormDropdown"
+              >
+                <label
+                  for="wov-knit-country-id"
+                >
+                  Knitting or weaving country
+                </label>
+                <select
+                  name="wovKnitCountryId"
+                  required=""
+                />
+              </div>
+              <div
+                class="FormDropdown"
+              >
+                <label
+                  for="wov-knit-id"
+                >
+                  Knitting/weaving fabric mill
+                </label>
+                <select
+                  name="wovKnitId"
+                  required=""
+                >
+                  <option
+                    id="0"
+                    value="0"
+                  >
+                    Select a fabric mill
+                  </option>
+                  <option
+                    id="1"
+                    value="1"
+                  >
+                    Not disclosed
+                  </option>
+                </select>
+              </div>
+              <div
+                class="FormPromptWithSub"
+              >
+                <p
+                  class="FormPromptWithSub__prompt"
+                />
+                <p
+                  class="FormPromptWithSub__subtitle"
+                >
+                  Factory not listed above?
+                </p>
+              </div>
+              <button
+                class="FormButton"
+                type="button"
+              >
+                Add a fabric mill
+              </button>
+              <div
+                class="FormTextarea"
+              >
+                <label
+                  for="wov-knit-notes"
+                >
+                  Whether or not the fabric mill is listed, are there notes about where the fabric or material was made?  If so, copy them and paste them here.
+                </label>
+                <textarea
+                  id="wov-knit-notes"
+                  name="wovKnitNotes"
+                  required=""
+                  rows="1"
+                />
+              </div>
+            </fieldset>
+            <fieldset
+              class="FormFieldset"
+            >
+              <h2>
+                Does the primary fabric have any of the following certifications?
+              </h2>
+              <div
+                class="FormCheckboxSection"
+              >
+                <div
+                  class="empty"
+                />
+                <div
+                  class="FormCheckboxSection__options-container"
+                />
+              </div>
+              <div
+                class="FormPromptWithSub"
+              >
+                <p
+                  class="FormPromptWithSub__prompt"
+                />
+                <p
+                  class="FormPromptWithSub__subtitle"
+                >
+                  Certification not listed above?
+                </p>
+              </div>
+              <button
+                class="FormButton"
+                type="button"
+              >
+                Add a certification
+              </button>
+            </fieldset>
+            <div
+              class="FormPromptWithSub"
+            >
+              <p
+                class="FormPromptWithSub__prompt"
+              >
+                Fibers
+              </p>
+              <p
+                class="FormPromptWithSub__subtitle"
+              >
+                Please enter the fabric details provided on the product webpage.  If the product page does not provide the information detailed below, please select "not disclosed" from the dropdown.
+              </p>
+            </div>
+            <fieldset
+              class="FormFieldset"
+            >
+              <button
+                class="NewProductForm__remove"
+                type="button"
+              >
+                REMOVE
+              </button>
+              <div
+                class="FormDropdown"
+              >
+                <label
+                  for="fiber-type-id-0"
+                >
+                  Fiber or material
+                </label>
+                <select
+                  name="fiberTypeId"
+                  required=""
+                >
+                  <option
+                    id="0"
+                    value="0"
+                  >
+                    Select a fiber or material
+                  </option>
+                  <option
+                    id="1"
+                    value="1"
+                  >
+                    Not disclosed
+                  </option>
+                </select>
+              </div>
+              <div
+                class="FormPromptWithSub"
+              >
+                <p
+                  class="FormPromptWithSub__prompt"
+                />
+                <p
+                  class="FormPromptWithSub__subtitle"
+                >
+                  Fiber or material not listed above?
+                </p>
+              </div>
+              <button
+                class="FormButton"
+                type="button"
+              >
+                Add a fiber or material type
+              </button>
+              <section
+                class="FormPopUp"
+                id="fabric1new-fiber"
+              >
+                <button
+                  class="FormPopUp__close-button"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="svg-inline--fa fa-times fa-lg "
+                    data-icon="times"
+                    data-prefix="fas"
+                    focusable="false"
+                    role="img"
+                    viewBox="0 0 384 512"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </button>
+                <header>
+                  <h1>
+                    New Fiber
+                  </h1>
+                </header>
+                <div
+                  class="FormTextInput"
+                >
+                  <label
+                    for="fabric1new-fiber-name"
+                  >
+                    Fiber name
+                  </label>
+                  <input
+                    id="fabric1new-fiber-name"
+                    name="name"
+                    required=""
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <button
+                  class="FormButton"
+                  type="button"
+                >
+                  Submit fiber
+                </button>
+              </section>
+              <div
+                class="FormNumber"
+              >
+                <label
+                  for="fiber-type-percentage-0"
+                >
+                  Percentage of fabric content, if available
+                </label>
+                <input
+                  id="fiber-type-percentage-0"
+                  name="percentage"
+                  type="number"
+                  value=""
+                />
+                 %
+              </div>
+              <div
+                class="FormDropdown"
+              >
+                <label
+                  for="fiber-origin0"
+                >
+                  Fiber origin
+                </label>
+                <select
+                  name="originId"
+                  required=""
+                />
+              </div>
+              <div
+                class="FormDropdown"
+              >
+                <label
+                  for="producer-id0"
+                >
+                  Fiber or material producer
+                </label>
+                <select
+                  name="producerId"
+                  required=""
+                >
+                  <option
+                    id="0"
+                    value="0"
+                  >
+                    Select a producer
+                  </option>
+                  <option
+                    id="1"
+                    value="1"
+                  >
+                    Not disclosed
+                  </option>
+                </select>
+              </div>
+              <div
+                class="FormPromptWithSub"
+              >
+                <p
+                  class="FormPromptWithSub__prompt"
+                />
+                <p
+                  class="FormPromptWithSub__subtitle"
+                >
+                  Producer not listed above?
+                </p>
+              </div>
+              <button
+                class="FormButton"
+                type="button"
+              >
+                Add a producer
+              </button>
+              <section
+                class="FormPopUp"
+                id="fabric1NewFibProducer"
+              >
+                <button
+                  class="FormPopUp__close-button"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="svg-inline--fa fa-times fa-lg "
+                    data-icon="times"
+                    data-prefix="fas"
+                    focusable="false"
+                    role="img"
+                    viewBox="0 0 384 512"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </button>
+                <header>
+                  <h1>
+                    New Producer
+                  </h1>
+                </header>
+                <div
+                  class="FormTextInput"
+                >
+                  <label
+                    for="1NewProducerName"
+                  >
+                    Factory name
+                  </label>
+                  <input
+                    id="1NewProducerName"
+                    name="name"
+                    required=""
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <div
+                  class="FormDropdown"
+                >
+                  <label
+                    for="1NewProducerLocation"
+                  >
+                    Location
+                  </label>
+                  <select
+                    name="countryId"
+                    required=""
+                  />
+                </div>
+                <div
+                  class="FormUrlInput"
+                >
+                  <label
+                    for="1NewProducerWebsite"
+                  >
+                    Website
+                  </label>
+                  <input
+                    id="1NewProducerWebsite"
+                    name="website"
+                    required=""
+                    type="url"
+                    value=""
+                  />
+                </div>
+                <div
+                  class="FormTextarea"
+                >
+                  <label
+                    for="1NewProducerNotes"
+                  >
+                    Notes
+                  </label>
+                  <textarea
+                    id="1NewProducerNotes"
+                    name="notes"
+                    required=""
+                    rows="1"
+                  />
+                </div>
+                <button
+                  class="FormButton"
+                  type="button"
+                >
+                  Submit Factory
+                </button>
+              </section>
+              <div
+                class="FormTextarea"
+              >
+                <label
+                  for="producer-notes0"
+                >
+                  Whether or not the producer is listed, are there notes about the fiber or material producer?  If so, copy them and paste them here.
+                </label>
+                <textarea
+                  id="producer-notes0"
+                  name="producerNotes"
+                  required=""
+                  rows="1"
+                />
+              </div>
+              <div
+                class="FormPromptWithSub"
+              >
+                <p
+                  class="FormPromptWithSub__prompt"
+                />
+                <p
+                  class="FormPromptWithSub__subtitle"
+                >
+                  Does the fiber have any of the following certifications?
+                </p>
+              </div>
+              <div
+                class="FormCheckboxSection"
+              >
+                <div
+                  class="empty"
+                />
+                <div
+                  class="FormCheckboxSection__options-container"
+                />
+              </div>
+              <div
+                class="FormPromptWithSub"
+              >
+                <p
+                  class="FormPromptWithSub__prompt"
+                />
+                <p
+                  class="FormPromptWithSub__subtitle"
+                >
+                  Certification not listed above?
+                </p>
+              </div>
+              <button
+                class="FormButton"
+                type="button"
+              >
+                Add a certification
+              </button>
+            </fieldset>
+            <div
+              class="FormPromptWithSub"
+            >
+              <p
+                class="FormPromptWithSub__prompt"
+              />
+              <p
+                class="FormPromptWithSub__subtitle"
+              >
+                Does this fabric have more than one fiber?
+              </p>
+            </div>
+            <button
+              class="FormButton"
+              type="button"
+            >
+              Add a fiber
+            </button>
+          </form>
+          <div />
+        </section>
+        <footer
+          class="NPFFooter"
+        >
+          <button
+            class="NPFFooter__previous"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-angle-left NPFFooter__left-arrow"
+              data-icon="angle-left"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 320 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
+                fill="currentColor"
+              />
+            </svg>
+            <span>
+              PREVIOUS
+            </span>
+          </button>
+          <button
+            class="NPFFooter__next"
+            type="button"
+          >
+            <span>
+              NEXT
+            </span>
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-angle-right NPFFooter__right-arrow"
+              data-icon="angle-right"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 320 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </footer>
+        <section
+          class="FormPopUp"
+          id="1NewFact"
+        >
+          <button
+            class="FormPopUp__close-button"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-times fa-lg "
+              data-icon="times"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 384 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+          <header>
+            <h1>
+              New Factory
+            </h1>
+          </header>
+          <div
+            class="FormTextInput"
+          >
+            <label
+              for="1NewFactName"
+            >
+              Factory name
+            </label>
+            <input
+              id="1NewFactName"
+              name="name"
+              required=""
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            class="FormDropdown"
+          >
+            <label
+              for="1NewFactLocation"
+            >
+              Location
+            </label>
+            <select
+              name="countryId"
+              required=""
+            />
+          </div>
+          <div
+            class="FormUrlInput"
+          >
+            <label
+              for="1NewFactWebsite"
+            >
+              Website
+            </label>
+            <input
+              id="1NewFactWebsite"
+              name="website"
+              required=""
+              type="url"
+              value=""
+            />
+          </div>
+          <div
+            class="FormTextarea"
+          >
+            <label
+              for="1NewFactNotes"
+            >
+              Notes
+            </label>
+            <textarea
+              id="1NewFactNotes"
+              name="notes"
+              required=""
+              rows="1"
+            >
+              1
+            </textarea>
+          </div>
+          <button
+            class="FormButton"
+            type="button"
+          >
+            Submit Factory
+          </button>
+        </section>
+        <section
+          class="FormPopUp"
+          id="1NewMill"
+        >
+          <button
+            class="FormPopUp__close-button"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-times fa-lg "
+              data-icon="times"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 384 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+          <header>
+            <h1>
+              New Fabric Mill
+            </h1>
+          </header>
+          <div
+            class="FormTextInput"
+          >
+            <label
+              for="1-new-mill-name"
+            >
+              Fabric mill name
+            </label>
+            <input
+              id="1-new-mill-name"
+              name="name"
+              required=""
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            class="FormDropdown"
+          >
+            <label
+              for="1NewMillLocation"
+            >
+              Location
+            </label>
+            <select
+              name="countryId"
+              required=""
+            />
+          </div>
+          <div
+            class="FormUrlInput"
+          >
+            <label
+              for="1NewMillWebsite"
+            >
+              Website
+            </label>
+            <input
+              id="1NewMillWebsite"
+              name="website"
+              required=""
+              type="url"
+              value=""
+            />
+          </div>
+          <div
+            class="FormTextarea"
+          >
+            <label
+              for="1NewMillNotes"
+            >
+              Notes
+            </label>
+            <textarea
+              id="1NewMillNotes"
+              name="notes"
+              required=""
+              rows="1"
+            />
+          </div>
+          <button
+            class="FormButton"
+            type="button"
+          >
+            Submit fabric mill
+          </button>
+        </section>
+        <section
+          class="FormPopUp"
+          id="1NewCert"
+        >
+          <button
+            class="FormPopUp__close-button"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-times fa-lg "
+              data-icon="times"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 384 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+          <header>
+            <h1>
+              New Certification
+            </h1>
+          </header>
+          <div
+            class="FormTextInput"
+          >
+            <label
+              for="1-new-cert-name"
+            >
+              Certification name
+            </label>
+            <input
+              id="1-new-cert-name"
+              name="name"
+              required=""
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            class="FormUrlInput"
+          >
+            <label
+              for="1-new-cert-website"
+            >
+              Website
+            </label>
+            <input
+              id="1-new-cert-website"
+              name="website"
+              required=""
+              type="url"
+              value=""
+            />
+          </div>
+          <button
+            class="FormButton"
+            type="button"
+          >
+            Submit certification
+          </button>
+        </section>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="NPFFabrics"
+      id="fabrics"
+    >
+      <section
+        class="FormPage"
+      >
+        <div
+          class="empty"
+        />
+        <form
+          autocomplete="off"
+          id="form-page"
+        >
+          <div
+            class="FormPromptWithSub"
+          >
+            <p
+              class="FormPromptWithSub__prompt"
+            >
+              Please enter the fabric details provided on the product webpage.
+            </p>
+            <p
+              class="FormPromptWithSub__subtitle"
+            >
+              If the product page does not provide the information detailed below, please select "not disclosed" from the dropdown.
+            </p>
+          </div>
+          <fieldset
+            class="FormFieldset"
+          >
+            <h2>
+              Fabric Dyeing, Printing, and Finishing
+            </h2>
+            <div
+              class="FormDropdown"
+            >
+              <label
+                for="dye-finish-country-id"
+              >
+                Dyeing and finishing country
+              </label>
+              <select
+                name="dyeFinCountryId"
+                required=""
+              />
+            </div>
+            <div
+              class="FormDropdown"
+            >
+              <label
+                for="dye-fin-id"
+              >
+                Dyeing and finishing factory
+              </label>
+              <select
+                name="dyeFinId"
+                required=""
+              >
+                <option
+                  id="0"
+                  value="0"
+                >
+                  Select a factory
+                </option>
+                <option
+                  id="1"
+                  value="1"
+                >
+                  Not disclosed
+                </option>
+              </select>
+            </div>
+            <div
+              class="FormPromptWithSub"
+            >
+              <p
+                class="FormPromptWithSub__prompt"
+              />
+              <p
+                class="FormPromptWithSub__subtitle"
+              >
+                Factory not listed above?
+              </p>
+            </div>
+            <button
+              class="FormButton"
+              type="button"
+            >
+              Add a factory
+            </button>
+            <div
+              class="FormTextarea"
+            >
+              <label
+                for="dye-fin-notes"
+              >
+                Whether or not the factory is listed, are there notes about the dyeing/printing/finishing mill?  If so, copy them and paste them here.
+              </label>
+              <textarea
+                id="dye-fin-notes"
+                name="dyeFinNotes"
+                required=""
+                rows="1"
+              />
+            </div>
+          </fieldset>
+          <fieldset
+            class="FormFieldset"
+          >
+            <h2>
+              Knitting and Weaving
+            </h2>
+            <div
+              class="FormDropdown"
+            >
+              <label
+                for="wov-knit-country-id"
+              >
+                Knitting or weaving country
+              </label>
+              <select
+                name="wovKnitCountryId"
+                required=""
+              />
+            </div>
+            <div
+              class="FormDropdown"
+            >
+              <label
+                for="wov-knit-id"
+              >
+                Knitting/weaving fabric mill
+              </label>
+              <select
+                name="wovKnitId"
+                required=""
+              >
+                <option
+                  id="0"
+                  value="0"
+                >
+                  Select a fabric mill
+                </option>
+                <option
+                  id="1"
+                  value="1"
+                >
+                  Not disclosed
+                </option>
+              </select>
+            </div>
+            <div
+              class="FormPromptWithSub"
+            >
+              <p
+                class="FormPromptWithSub__prompt"
+              />
+              <p
+                class="FormPromptWithSub__subtitle"
+              >
+                Factory not listed above?
+              </p>
+            </div>
+            <button
+              class="FormButton"
+              type="button"
+            >
+              Add a fabric mill
+            </button>
+            <div
+              class="FormTextarea"
+            >
+              <label
+                for="wov-knit-notes"
+              >
+                Whether or not the fabric mill is listed, are there notes about where the fabric or material was made?  If so, copy them and paste them here.
+              </label>
+              <textarea
+                id="wov-knit-notes"
+                name="wovKnitNotes"
+                required=""
+                rows="1"
+              />
+            </div>
+          </fieldset>
+          <fieldset
+            class="FormFieldset"
+          >
+            <h2>
+              Does the primary fabric have any of the following certifications?
+            </h2>
+            <div
+              class="FormCheckboxSection"
+            >
+              <div
+                class="empty"
+              />
+              <div
+                class="FormCheckboxSection__options-container"
+              />
+            </div>
+            <div
+              class="FormPromptWithSub"
+            >
+              <p
+                class="FormPromptWithSub__prompt"
+              />
+              <p
+                class="FormPromptWithSub__subtitle"
+              >
+                Certification not listed above?
+              </p>
+            </div>
+            <button
+              class="FormButton"
+              type="button"
+            >
+              Add a certification
+            </button>
+          </fieldset>
+          <div
+            class="FormPromptWithSub"
+          >
+            <p
+              class="FormPromptWithSub__prompt"
+            >
+              Fibers
+            </p>
+            <p
+              class="FormPromptWithSub__subtitle"
+            >
+              Please enter the fabric details provided on the product webpage.  If the product page does not provide the information detailed below, please select "not disclosed" from the dropdown.
+            </p>
+          </div>
+          <fieldset
+            class="FormFieldset"
+          >
+            <button
+              class="NewProductForm__remove"
+              type="button"
+            >
+              REMOVE
+            </button>
+            <div
+              class="FormDropdown"
+            >
+              <label
+                for="fiber-type-id-0"
+              >
+                Fiber or material
+              </label>
+              <select
+                name="fiberTypeId"
+                required=""
+              >
+                <option
+                  id="0"
+                  value="0"
+                >
+                  Select a fiber or material
+                </option>
+                <option
+                  id="1"
+                  value="1"
+                >
+                  Not disclosed
+                </option>
+              </select>
+            </div>
+            <div
+              class="FormPromptWithSub"
+            >
+              <p
+                class="FormPromptWithSub__prompt"
+              />
+              <p
+                class="FormPromptWithSub__subtitle"
+              >
+                Fiber or material not listed above?
+              </p>
+            </div>
+            <button
+              class="FormButton"
+              type="button"
+            >
+              Add a fiber or material type
+            </button>
+            <section
+              class="FormPopUp"
+              id="fabric1new-fiber"
+            >
+              <button
+                class="FormPopUp__close-button"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="svg-inline--fa fa-times fa-lg "
+                  data-icon="times"
+                  data-prefix="fas"
+                  focusable="false"
+                  role="img"
+                  viewBox="0 0 384 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </button>
+              <header>
+                <h1>
+                  New Fiber
+                </h1>
+              </header>
+              <div
+                class="FormTextInput"
+              >
+                <label
+                  for="fabric1new-fiber-name"
+                >
+                  Fiber name
+                </label>
+                <input
+                  id="fabric1new-fiber-name"
+                  name="name"
+                  required=""
+                  type="text"
+                  value=""
+                />
+              </div>
+              <button
+                class="FormButton"
+                type="button"
+              >
+                Submit fiber
+              </button>
+            </section>
+            <div
+              class="FormNumber"
+            >
+              <label
+                for="fiber-type-percentage-0"
+              >
+                Percentage of fabric content, if available
+              </label>
+              <input
+                id="fiber-type-percentage-0"
+                name="percentage"
+                type="number"
+                value=""
+              />
+               %
+            </div>
+            <div
+              class="FormDropdown"
+            >
+              <label
+                for="fiber-origin0"
+              >
+                Fiber origin
+              </label>
+              <select
+                name="originId"
+                required=""
+              />
+            </div>
+            <div
+              class="FormDropdown"
+            >
+              <label
+                for="producer-id0"
+              >
+                Fiber or material producer
+              </label>
+              <select
+                name="producerId"
+                required=""
+              >
+                <option
+                  id="0"
+                  value="0"
+                >
+                  Select a producer
+                </option>
+                <option
+                  id="1"
+                  value="1"
+                >
+                  Not disclosed
+                </option>
+              </select>
+            </div>
+            <div
+              class="FormPromptWithSub"
+            >
+              <p
+                class="FormPromptWithSub__prompt"
+              />
+              <p
+                class="FormPromptWithSub__subtitle"
+              >
+                Producer not listed above?
+              </p>
+            </div>
+            <button
+              class="FormButton"
+              type="button"
+            >
+              Add a producer
+            </button>
+            <section
+              class="FormPopUp"
+              id="fabric1NewFibProducer"
+            >
+              <button
+                class="FormPopUp__close-button"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="svg-inline--fa fa-times fa-lg "
+                  data-icon="times"
+                  data-prefix="fas"
+                  focusable="false"
+                  role="img"
+                  viewBox="0 0 384 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </button>
+              <header>
+                <h1>
+                  New Producer
+                </h1>
+              </header>
+              <div
+                class="FormTextInput"
+              >
+                <label
+                  for="1NewProducerName"
+                >
+                  Factory name
+                </label>
+                <input
+                  id="1NewProducerName"
+                  name="name"
+                  required=""
+                  type="text"
+                  value=""
+                />
+              </div>
+              <div
+                class="FormDropdown"
+              >
+                <label
+                  for="1NewProducerLocation"
+                >
+                  Location
+                </label>
+                <select
+                  name="countryId"
+                  required=""
+                />
+              </div>
+              <div
+                class="FormUrlInput"
+              >
+                <label
+                  for="1NewProducerWebsite"
+                >
+                  Website
+                </label>
+                <input
+                  id="1NewProducerWebsite"
+                  name="website"
+                  required=""
+                  type="url"
+                  value=""
+                />
+              </div>
+              <div
+                class="FormTextarea"
+              >
+                <label
+                  for="1NewProducerNotes"
+                >
+                  Notes
+                </label>
+                <textarea
+                  id="1NewProducerNotes"
+                  name="notes"
+                  required=""
+                  rows="1"
+                />
+              </div>
+              <button
+                class="FormButton"
+                type="button"
+              >
+                Submit Factory
+              </button>
+            </section>
+            <div
+              class="FormTextarea"
+            >
+              <label
+                for="producer-notes0"
+              >
+                Whether or not the producer is listed, are there notes about the fiber or material producer?  If so, copy them and paste them here.
+              </label>
+              <textarea
+                id="producer-notes0"
+                name="producerNotes"
+                required=""
+                rows="1"
+              />
+            </div>
+            <div
+              class="FormPromptWithSub"
+            >
+              <p
+                class="FormPromptWithSub__prompt"
+              />
+              <p
+                class="FormPromptWithSub__subtitle"
+              >
+                Does the fiber have any of the following certifications?
+              </p>
+            </div>
+            <div
+              class="FormCheckboxSection"
+            >
+              <div
+                class="empty"
+              />
+              <div
+                class="FormCheckboxSection__options-container"
+              />
+            </div>
+            <div
+              class="FormPromptWithSub"
+            >
+              <p
+                class="FormPromptWithSub__prompt"
+              />
+              <p
+                class="FormPromptWithSub__subtitle"
+              >
+                Certification not listed above?
+              </p>
+            </div>
+            <button
+              class="FormButton"
+              type="button"
+            >
+              Add a certification
+            </button>
+          </fieldset>
+          <div
+            class="FormPromptWithSub"
+          >
+            <p
+              class="FormPromptWithSub__prompt"
+            />
+            <p
+              class="FormPromptWithSub__subtitle"
+            >
+              Does this fabric have more than one fiber?
+            </p>
+          </div>
+          <button
+            class="FormButton"
+            type="button"
+          >
+            Add a fiber
+          </button>
+        </form>
+        <div />
+      </section>
+      <footer
+        class="NPFFooter"
+      >
+        <button
+          class="NPFFooter__previous"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-angle-left NPFFooter__left-arrow"
+            data-icon="angle-left"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 320 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
+              fill="currentColor"
+            />
+          </svg>
+          <span>
+            PREVIOUS
+          </span>
+        </button>
+        <button
+          class="NPFFooter__next"
+          type="button"
+        >
+          <span>
+            NEXT
+          </span>
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-angle-right NPFFooter__right-arrow"
+            data-icon="angle-right"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 320 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </footer>
+      <section
+        class="FormPopUp"
+        id="1NewFact"
+      >
+        <button
+          class="FormPopUp__close-button"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-times fa-lg "
+            data-icon="times"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 384 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+        <header>
+          <h1>
+            New Factory
+          </h1>
+        </header>
+        <div
+          class="FormTextInput"
+        >
+          <label
+            for="1NewFactName"
+          >
+            Factory name
+          </label>
+          <input
+            id="1NewFactName"
+            name="name"
+            required=""
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          class="FormDropdown"
+        >
+          <label
+            for="1NewFactLocation"
+          >
+            Location
+          </label>
+          <select
+            name="countryId"
+            required=""
+          />
+        </div>
+        <div
+          class="FormUrlInput"
+        >
+          <label
+            for="1NewFactWebsite"
+          >
+            Website
+          </label>
+          <input
+            id="1NewFactWebsite"
+            name="website"
+            required=""
+            type="url"
+            value=""
+          />
+        </div>
+        <div
+          class="FormTextarea"
+        >
+          <label
+            for="1NewFactNotes"
+          >
+            Notes
+          </label>
+          <textarea
+            id="1NewFactNotes"
+            name="notes"
+            required=""
+            rows="1"
+          >
+            1
+          </textarea>
+        </div>
+        <button
+          class="FormButton"
+          type="button"
+        >
+          Submit Factory
+        </button>
+      </section>
+      <section
+        class="FormPopUp"
+        id="1NewMill"
+      >
+        <button
+          class="FormPopUp__close-button"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-times fa-lg "
+            data-icon="times"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 384 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+        <header>
+          <h1>
+            New Fabric Mill
+          </h1>
+        </header>
+        <div
+          class="FormTextInput"
+        >
+          <label
+            for="1-new-mill-name"
+          >
+            Fabric mill name
+          </label>
+          <input
+            id="1-new-mill-name"
+            name="name"
+            required=""
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          class="FormDropdown"
+        >
+          <label
+            for="1NewMillLocation"
+          >
+            Location
+          </label>
+          <select
+            name="countryId"
+            required=""
+          />
+        </div>
+        <div
+          class="FormUrlInput"
+        >
+          <label
+            for="1NewMillWebsite"
+          >
+            Website
+          </label>
+          <input
+            id="1NewMillWebsite"
+            name="website"
+            required=""
+            type="url"
+            value=""
+          />
+        </div>
+        <div
+          class="FormTextarea"
+        >
+          <label
+            for="1NewMillNotes"
+          >
+            Notes
+          </label>
+          <textarea
+            id="1NewMillNotes"
+            name="notes"
+            required=""
+            rows="1"
+          />
+        </div>
+        <button
+          class="FormButton"
+          type="button"
+        >
+          Submit fabric mill
+        </button>
+      </section>
+      <section
+        class="FormPopUp"
+        id="1NewCert"
+      >
+        <button
+          class="FormPopUp__close-button"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-times fa-lg "
+            data-icon="times"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 384 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+        <header>
+          <h1>
+            New Certification
+          </h1>
+        </header>
+        <div
+          class="FormTextInput"
+        >
+          <label
+            for="1-new-cert-name"
+          >
+            Certification name
+          </label>
+          <input
+            id="1-new-cert-name"
+            name="name"
+            required=""
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          class="FormUrlInput"
+        >
+          <label
+            for="1-new-cert-website"
+          >
+            Website
+          </label>
+          <input
+            id="1-new-cert-website"
+            name="website"
+            required=""
+            type="url"
+            value=""
+          />
+        </div>
+        <button
+          class="FormButton"
+          type="button"
+        >
+          Submit certification
+        </button>
+      </section>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

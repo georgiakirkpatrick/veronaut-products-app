@@ -9,16 +9,23 @@ import NPFFooter from '../NPFFooter/NPFFooter'
 import currencies from '../CURRENCIES'
 import formData from '../FORM_DATA'
 
-const NPFNewProduct = props => {
-  const {
-    brandId,
-    brandArray,
-    currentPage,
-    newProductFields,
-    setNewProductFields,
-    setPage
-  } = props
-
+const NPFNewProduct = ({
+  brandId = 1,
+  brandArray = [],
+  currentPage = 1,
+  newProductFields = {
+    name: '', 
+    url: '' ,
+    categoryId: 1,
+    featureImageUrl: '',
+    currency: '',
+    price: '',
+    wash: '',
+    dry: ''
+  },
+  setNewProductFields = () => {},
+  setPage = () => {}
+}) => {
   const findBrandDetails = brand => {
     return brand['id'] === Number(brandId)
   }
@@ -142,24 +149,6 @@ const NPFNewProduct = props => {
       /> 
     </div>
   )    
-}
-
-NPFNewProduct.defaultProps = {
-  brandId: 1,
-  brandArray: [],
-  currentPage: 1,
-  newProductFields: {
-    name: '', 
-    url: '' ,
-    categoryId: 1,
-    featureImageUrl: '',
-    currency: '',
-    price: '',
-    wash: '',
-    dry: ''
-  },
-  setNewProductFields: () => {},
-  setPage: () => {}
 }
 
 export default NPFNewProduct

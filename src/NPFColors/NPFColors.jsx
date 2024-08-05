@@ -9,15 +9,13 @@ import NPFFooter from '../NPFFooter/NPFFooter';
 import FormTextInput from '../FormTextInput/FormTextInput'
 import formData from '../FORM_DATA'
 
-const NPFColors = props => {
-  const {
-    colorFieldsets,
-    currentPage,
-    formatName,
-    setColorFieldsets,
-    setPage
-  } = props
-
+const NPFColors = ({
+  currentPage = 0,
+  colorFieldsets = [],
+  formatName = () => {},
+  setColorFieldsets = () => {},
+  setPage = () => {}
+}) => {
   const addColor = () => {
     setColorFieldsets(
       [
@@ -157,14 +155,6 @@ const NPFColors = props => {
       />
     </div>
   )
-}
-
-NPFColors.defaultProps = {
-  currentPage: 0,
-  colorFieldsets: [],
-  formatName: () => {},
-  setColorFieldsets: () => {},
-  setPage: () => {},
 }
 
 export default NPFColors

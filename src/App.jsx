@@ -50,7 +50,7 @@ const App = () => {
   useEffect(() => {
     // getAllCategories fetches clothing category data from the veronaut-products-api.
     const getCats = () => {
-      fetch(`${process.env.REACT_APP_API_URL}/api/categories`, getRequestParams)
+      fetch(`${import.meta.env.development.VITE_API_URL}/api/categories`, getRequestParams)
       .then(response => {
         if (response.ok) {
           setCatsError(null)
@@ -90,7 +90,7 @@ const App = () => {
 
     // getBrands fetches clothing brand data from the veronaut-products-api.
     const getBrands = () => {
-      fetch(`${process.env.REACT_APP_API_URL}/api/brands`, getRequestParams)
+      fetch(`${import.meta.env.development.VITE_API_URL}/api/brands`, getRequestParams)
       .then(response => {
         if (response.ok) {
           setBrandError(null)
@@ -128,7 +128,7 @@ const App = () => {
 
     // getCertifications fetches certification data from the veronaut-products-api.
     const getCerts = () => {
-      fetch(`${process.env.REACT_APP_API_URL}/api/certifications`, getRequestParams)
+      fetch(`${import.meta.env.development.VITEURL}/api/certifications`, getRequestParams)
       .then(response => {
         if (response.ok) {
           setCertError(null)
@@ -162,7 +162,7 @@ const App = () => {
     
     // getFactories fetches clothing brand data from veronaut-products-api.
     const getFacts = () => {
-      fetch(`${process.env.REACT_APP_API_URL}/api/factories`, getRequestParams)
+      fetch(`${import.meta.env.development.VITE_API_URL}/api/factories`, getRequestParams)
       .then(response => {
         if (response.ok) {
           return response.json()
@@ -360,10 +360,6 @@ const App = () => {
       </Router>
     )
   }
-}
-
-App.defaultProps = {
-  data: []
 }
 
 export default App

@@ -6,22 +6,18 @@ import FormPromptWithSub from '../FormPromptWithSub/FormPromptWithSub'
 import NPFFooter from '../NPFFooter/NPFFooter'
 import './NPFFabricsQuestion.css'
 
-const NPFFabricsQuestion = props => {
-  const {
-    currentPage,
-    linCheck,
-    primCheck,
-    setBackPageTurns,
-    secCheck,
-    setLinBackPageTurns,
-    setLinCheck,
-    setPage,
-    setPrimCheck,
-    setPrimPageTurns,
-    setSecCheck,
-    setSecPageTurns
-  } = props
-
+const NPFFabricsQuestion = ({
+  currentPage = 0,
+  linCheck = false,
+  primCheck = false,
+  secCheck = false,
+  setLinCheck = () => {},
+  setPage = () => {},
+  setPrimCheck = () => {},
+  setPrimPageTurns = () => {},
+  setSecCheck = () => {},
+  setSecPageTurns = () => {}
+}) => {
   const linCheckOption = [
     {
       text: 'Yes, the product has a lining fabric or material',
@@ -122,19 +118,6 @@ const NPFFabricsQuestion = props => {
       />
     </div>
   )    
-}
-
-NPFFabricsQuestion.defaultProps = {
-  currentPage: 0,
-  linCheck: false,
-  primCheck: false,
-  secCheck: false,
-  setLinCheck: () => {},
-  setPage: () => {},
-  setPrimCheck: () => {},
-  setPrimPageTurns: () => {},
-  setSecCheck: () => {},
-  setSecPageTurns: () => {}
 }
 
 export default NPFFabricsQuestion

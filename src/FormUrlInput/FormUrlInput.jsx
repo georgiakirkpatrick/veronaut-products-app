@@ -1,15 +1,13 @@
 import React from 'react'
 import './FormUrlInput.css'
 
-const FormUrlInput = props => {
-  const {
-    currentValue,
-    handleChange,
-    id,
-    name,
-    prompt
-  } = props
-
+const FormUrlInput = ({
+  currentValue = '',
+  handleChange = () => {},
+  id = 1,
+  name = '',
+  prompt = '',
+}) => {
   return (
     <div className='FormUrlInput'>
       <label htmlFor={id}>{prompt}</label>
@@ -24,14 +22,6 @@ const FormUrlInput = props => {
       />
     </div>
   )
-}
-
-FormUrlInput.defaultProps = {
-  currentValue: '',
-  handleChange: () => {},
-  id: 1,
-  name: '',
-  prompt: '',
 }
 
 export default FormUrlInput

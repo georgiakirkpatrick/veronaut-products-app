@@ -1,18 +1,14 @@
 import React from 'react'
 import './TextBlock.css'
 
-const TextBlock = props => {
-  const {
-    text
-  } = props
-  
+const TextBlock = ({
+  text = 'text'
+}) => {
   return <div className='TextBlock'>
-    {text}
+    <p>
+      {text}
+    </p>
   </div>
-}
-
-TextBlock.defaultProps = {
-  text: ''
 }
 
 export default TextBlock

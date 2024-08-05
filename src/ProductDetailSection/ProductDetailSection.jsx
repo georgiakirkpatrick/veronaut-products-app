@@ -3,16 +3,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../FontAwesomeIcons/FontAwesomeIcons';
 import './ProductDetailSection.css'
 
-const ProductDetailSection = props => {
-  const {
-    children,
-    closeButton,
-    id,
-    openButton,
-    sectionOpen,
-    sectionTitle
-  } = props
-
+const ProductDetailSection = ({
+  children = '',
+  closeButton = () => {},
+  id = 1,
+  openButton = () => {},
+  sectionOpen = false,
+  sectionTitle = ''
+}) => {
   const handleClick = sectionOpen ? closeButton : openButton
   const displayButton = sectionOpen ? 'times' : 'angle-down'
   const sectionClass = sectionOpen ? 'ProductDetailSection__body active' : 'ProductDetailSection__body'
@@ -43,15 +41,6 @@ const ProductDetailSection = props => {
       </section>
     </>
   )
-}
-
-ProductDetailSection.defaultProps = {
-  children: '',
-  closeButton: () => {},
-  id: 1,
-  openButton: () => {},
-  sectionOpen: false,
-  sectionTitle: ''
 }
 
 export default ProductDetailSection

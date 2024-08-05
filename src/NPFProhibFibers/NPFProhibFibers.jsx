@@ -28,17 +28,15 @@ const prohibOptions = [
   }
 ] 
 
-const NPFProhibFibers = props => {
-  const {
-    currentPage,
-    setPage,
-    none,
-    noneChange,
-    pFiberChecks,
-    pFiberChange,
-    pageTurns
-  } = props
-
+const NPFProhibFibers = ({
+  currentPage = 1,
+  none = {},
+  noneChange = () => {},
+  pageTurns = 1,
+  pFiberChange = () => {},
+  pFiberChecks = {},
+  setPage = () => {},
+}) => {
   const nextButton = () => {
     const prohibFibs = []
 
@@ -83,19 +81,6 @@ const NPFProhibFibers = props => {
       />
     </div>
   )
-}
-
-NPFProhibFibers.defaultProps = {
-  currentPage: 1,
-  handleChange: () => {},
-  none: {},
-  noneChange: () => {},
-  pageTurns: 1,
-  pFiberChange: () => {},
-  pFiberChecks: {},
-  selectedOptions: [],
-  setPage: () => {},
-  setPFiberChecks: () => {}
 }
 
 export default NPFProhibFibers

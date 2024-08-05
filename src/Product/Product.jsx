@@ -2,17 +2,15 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './Product.css'
 
-const Product = props => {
-  const {
-    brand,
-    id,
-    imgAlt,
-    pathToImg,
-    price,
-    productSlug,
-    productTitle
-  } = props
-  
+const Product = ({
+  brand = '',
+  id = 0,
+  imgAlt = '',
+  pathToImg = '',
+  price = 0,
+  productSlug = '',
+  productTitle = ''
+}) => {
   return (
     <li className='Product' id={id}>
       <Link 
@@ -31,16 +29,6 @@ const Product = props => {
       </Link>
     </li>
   )
-}
-
-Product.defaultProps = {
-  brand: '',
-  id: 0,
-  imgAlt: '',
-  pathToImg: '',
-  price: 0,
-  productSlug: '',
-  productTitle: ''
 }
 
 export default Product

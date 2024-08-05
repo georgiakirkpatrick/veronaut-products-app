@@ -3,18 +3,16 @@ import FormButton from '../FormButton/FormButton'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './FormPopUp.css'
 
-const FormPopUp = props => {
-  const {
-    buttonText,
-    buttonType,
-    children,
-    close,
-    id,
-    status,
-    submit,
-    title
-  } = props
-
+const FormPopUp = ({
+  buttonText = '',
+  buttonType = 'button',
+  children = <div />,
+  close = () => {},
+  id = 1,
+  status = '',
+  submit = () => {},
+  title = ''
+}) => {
   return (
     <section className={status}
       id={id}
@@ -43,17 +41,6 @@ const FormPopUp = props => {
       />
     </section>
   )
-}
-
-FormPopUp.defaultProps = {
-  buttonText: '',
-  buttonType: 'button',
-  children: <div />,
-  close: () => {},
-  id: 1,
-  status: '',
-  submit: () => {},
-  title: ''
 }
 
 export default FormPopUp

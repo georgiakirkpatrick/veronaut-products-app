@@ -1,15 +1,13 @@
 import React from 'react'
 import './FormTextarea.css'
 
-const FormTextarea = props => {
-  const {
-    currentValue,
-    handleChange,
-    id,
-    name,
-    prompt
-  } = props
-
+const FormTextarea = ({
+  currentValue = 1,
+  handleChange = () => {},
+  id = 1,
+  name = '',
+  prompt = ''
+}) => {
   return (
     <div className='FormTextarea'>
       <label htmlFor={id}>{prompt}</label>
@@ -24,14 +22,6 @@ const FormTextarea = props => {
       />
     </div>
   )
-}
-
-FormTextarea.defaultProps = {
-  currentValue: 1,
-  handleChange: () => {},
-  id: 1,
-  name: '',
-  prompt: ''
 }
 
 export default FormTextarea

@@ -4,12 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import '../FontAwesomeIcons/FontAwesomeIcons'
 import './ReadMoreLink.css'
 
-const ReadMoreLink = props => {
-  const {
-    link,
-    text
-  } = props
-  
+const ReadMoreLink = ({
+  link = '/',
+  text = ''
+}) => {
   return (
     <Link className='ReadMoreLink' to={link}>
       <p>
@@ -18,11 +16,6 @@ const ReadMoreLink = props => {
       </p>
     </Link>
   )
-}
-
-ReadMoreLink.defaultProps = {
-  link: '/',
-  text: ''
 }
 
 export default ReadMoreLink

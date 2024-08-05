@@ -6,15 +6,13 @@ import NPFFooter from '../NPFFooter/NPFFooter'
 import './NPFSizes.css'
 import sizeData from '../SIZES'
 
-const NPFSizes = props => {
-  const {
-    currentPage,
-    selectedSizeOptions,
-    setPage,
-    setSelectedSizeOptions,
-    sizeSystem
-  } = props
-
+const NPFSizes = ({
+  currentPage = 0,
+  selectedSizeOptions = [],
+  setPage = () => {},
+  setSelectedSizeOptions = () => {},
+  sizeSystem = 1
+}) => {
   const maternityOptions = [
     ...sizeData.women.alpha.maternity.map(size => (
       {
@@ -135,13 +133,5 @@ const NPFSizes = props => {
     </div>
   )
 }
-
-NPFSizes.defaultProps = {
-  currentPage: 0,
-  selectedSizeOptions: [],
-  setPage: () => {},
-  setSelectedSizeOptions: () => {},
-  sizeSystem: 1
-}    
 
 export default NPFSizes

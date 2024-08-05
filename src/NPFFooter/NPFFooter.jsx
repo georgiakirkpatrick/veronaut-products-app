@@ -3,15 +3,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../FontAwesomeIcons/FontAwesomeIcons';
 import './NPFFooter.css'
 
-const NPFFooter = props => {
-  const {
-    backType,
-    buttons,
-    nextButton,
-    nextType,
-    previousButton
-  } = props
-
+const NPFFooter = ({
+  buttons = 'prev',
+  previousButton = () => {},
+  nextButton =  () => {},
+  backType = 'button',
+  nextType = 'button'
+}) => {
   const footerButtons = () => {
     if (buttons === 'prev') {
       return (
@@ -61,14 +59,6 @@ const NPFFooter = props => {
       {footerButtons()}
     </footer>
   )
-}
-
-NPFFooter.defaultProps = {
-  buttons: 'prev',
-  previousButton: () => {},
-  nextButton:  () => {},
-  backType: 'button',
-  nextType: 'button'
 }
 
 export default NPFFooter

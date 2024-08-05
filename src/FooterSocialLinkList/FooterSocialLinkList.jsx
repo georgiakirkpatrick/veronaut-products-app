@@ -2,11 +2,9 @@ import React from 'react'
 import FooterSocialLink from '../FooterSocialLink/FooterSocialLink'
 import './FooterSocialLinkList.css'
 
-const FooterSocialLinkList = props => {
-  const {
-    socialLinks
-  } = props
-
+const FooterSocialLinkList = ({
+  socialLinks = []
+}) => {
   const generateSocialLinks = socialLinks.map(link => (
     <FooterSocialLink
       key={link.id}
@@ -21,10 +19,6 @@ const FooterSocialLinkList = props => {
       {generateSocialLinks}
     </ul>
   ) 
-}
-
-FooterSocialLinkList.defaultProps = {
-  socialLinks: []
 }
 
 export default FooterSocialLinkList

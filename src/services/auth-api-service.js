@@ -2,7 +2,7 @@ import config from '../config'
 
 const AuthApiService = {
   createUser(credentials) {
-    return fetch(`${process.env.REACT_APP_API_URL}/api/users`, {
+    return fetch(`${import.meta.env.development.VITE_API_URL}/api/users`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -16,7 +16,7 @@ const AuthApiService = {
     )
   },
   postLogin(credentials) {
-    return fetch(`${process.env.REACT_APP_API_URL}/api/auth/login`, {
+    return fetch(`${import.meta.env.development.VITE_API_URL}/api/auth/login`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

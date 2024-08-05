@@ -1,24 +1,16 @@
 import React from 'react'
 import './FormButton.css'
 
-const FormButton = props => {
-  const {
-    buttonText,
-    handleClick,
-    type
-  } = props
-
+const FormButton = ({
+    buttonText = '',
+    handleClick = () => {},
+    type = 'button'
+}) => {
   return (
     <button className='FormButton' type={type} onClick={handleClick}>
       {buttonText}
     </button>
   )
-}
-
-FormButton.defaultProps = {
-  buttonText: '',
-  handleClick: () => {},
-  type: 'button'
 }
 
 export default FormButton

@@ -2,13 +2,11 @@ import React from 'react'
 import countries from '../COUNTRIES'
 import './NotionCarousel.css'
 
-const NotionCarousel = props => {
-  const {
-    certArray,
-    notionArray,
-    factArray
-  } = props
-
+const NotionCarousel = ({
+  certArray = [],
+  notionArray = [],
+  factArray = []
+}) => {
   const getFactory = factoryId => factArray.filter(factory => factory.id === factoryId)[0].english_name
   const formatCerts = notion => {
     const notionCerts = notion.certification_ids.map(id => certArray.filter(cert => cert.id === id)[0].text)
@@ -64,12 +62,6 @@ const NotionCarousel = props => {
       </ul>
     </div>
   )
-}
-
-NotionCarousel.defaultProps = {
-  certArray: [],
-  notionArray: [],
-  factArray: []
 }
 
 export default NotionCarousel

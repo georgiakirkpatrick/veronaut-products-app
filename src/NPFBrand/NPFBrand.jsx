@@ -10,26 +10,29 @@ import NPFFooter from '../NPFFooter/NPFFooter'
 import sizeData from '../SIZES'
 import TokenService from '../services/token-service'
 
-const NPFBrand = props => {
-  const { 
-    brandArray,
-    brandPopUp,
-    currencies,
-    currentBrandId,
-    currentPage,
-    formatName,
-    formatUrl,
-    newBrandFields,
-    newProductFields,
-    pageTurns,
-    setBrandArray,
-    setBrandPopUp,
-    setCurrentBrandId,
-    setNewBrandFields,
-    setNewProductFields,
-    setPage
-  } = props
-
+const NPFBrand = ({
+  brandArray = [],
+  brandPopUp = false,
+  currencies = [],
+  currentBrandId = 0,
+  currentPage = 0,
+  formatName = () => {},
+  formatUrl = () => {},
+  newBrandFields = {
+    name: '',
+    website: '',
+    currencyId: 0,
+    sizeSystemId: 0
+  },
+  newProductFields = {},
+  pageTurns = 0,
+  setBrandArray = () => {},
+  setBrandPopUp = () => {},
+  setCurrentBrandId = () => {},
+  setNewBrandFields = () => {},
+  setNewProductFields = () => {},
+  setPage = () => {}
+}) => {
   const addBrand = brand => {
     const newBrandArray = [
       ...brandArray,
@@ -157,7 +160,7 @@ const NPFBrand = props => {
       body: JSON.stringify(data)
     }
 
-    fetch(`${process.env.REACT_APP_API_URL}/api/brands`, postRequestParams)
+    fetch(`${import.meta.env.development.VITE_API_URL}/api/brands`, postRequestParams)
       .then(response => {
         if (response.status >= 400) {
           throw new Error("Server responded with an error!")
@@ -266,30 +269,6 @@ const NPFBrand = props => {
       </FormPopUp>
     </div>
   )
-}
-
-NPFBrand.defaultProps = {
-  brandArray: [],
-  brandPopUp: false,
-  currencies: [],
-  currentBrandId: 0,
-  currentPage: 0,
-  formatName: () => {},
-  formatUrl: () => {},
-  newBrandFields: {
-    name: '',
-    website: '',
-    currencyId: 0,
-    sizeSystemId: 0
-  },
-  newProductFields: {},
-  pageTurns: 0,
-  setBrandArray: () => {},
-  setBrandPopUp: () => {},
-  setCurrentBrandId: () => {},
-  setNewBrandFields: () => {},
-  setNewProductFields: () => {},
-  setPage: () => {}
 }
 
 export default NPFBrand

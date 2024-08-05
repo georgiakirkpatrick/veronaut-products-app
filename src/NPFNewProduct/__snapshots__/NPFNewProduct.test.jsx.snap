@@ -1,0 +1,938 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`NPFNewProduct > render the UI as expected 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="NPFNewProduct"
+      >
+        <section
+          class="FormPage"
+        >
+          <h1>
+            New Product
+          </h1>
+          <form
+            autocomplete="off"
+            id="form-page"
+          >
+            <div
+              class="FormPromptWithSub"
+            >
+              <p
+                class="FormPromptWithSub__prompt"
+              >
+                Brand: 
+              </p>
+              <p
+                class="FormPromptWithSub__subtitle"
+              />
+            </div>
+            <div
+              class="FormTextInput"
+            >
+              <label
+                for="product-name"
+              >
+                Product name
+              </label>
+              <input
+                id="product-name"
+                name="name"
+                required=""
+                type="text"
+                value=""
+              />
+            </div>
+            <div
+              class="FormUrlInput"
+            >
+              <label
+                for="product-url"
+              >
+                Product URL
+              </label>
+              <input
+                id="product-url"
+                name="url"
+                required=""
+                type="url"
+                value=""
+              />
+            </div>
+            <div
+              class="FormDropdown"
+            >
+              <label
+                for="product-category"
+              >
+                Category
+              </label>
+              <select
+                name="categoryId"
+                required=""
+              >
+                <option
+                  id="0"
+                  value="0"
+                >
+                  Select a category
+                </option>
+                <option
+                  id="1"
+                  value="1"
+                >
+                  Activewear
+                </option>
+                <option
+                  id="2"
+                  value="2"
+                >
+                  Blazers
+                </option>
+                <option
+                  id="3"
+                  value="3"
+                >
+                  Coats and Jackets
+                </option>
+                <option
+                  id="4"
+                  value="4"
+                >
+                  Dresses
+                </option>
+                <option
+                  id="5"
+                  value="5"
+                >
+                  Facemasks
+                </option>
+                <option
+                  id="6"
+                  value="6"
+                >
+                  Hair Accessories and Hats
+                </option>
+                <option
+                  id="7"
+                  value="7"
+                >
+                  Jeans
+                </option>
+                <option
+                  id="8"
+                  value="8"
+                >
+                  Jumpsuits
+                </option>
+                <option
+                  id="9"
+                  value="9"
+                >
+                  Lingerie
+                </option>
+                <option
+                  id="10"
+                  value="10"
+                >
+                  Pants
+                </option>
+                <option
+                  id="11"
+                  value="11"
+                >
+                  Shoes
+                </option>
+                <option
+                  id="12"
+                  value="12"
+                >
+                  Skirts
+                </option>
+                <option
+                  id="13"
+                  value="13"
+                >
+                  Socks and Tights
+                </option>
+                <option
+                  id="14"
+                  value="14"
+                >
+                  Sweaters
+                </option>
+                <option
+                  id="15"
+                  value="15"
+                >
+                  Swimwear
+                </option>
+                <option
+                  id="16"
+                  value="16"
+                >
+                  Tops
+                </option>
+              </select>
+            </div>
+            <div
+              class="FormUrlInput"
+            >
+              <label
+                for="feature-image-url"
+              >
+                Feature image URL
+              </label>
+              <input
+                id="feature-image-url"
+                name="featureImageUrl"
+                required=""
+                type="url"
+                value=""
+              />
+            </div>
+            <div
+              class="FormTextInput"
+            >
+              <label
+                for="price"
+              >
+                Product price in  ()
+              </label>
+              <input
+                id="price"
+                name="price"
+                required=""
+                type="text"
+                value=""
+              />
+            </div>
+            <div
+              class="FormDropdown"
+            >
+              <label
+                for="washId"
+              >
+                Washing instructions
+              </label>
+              <select
+                name="washId"
+                required=""
+              >
+                <option
+                  id="0"
+                  value="0"
+                >
+                  Select washing instructions
+                </option>
+                <option
+                  id="1"
+                  value="1"
+                >
+                  Not disclosed
+                </option>
+                <option
+                  id="2"
+                  value="2"
+                >
+                  Do not wash
+                </option>
+                <option
+                  id="3"
+                  value="3"
+                >
+                  Machine wash cold (≤85°F/≤30°C)
+                </option>
+                <option
+                  id="4"
+                  value="4"
+                >
+                  Machine wash warm (≤105°F/≤40°C)
+                </option>
+                <option
+                  id="5"
+                  value="5"
+                >
+                  Machine wash hot (≥140°F/≥60°C)
+                </option>
+                <option
+                  id="6"
+                  value="6"
+                >
+                  Hand wash
+                </option>
+                <option
+                  id="7"
+                  value="7"
+                >
+                  Dry clean only
+                </option>
+                <option
+                  id="8"
+                  value="8"
+                >
+                  Do not dry clean
+                </option>
+                <option
+                  id="9"
+                  value="9"
+                >
+                  Do not wash
+                </option>
+                <option
+                  id="10"
+                  value="10"
+                >
+                  Machine wash normal cycle
+                </option>
+                <option
+                  id="11"
+                  value="11"
+                >
+                  Machine wash permanent press
+                </option>
+                <option
+                  id="12"
+                  value="12"
+                >
+                  Machine wash delicate
+                </option>
+              </select>
+            </div>
+            <div
+              class="FormDropdown"
+            >
+              <label
+                for="dryId"
+              >
+                Drying instructions
+              </label>
+              <select
+                name="dryId"
+                required=""
+              >
+                <option
+                  id="0"
+                  value="0"
+                >
+                  Select drying instructions
+                </option>
+                <option
+                  id="1"
+                  value="1"
+                >
+                  Not disclosed
+                </option>
+                <option
+                  id="2"
+                  value="2"
+                >
+                  Hang dry
+                </option>
+                <option
+                  id="3"
+                  value="3"
+                >
+                  Hang dry in the shade
+                </option>
+                <option
+                  id="4"
+                  value="4"
+                >
+                  Dry flat
+                </option>
+                <option
+                  id="5"
+                  value="5"
+                >
+                  Tumble dry
+                </option>
+                <option
+                  id="6"
+                  value="6"
+                >
+                  Tumble dry low heat
+                </option>
+                <option
+                  id="7"
+                  value="7"
+                >
+                  Tumble dry medium heat
+                </option>
+                <option
+                  id="8"
+                  value="8"
+                >
+                  Tumble dry high heat
+                </option>
+                <option
+                  id="9"
+                  value="9"
+                >
+                  Tumble dry normal cycle
+                </option>
+                <option
+                  id="10"
+                  value="10"
+                >
+                  Tumble dry permanent press
+                </option>
+                <option
+                  id="11"
+                  value="11"
+                >
+                  Tumble dry delicate
+                </option>
+              </select>
+            </div>
+          </form>
+          <div />
+        </section>
+        <footer
+          class="NPFFooter"
+        >
+          <button
+            class="NPFFooter__previous"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-angle-left NPFFooter__left-arrow"
+              data-icon="angle-left"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 320 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
+                fill="currentColor"
+              />
+            </svg>
+            <span>
+              PREVIOUS
+            </span>
+          </button>
+          <button
+            class="NPFFooter__next"
+            type="button"
+          >
+            <span>
+              NEXT
+            </span>
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-angle-right NPFFooter__right-arrow"
+              data-icon="angle-right"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 320 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </footer>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="NPFNewProduct"
+    >
+      <section
+        class="FormPage"
+      >
+        <h1>
+          New Product
+        </h1>
+        <form
+          autocomplete="off"
+          id="form-page"
+        >
+          <div
+            class="FormPromptWithSub"
+          >
+            <p
+              class="FormPromptWithSub__prompt"
+            >
+              Brand: 
+            </p>
+            <p
+              class="FormPromptWithSub__subtitle"
+            />
+          </div>
+          <div
+            class="FormTextInput"
+          >
+            <label
+              for="product-name"
+            >
+              Product name
+            </label>
+            <input
+              id="product-name"
+              name="name"
+              required=""
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            class="FormUrlInput"
+          >
+            <label
+              for="product-url"
+            >
+              Product URL
+            </label>
+            <input
+              id="product-url"
+              name="url"
+              required=""
+              type="url"
+              value=""
+            />
+          </div>
+          <div
+            class="FormDropdown"
+          >
+            <label
+              for="product-category"
+            >
+              Category
+            </label>
+            <select
+              name="categoryId"
+              required=""
+            >
+              <option
+                id="0"
+                value="0"
+              >
+                Select a category
+              </option>
+              <option
+                id="1"
+                value="1"
+              >
+                Activewear
+              </option>
+              <option
+                id="2"
+                value="2"
+              >
+                Blazers
+              </option>
+              <option
+                id="3"
+                value="3"
+              >
+                Coats and Jackets
+              </option>
+              <option
+                id="4"
+                value="4"
+              >
+                Dresses
+              </option>
+              <option
+                id="5"
+                value="5"
+              >
+                Facemasks
+              </option>
+              <option
+                id="6"
+                value="6"
+              >
+                Hair Accessories and Hats
+              </option>
+              <option
+                id="7"
+                value="7"
+              >
+                Jeans
+              </option>
+              <option
+                id="8"
+                value="8"
+              >
+                Jumpsuits
+              </option>
+              <option
+                id="9"
+                value="9"
+              >
+                Lingerie
+              </option>
+              <option
+                id="10"
+                value="10"
+              >
+                Pants
+              </option>
+              <option
+                id="11"
+                value="11"
+              >
+                Shoes
+              </option>
+              <option
+                id="12"
+                value="12"
+              >
+                Skirts
+              </option>
+              <option
+                id="13"
+                value="13"
+              >
+                Socks and Tights
+              </option>
+              <option
+                id="14"
+                value="14"
+              >
+                Sweaters
+              </option>
+              <option
+                id="15"
+                value="15"
+              >
+                Swimwear
+              </option>
+              <option
+                id="16"
+                value="16"
+              >
+                Tops
+              </option>
+            </select>
+          </div>
+          <div
+            class="FormUrlInput"
+          >
+            <label
+              for="feature-image-url"
+            >
+              Feature image URL
+            </label>
+            <input
+              id="feature-image-url"
+              name="featureImageUrl"
+              required=""
+              type="url"
+              value=""
+            />
+          </div>
+          <div
+            class="FormTextInput"
+          >
+            <label
+              for="price"
+            >
+              Product price in  ()
+            </label>
+            <input
+              id="price"
+              name="price"
+              required=""
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            class="FormDropdown"
+          >
+            <label
+              for="washId"
+            >
+              Washing instructions
+            </label>
+            <select
+              name="washId"
+              required=""
+            >
+              <option
+                id="0"
+                value="0"
+              >
+                Select washing instructions
+              </option>
+              <option
+                id="1"
+                value="1"
+              >
+                Not disclosed
+              </option>
+              <option
+                id="2"
+                value="2"
+              >
+                Do not wash
+              </option>
+              <option
+                id="3"
+                value="3"
+              >
+                Machine wash cold (≤85°F/≤30°C)
+              </option>
+              <option
+                id="4"
+                value="4"
+              >
+                Machine wash warm (≤105°F/≤40°C)
+              </option>
+              <option
+                id="5"
+                value="5"
+              >
+                Machine wash hot (≥140°F/≥60°C)
+              </option>
+              <option
+                id="6"
+                value="6"
+              >
+                Hand wash
+              </option>
+              <option
+                id="7"
+                value="7"
+              >
+                Dry clean only
+              </option>
+              <option
+                id="8"
+                value="8"
+              >
+                Do not dry clean
+              </option>
+              <option
+                id="9"
+                value="9"
+              >
+                Do not wash
+              </option>
+              <option
+                id="10"
+                value="10"
+              >
+                Machine wash normal cycle
+              </option>
+              <option
+                id="11"
+                value="11"
+              >
+                Machine wash permanent press
+              </option>
+              <option
+                id="12"
+                value="12"
+              >
+                Machine wash delicate
+              </option>
+            </select>
+          </div>
+          <div
+            class="FormDropdown"
+          >
+            <label
+              for="dryId"
+            >
+              Drying instructions
+            </label>
+            <select
+              name="dryId"
+              required=""
+            >
+              <option
+                id="0"
+                value="0"
+              >
+                Select drying instructions
+              </option>
+              <option
+                id="1"
+                value="1"
+              >
+                Not disclosed
+              </option>
+              <option
+                id="2"
+                value="2"
+              >
+                Hang dry
+              </option>
+              <option
+                id="3"
+                value="3"
+              >
+                Hang dry in the shade
+              </option>
+              <option
+                id="4"
+                value="4"
+              >
+                Dry flat
+              </option>
+              <option
+                id="5"
+                value="5"
+              >
+                Tumble dry
+              </option>
+              <option
+                id="6"
+                value="6"
+              >
+                Tumble dry low heat
+              </option>
+              <option
+                id="7"
+                value="7"
+              >
+                Tumble dry medium heat
+              </option>
+              <option
+                id="8"
+                value="8"
+              >
+                Tumble dry high heat
+              </option>
+              <option
+                id="9"
+                value="9"
+              >
+                Tumble dry normal cycle
+              </option>
+              <option
+                id="10"
+                value="10"
+              >
+                Tumble dry permanent press
+              </option>
+              <option
+                id="11"
+                value="11"
+              >
+                Tumble dry delicate
+              </option>
+            </select>
+          </div>
+        </form>
+        <div />
+      </section>
+      <footer
+        class="NPFFooter"
+      >
+        <button
+          class="NPFFooter__previous"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-angle-left NPFFooter__left-arrow"
+            data-icon="angle-left"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 320 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
+              fill="currentColor"
+            />
+          </svg>
+          <span>
+            PREVIOUS
+          </span>
+        </button>
+        <button
+          class="NPFFooter__next"
+          type="button"
+        >
+          <span>
+            NEXT
+          </span>
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-angle-right NPFFooter__right-arrow"
+            data-icon="angle-right"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 320 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </footer>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

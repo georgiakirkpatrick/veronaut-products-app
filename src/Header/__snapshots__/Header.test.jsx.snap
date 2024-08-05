@@ -1,0 +1,462 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Header > renders the UI as expected 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <nav
+        class="Header "
+      >
+        <div
+          class="Header__top"
+        >
+          <div
+            class="Header__item"
+          >
+            <button
+              class="Header__hamburger"
+              type="button"
+            >
+              <div
+                class="bars"
+              >
+                <div
+                  class="bar-1"
+                />
+                <div
+                  class="bar-2"
+                />
+                <div
+                  class="bar-3"
+                />
+              </div>
+            </button>
+          </div>
+          <a
+            class="Header__logo Header__item"
+            href="/"
+          >
+            <h1>
+              VERONAUT
+            </h1>
+          </a>
+          <div
+            class="Header__search-user Header__item"
+          />
+        </div>
+        <div
+          class="Backdrop"
+        />
+        <div
+          class="Header__desktop-menu"
+        />
+        <div
+          class="Header__menu"
+        >
+          <button
+            class="close-button"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-times fa-lg "
+              data-icon="times"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 384 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+          <ul
+            class="Header__menu-primary"
+          >
+            <li
+              class="Header__primary-item"
+            >
+              <a
+                class="MenuItem__primary"
+                href="/"
+              >
+                <div
+                  class="empty"
+                />
+                <span>
+                  Home
+                </span>
+                <div
+                  class="empty"
+                />
+              </a>
+            </li>
+            <li
+              class="Header__primary-item"
+            >
+              <a
+                class="MenuItem__primary"
+                href="/"
+              >
+                <div
+                  class="empty"
+                />
+                <span>
+                  Categories
+                </span>
+                <span
+                  class="MenuItem__icon-right"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="svg-inline--fa fa-angle-right fa-lg "
+                    data-icon="angle-right"
+                    data-prefix="fas"
+                    focusable="false"
+                    role="img"
+                    viewBox="0 0 320 512"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+              </a>
+            </li>
+            <li
+              class="Header__primary-item"
+            >
+              <a
+                class="MenuItem__primary"
+                href="/about"
+              >
+                <div
+                  class="empty"
+                />
+                <span>
+                  About
+                </span>
+                <div
+                  class="empty"
+                />
+              </a>
+            </li>
+            <li
+              class="Header__primary-item"
+            >
+              <a
+                class="MenuItem__primary"
+                href="/account"
+              >
+                <div
+                  class="empty"
+                />
+                <span>
+                  Account
+                </span>
+                <div
+                  class="empty"
+                />
+              </a>
+            </li>
+            <li
+              class="Header__primary-item"
+            >
+              <a
+                class="MenuItem__primary"
+                href="/add-product"
+              >
+                <div
+                  class="empty"
+                />
+                <span>
+                  Add a Product
+                </span>
+                <div
+                  class="empty"
+                />
+              </a>
+            </li>
+            <li
+              class="Header__primary-item"
+            >
+              <a
+                class="MenuItem__primary"
+                href="/login"
+              >
+                <div
+                  class="empty"
+                />
+                <span>
+                  Log in
+                </span>
+                <div
+                  class="empty"
+                />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </body>,
+  "container": <div>
+    <nav
+      class="Header "
+    >
+      <div
+        class="Header__top"
+      >
+        <div
+          class="Header__item"
+        >
+          <button
+            class="Header__hamburger"
+            type="button"
+          >
+            <div
+              class="bars"
+            >
+              <div
+                class="bar-1"
+              />
+              <div
+                class="bar-2"
+              />
+              <div
+                class="bar-3"
+              />
+            </div>
+          </button>
+        </div>
+        <a
+          class="Header__logo Header__item"
+          href="/"
+        >
+          <h1>
+            VERONAUT
+          </h1>
+        </a>
+        <div
+          class="Header__search-user Header__item"
+        />
+      </div>
+      <div
+        class="Backdrop"
+      />
+      <div
+        class="Header__desktop-menu"
+      />
+      <div
+        class="Header__menu"
+      >
+        <button
+          class="close-button"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-times fa-lg "
+            data-icon="times"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 384 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+        <ul
+          class="Header__menu-primary"
+        >
+          <li
+            class="Header__primary-item"
+          >
+            <a
+              class="MenuItem__primary"
+              href="/"
+            >
+              <div
+                class="empty"
+              />
+              <span>
+                Home
+              </span>
+              <div
+                class="empty"
+              />
+            </a>
+          </li>
+          <li
+            class="Header__primary-item"
+          >
+            <a
+              class="MenuItem__primary"
+              href="/"
+            >
+              <div
+                class="empty"
+              />
+              <span>
+                Categories
+              </span>
+              <span
+                class="MenuItem__icon-right"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="svg-inline--fa fa-angle-right fa-lg "
+                  data-icon="angle-right"
+                  data-prefix="fas"
+                  focusable="false"
+                  role="img"
+                  viewBox="0 0 320 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+            </a>
+          </li>
+          <li
+            class="Header__primary-item"
+          >
+            <a
+              class="MenuItem__primary"
+              href="/about"
+            >
+              <div
+                class="empty"
+              />
+              <span>
+                About
+              </span>
+              <div
+                class="empty"
+              />
+            </a>
+          </li>
+          <li
+            class="Header__primary-item"
+          >
+            <a
+              class="MenuItem__primary"
+              href="/account"
+            >
+              <div
+                class="empty"
+              />
+              <span>
+                Account
+              </span>
+              <div
+                class="empty"
+              />
+            </a>
+          </li>
+          <li
+            class="Header__primary-item"
+          >
+            <a
+              class="MenuItem__primary"
+              href="/add-product"
+            >
+              <div
+                class="empty"
+              />
+              <span>
+                Add a Product
+              </span>
+              <div
+                class="empty"
+              />
+            </a>
+          </li>
+          <li
+            class="Header__primary-item"
+          >
+            <a
+              class="MenuItem__primary"
+              href="/login"
+            >
+              <div
+                class="empty"
+              />
+              <span>
+                Log in
+              </span>
+              <div
+                class="empty"
+              />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

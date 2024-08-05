@@ -12,25 +12,67 @@ import FormPopUp from '../FormPopUp/FormPopUp'
 import FormPromptWithSub from '../FormPromptWithSub/FormPromptWithSub'
 import TokenService from '../services/token-service'
 
-const NPFManufacturing = props => {
-  const {
-    certChecks,
-    cmtNotes,
-    currentPage,
-    cutFact,
-    cutFactPopUp,
-    fabricProps,
-    setCutFact,
-    setCutFactPopUp,
-    setCertChecks,
-    setCmtNotes,
-    setPage,
-    setSewFact,
-    setSewFactPopUp,
-    sewFact,
-    sewFactPopUp
-  } = props
-
+const NPFManufacturing = ({
+  certChecks = {},
+  cmtNotes = '',
+  cutFact = {
+    countryId: '', 
+    factoryId: ''
+  },
+  fabricProps = {
+    certArray: [],
+    certPopUp: false,
+    countries: [],
+    currentPage: 0,
+    cutFactPopUp: false,
+    factPopUp: false,
+    factArray: [],
+    fiberPopUp: false,
+    fiberTypeArray: [],
+    millPopUp: false,
+    newCert: {
+        name: '',
+        website: ''
+    },
+    newFact: {
+        name: '',
+        countryId: '',
+        website: '',
+        notes: ''
+    },
+    newFiber: {
+        name: ''
+    },
+    newMill: {
+        name: '',
+        countryId: '',
+        website: '',
+        notes: ''
+    },
+    setCertArray: () => {},
+    setFiberTypeArray: () => {},
+    setFactArray: () => {},
+    setCertPopUp: () => {},
+    setCutFactPopUp: () => {},
+    setFiberPopUp: () => {},
+    setMillPopUp: () => {},
+    setNewCert: () => {},
+    setNewFact: () => {},
+    setNewFiber: () => {},
+    setNewMill: () => {},
+    setPage: () => {},
+    setSewFactPopUp: () => {},
+    sewFactPopUp: false
+  },
+  setCertChecks = () => {},
+  setCmtNotes =  () => {},
+  setCutFact = () => {},
+  setSewFact = () => {},
+  sewFact = {
+    countryId: '', 
+    factoryId: ''
+  }
+}) => {
   const makeFactoryOptions = () => {
     const factoryQty = fabricProps.factArray.length
     const mills = fabricProps.factArray.slice(1, factoryQty)
@@ -100,7 +142,7 @@ const NPFManufacturing = props => {
       body: JSON.stringify(data)
     }
 
-    fetch(`${process.env.REACT_APP_API_URL}/api/factories`, postRequestParams)
+    fetch(`${import.meta.env.development.VITE_API_URL}/api/factories`, postRequestParams)
       .then(response => {
         if (response.status >= 400) {
           throw new Error("Server responded with an error!")
@@ -131,14 +173,14 @@ const NPFManufacturing = props => {
 
   // NEW FACTORY
   const sewFactPopUpStatus = () => {
-    if (sewFactPopUp === true) {
+    if (fabricProps.sewFactPopUp === true) {
       return 'FormPopUp active'
     }
     return 'FormPopUp'
   }
 
   const cutFactPopUpStatus = () => {
-    if (cutFactPopUp === true) {
+    if (fabricProps.cutFactPopUp === true) {
       return 'FormPopUp active'
     }
     return 'FormPopUp'
@@ -229,7 +271,7 @@ const NPFManufacturing = props => {
       body: JSON.stringify(data)
     }
 
-    fetch(`${process.env.REACT_APP_API_URL}/api/certifications`,
+    fetch(`${import.meta.env.development.VITE_API_URL}/api/certifications`,
       postRequestParams
     )
     .then(response => {
@@ -542,67 +584,6 @@ const NPFManufacturing = props => {
       </FormPopUp>
     </div>
   )  
-}
-
-NPFManufacturing.defaultProps = {
-  certChecks: {},
-  cmtNotes: '',
-  cutFact: {
-    countryId: '', 
-    factoryId: ''
-  },
-  fabricProps: {
-    certArray: [],
-    certPopUp: false,
-    countries: [],
-    currentPage: 0,
-    factPopUp: false,
-    factArray: [],
-    fiberPopUp: false,
-    fiberTypeArray: [],
-    millPopUp: false,
-    newCert: {
-        name: '',
-        website: ''
-    },
-    newFact: {
-        name: '',
-        countryId: '',
-        website: '',
-        notes: ''
-    },
-    newFiber: {
-        name: ''
-    },
-    newMill: {
-        name: '',
-        countryId: '',
-        website: '',
-        notes: ''
-    },
-    setCertArray: () => {},
-    setFiberTypeArray: () => {},
-    setFactArray: () => {},
-    setCertPopUp: () => {},
-    setFiberPopUp: () => {},
-
-    setMillPopUp: () => {},
-    setNewCert: () => {},
-    setNewFact: () => {},
-    setNewFiber: () => {},
-    setNewMill: () => {},
-    setPage: () => {},
-    setSewFactPopUp: () => {},
-    sewFactPopUp: false
-  },
-  setCertChecks: () => {},
-  setCmtNotes:  () => {},
-  setCutFact: () => {},
-  setSewFact: () => {},
-  sewFact: {
-    countryId: '', 
-    factoryId: ''
-  }
 }
 
 export default NPFManufacturing

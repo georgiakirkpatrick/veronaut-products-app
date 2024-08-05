@@ -7,9 +7,9 @@ import FormTextInput from '../FormTextInput/FormTextInput'
 // import TokenService from '../services/token-service'
 import './NewAccount.css'
 
-const bcrypt = require("bcryptjs-react")
+// import bcrypt from "bcryptjs-react"
 
-const NewAccount = props => {
+const NewAccount = () => {
   // const { routeProps } = props
 
   const [email, setEmail] = useState('')
@@ -62,7 +62,7 @@ const NewAccount = props => {
     //         body: JSON.stringify(data)
     //     }
 
-    //     fetch(`${process.env.REACT_APP_API_URL}/api/users`,
+    //     fetch(`${import.meta.env.development.development.VITE_API_URL}/api/users`,
     //         postRequestParams
     //     )
     //     .then(response => {

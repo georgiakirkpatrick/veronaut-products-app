@@ -13,17 +13,15 @@ const noneOption = [
   }
 ]
 
-const NPFPermittedCategories = props => {
-  const {
-    currentPage,
-    none,
-    noneChange,
-    pageTurns,
-    pCatChange,
-    pCategories,
-    setPage,
-  } = props
-
+const NPFPermittedCategories = ({
+  currentPage = 1,
+  none = {},
+  noneChange = () => {},
+  pageTurns = () => {},
+  pCatChange = () => {},
+  pCategories = {},
+  setPage = () => {}
+}) => {
   const nextButton = () => {
     const permCats = []
 
@@ -68,16 +66,6 @@ const NPFPermittedCategories = props => {
       />
     </div>
   )
-}
-
-NPFPermittedCategories.defaultProps = {
-  currentPage: 1,
-  none: {},
-  noneChange: () => {},
-  pageTurns: () => {},
-  pCatChange: () => {},
-  pCategories: {},
-  setPage: () => {}
 }
 
 export default NPFPermittedCategories

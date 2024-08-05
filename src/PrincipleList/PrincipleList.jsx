@@ -2,12 +2,10 @@ import React from 'react'
 import Principle from '../Principle/Principle'
 import './PrincipleList.css'
 
-const PrincipleList = props => {
-  const {
-    principles,
-    readMore
-  } = props
-
+const PrincipleList = ({
+  principles = [],
+  readMore = ''
+}) => {
   const generatePrinciples = principles.map(principle => (
     <Principle
       key={principle.id}
@@ -36,11 +34,6 @@ const PrincipleList = props => {
       {readMore}
     </section>
   )
-}
-
-PrincipleList.defaultProps = {
-  principles: [],
-  readMore: ''
 }
 
 export default PrincipleList;

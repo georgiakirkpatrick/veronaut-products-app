@@ -2,10 +2,9 @@ import React from 'react'
 import Category from '../Category/Category'
 import './AllCategories.css'
 
-const AllCategories = props => {
-  const {
-    catArray
-  } = props
+const AllCategories = ({
+  catArray = []
+}) => {
 
   const categories = catArray.map(category => (
     <Category
@@ -31,10 +30,6 @@ const AllCategories = props => {
       </section>
     </>
   )
-}
-
-AllCategories.defaultProps = {
-    catArray: []
 }
 
 export default AllCategories

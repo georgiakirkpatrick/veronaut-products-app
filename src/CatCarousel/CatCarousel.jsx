@@ -1,12 +1,17 @@
 import React from 'react'
 import './CatCarousel.css'
 
-const CatCarousel = props => {
-  const {
-    id,
-    images
-  } = props
-
+const CatCarousel = ({
+  id = 0,
+  images = [
+    {
+      id: 0,
+      url: '',
+      category: '',
+      slug: ''
+    }
+  ]
+}) => {
   const formattedImages = images.map(image => {
     return <li key={'li-' + image.id}>
       <div>
@@ -30,18 +35,6 @@ const CatCarousel = props => {
       </ul>
     </div>
   )
-}
-
-CatCarousel.defaultProps = {
-  id: 0,
-  images: [
-    {
-      id: 0,
-      url: '',
-      category: '',
-      slug: ''
-    }
-  ]
 }
 
 export default CatCarousel

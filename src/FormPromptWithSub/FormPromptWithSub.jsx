@@ -1,12 +1,10 @@
 import React from 'react'
 import './FormPromptWithSub.css'
 
-const FormPromptWithSub = props => {
-  const {
-    prompt,
-    promptSubtitle
-  } = props
-
+const FormPromptWithSub = ({
+  prompt = '',
+  promptSubtitle = ''
+}) => {
   return (
     <div className='FormPromptWithSub'>
       <p className='FormPromptWithSub__prompt'>
@@ -18,11 +16,6 @@ const FormPromptWithSub = props => {
       </p>
     </div>
   )
-}
-
-FormPromptWithSub.defaultProps = {
-  prompt: '',
-  promptSubtitle: ''
 }
 
 export default FormPromptWithSub

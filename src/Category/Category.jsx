@@ -2,12 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './Category.css'
 
-const Category = props => {
-  const {
-    categoryName,
-    id
-  } = props
-
+const Category = ({
+  categoryName = "",
+  id = 1
+}) => {
   const makeCategorySlug = () => {
     const category = categoryName
     return category
@@ -26,11 +24,6 @@ const Category = props => {
       </Link>
     </li>
   )
-}
-
-Category.defaultProps = {
-  categoryName: 's',
-  id: 1
 }
 
 export default Category

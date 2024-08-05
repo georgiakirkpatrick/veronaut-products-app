@@ -1,14 +1,12 @@
 import React from 'react'
 import './FormCheckboxSection.css'
 
-const FormCheckboxSection = props => {
-  const {
-    handleChange,
-    options,
-    prompt,
-    selectedOptions
-  } = props
-    
+const FormCheckboxSection = ({
+  handleChange = () => {},
+  options = [],
+  prompt = "",
+  selectedOptions = []
+}) => {
   const checked = selectedOptions 
     ? selectedOptions 
     : Object.fromEntries(options.map((o) => [o.id, false]))
@@ -39,13 +37,6 @@ const FormCheckboxSection = props => {
       </div>
     </div>
   )
-}
-
-FormCheckboxSection.defaultProps = {
-  selectedOptions: [],
-  options: [],
-  prompt: '',
-  change: () => {}
 }
 
 export default FormCheckboxSection

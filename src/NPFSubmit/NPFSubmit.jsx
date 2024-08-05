@@ -4,13 +4,11 @@ import FormPage from '../FormPage/FormPage'
 import FormPromptWithSub from '../FormPromptWithSub/FormPromptWithSub'
 import NPFFooter from '../NPFFooter/NPFFooter'
 
-const NPFSubmit = props => {
-  const {
-    currentPage,
-    setPage,
-    submitProduct
-  } = props
-
+const NPFSubmit = ({
+  currentPage = 0,
+  setPage = () => {},
+  submitProduct = () => {}
+}) => {
   const submitButton = () => {
     submitProduct()
     setPage(currentPage + 1)
@@ -35,12 +33,6 @@ const NPFSubmit = props => {
       />
     </div>
   )
-}
-
-NPFSubmit.defaultProps = {
-  currentPage: 0,
-  setPage: () => {},
-  submitProduct: () => {}
 }
 
 export default NPFSubmit

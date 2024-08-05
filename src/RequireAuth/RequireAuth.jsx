@@ -3,12 +3,10 @@ import { Route, Navigate } from 'react-router-dom'
 import config from '../config'
 import TokenService from '../services/token-service'
 
-const RequireAuth = props => {
-  const {
-    children,
-    ...rest
-  } = props
-
+const RequireAuth = ({
+  children = <div />,
+  rest = ''
+}) => {
   return <Route
     {...rest} 
     render={routeProps => TokenService.getAuthToken(config.TOKEN_KEY)

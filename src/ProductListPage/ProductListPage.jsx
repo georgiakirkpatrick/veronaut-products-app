@@ -3,14 +3,24 @@ import Product from '../Product/Product'
 import data from '../DATA'
 import './ProductListPage.css'
 
-const ProductListPage = props => {
-  const {
-    catArray,
-    prodArray,
-    routeProps,
-    setProdArray
-  } = props
-
+const ProductListPage = ({
+  catArray = [
+    {
+      category_class: '',
+      english_name: '',
+      id: 1
+    }
+  ],
+  prodArray = [],
+  routeProps = {
+    match: {
+      params: {
+        categoryId: '1'
+      }
+    }
+  },
+  setProdArray = () => {}
+}) => {
   const [catProdError, setCatProdError] = useState(null)
   const [catProdLoaded, setCatProdLoaded] = useState(false)
   const [newProdLoaded, setNewProdLoaded] = useState(false)
@@ -35,7 +45,7 @@ const ProductListPage = props => {
 
     // getProductsForCategory fetches product data for the category designated by "id" from the veronaut-products-api.
     const getCatProds = id => {
-      fetch(`${process.env.REACT_APP_API_URL}/api/categories/${id}/product`, getRequestParams)
+      fetch(`${import.meta.env.development.VITE_API_URL}/api/categories/${id}/product`, getRequestParams)
       .then(response => {
         if (response.ok) {
           setCatProdError(null)
@@ -67,7 +77,7 @@ const ProductListPage = props => {
     }
 
     const getFeaturedProducts = () => {
-      fetch(`${process.env.REACT_APP_API_URL}/api/products/featured`, getRequestParams)
+      fetch(`${import.meta.env.development.VITE_API_URL}/api/products/featured`, getRequestParams)
       .then(response => {
         if (response.status >= 400) {
           console.log('There was a problem.  Status code: ' + response.status)
@@ -144,25 +154,6 @@ const ProductListPage = props => {
       </>
     )
   }
-}
-
-ProductListPage.defaultProps = {
-  catArray: [
-    {
-      category_class: '',
-      english_name: '',
-      id: 1
-    }
-  ],
-  prodArray: [],
-  routeProps: {
-    match: {
-      params: {
-        categoryId: '1'
-      }
-    }
-  },
-  setProdArray: () => {}
 }
 
 export default ProductListPage

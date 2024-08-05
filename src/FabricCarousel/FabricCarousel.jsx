@@ -2,12 +2,11 @@ import React from 'react'
 import countries from '../COUNTRIES'
 import './FabricCarousel.css'
 
-const FabricCarousel = props => {
-  const {
-        certArray,
-        factArray,
-        ordFabArray
-  } = props
+const FabricCarousel = ({
+    certArray = [],
+    factArray = [],
+    ordFabArray = []
+}) => {
 
   const getFactory = factoryId => factArray.filter(factory => factory.id === factoryId)[0].english_name
   const formatCerts = f => {
@@ -86,12 +85,6 @@ const FabricCarousel = props => {
       </ul>
     </div>
   )
-}
-
-FabricCarousel.defaultProps = {
-  certArray: [],
-  factArray: [],
-  ordFabArray: []
 }
 
 export default FabricCarousel

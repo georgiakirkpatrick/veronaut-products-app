@@ -1,0 +1,622 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`NPFBrand > render the UI as expected 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="NPFBrand"
+      >
+        <section
+          class="FormPage"
+        >
+          <h1>
+            Brand
+          </h1>
+          <form
+            autocomplete="off"
+            id="form-page"
+          >
+            <div
+              class="FormDropdown"
+            >
+              <label
+                for="brand"
+              >
+                Which brand made this product?
+              </label>
+              <select
+                name="brand"
+                required=""
+              >
+                <option
+                  id="0"
+                  value="0"
+                >
+                  Select a brand
+                </option>
+              </select>
+            </div>
+            <div
+              class="FormPromptWithSub"
+            >
+              <p
+                class="FormPromptWithSub__prompt"
+              >
+                Brand not listed above?
+              </p>
+              <p
+                class="FormPromptWithSub__subtitle"
+              />
+            </div>
+            <button
+              class="FormButton"
+              type="button"
+            >
+              Add a brand
+            </button>
+          </form>
+          <div />
+        </section>
+        <footer
+          class="NPFFooter"
+        >
+          <button
+            class="NPFFooter__previous"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-angle-left NPFFooter__left-arrow"
+              data-icon="angle-left"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 320 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
+                fill="currentColor"
+              />
+            </svg>
+            <span>
+              PREVIOUS
+            </span>
+          </button>
+          <button
+            class="NPFFooter__next"
+            type="button"
+          >
+            <span>
+              NEXT
+            </span>
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-angle-right NPFFooter__right-arrow"
+              data-icon="angle-right"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 320 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </footer>
+        <section
+          class="FormPopUp"
+          id="add-brand"
+        >
+          <button
+            class="FormPopUp__close-button"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-times fa-lg "
+              data-icon="times"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 384 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+          <header>
+            <h1>
+              New Brand
+            </h1>
+          </header>
+          <div
+            class="FormPromptWithSub"
+          >
+            <p
+              class="FormPromptWithSub__prompt"
+            >
+              Enter the following details to add a brand.
+            </p>
+            <p
+              class="FormPromptWithSub__subtitle"
+            />
+          </div>
+          <div
+            class="FormTextInput"
+          >
+            <label
+              for="brandName"
+            >
+              Brand name
+            </label>
+            <input
+              id="brandName"
+              name="name"
+              required=""
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            class="FormUrlInput"
+          >
+            <label
+              for="brandWebsite"
+            >
+              Brand website
+            </label>
+            <input
+              id="brandWebsite"
+              name="website"
+              required=""
+              type="url"
+              value=""
+            />
+          </div>
+          <div
+            class="FormDropdown"
+          >
+            <label
+              for="brandCurrency"
+            >
+              Which currency does the brand list prices in?
+            </label>
+            <p>
+              If the brand offers multiple currency options on their website, select US dollars if available.  Otherwise, select the main currency of the brand's home country.  Not sure?  Select 'Not sure' from the dropdown.
+            </p>
+            <select
+              name="currencyId"
+              required=""
+            >
+              <option
+                id="0"
+                value="0"
+              >
+                Select a currency
+              </option>
+            </select>
+          </div>
+          <div
+            class="FormDropdown"
+          >
+            <label
+              for="brandSizeSystem"
+            >
+              Which sizing system does the brand use?
+            </label>
+            <p>
+              If the brand offers multiple size systems on their website based on the country in which the webpage is being viewed, select US sizes if available.  Otherwise, select the main size system of the brand's home country. Not sure?  Select 'Not sure' from the dropdown.
+            </p>
+            <select
+              name="sizeSystemId"
+              required=""
+            >
+              <option
+                id="0"
+                value="0"
+              >
+                Select a sizing system
+              </option>
+              <option
+                id="1"
+                value="1"
+              >
+                US
+              </option>
+              <option
+                id="2"
+                value="2"
+              >
+                France / Spain / Portugal / Netherlands
+              </option>
+              <option
+                id="3"
+                value="3"
+              >
+                Italy
+              </option>
+              <option
+                id="4"
+                value="4"
+              >
+                UK / Australia / New Zealand
+              </option>
+              <option
+                id="5"
+                value="5"
+              >
+                Japan
+              </option>
+              <option
+                id="6"
+                value="1"
+              >
+                Other
+              </option>
+              <option
+                id="7"
+                value="1"
+              >
+                Not sure
+              </option>
+              <option
+                id="8"
+                value="1"
+              >
+                International
+              </option>
+            </select>
+          </div>
+          <button
+            class="FormButton"
+            type="submit"
+          >
+            CREATE BRAND
+          </button>
+        </section>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="NPFBrand"
+    >
+      <section
+        class="FormPage"
+      >
+        <h1>
+          Brand
+        </h1>
+        <form
+          autocomplete="off"
+          id="form-page"
+        >
+          <div
+            class="FormDropdown"
+          >
+            <label
+              for="brand"
+            >
+              Which brand made this product?
+            </label>
+            <select
+              name="brand"
+              required=""
+            >
+              <option
+                id="0"
+                value="0"
+              >
+                Select a brand
+              </option>
+            </select>
+          </div>
+          <div
+            class="FormPromptWithSub"
+          >
+            <p
+              class="FormPromptWithSub__prompt"
+            >
+              Brand not listed above?
+            </p>
+            <p
+              class="FormPromptWithSub__subtitle"
+            />
+          </div>
+          <button
+            class="FormButton"
+            type="button"
+          >
+            Add a brand
+          </button>
+        </form>
+        <div />
+      </section>
+      <footer
+        class="NPFFooter"
+      >
+        <button
+          class="NPFFooter__previous"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-angle-left NPFFooter__left-arrow"
+            data-icon="angle-left"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 320 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
+              fill="currentColor"
+            />
+          </svg>
+          <span>
+            PREVIOUS
+          </span>
+        </button>
+        <button
+          class="NPFFooter__next"
+          type="button"
+        >
+          <span>
+            NEXT
+          </span>
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-angle-right NPFFooter__right-arrow"
+            data-icon="angle-right"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 320 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </footer>
+      <section
+        class="FormPopUp"
+        id="add-brand"
+      >
+        <button
+          class="FormPopUp__close-button"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-times fa-lg "
+            data-icon="times"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 384 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+        <header>
+          <h1>
+            New Brand
+          </h1>
+        </header>
+        <div
+          class="FormPromptWithSub"
+        >
+          <p
+            class="FormPromptWithSub__prompt"
+          >
+            Enter the following details to add a brand.
+          </p>
+          <p
+            class="FormPromptWithSub__subtitle"
+          />
+        </div>
+        <div
+          class="FormTextInput"
+        >
+          <label
+            for="brandName"
+          >
+            Brand name
+          </label>
+          <input
+            id="brandName"
+            name="name"
+            required=""
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          class="FormUrlInput"
+        >
+          <label
+            for="brandWebsite"
+          >
+            Brand website
+          </label>
+          <input
+            id="brandWebsite"
+            name="website"
+            required=""
+            type="url"
+            value=""
+          />
+        </div>
+        <div
+          class="FormDropdown"
+        >
+          <label
+            for="brandCurrency"
+          >
+            Which currency does the brand list prices in?
+          </label>
+          <p>
+            If the brand offers multiple currency options on their website, select US dollars if available.  Otherwise, select the main currency of the brand's home country.  Not sure?  Select 'Not sure' from the dropdown.
+          </p>
+          <select
+            name="currencyId"
+            required=""
+          >
+            <option
+              id="0"
+              value="0"
+            >
+              Select a currency
+            </option>
+          </select>
+        </div>
+        <div
+          class="FormDropdown"
+        >
+          <label
+            for="brandSizeSystem"
+          >
+            Which sizing system does the brand use?
+          </label>
+          <p>
+            If the brand offers multiple size systems on their website based on the country in which the webpage is being viewed, select US sizes if available.  Otherwise, select the main size system of the brand's home country. Not sure?  Select 'Not sure' from the dropdown.
+          </p>
+          <select
+            name="sizeSystemId"
+            required=""
+          >
+            <option
+              id="0"
+              value="0"
+            >
+              Select a sizing system
+            </option>
+            <option
+              id="1"
+              value="1"
+            >
+              US
+            </option>
+            <option
+              id="2"
+              value="2"
+            >
+              France / Spain / Portugal / Netherlands
+            </option>
+            <option
+              id="3"
+              value="3"
+            >
+              Italy
+            </option>
+            <option
+              id="4"
+              value="4"
+            >
+              UK / Australia / New Zealand
+            </option>
+            <option
+              id="5"
+              value="5"
+            >
+              Japan
+            </option>
+            <option
+              id="6"
+              value="1"
+            >
+              Other
+            </option>
+            <option
+              id="7"
+              value="1"
+            >
+              Not sure
+            </option>
+            <option
+              id="8"
+              value="1"
+            >
+              International
+            </option>
+          </select>
+        </div>
+        <button
+          class="FormButton"
+          type="submit"
+        >
+          CREATE BRAND
+        </button>
+      </section>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

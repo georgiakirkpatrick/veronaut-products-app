@@ -1,0 +1,238 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`NPFColors > render the UI as expected 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        id="colors"
+      >
+        <section
+          class="FormPage"
+        >
+          <h1>
+            Colors
+          </h1>
+          <form
+            autocomplete="off"
+            id="form-page"
+          >
+            <div
+              class="FormPromptWithSub"
+            >
+              <p
+                class="FormPromptWithSub__prompt"
+              >
+                Enter all color options listed on the product webpage
+              </p>
+              <p
+                class="FormPromptWithSub__subtitle"
+              >
+                If a product color option contains multiple colors, what is the dominant color?
+              </p>
+            </div>
+            <button
+              class="FormButton"
+              type="button"
+            >
+              Add a color option
+            </button>
+          </form>
+          <div />
+        </section>
+        <footer
+          class="NPFFooter"
+        >
+          <button
+            class="NPFFooter__previous"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-angle-left NPFFooter__left-arrow"
+              data-icon="angle-left"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 320 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
+                fill="currentColor"
+              />
+            </svg>
+            <span>
+              PREVIOUS
+            </span>
+          </button>
+          <button
+            class="NPFFooter__next"
+            type="button"
+          >
+            <span>
+              NEXT
+            </span>
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-angle-right NPFFooter__right-arrow"
+              data-icon="angle-right"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 320 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </footer>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      id="colors"
+    >
+      <section
+        class="FormPage"
+      >
+        <h1>
+          Colors
+        </h1>
+        <form
+          autocomplete="off"
+          id="form-page"
+        >
+          <div
+            class="FormPromptWithSub"
+          >
+            <p
+              class="FormPromptWithSub__prompt"
+            >
+              Enter all color options listed on the product webpage
+            </p>
+            <p
+              class="FormPromptWithSub__subtitle"
+            >
+              If a product color option contains multiple colors, what is the dominant color?
+            </p>
+          </div>
+          <button
+            class="FormButton"
+            type="button"
+          >
+            Add a color option
+          </button>
+        </form>
+        <div />
+      </section>
+      <footer
+        class="NPFFooter"
+      >
+        <button
+          class="NPFFooter__previous"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-angle-left NPFFooter__left-arrow"
+            data-icon="angle-left"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 320 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
+              fill="currentColor"
+            />
+          </svg>
+          <span>
+            PREVIOUS
+          </span>
+        </button>
+        <button
+          class="NPFFooter__next"
+          type="button"
+        >
+          <span>
+            NEXT
+          </span>
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-angle-right NPFFooter__right-arrow"
+            data-icon="angle-right"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 320 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </footer>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

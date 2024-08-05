@@ -54,18 +54,16 @@ const dropDownCountries = [
   ...formatedCountries
 ]
 
-const NewProductForm = props => {
-  const {
-    brandArray,
-    brandId,
-    certArray,
-    factArray,
-    setBrandArray,
-    setBrandId,
-    setCertArray,
-    setFactArray,
-  } = props
-
+const NewProductForm = ({
+  brandArray = [],
+  brandId = 0,
+  certArray = [],
+  factArray = [],
+  setBrandArray = () => {},
+  setBrandId = () => {},
+  setCertArray = () => {},
+  setFactArray = () => {}
+}) => {
   const [fiberTypeArray, setFiberTypeArray] = useState([])
   const [notionTypeArray, setNotionTypeArray] = useState([])
 
@@ -78,7 +76,7 @@ const NewProductForm = props => {
     }
 
     const getFiberTypes = () => {
-      fetch(`${process.env.REACT_APP_API_URL}/api/fibers/fiber-types`, getRequestParams)
+      fetch(`${import.meta.env.development.VITE_API_URL}/api/fibers/fiber-types`, getRequestParams)
         .then(response => {
           if (response.status >= 400) {
             console.log('There was a problem.  Status code: ' + response.status)
@@ -93,7 +91,7 @@ const NewProductForm = props => {
     }
 
     const getNotionTypes = () => {
-      fetch(`${process.env.REACT_APP_API_URL}/api/notions/notion-types`, getRequestParams)
+      fetch(`${import.meta.env.development.VITE_API_URL}/api/notions/notion-types`, getRequestParams)
         .then(response => {
           if (response.status >= 400) {
             console.log('There was a problem.  Status code: ' + response.status)
@@ -510,7 +508,7 @@ const data = {
     body: JSON.stringify(data)
   }
 
-  fetch(`${process.env.REACT_APP_API_URL}/api/products/product-form`,
+  fetch(`${import.meta.env.development.VITE_API_URL}/api/products/product-form`,
     postRequestParams
   )
   .then(response => {
@@ -938,16 +936,6 @@ const data = {
       </div>
     )
   }
-}
-
-NewProductForm.defaultProps = {
-  brandArray: [],
-  brandId: 0,
-  certArray: [],
-  factArray: [],
-  setBrandId: () => {},
-  setCertArray: () => {},
-  setFactArray: () => {}
 }
 
 export default NewProductForm

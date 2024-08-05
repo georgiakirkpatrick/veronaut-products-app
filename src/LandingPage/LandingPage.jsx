@@ -5,12 +5,25 @@ import PrincipleList from '../PrincipleList/PrincipleList'
 import ProductListPage from '../ProductListPage/ProductListPage'
 import './LandingPage.css'
 
-const LandingPage = props => {
-  const {
-    catArray,
-    principles,
-    routeProps,
-  } = props
+const LandingPage = ({
+  catArray = [
+    {
+      id: 0,
+      text: '',
+      value: 0,
+      class: '',
+      featureImage: ''
+    }
+  ],
+  principles = [],
+  routeProps = {
+    match: {
+      params: {
+        categoryId: '1'
+      }
+    }
+  }
+}) => {
   
   const [newProdArray, setNewProdArray] = useState([])
 
@@ -93,25 +106,6 @@ const LandingPage = props => {
       <EmailSignUp />
     </section>
   )
-}
-
-LandingPage.defaultProps = {
-  catArray: [
-    {
-      id: 0,
-      text: '',
-      value: 0,
-      class: '',
-      featureImage: ''
-    }
-  ],
-  routeProps: {
-    match: {
-      params: {
-        categoryId: '1'
-      }
-    }
-  },
 }
 
 export default LandingPage

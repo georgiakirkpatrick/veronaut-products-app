@@ -3,13 +3,11 @@ import '../FontAwesomeIcons/FontAwesomeIcons';
 import React from 'react';
 import './Principle.css';
 
-const Principle = props => {
-  const {
-    title,
-    description,
-    symbol
-  } = props
-
+const Principle = ({
+  title = '',
+  description = '',
+  symbol = ''
+}) => {
   return (
     <li className='Principle'>
       <FontAwesomeIcon icon={symbol} size='lg' />
@@ -19,10 +17,4 @@ const Principle = props => {
   )
 }
 
-Principle.defaultProps = {
-  title: '',
-  description: '',
-  symbol: ''
-}
-
-export default Principle;
+export default Principle

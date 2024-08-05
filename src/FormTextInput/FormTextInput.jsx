@@ -1,15 +1,13 @@
 import React from 'react'
 import './FormTextInput.css'
 
-const FormTextInput = props => {
-  const {
-    currentValue,
-    handleChange,
-    id,
-    name,
-    prompt
-  } = props
-
+const FormTextInput = ({
+  currentValue = 1,
+  handleChange = () => {},
+  id = 1,
+  name = '',
+  prompt = ''
+}) => {
   return (
     <div className='FormTextInput'>
       <label htmlFor={id}>{prompt}</label>
@@ -24,14 +22,6 @@ const FormTextInput = props => {
       />
     </div>
   )
-}
-
-FormTextInput.defaultProps = {
-  currentValue: 1,
-  handleChange: () => {},
-  id: 1,
-  name: '',
-  prompt: ''
 }
 
 export default FormTextInput

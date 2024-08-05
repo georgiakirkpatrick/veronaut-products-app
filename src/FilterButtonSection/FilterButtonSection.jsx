@@ -1,12 +1,11 @@
 import React from 'react'
 import './FilterButtonSection.css'
 
-const FilterButtonSection = props => {
-  const {
-    defaultFilter,
-    selectedFilters,
-    selectedFilterOptions
-  } = props
+const FilterButtonSection = ({
+  defaultFilter = 1,
+  selectedFilters = [],
+  selectedFilterOptions = []
+}) => {
 
   const tagsNoFiltersSelected = <li key={defaultFilter} className='FilterButtonSection__tag'>
     {defaultFilter}
@@ -34,12 +33,6 @@ const FilterButtonSection = props => {
       </ul>
     </div>
   )
-}
-
-FilterButtonSection.defaultProps = {
-  defaultFilter: 1,
-  selectedFilters: [],
-  selectedFilterOptions: []
 }
 
 export default FilterButtonSection

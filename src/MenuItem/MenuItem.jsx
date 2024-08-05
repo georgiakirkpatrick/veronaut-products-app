@@ -2,17 +2,16 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './MenuItem.css'
 
-const MenuItem = props => {
-  const {
-    children,
-    goToMenu,
-    itemType,
-    leftIcon,
-    rightIcon,
-    to,
-    setActiveMenu
-  } = props
-
+const MenuItem = ({
+  children = <div />,
+  goToMenu = 'main',
+  leftIcon = '',
+  rightIcon = '',
+  itemType = 'primary',
+  to = '/',
+  setActiveMenu = () => {}
+}) => {
+  
   const left = leftIcon 
     ? <span className='MenuItem__icon-left'>{leftIcon}</span>
     : <div className='empty' />
@@ -32,15 +31,6 @@ const MenuItem = props => {
       {right}
     </Link>
   )
-}
-
-MenuItem.defaultProps = {
-  goToMenu: 'main',
-  leftIcon: '',
-  rightIcon: '',
-  itemType: 'primary',
-  to: '/',
-  setActiveMenu: () => {}
 }
 
 export default MenuItem

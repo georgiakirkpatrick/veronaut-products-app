@@ -1,13 +1,12 @@
 import React from 'react'
 import './FormPage.css'
 
-const FormPage = props => {
-  const {
-    title,
-    children,
-    nextError
-  } = props
-
+const FormPage = ({
+  title = '',
+  children = '',
+  nextError = ''
+}) => {
+  
   const formTitle = title ? <h1>{title}</h1> : <div className='empty' />
 
   return (
@@ -23,12 +22,6 @@ const FormPage = props => {
       </div>
     </section>
   )
-}
-
-FormPage.defaultProps = {
-  title: '',
-  children: '',
-  nextError: ''
 }
 
 export default FormPage

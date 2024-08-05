@@ -1,0 +1,1336 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`NPFNotions > render the UI as expected 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="NPFNotions"
+        id="notions"
+      >
+        <section
+          class="FormPage"
+        >
+          <h1>
+            Notions
+          </h1>
+          <form
+            autocomplete="off"
+            id="form-page"
+          >
+            <div
+              class="FormPromptWithSub"
+            >
+              <p
+                class="FormPromptWithSub__prompt"
+              >
+                If the product includes notions such as zippers or buttons, list them here.
+              </p>
+              <p
+                class="FormPromptWithSub__subtitle"
+              >
+                If the product does not include notions, skip this section.
+              </p>
+            </div>
+            <li>
+              <fieldset
+                class="FormFieldset"
+              >
+                <div />
+                <button
+                  class="NewProductForm__remove"
+                  type="button"
+                >
+                  REMOVE
+                </button>
+                <div
+                  class="FormDropdown"
+                >
+                  <label
+                    for="notion-type-0"
+                  >
+                    Notion type
+                  </label>
+                  <select
+                    name="typeId"
+                    required=""
+                  >
+                    <option
+                      id="0"
+                      value="0"
+                    >
+                      Select a notion type
+                    </option>
+                  </select>
+                </div>
+                <div
+                  class="FormPromptWithSub"
+                >
+                  <p
+                    class="FormPromptWithSub__prompt"
+                  />
+                  <p
+                    class="FormPromptWithSub__subtitle"
+                  >
+                    Notion type not listed?
+                  </p>
+                </div>
+                <button
+                  class="FormButton"
+                  type="button"
+                >
+                  Add a notion type
+                </button>
+                <section
+                  class="FormPopUp"
+                  id="notion-type-pop-up"
+                >
+                  <button
+                    class="FormPopUp__close-button"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="svg-inline--fa fa-times fa-lg "
+                      data-icon="times"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
+                      viewBox="0 0 384 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </button>
+                  <header>
+                    <h1>
+                      Add a Notion Type
+                    </h1>
+                  </header>
+                  <div
+                    class="FormTextInput"
+                  >
+                    <label
+                      for="new-not-type"
+                    >
+                      Notion type name
+                    </label>
+                    <input
+                      id="new-not-type"
+                      name="newNotType"
+                      required=""
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                  <button
+                    class="FormButton"
+                    type="button"
+                  >
+                    Submit notion type
+                  </button>
+                </section>
+                <div
+                  class="FormDropdown"
+                >
+                  <label
+                    for="notion-location-0"
+                  >
+                    Location of notion manufacturing
+                  </label>
+                  <select
+                    name="countryId"
+                    required=""
+                  />
+                </div>
+                <div
+                  class="FormDropdown"
+                >
+                  <label
+                    for="notion-factory-0"
+                  >
+                    Notion manufacturer
+                  </label>
+                  <select
+                    name="factoryId"
+                    required=""
+                  >
+                    <option
+                      id="0"
+                      value="0"
+                    >
+                      Select a manufacturer
+                    </option>
+                    <option
+                      id="1"
+                      value="1"
+                    >
+                      Not disclosed
+                    </option>
+                  </select>
+                </div>
+                <div
+                  class="FormPromptWithSub"
+                >
+                  <p
+                    class="FormPromptWithSub__prompt"
+                  />
+                  <p
+                    class="FormPromptWithSub__subtitle"
+                  >
+                    Manufacturer not listed?
+                  </p>
+                </div>
+                <button
+                  class="FormButton"
+                  type="button"
+                >
+                  Add a manufacturer
+                </button>
+                <section
+                  class="FormPopUp"
+                  id="notion-factory-pop-up"
+                >
+                  <button
+                    class="FormPopUp__close-button"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="svg-inline--fa fa-times fa-lg "
+                      data-icon="times"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
+                      viewBox="0 0 384 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </button>
+                  <header>
+                    <h1>
+                      Add a Manufacturer
+                    </h1>
+                  </header>
+                  <div
+                    class="FormPromptWithSub"
+                  >
+                    <p
+                      class="FormPromptWithSub__prompt"
+                    >
+                      Add a notion manufacturer
+                    </p>
+                    <p
+                      class="FormPromptWithSub__subtitle"
+                    />
+                  </div>
+                  <div
+                    class="FormTextInput"
+                  >
+                    <label
+                      for="notion-factory-name"
+                    >
+                      Factory name
+                    </label>
+                    <input
+                      id="notion-factory-name"
+                      name="name"
+                      required=""
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                  <div
+                    class="FormDropdown"
+                  >
+                    <label
+                      for="notion-factory-location"
+                    >
+                      Location
+                    </label>
+                    <select
+                      name="countryId"
+                      required=""
+                    />
+                  </div>
+                  <div
+                    class="FormUrlInput"
+                  >
+                    <label
+                      for="notion-factory-website"
+                    >
+                      Website
+                    </label>
+                    <input
+                      id="notion-factory-website"
+                      name="website"
+                      required=""
+                      type="url"
+                      value=""
+                    />
+                  </div>
+                  <div
+                    class="FormTextInput"
+                  >
+                    <label
+                      for="notion-factory-notes"
+                    >
+                      Notes
+                    </label>
+                    <input
+                      id="notion-factory-notes"
+                      name="notes"
+                      required=""
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                  <button
+                    class="FormButton"
+                    type="button"
+                  >
+                    Submit manufacturer
+                  </button>
+                </section>
+                <div
+                  class="FormDropdown"
+                >
+                  <label
+                    for="notion-material-type-0"
+                  >
+                    Notion material
+                  </label>
+                  <select
+                    name="materialTypeId"
+                    required=""
+                  >
+                    <option
+                      id="0"
+                      value="0"
+                    >
+                      Select a fiber or material
+                    </option>
+                    <option
+                      id="1"
+                      value="1"
+                    >
+                      Not disclosed
+                    </option>
+                  </select>
+                </div>
+                <div
+                  class="FormPromptWithSub"
+                >
+                  <p
+                    class="FormPromptWithSub__prompt"
+                  />
+                  <p
+                    class="FormPromptWithSub__subtitle"
+                  >
+                    Material type not listed?
+                  </p>
+                </div>
+                <button
+                  class="FormButton"
+                  type="button"
+                >
+                  Add a material type
+                </button>
+                <section
+                  class="FormPopUp"
+                  id="new-material"
+                >
+                  <button
+                    class="FormPopUp__close-button"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="svg-inline--fa fa-times fa-lg "
+                      data-icon="times"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
+                      viewBox="0 0 384 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </button>
+                  <header>
+                    <h1>
+                      Add a Material
+                    </h1>
+                  </header>
+                  <div
+                    class="FormTextInput"
+                  >
+                    <label
+                      for="new-material-name"
+                    >
+                      Material name
+                    </label>
+                    <input
+                      id="new-material-name"
+                      name="name"
+                      required=""
+                      type="text"
+                      value="1"
+                    />
+                  </div>
+                  <button
+                    class="FormButton"
+                    type="button"
+                  >
+                    Submit material
+                  </button>
+                </section>
+                <div
+                  class="FormDropdown"
+                >
+                  <label
+                    for="notion-material-origin-id-0"
+                  >
+                    Origin of notion material
+                  </label>
+                  <select
+                    name="materialOriginId"
+                    required=""
+                  />
+                </div>
+                <div
+                  class="FormDropdown"
+                >
+                  <label
+                    for="notion-material-producer-id-0"
+                  >
+                    Notion material producer
+                  </label>
+                  <select
+                    name="materialProducerId"
+                    required=""
+                  >
+                    <option
+                      id="0"
+                      value="0"
+                    >
+                      Select a producer
+                    </option>
+                    <option
+                      id="1"
+                      value="1"
+                    >
+                      Not disclosed
+                    </option>
+                  </select>
+                </div>
+                <div
+                  class="FormPromptWithSub"
+                >
+                  <p
+                    class="FormPromptWithSub__prompt"
+                  />
+                  <p
+                    class="FormPromptWithSub__subtitle"
+                  >
+                    Manufacturer not listed?
+                  </p>
+                </div>
+                <button
+                  class="FormButton"
+                  type="button"
+                >
+                  Add a manufacturer
+                </button>
+                <p>
+                  Does the notion have any of the following cerfications?
+                </p>
+                <div
+                  class="FormCheckboxSection"
+                >
+                  <div
+                    class="empty"
+                  />
+                  <div
+                    class="FormCheckboxSection__options-container"
+                  />
+                </div>
+                <div
+                  class="FormPromptWithSub"
+                >
+                  <p
+                    class="FormPromptWithSub__prompt"
+                  />
+                  <p
+                    class="FormPromptWithSub__subtitle"
+                  >
+                    Certification not listed?
+                  </p>
+                </div>
+                <button
+                  class="FormButton"
+                  type="button"
+                >
+                  Add a certification
+                </button>
+                <section
+                  class="FormPopUp"
+                  id="not-cert-pop-up"
+                >
+                  <button
+                    class="FormPopUp__close-button"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="svg-inline--fa fa-times fa-lg "
+                      data-icon="times"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
+                      viewBox="0 0 384 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </button>
+                  <header>
+                    <h1>
+                      New Certification
+                    </h1>
+                  </header>
+                  <div
+                    class="FormPromptWithSub"
+                  >
+                    <p
+                      class="FormPromptWithSub__prompt"
+                    >
+                      Add a certification
+                    </p>
+                    <p
+                      class="FormPromptWithSub__subtitle"
+                    />
+                  </div>
+                  <div
+                    class="FormTextInput"
+                  >
+                    <label
+                      for="not-cert-name"
+                    >
+                      Certification name
+                    </label>
+                    <input
+                      id="not-cert-name"
+                      name="name"
+                      required=""
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                  <div
+                    class="FormUrlInput"
+                  >
+                    <label
+                      for="not-cert-website"
+                    >
+                      Website
+                    </label>
+                    <input
+                      id="not-cert-website"
+                      name="website"
+                      required=""
+                      type="url"
+                      value=""
+                    />
+                  </div>
+                  <button
+                    class="FormButton"
+                    type="button"
+                  >
+                    Submit certification
+                  </button>
+                </section>
+                <div
+                  class="FormTextarea"
+                >
+                  <label
+                    for="notes0"
+                  >
+                    If the brand offers additional information about notion materials or manufacturing, include them here.
+                  </label>
+                  <textarea
+                    id="notes0"
+                    name="notes"
+                    required=""
+                    rows="1"
+                  />
+                </div>
+              </fieldset>
+            </li>
+            <button
+              class="FormButton"
+              type="button"
+            >
+              Add a notion
+            </button>
+          </form>
+          <div />
+        </section>
+        <footer
+          class="NPFFooter"
+        >
+          <button
+            class="NPFFooter__previous"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-angle-left NPFFooter__left-arrow"
+              data-icon="angle-left"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 320 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
+                fill="currentColor"
+              />
+            </svg>
+            <span>
+              PREVIOUS
+            </span>
+          </button>
+          <button
+            class="NPFFooter__next"
+            type="button"
+          >
+            <span>
+              NEXT
+            </span>
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-angle-right NPFFooter__right-arrow"
+              data-icon="angle-right"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 320 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </footer>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="NPFNotions"
+      id="notions"
+    >
+      <section
+        class="FormPage"
+      >
+        <h1>
+          Notions
+        </h1>
+        <form
+          autocomplete="off"
+          id="form-page"
+        >
+          <div
+            class="FormPromptWithSub"
+          >
+            <p
+              class="FormPromptWithSub__prompt"
+            >
+              If the product includes notions such as zippers or buttons, list them here.
+            </p>
+            <p
+              class="FormPromptWithSub__subtitle"
+            >
+              If the product does not include notions, skip this section.
+            </p>
+          </div>
+          <li>
+            <fieldset
+              class="FormFieldset"
+            >
+              <div />
+              <button
+                class="NewProductForm__remove"
+                type="button"
+              >
+                REMOVE
+              </button>
+              <div
+                class="FormDropdown"
+              >
+                <label
+                  for="notion-type-0"
+                >
+                  Notion type
+                </label>
+                <select
+                  name="typeId"
+                  required=""
+                >
+                  <option
+                    id="0"
+                    value="0"
+                  >
+                    Select a notion type
+                  </option>
+                </select>
+              </div>
+              <div
+                class="FormPromptWithSub"
+              >
+                <p
+                  class="FormPromptWithSub__prompt"
+                />
+                <p
+                  class="FormPromptWithSub__subtitle"
+                >
+                  Notion type not listed?
+                </p>
+              </div>
+              <button
+                class="FormButton"
+                type="button"
+              >
+                Add a notion type
+              </button>
+              <section
+                class="FormPopUp"
+                id="notion-type-pop-up"
+              >
+                <button
+                  class="FormPopUp__close-button"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="svg-inline--fa fa-times fa-lg "
+                    data-icon="times"
+                    data-prefix="fas"
+                    focusable="false"
+                    role="img"
+                    viewBox="0 0 384 512"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </button>
+                <header>
+                  <h1>
+                    Add a Notion Type
+                  </h1>
+                </header>
+                <div
+                  class="FormTextInput"
+                >
+                  <label
+                    for="new-not-type"
+                  >
+                    Notion type name
+                  </label>
+                  <input
+                    id="new-not-type"
+                    name="newNotType"
+                    required=""
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <button
+                  class="FormButton"
+                  type="button"
+                >
+                  Submit notion type
+                </button>
+              </section>
+              <div
+                class="FormDropdown"
+              >
+                <label
+                  for="notion-location-0"
+                >
+                  Location of notion manufacturing
+                </label>
+                <select
+                  name="countryId"
+                  required=""
+                />
+              </div>
+              <div
+                class="FormDropdown"
+              >
+                <label
+                  for="notion-factory-0"
+                >
+                  Notion manufacturer
+                </label>
+                <select
+                  name="factoryId"
+                  required=""
+                >
+                  <option
+                    id="0"
+                    value="0"
+                  >
+                    Select a manufacturer
+                  </option>
+                  <option
+                    id="1"
+                    value="1"
+                  >
+                    Not disclosed
+                  </option>
+                </select>
+              </div>
+              <div
+                class="FormPromptWithSub"
+              >
+                <p
+                  class="FormPromptWithSub__prompt"
+                />
+                <p
+                  class="FormPromptWithSub__subtitle"
+                >
+                  Manufacturer not listed?
+                </p>
+              </div>
+              <button
+                class="FormButton"
+                type="button"
+              >
+                Add a manufacturer
+              </button>
+              <section
+                class="FormPopUp"
+                id="notion-factory-pop-up"
+              >
+                <button
+                  class="FormPopUp__close-button"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="svg-inline--fa fa-times fa-lg "
+                    data-icon="times"
+                    data-prefix="fas"
+                    focusable="false"
+                    role="img"
+                    viewBox="0 0 384 512"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </button>
+                <header>
+                  <h1>
+                    Add a Manufacturer
+                  </h1>
+                </header>
+                <div
+                  class="FormPromptWithSub"
+                >
+                  <p
+                    class="FormPromptWithSub__prompt"
+                  >
+                    Add a notion manufacturer
+                  </p>
+                  <p
+                    class="FormPromptWithSub__subtitle"
+                  />
+                </div>
+                <div
+                  class="FormTextInput"
+                >
+                  <label
+                    for="notion-factory-name"
+                  >
+                    Factory name
+                  </label>
+                  <input
+                    id="notion-factory-name"
+                    name="name"
+                    required=""
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <div
+                  class="FormDropdown"
+                >
+                  <label
+                    for="notion-factory-location"
+                  >
+                    Location
+                  </label>
+                  <select
+                    name="countryId"
+                    required=""
+                  />
+                </div>
+                <div
+                  class="FormUrlInput"
+                >
+                  <label
+                    for="notion-factory-website"
+                  >
+                    Website
+                  </label>
+                  <input
+                    id="notion-factory-website"
+                    name="website"
+                    required=""
+                    type="url"
+                    value=""
+                  />
+                </div>
+                <div
+                  class="FormTextInput"
+                >
+                  <label
+                    for="notion-factory-notes"
+                  >
+                    Notes
+                  </label>
+                  <input
+                    id="notion-factory-notes"
+                    name="notes"
+                    required=""
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <button
+                  class="FormButton"
+                  type="button"
+                >
+                  Submit manufacturer
+                </button>
+              </section>
+              <div
+                class="FormDropdown"
+              >
+                <label
+                  for="notion-material-type-0"
+                >
+                  Notion material
+                </label>
+                <select
+                  name="materialTypeId"
+                  required=""
+                >
+                  <option
+                    id="0"
+                    value="0"
+                  >
+                    Select a fiber or material
+                  </option>
+                  <option
+                    id="1"
+                    value="1"
+                  >
+                    Not disclosed
+                  </option>
+                </select>
+              </div>
+              <div
+                class="FormPromptWithSub"
+              >
+                <p
+                  class="FormPromptWithSub__prompt"
+                />
+                <p
+                  class="FormPromptWithSub__subtitle"
+                >
+                  Material type not listed?
+                </p>
+              </div>
+              <button
+                class="FormButton"
+                type="button"
+              >
+                Add a material type
+              </button>
+              <section
+                class="FormPopUp"
+                id="new-material"
+              >
+                <button
+                  class="FormPopUp__close-button"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="svg-inline--fa fa-times fa-lg "
+                    data-icon="times"
+                    data-prefix="fas"
+                    focusable="false"
+                    role="img"
+                    viewBox="0 0 384 512"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </button>
+                <header>
+                  <h1>
+                    Add a Material
+                  </h1>
+                </header>
+                <div
+                  class="FormTextInput"
+                >
+                  <label
+                    for="new-material-name"
+                  >
+                    Material name
+                  </label>
+                  <input
+                    id="new-material-name"
+                    name="name"
+                    required=""
+                    type="text"
+                    value="1"
+                  />
+                </div>
+                <button
+                  class="FormButton"
+                  type="button"
+                >
+                  Submit material
+                </button>
+              </section>
+              <div
+                class="FormDropdown"
+              >
+                <label
+                  for="notion-material-origin-id-0"
+                >
+                  Origin of notion material
+                </label>
+                <select
+                  name="materialOriginId"
+                  required=""
+                />
+              </div>
+              <div
+                class="FormDropdown"
+              >
+                <label
+                  for="notion-material-producer-id-0"
+                >
+                  Notion material producer
+                </label>
+                <select
+                  name="materialProducerId"
+                  required=""
+                >
+                  <option
+                    id="0"
+                    value="0"
+                  >
+                    Select a producer
+                  </option>
+                  <option
+                    id="1"
+                    value="1"
+                  >
+                    Not disclosed
+                  </option>
+                </select>
+              </div>
+              <div
+                class="FormPromptWithSub"
+              >
+                <p
+                  class="FormPromptWithSub__prompt"
+                />
+                <p
+                  class="FormPromptWithSub__subtitle"
+                >
+                  Manufacturer not listed?
+                </p>
+              </div>
+              <button
+                class="FormButton"
+                type="button"
+              >
+                Add a manufacturer
+              </button>
+              <p>
+                Does the notion have any of the following cerfications?
+              </p>
+              <div
+                class="FormCheckboxSection"
+              >
+                <div
+                  class="empty"
+                />
+                <div
+                  class="FormCheckboxSection__options-container"
+                />
+              </div>
+              <div
+                class="FormPromptWithSub"
+              >
+                <p
+                  class="FormPromptWithSub__prompt"
+                />
+                <p
+                  class="FormPromptWithSub__subtitle"
+                >
+                  Certification not listed?
+                </p>
+              </div>
+              <button
+                class="FormButton"
+                type="button"
+              >
+                Add a certification
+              </button>
+              <section
+                class="FormPopUp"
+                id="not-cert-pop-up"
+              >
+                <button
+                  class="FormPopUp__close-button"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="svg-inline--fa fa-times fa-lg "
+                    data-icon="times"
+                    data-prefix="fas"
+                    focusable="false"
+                    role="img"
+                    viewBox="0 0 384 512"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </button>
+                <header>
+                  <h1>
+                    New Certification
+                  </h1>
+                </header>
+                <div
+                  class="FormPromptWithSub"
+                >
+                  <p
+                    class="FormPromptWithSub__prompt"
+                  >
+                    Add a certification
+                  </p>
+                  <p
+                    class="FormPromptWithSub__subtitle"
+                  />
+                </div>
+                <div
+                  class="FormTextInput"
+                >
+                  <label
+                    for="not-cert-name"
+                  >
+                    Certification name
+                  </label>
+                  <input
+                    id="not-cert-name"
+                    name="name"
+                    required=""
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <div
+                  class="FormUrlInput"
+                >
+                  <label
+                    for="not-cert-website"
+                  >
+                    Website
+                  </label>
+                  <input
+                    id="not-cert-website"
+                    name="website"
+                    required=""
+                    type="url"
+                    value=""
+                  />
+                </div>
+                <button
+                  class="FormButton"
+                  type="button"
+                >
+                  Submit certification
+                </button>
+              </section>
+              <div
+                class="FormTextarea"
+              >
+                <label
+                  for="notes0"
+                >
+                  If the brand offers additional information about notion materials or manufacturing, include them here.
+                </label>
+                <textarea
+                  id="notes0"
+                  name="notes"
+                  required=""
+                  rows="1"
+                />
+              </div>
+            </fieldset>
+          </li>
+          <button
+            class="FormButton"
+            type="button"
+          >
+            Add a notion
+          </button>
+        </form>
+        <div />
+      </section>
+      <footer
+        class="NPFFooter"
+      >
+        <button
+          class="NPFFooter__previous"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-angle-left NPFFooter__left-arrow"
+            data-icon="angle-left"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 320 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
+              fill="currentColor"
+            />
+          </svg>
+          <span>
+            PREVIOUS
+          </span>
+        </button>
+        <button
+          class="NPFFooter__next"
+          type="button"
+        >
+          <span>
+            NEXT
+          </span>
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-angle-right NPFFooter__right-arrow"
+            data-icon="angle-right"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 320 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </footer>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
