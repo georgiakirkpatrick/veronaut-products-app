@@ -5,13 +5,13 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import LandingPage from './LandingPage'
 
 describe ('LandingPage', () => {
-    it ('renders without crashing', () => {
-        render(<LandingPage />)
-        screen.debug()
-    })
+  it ('renders without crashing', () => {
+    render(<LandingPage />)
+    screen.debug()
+  })
 
-    it('renders the UI as expected', () => {
-        const tree = render(<LandingPage />)
-        expect(tree).toMatchSnapshot()    
-    })
+  it('renders the UI as expected', () => {
+    const tree = render(<LandingPage />)
+    expect(tree).toMatchSnapshot()    
+  })
 })

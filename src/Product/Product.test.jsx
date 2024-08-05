@@ -15,13 +15,13 @@ const productProps = {
 }
 
 describe ('Product', () => {
-    it ('renders without crashing', () => {
-        render(<Router><Product /></Router>)
-        screen.debug()
-    })
+  it ('renders without crashing', () => {
+    render(<Router><Product /></Router>)
+    screen.debug()
+  })
 
-    it('renders the UI as expected', () => {
-        const tree = render(<Router><Product /></Router>)
-        expect(tree).toMatchSnapshot()    
-    })
+  it('renders the UI as expected', () => {
+    const tree = render(<Router><Product /></Router>)
+    expect(tree).toMatchSnapshot()    
+  })
 })

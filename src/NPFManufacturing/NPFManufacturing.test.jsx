@@ -4,13 +4,13 @@ import { describe, it, expect } from 'vitest'
 import NPFManufacturing from './NPFManufacturing'
 
 describe('NPFManufacturing', () => {
-    it ('renders without crashing', () => {
-        render(<NPFManufacturing />)
-        screen.debug()
-    })
+  it ('renders without crashing', () => {
+    render(<NPFManufacturing />)
+    screen.debug()
+  })
 
-    it ('render the UI as expected', () => {
-        const tree = render(<NPFManufacturing />)
-        expect(tree).toMatchSnapshot()
-    })
+  it ('render the UI as expected', () => {
+    const tree = render(<NPFManufacturing />)
+    expect(tree).toMatchSnapshot()
+  })
 })

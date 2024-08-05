@@ -4,13 +4,13 @@ import NPFProhibFibers from './NPFProhibFibers'
 import { describe, it, expect } from 'vitest'
 
 describe ('NPFProhibFibers', () => {
-    it ('renders without crashing', () => {
-        render(<NPFProhibFibers />)
-        screen.debug()
-    })
+  it ('renders without crashing', () => {
+    render(<NPFProhibFibers />)
+    screen.debug()
+  })
 
-    it('renders the UI as expected', () => {
-        const tree = render(<NPFProhibFibers />)
-        expect(tree).toMatchSnapshot()
-    })
+  it('renders the UI as expected', () => {
+    const tree = render(<NPFProhibFibers />)
+    expect(tree).toMatchSnapshot()
+  })
 })

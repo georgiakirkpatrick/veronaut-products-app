@@ -5,13 +5,13 @@ import { render, screen } from '@testing-library/react'
 import Account from './Account'
 
 describe('Account', () => {
-    it ('renders without crashing', () => {
-        render(<Router><Account /></Router>)
-        screen.debug()
-    })
+  it ('renders without crashing', () => {
+    render(<Router><Account /></Router>)
+    screen.debug()
+  })
 
-    it ('renders the UI as expected', () => {
-        const tree = render(<Router><Account /></Router>)
-        expect(tree).toMatchSnapshot()
-    })
+  it ('renders the UI as expected', () => {
+    const tree = render(<Router><Account /></Router>)
+    expect(tree).toMatchSnapshot()
+  })
 })

@@ -5,13 +5,13 @@ import NPFNewProduct from './NPFNewProduct'
 import currencies from '../CURRENCIES'
 
 describe('NPFNewProduct', () => {
-    it ('renders without crashing', () => {
-        render(<NPFNewProduct />)
-        screen.debug()
-    })
+  it ('renders without crashing', () => {
+    render(<NPFNewProduct />)
+    screen.debug()
+  })
 
-    it ('render the UI as expected', () => {
-        const tree = render(<NPFNewProduct />)
-        expect(tree).toMatchSnapshot()
-    })
+  it ('render the UI as expected', () => {
+    const tree = render(<NPFNewProduct />)
+    expect(tree).toMatchSnapshot()
+  })
 })

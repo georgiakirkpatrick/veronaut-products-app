@@ -4,13 +4,13 @@ import ProductDetailSection from './ProductDetailSection';
 import { describe, it, expect } from 'vitest';
 
 describe ('ProductDetailSection', () => {
-    it ('renders without crashing', () => {
-        render(<ProductDetailSection />)
-        screen.debug()
-    })
+  it ('renders without crashing', () => {
+    render(<ProductDetailSection />)
+    screen.debug()
+  })
 
-    it('renders the UI as expected', () => {
-        const tree = render(<ProductDetailSection />)
-        expect(tree).toMatchSnapshot()    
-    })
+  it('renders the UI as expected', () => {
+    const tree = render(<ProductDetailSection />)
+    expect(tree).toMatchSnapshot()    
+  })
 })

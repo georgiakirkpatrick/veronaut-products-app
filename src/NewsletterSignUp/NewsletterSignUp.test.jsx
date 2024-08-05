@@ -4,13 +4,13 @@ import NewsletterSignup from './NewsletterSignup';
 import { describe, it, expect } from 'vitest';
 
 describe ('NewsletterSignup', () => {
-    it ('renders without crashing', () => {
-        render(<NewsletterSignup />)
-        screen.debug()
-    })
+  it ('renders without crashing', () => {
+    render(<NewsletterSignup />)
+    screen.debug()
+  })
 
-    it('renders the UI as expected', () => {
-        const tree = render(<NewsletterSignup />)
-        expect(tree).toMatchSnapshot()    
-    })
+  it('renders the UI as expected', () => {
+    const tree = render(<NewsletterSignup />)
+    expect(tree).toMatchSnapshot()    
+  })
 })

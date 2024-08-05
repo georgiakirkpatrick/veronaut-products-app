@@ -22,13 +22,13 @@ const principles = [
 ]
 
 describe ('PrincipleList', () => {
-    it ('renders without crashing', () => {
-        render(<PrincipleList />)
-        screen.debug()
-    })
+  it ('renders without crashing', () => {
+    render(<PrincipleList />)
+    screen.debug()
+  })
 
-    it('renders the UI as expected', () => {
-        const tree = render(<PrincipleList principles={principles} />)
-        expect(tree).toMatchSnapshot()    
-    })
+  it('renders the UI as expected', () => {
+    const tree = render(<PrincipleList principles={principles} />)
+    expect(tree).toMatchSnapshot()    
+  })
 })

@@ -7,13 +7,13 @@ const principleDescription = 'We value versatile styles that bring out our best 
 const principleTitle = 'Good design'
 
 describe ('Principle', () => {
-    it ('renders without crashing', () => {
-        render(<Principle />)
-        screen.debug()
-    })
+  it ('renders without crashing', () => {
+    render(<Principle />)
+    screen.debug()
+  })
 
-    it('renders the UI as expected', () => {
-        const tree = render(<Principle principleTitle={principleTitle} principleDescription={principleDescription} />)
-        expect(tree).toMatchSnapshot()    
-    })
+  it('renders the UI as expected', () => {
+    const tree = render(<Principle principleTitle={principleTitle} principleDescription={principleDescription} />)
+    expect(tree).toMatchSnapshot()    
+  })
 })
