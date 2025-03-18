@@ -406,7 +406,7 @@ const NPFFabrics = ({
     if (missingFields.length >= 1) {
       alert(`The factory name and country fields are required.  Please complete both fields.`)
     } else {
-      fetch(`${import.meta.env.development.VITE_API_URL}/api/factories`,
+      fetch(`${import.meta.env.VITE_API_URL}/api/factories`,
         postRequestParams
       )
       .then(response => {
@@ -444,7 +444,7 @@ const NPFFabrics = ({
     if (fabricProps.newFiber.name === '') {
       alert(`Please enter a new fiber.`)
     } else {
-      fetch(`${import.meta.env.development.VITE_API_URL}/api/fibers/fiber-types`,
+      fetch(`${import.meta.env.VITE_API_URL}/api/fibers/fiber-types`,
         postRequestParams
       )
       .then(response => {            
@@ -497,7 +497,7 @@ const NPFFabrics = ({
     if (missingFields.length >= 1) {
         alert(`The factory name and country fields are required.  Please complete both fields.`)
     } else {
-      fetch(`${import.meta.env.development.VITE_API_URL}/api/factories`,
+      fetch(`${import.meta.env.VITE_API_URL}/api/factories`,
         postRequestParams
       )
       .then(response => {
@@ -551,7 +551,7 @@ const NPFFabrics = ({
     if (missingFields.length >= 1) {
       alert(`The factory name and country fields are required.  Please complete both fields.`)
     } else {
-      fetch(`${import.meta.env.development.VITE_API_URL}/api/factories`,
+      fetch(`${import.meta.env.VITE_API_URL}/api/factories`,
         postRequestParams
       )
       .then(response => {
@@ -608,7 +608,7 @@ const NPFFabrics = ({
         body: JSON.stringify(data)
       }
 
-      fetch(`${import.meta.env.development.VITE_API_URL}/api/certifications`,
+      fetch(`${import.meta.env.VITE_API_URL}/api/certifications`,
         postRequestParams
       )
       .then(response => {

@@ -24,8 +24,6 @@ const Login = ({
   const history = useNavigate()
 
   const advancePage = () => {
-    console.log('routeProps', routeProps)
-
     const referrer = routeProps.location.state
       ? routeProps.location.state.referrer
       : '/'
@@ -55,7 +53,6 @@ const Login = ({
         password: hashedPassword(loginPassword)
       })
       .then(response => {
-        console.log('response', response)
         setLoginEmail('')
         setLoginPassword('')
         TokenService.saveAuthToken(response.authToken)

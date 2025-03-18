@@ -7,12 +7,12 @@ import { handleLoginSubmit } from './Login'
 
 describe ('Login', () => {
   it ('renders without crashing', () => {
-    render(<Login />)
+    render(<Router><Login /></Router>)
     screen.debug()
   })
 
   it('renders the UI as expected', () => {
-    const tree = render(<Login />)
+    const tree = render(<Router><Login /></Router>)
     expect(tree).toMatchSnapshot()    
   })
 

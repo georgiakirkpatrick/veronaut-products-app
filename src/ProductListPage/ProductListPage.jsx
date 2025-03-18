@@ -45,7 +45,7 @@ const ProductListPage = ({
 
     // getProductsForCategory fetches product data for the category designated by "id" from the veronaut-products-api.
     const getCatProds = id => {
-      fetch(`${import.meta.env.development.VITE_API_URL}/api/categories/${id}/product`, getRequestParams)
+      fetch(`${import.meta.env.VITE_API_URL}/api/categories/${id}/product`, getRequestParams)
       .then(response => {
         if (response.ok) {
           setCatProdError(null)
@@ -58,10 +58,6 @@ const ProductListPage = ({
           const prods = data.placeholder.products
 
           const catProds = data.placeholder.products.filter(prod => prod.categoryId === Number(id))
-
-          console.log('prods', prods)
-
-          console.log('catProds', catProds)
 
           return catProds
         }
@@ -77,7 +73,7 @@ const ProductListPage = ({
     }
 
     const getFeaturedProducts = () => {
-      fetch(`${import.meta.env.development.VITE_API_URL}/api/products/featured`, getRequestParams)
+      fetch(`${import.meta.env.VITE_API_URL}/api/products/featured`, getRequestParams)
       .then(response => {
         if (response.status >= 400) {
           console.log('There was a problem.  Status code: ' + response.status)

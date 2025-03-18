@@ -1,95 +1,63 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Footer > renders the UI as expected 1`] = `
+exports[`NewsletterSignup > renders the UI as expected 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <footer>
-        <section>
-          <h2>
-            Connect
-          </h2>
-          <p>
-            <a
-              href="mailto:veronautfashion@gmail.com"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              veronautfashion@gmail.com
-            </a>
-          </p>
-        </section>
-        <div>
-          <a
-            href="https://www.instagram.com/veronautfashion/"
-          />
-        </div>
-        <form>
-          <p>
-            Love facts?  We'll send you some!
-          </p>
-          <fieldset>
-            <label
-              for="email-signup"
-            >
-              Email
-            </label>
-            <input
-              id="email-signup"
-              name="email-signup"
-              type="text"
-            />
-            <button>
-              Submit
-            </button>
-          </fieldset>
-        </form>
-      </footer>
-    </div>
-  </body>,
-  "container": <div>
-    <footer>
-      <section>
-        <h2>
-          Connect
-        </h2>
+      <form
+        class="NewsletterSignUp"
+      >
         <p>
-          <a
-            href="mailto:veronautfashion@gmail.com"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            veronautfashion@gmail.com
-          </a>
-        </p>
-      </section>
-      <div>
-        <a
-          href="https://www.instagram.com/veronautfashion/"
-        />
-      </div>
-      <form>
-        <p>
-          Love facts?  We'll send you some!
+          Want updates?
         </p>
         <fieldset>
           <label
-            for="email-signup"
+            for="newsletter"
           >
-            Email
+            Email 
           </label>
           <input
-            id="email-signup"
-            name="email-signup"
+            id="newsletter"
+            name="newsletter"
             type="text"
           />
-          <button>
-            Submit
-          </button>
         </fieldset>
+        <button
+          class="FormButton"
+          type="button"
+        >
+          SUBMIT
+        </button>
       </form>
-    </footer>
+    </div>
+  </body>,
+  "container": <div>
+    <form
+      class="NewsletterSignUp"
+    >
+      <p>
+        Want updates?
+      </p>
+      <fieldset>
+        <label
+          for="newsletter"
+        >
+          Email 
+        </label>
+        <input
+          id="newsletter"
+          name="newsletter"
+          type="text"
+        />
+      </fieldset>
+      <button
+        class="FormButton"
+        type="button"
+      >
+        SUBMIT
+      </button>
+    </form>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

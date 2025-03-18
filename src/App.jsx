@@ -20,8 +20,6 @@ import ScrollToTop from './ScrollToTop/ScrollToTop'
 import data from './DATA'
 import './App.css'
 
-console.log('This is veronaut')
-
 // Make fortawesome icons available
 library.add(fab)
 
@@ -50,7 +48,7 @@ const App = () => {
   useEffect(() => {
     // getAllCategories fetches clothing category data from the veronaut-products-api.
     const getCats = () => {
-      fetch(`${import.meta.env.development.VITE_API_URL}/api/categories`, getRequestParams)
+      fetch(`${import.meta.env.VITE_API_URL}/api/categories`, getRequestParams)
       .then(response => {
         if (response.ok) {
           setCatsError(null)
@@ -70,7 +68,6 @@ const App = () => {
         return data.placeholder.categories
       })
       .then(responseJson => {
-        console.log('responseJson', responseJson)
         const formattedCats = responseJson.map(category => ({
           id: category.id,
           text: category.english_name,
@@ -90,7 +87,7 @@ const App = () => {
 
     // getBrands fetches clothing brand data from the veronaut-products-api.
     const getBrands = () => {
-      fetch(`${import.meta.env.development.VITE_API_URL}/api/brands`, getRequestParams)
+      fetch(`${import.meta.env.VITE_API_URL}/api/brands`, getRequestParams)
       .then(response => {
         if (response.ok) {
           setBrandError(null)
@@ -128,7 +125,7 @@ const App = () => {
 
     // getCertifications fetches certification data from the veronaut-products-api.
     const getCerts = () => {
-      fetch(`${import.meta.env.development.VITEURL}/api/certifications`, getRequestParams)
+      fetch(`${import.meta.env.VITE_API_URL}/api/certifications`, getRequestParams)
       .then(response => {
         if (response.ok) {
           setCertError(null)
@@ -143,6 +140,8 @@ const App = () => {
       // If the frontend is unable to connect to the API, use data.placeholder.certifications data and create a certification error message.
       err => {
         setCertError("There was a problem communicating with the server.  Error message: " + err)
+
+        return data.placeholder.certifications
       })
       .then(certArray => {
         const formattedCerts = certArray.map(cert => ({
@@ -162,7 +161,7 @@ const App = () => {
     
     // getFactories fetches clothing brand data from veronaut-products-api.
     const getFacts = () => {
-      fetch(`${import.meta.env.development.VITE_API_URL}/api/factories`, getRequestParams)
+      fetch(`${import.meta.env.VITE_API_URL}/api/factories`, getRequestParams)
       .then(response => {
         if (response.ok) {
           return response.json()
@@ -172,6 +171,12 @@ const App = () => {
 
           return data.placeholder.factories
         }
+      },
+      // If the frontend is unable to connect to the API, use data.placeholder.factories data and create a factories error message.
+      err => {
+        setFactError("There was a problem communicating with the server.  Error message: " + err)
+
+        return data.placeholder.factories
       })
       .then(factArray => {
         const formattedFactories = factArray.map(factory => ({
@@ -197,7 +202,6 @@ const App = () => {
   }, [])
 
   if (!catsLoaded) {
-    console.log ('catsError: ', catsError)
     return <div> Loading... </div>
   } else if (brandError || certError || factError || prodError) {
     console.log('brandError', brandError)

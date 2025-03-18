@@ -1,7 +1,7 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import ProductDetailSection from './ProductDetailSection';
-import { describe, it, expect } from 'vitest';
+import React from 'react'
+import { render, screen } from '@testing-library/react'
+import ProductDetailSection from './ProductDetailSection'
+import { describe, it, expect } from 'vitest'
 
 describe ('ProductDetailSection', () => {
   it ('renders without crashing', () => {

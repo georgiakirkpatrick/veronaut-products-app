@@ -313,7 +313,7 @@ const NPFNotions = ({
         body: JSON.stringify(data)
       }
 
-      fetch(`${import.meta.env.development.VITE_API_URL}/api/certifications`,
+      fetch(`${import.meta.env.VITE_API_URL}/api/certifications`,
         postRequestParams
       )
       .then(response => {
@@ -370,7 +370,7 @@ const NPFNotions = ({
         ${field}`)}
       `)
     } else if (missingFields.length === 0) {
-      fetch(`${import.meta.env.development.VITE_API_URL}/api/factories`, postRequestParams)
+      fetch(`${import.meta.env.VITE_API_URL}/api/factories`, postRequestParams)
       .then(response => {
         if (response.status >= 400) {
           throw new Error("Server responded with an error!")
@@ -426,7 +426,7 @@ const NPFNotions = ({
     if (newNotMaterial === '') {
         alert(`Please enter a new material.`)
     } else {
-      fetch(`${import.meta.env.development.VITE_API_URL}/api/fibers/fiber-types`, 
+      fetch(`${import.meta.env.VITE_API_URL}/api/fibers/fiber-types`, 
         postRequestParams
       )
       .then(response => {
@@ -473,7 +473,7 @@ const NPFNotions = ({
       alert('Please enter a notion type')
     } else {
       fetch(
-        `${import.meta.env.development.VITE_API_URL}/api/notions/notion-types`,
+        `${import.meta.env.VITE_API_URL}/api/notions/notion-types`,
         postRequestParams
       )
       .then(response => {

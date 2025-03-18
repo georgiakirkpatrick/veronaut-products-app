@@ -20,7 +20,6 @@ import NPFProhibFibers from '../NPFProhibFibers/NPFProhibFibers'
 import NPFSizes from '../NPFSizes/NPFSizes'
 import NPFSubmit from '../NPFSubmit/NPFSubmit'
 import ScrollToTop from '../ScrollToTop/ScrollToTop'
-import config from '../config'
 import TokenService from '../services/token-service'
 import './NewProductForm.css'
 
@@ -76,7 +75,7 @@ const NewProductForm = ({
     }
 
     const getFiberTypes = () => {
-      fetch(`${import.meta.env.development.VITE_API_URL}/api/fibers/fiber-types`, getRequestParams)
+      fetch(`${import.meta.env.VITE_API_URL}/api/fibers/fiber-types`, getRequestParams)
         .then(response => {
           if (response.status >= 400) {
             console.log('There was a problem.  Status code: ' + response.status)
@@ -91,7 +90,7 @@ const NewProductForm = ({
     }
 
     const getNotionTypes = () => {
-      fetch(`${import.meta.env.development.VITE_API_URL}/api/notions/notion-types`, getRequestParams)
+      fetch(`${import.meta.env.VITE_API_URL}/api/notions/notion-types`, getRequestParams)
         .then(response => {
           if (response.status >= 400) {
             console.log('There was a problem.  Status code: ' + response.status)
@@ -508,7 +507,7 @@ const data = {
     body: JSON.stringify(data)
   }
 
-  fetch(`${import.meta.env.development.VITE_API_URL}/api/products/product-form`,
+  fetch(`${import.meta.env.VITE_API_URL}/api/products/product-form`,
     postRequestParams
   )
   .then(response => {

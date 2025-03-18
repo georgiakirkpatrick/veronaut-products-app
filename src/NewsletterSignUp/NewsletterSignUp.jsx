@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 import FormButton from '../FormButton/FormButton'
-import './NewsletterSignUp.css';
+import './NewsletterSignUp.css'
 
 const NewsletterSignUp = () => {
   return (
@@ -20,4 +20,4 @@ const NewsletterSignUp = () => {
   )
 }
 
-export default NewsletterSignUp;
+export default NewsletterSignUp

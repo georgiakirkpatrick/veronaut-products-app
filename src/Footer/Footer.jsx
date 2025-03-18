@@ -16,7 +16,7 @@ const Footer = () => {
 
       <div>
         <a href='https://www.instagram.com/veronautfashion/'>
-          <FontAwesomeIcon icon={['fab', 'instagram']} size='lg'/>
+          {/* <FontAwesomeIcon icon={['fab', 'instagram']} size='lg'/> */}
         </a>
       </div>
 

@@ -160,7 +160,7 @@ const NPFBrand = ({
       body: JSON.stringify(data)
     }
 
-    fetch(`${import.meta.env.development.VITE_API_URL}/api/brands`, postRequestParams)
+    fetch(`${import.meta.env.VITE_API_URL}/api/brands`, postRequestParams)
       .then(response => {
         if (response.status >= 400) {
           throw new Error("Server responded with an error!")

@@ -142,7 +142,7 @@ const NPFManufacturing = ({
       body: JSON.stringify(data)
     }
 
-    fetch(`${import.meta.env.development.VITE_API_URL}/api/factories`, postRequestParams)
+    fetch(`${import.meta.env.VITE_API_URL}/api/factories`, postRequestParams)
       .then(response => {
         if (response.status >= 400) {
           throw new Error("Server responded with an error!")
@@ -271,7 +271,7 @@ const NPFManufacturing = ({
       body: JSON.stringify(data)
     }
 
-    fetch(`${import.meta.env.development.VITE_API_URL}/api/certifications`,
+    fetch(`${import.meta.env.VITE_API_URL}/api/certifications`,
       postRequestParams
     )
     .then(response => {

@@ -3,7 +3,7 @@ import config from '../config.js'
 import countries from '../COUNTRIES.js'
 import currencies from '../CURRENCIES.js'
 import formData from '../FORM_DATA.js'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import '../FontAwesomeIcons/FontAwesomeIcons.js'
 import FabricCarousel from '../FabricCarousel/FabricCarousel.jsx'
 import NotionCarousel from '../NotionCarousel/NotionCarousel.jsx'
@@ -60,7 +60,7 @@ const ProductDetail = ({
 
   useEffect(() => {
     const getFabrics = () => {
-      fetch(`${import.meta.env.development.VITE_API_URL}/api/products/${selectedProductId}/fabrics`, {
+      fetch(`${import.meta.env.VITE_API_URL}/api/products/${selectedProductId}/fabrics`, {
         method: 'GET',
         headers: {
             'Content-type': 'application/json'
@@ -84,7 +84,7 @@ const ProductDetail = ({
     getFabrics()
 
     const getSizes = () => {
-        fetch(`${import.meta.env.development.VITE_API_URL}/api/products/${selectedProductId}/sizes`, {
+        fetch(`${import.meta.env.VITE_API_URL}/api/products/${selectedProductId}/sizes`, {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json'
@@ -108,7 +108,7 @@ const ProductDetail = ({
     getSizes()
 
     const getProduct = productId => {
-      fetch(`${import.meta.env.development.VITE_API_URL}/api/products/${productId}`, {
+      fetch(`${import.meta.env.VITE_API_URL}/api/products/${productId}`, {
         method: 'GET',
         headers: {
           'Content-type': 'application/json'

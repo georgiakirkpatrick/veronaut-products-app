@@ -1,0 +1,314 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`LandingPage > renders the UI as expected 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <section
+        class="LandingPage"
+      >
+        <div
+          class="LandingPage__hero"
+        >
+          <section
+            class="LandingPage__hero-title"
+          >
+            <header>
+              <h1>
+                <span
+                  class="fashion"
+                >
+                  TRUTH 
+                </span>
+                <br />
+                <span
+                  class="fashion"
+                >
+                  IS IN FASHION
+                </span>
+              </h1>
+            </header>
+            <p
+              class="subhero"
+            >
+              <span
+                class="subero1"
+              >
+                We're here to help you
+              </span>
+              <br />
+              <span
+                class="subero2"
+              >
+                find it
+              </span>
+            </p>
+          </section>
+        </div>
+        <div
+          class="LandingPage__body"
+        >
+          <section
+            class="LandingPage__categories"
+          >
+            <header>
+              <h2>
+                Categories
+              </h2>
+            </header>
+            <div
+              class="CatCarousel"
+              id="category-carousel"
+            >
+              <ul
+                class="CatCarousel__list"
+              >
+                <li>
+                  <div>
+                    <img
+                      alt=""
+                      src=""
+                    />
+                  </div>
+                  <p />
+                </li>
+              </ul>
+            </div>
+          </section>
+          <section
+            class="PrincipleList"
+          >
+            <header>
+              <h2>
+                Transparency is key
+              </h2>
+              <p>
+                Veronaut helps you understand product descriptions and points out the information brands choose to omit.
+              </p>
+            </header>
+            <ul />
+          </section>
+          <section
+            class="LandingPage__new-products"
+          >
+            <div>
+               Loading... 
+            </div>
+          </section>
+        </div>
+        <section
+          class="EmailSignUp"
+        >
+          <header>
+            <h2>
+              Save your favorite products
+            </h2>
+          </header>
+          <p>
+            Create an account to save your favorite products.
+          </p>
+          <form>
+            <fieldset>
+              <label
+                for="email-signup"
+              >
+                Email 
+              </label>
+              <input
+                id="email-signup"
+                name="email-signup"
+                type="text"
+              />
+            </fieldset>
+            <button
+              class="FormButton"
+              type="button"
+            >
+              Create account
+            </button>
+          </form>
+        </section>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <section
+      class="LandingPage"
+    >
+      <div
+        class="LandingPage__hero"
+      >
+        <section
+          class="LandingPage__hero-title"
+        >
+          <header>
+            <h1>
+              <span
+                class="fashion"
+              >
+                TRUTH 
+              </span>
+              <br />
+              <span
+                class="fashion"
+              >
+                IS IN FASHION
+              </span>
+            </h1>
+          </header>
+          <p
+            class="subhero"
+          >
+            <span
+              class="subero1"
+            >
+              We're here to help you
+            </span>
+            <br />
+            <span
+              class="subero2"
+            >
+              find it
+            </span>
+          </p>
+        </section>
+      </div>
+      <div
+        class="LandingPage__body"
+      >
+        <section
+          class="LandingPage__categories"
+        >
+          <header>
+            <h2>
+              Categories
+            </h2>
+          </header>
+          <div
+            class="CatCarousel"
+            id="category-carousel"
+          >
+            <ul
+              class="CatCarousel__list"
+            >
+              <li>
+                <div>
+                  <img
+                    alt=""
+                    src=""
+                  />
+                </div>
+                <p />
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section
+          class="PrincipleList"
+        >
+          <header>
+            <h2>
+              Transparency is key
+            </h2>
+            <p>
+              Veronaut helps you understand product descriptions and points out the information brands choose to omit.
+            </p>
+          </header>
+          <ul />
+        </section>
+        <section
+          class="LandingPage__new-products"
+        >
+          <div>
+             Loading... 
+          </div>
+        </section>
+      </div>
+      <section
+        class="EmailSignUp"
+      >
+        <header>
+          <h2>
+            Save your favorite products
+          </h2>
+        </header>
+        <p>
+          Create an account to save your favorite products.
+        </p>
+        <form>
+          <fieldset>
+            <label
+              for="email-signup"
+            >
+              Email 
+            </label>
+            <input
+              id="email-signup"
+              name="email-signup"
+              type="text"
+            />
+          </fieldset>
+          <button
+            class="FormButton"
+            type="button"
+          >
+            Create account
+          </button>
+        </form>
+      </section>
+    </section>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
