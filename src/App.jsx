@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router'
 import Account from './Account/Account'
 import AllCategories from './AllCategories/AllCategories'
 import Footer from './Footer/Footer'

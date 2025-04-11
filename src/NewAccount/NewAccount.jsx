@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 // import config from '../config'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
 import FormButton from '../FormButton/FormButton'
 import FormTitle from '../FormTitle/FormTitle'
 import FormTextInput from '../FormTextInput/FormTextInput'

@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import Product from './Product'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router'
 import { describe, it, expect } from 'vitest'
 
 const productProps = {

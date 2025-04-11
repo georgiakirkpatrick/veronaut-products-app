@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router'
 import AuthApiService from '../services/auth-api-service'
 import FormTitle from '../FormTitle/FormTitle'
 import FormButton from '../FormButton/FormButton'

@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { describe, it, expect } from 'vitest'
-import { BrowserRouter as Router, MemoryRouter } from 'react-router-dom'
+import { BrowserRouter as Router, MemoryRouter } from 'react-router'
 import ScrollToTop from './ScrollToTop'
 
 const renderWithRouter = (ui, { route = '/' } = {}) => {

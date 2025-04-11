@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Routes, Navigate } from 'react-router-dom'
+import { Route, Routes, Navigate } from 'react-router'
 import config from '../config'
 import TokenService from '../services/token-service'
 
