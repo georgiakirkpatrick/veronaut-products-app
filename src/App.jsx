@@ -201,15 +201,179 @@ const App = () => {
 
   }, [])
 
+  const appDisplay = (
+    <Router>
+      <div className='App'>
+        <main>
+          <ScrollToTop />
+
+          <Routes>
+            <Route path='/about' 
+              component={routeProps => (
+                <>
+                  <Header catArray={catArray} background='light' />
+                  <PrincipleList 
+                    principles={data.verbage.principles} 
+                    routeProps={routeProps}
+                  />
+                  <Footer />
+                </>
+              )} 
+            />
+
+            <RequireAuth path='/account'>
+              <Header catArray={catArray} background='light' />
+              <Account />
+              <Footer />
+            </RequireAuth>
+
+            <RequireAuth path='/add-product'>
+              <Header catArray={catArray} background='light' />
+              <NewProductForm
+                brandArray={brandArray}
+                brandId={brandId}
+                certArray={certArray}
+                factArray={factArray}
+                setBrandArray={setBrandArray}
+                setBrandId={setBrandId}
+                setCertArray={setCertArray}
+                setfactArray={setFactArray}
+              />
+            </RequireAuth>
+
+            <Route path='/all-categories' 
+              render={routeProps => (
+                <>
+                  <Header catArray={catArray} background='light' />
+                  <AllCategories
+                    catArray={catArray}
+                    routeProps={routeProps}
+                  />
+                  <Footer />
+                </>
+              )} 
+            />
+
+            <Route path='/category/:categoryId/:slug' 
+              render={routeProps => (
+                <>
+                  <Header catArray={catArray} background='light' />
+                  <ProductListPage
+                    catArray={catArray}
+                    prodArray={prodArray}
+                    routeProps={routeProps}
+                    setProdArray={setProdArray}
+                    setProdError={setProdError}
+
+                  />
+                  <Footer />
+                </>
+              )} 
+            />
+
+            <Route path='/create-account' 
+              render={routeProps => (
+                <>
+                  <Header catArray={catArray} background='light' />
+                  <NewAccount routeProps={routeProps} />
+                </>
+              )} 
+            />
+
+            <Route path='/forgot-password' 
+              render={routeProps => (
+                <ForgotPassword routeProps={routeProps} />
+              )} 
+            />
+
+            <Route path='/login' 
+              render={routeProps => (
+                <>
+                  <Header catArray={catArray} background='light' />
+                  <Login routeProps={routeProps} />
+                </>
+              )} 
+            />
+
+            <Route path='/principles' 
+              render={routeProps => (
+                <>
+                  <Header catArray={catArray} background='light' />
+                  <PrincipleList 
+                    routeProps={routeProps} 
+                    principles={data.verbage.principles}
+                  />
+                  <Footer />
+                </>
+              )} 
+            />
+
+            <Route path='/product/:productId/:slug' 
+              render={routeProps => (
+                <>
+                  <Header catArray={catArray} background='light' />
+                  <ProductDetail
+                    factArray={factArray}
+                    certArray={certArray}
+                    prodArray={prodArray}
+                    routeProps={routeProps}
+                    setProdArray={setProdArray}
+                    setProdError={setProdError}
+                  />
+                  <Footer />
+                </>
+              )} 
+            />
+
+            <Route path='/' exact 
+              render={routeProps => (
+                <>
+                  <Header catArray={catArray} background='dark' />
+                  <LandingPage
+                    catArray={catArray}
+                    principles={data.verbage.principles}
+                    routeProps={routeProps}
+                  />
+                  <Footer />
+                </>
+              )} 
+            />
+
+            <Route 
+              render={routeProps => (
+                <>
+                  <Header catArray={catArray} background='light' />
+                  <NotFoundPage routeProps={routeProps} />
+                  <Footer />
+                </>
+              )}
+            />
+          </Routes>
+        </main>
+      </div>
+    </Router>
+  )
+
   if (!catsLoaded) {
     return <div> Loading... </div>
   } else if (brandError || certError || factError || prodError) {
     console.log('brandError', brandError)
     console.log('certError', certError)
     console.log('factError', factError)
-    console.log('prodError', prodError)
     
-    return <div> Oops </div>
+    return (
+      <div className='App'>
+        <main>
+          <Router>
+            <Routes>
+            <Route path='/' exact 
+                element={<Header catArray={catArray} background='dark' />} 
+              />
+            </Routes>
+          </Router>
+        </main>
+      </div>
+    )
   } else {
     return (
       <Router>
