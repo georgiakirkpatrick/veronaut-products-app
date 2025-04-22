@@ -1,26 +1,28 @@
-import React from 'react'
-import { Route, Routes, Navigate } from 'react-router'
+import { React, useEffect } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import config from '../config'
 import TokenService from '../services/token-service'
 
 const RequireAuth = ({
-  children = <div />,
-  rest = ''
+  children = <div />
 }) => {
-  return <Routes>
-    <Route
-      {...rest} 
-      render={routeProps => TokenService.getAuthToken(config.TOKEN_KEY)
-        ? children
-        : <Navigate
-          to={{
-            pathname: '/login',
-            state: { referrer: routeProps.location.pathname}
-          }}
-        />
-      }
-    />
-  </Routes>
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  const hasToken = TokenService.getAuthToken(config.TOKEN_KEY)
+
+  useEffect(() => {
+    if (!hasToken) {
+      navigate('/login', {
+        replace: true,
+        state: { referrer: location.pathname}
+      })
+    }
+  }, [!hasToken, navigate, location])
+
+  if (!hasToken) return null
+
+  return children
 }
 
 export default RequireAuth

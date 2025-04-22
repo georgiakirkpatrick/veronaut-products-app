@@ -6,9 +6,9 @@ const PrincipleList = ({
   principles = [
     {
       id: 1,
-        title: 'Good design', 
-        description: 'We value versatile styles that bring out our best selves in the office and at happy hour.  That hold up on our bike commutes and school pick-ups.  Our ideal clothing is bra-friendly, easy care, and has pockets.',
-        symbol: 'times'
+      title: 'Good design', 
+      description: 'We value versatile styles that bring out our best selves in the office and at happy hour.  That hold up on our bike commutes and school pick-ups.  Our ideal clothing is bra-friendly, easy care, and has pockets.',
+      symbol: 'times'
     }
   ],
   readMore = ''

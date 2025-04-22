@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import config from '../config.js'
 import countries from '../COUNTRIES.js'
 import currencies from '../CURRENCIES.js'
@@ -16,13 +17,6 @@ const ProductDetail = ({
   certArray = [],
   factArray = [],
   prodArray = [],
-  routeProps = {
-    match: {
-      params: {
-        productId: 4
-      }
-    }
-  },
   productInfo = {
     brand: '',
     category: '',
@@ -46,7 +40,7 @@ const ProductDetail = ({
   const [sizeArray, setSizeArray] = useState([])
 
   // FIND PRODUCT
-  const selectedProductId = routeProps.match.params.productId
+  const selectedProductId = useParams().productId
   const selectedProduct = prodArray.find(p => p.id === selectedProductId) === undefined
     ? null
     : [...prodArray.find(p => p.id === selectedProductId)]

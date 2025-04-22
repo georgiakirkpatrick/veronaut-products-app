@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import AuthApiService from '../services/auth-api-service'
 import FormTitle from '../FormTitle/FormTitle'
 import FormButton from '../FormButton/FormButton'
@@ -8,24 +8,17 @@ import TokenService from '../services/token-service'
 import bcrypt from "bcryptjs-react"
 import './Login.css'
 
-const Login = ({
-  routeProps = {
-    match: {
-      params: {
-        categoryId: '1'
-      }
-    }
-  }
-}) => {
+const Login = () => {
   const [error, setError] = useState(null)
   const [loginEmail, setLoginEmail] = useState('')
   const [loginPassword, setLoginPassword] = useState('')
 
   const history = useNavigate()
+  const location = useLocation()
 
   const advancePage = () => {
-    const referrer = routeProps.location.state
-      ? routeProps.location.state.referrer
+    const referrer = location.state
+      ? location.state.referrer
       : '/'
 
     history.push(referrer)

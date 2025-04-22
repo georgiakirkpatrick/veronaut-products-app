@@ -15,14 +15,7 @@ const LandingPage = ({
       featureImage: ''
     }
   ],
-  principles = [],
-  routeProps = {
-    match: {
-      params: {
-        categoryId: '1'
-      }
-    }
-  }
+  principles = []
 }) => {
   
   const [newProdArray, setNewProdArray] = useState([])
@@ -97,7 +90,6 @@ const LandingPage = ({
           <ProductListPage
             catArray={catArray}
             prodArray={newProdArray}
-            routeProps={routeProps}
             setProdArray={setNewProdArray}
           />
         </section>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 // import config from '../config'
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router-dom'
 import FormButton from '../FormButton/FormButton'
 import FormTitle from '../FormTitle/FormTitle'
 import FormTextInput from '../FormTextInput/FormTextInput'
@@ -10,11 +10,11 @@ import './NewAccount.css'
 // import bcrypt from "bcryptjs-react"
 
 const NewAccount = () => {
-  // const { routeProps } = props
-
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
+
+  const navigate = useNavigate()
 
   const submitNewAccount = event => {
     const missingFields = []
@@ -37,52 +37,52 @@ const NewAccount = () => {
     } else if (password !== confirmPassword) {
       alert(`The passwords do not match`)
     }
-    //  else if (missingFields.length === 0) {
-    //     event.preventDefault
+     else if (missingFields.length === 0) {
+        event.preventDefault
 
-    //     const hashedPassword = pw => {
-    //         const salt = bcrypt.genSaltSync(10)
-    //         const hash = bcrypt.hashSync(pw, salt)
+        const hashedPassword = pw => {
+            const salt = bcrypt.genSaltSync(10)
+            const hash = bcrypt.hashSync(pw, salt)
 
-    //         return hash
-    //     }
+            return hash
+        }
 
-    //     const data = {
-    //         "email": email,
-    //         "password": hashedPassword()       
-    //     }
+        const data = {
+            "email": email,
+            "password": hashedPassword()       
+        }
 
-    //     console.log('data', data)
+        console.log('data', data)
 
-    //     const postRequestParams = {
-    //         method: 'POST',
-    //         headers: { 
-    //             'Content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(data)
-    //     }
+        const postRequestParams = {
+            method: 'POST',
+            headers: { 
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }
 
-    //     fetch(`${import.meta.env.development.development.VITE_API_URL}/api/users`,
-    //         postRequestParams
-    //     )
-    //     .then(response => {
-    //         if (response.status >= 400) {
-    //             throw new Error('Server responded with an error!')
-    //         }
-    //         return response.json()
-    //     })
-    //     .then(responseJson => {
-    //         TokenService.saveAuthToken(
-    //             TokenService.makeBasicAuthToken(responseJson.email, responseJson.password)
-    //         )
-    //     })
+        fetch(`${import.meta.env.development.development.VITE_API_URL}/api/users`,
+            postRequestParams
+        )
+        .then(response => {
+            if (response.status >= 400) {
+                throw new Error('Server responded with an error!')
+            }
+            return response.json()
+        })
+        .then(responseJson => {
+            TokenService.saveAuthToken(
+                TokenService.makeBasicAuthToken(responseJson.email, responseJson.password)
+            )
+        })
 
-    //     routeProps.history.goBack()
+        navigate(-1)
         
-    //     setEmail('')
-    //     setPassword('')
-    //     setConfirmPassword('')
-    // }
+        setEmail('')
+        setPassword('')
+        setConfirmPassword('')
+    }
   }
 
   return (

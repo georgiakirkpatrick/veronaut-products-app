@@ -5,8 +5,8 @@ const data = {
         id: 1,
         title: "Good design", 
         description: "Clothing and accessories should be flattering, versatile, functional, and built to last.",
-        longText: "",
-        symbol: ""
+        longText: "Text",
+        symbol: "times"
       },
       {
         id: 2,
@@ -20,7 +20,7 @@ const data = {
         title: "Ethical",
         description: "Clothing and accessories should be made in workplaces that prioritize employee safety, living wages, and freedom of association (the right to join a union).",
         longText: "",
-        symbol: ""
+        symbol: "handshake"
       },
       {
         id: 4,

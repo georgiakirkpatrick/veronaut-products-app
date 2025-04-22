@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { describe, it, expect } from 'vitest'
-import { BrowserRouter as Router } from 'react-router'
+import { BrowserRouter as Router } from 'react-router-dom'
 import LandingCategoryList from './LandingCategoryList'
 
 describe ('LandingCategoryList', () => {

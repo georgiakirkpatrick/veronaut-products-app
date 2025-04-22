@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 import '@fortawesome/react-fontawesome'
 import countries from '../COUNTRIES'
 import currencies from '../CURRENCIES'

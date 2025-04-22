@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useLocation, useParams } from 'react-router-dom'
 import Product from '../Product/Product'
 import data from '../DATA'
 import './ProductListPage.css'
@@ -12,13 +13,6 @@ const ProductListPage = ({
     }
   ],
   prodArray = [],
-  routeProps = {
-    match: {
-      params: {
-        categoryId: '1'
-      }
-    }
-  },
   setProdArray = () => {}
 }) => {
   const [catProdError, setCatProdError] = useState(null)
@@ -26,9 +20,13 @@ const ProductListPage = ({
   const [newProdLoaded, setNewProdLoaded] = useState(false)
   const [newProdError, setNewProdError] = useState(false)
 
-  const categoryId = routeProps.match.params.categoryId
+  const params = useParams()
+  const location = useLocation()
 
-  const listTitle = routeProps.match.path === '/'
+  
+  const categoryId = params.categoryId
+
+  const listTitle = location.pathname === '/'
     ? 'New products'
     : catArray[categoryId - 1].text
 
@@ -92,12 +90,12 @@ const ProductListPage = ({
       })
     }
 
-    if (routeProps.match.params.categoryId) {
-      getCatProds(routeProps.match.params.categoryId)
+    if (params.categoryId) {
+      getCatProds(params.categoryId)
     } else {
       getFeaturedProducts()
     }
-  }, [routeProps.match.params.categoryId, setProdArray])
+  }, [params.categoryId, setProdArray])
 
   const makeProductSlug = product => {
     const brandProduct = `${product.brand_name} ${product.english_name}`

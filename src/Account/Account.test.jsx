@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router } from 'react-router'
+import { BrowserRouter as Router } from 'react-router-dom'
 import { describe, it, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import Account from './Account'
