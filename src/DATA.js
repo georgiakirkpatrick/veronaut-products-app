@@ -48,99 +48,93 @@ const data = {
     categories: [
       {
         id: 1,
-        english_name: "Affogatto",
+        english_name: "Activewear",
         category_class: "clothing",
-        featureImage: "https://media.sezane.com/image/upload/c_fill,d_placeholder_dark.png,fl_progressive:semi,h_816,q_auto:best,w_582/avhc13dzwkv0pzgbmf7g.jpg"
+        feature_image: "https://i.pinimg.com/736x/18/a1/ba/18a1ba23a48bb50f0a57f8f8adccd5b9.jpg"
       },
       {
         id: 2,
         english_name: "Blazers",
         category_class: "clothing",
-        featureImage: "https://media.sezane.com/image/upload/c_fill,d_placeholder_dark.png,fl_progressive:semi,h_816,q_auto:best,w_582/avhc13dzwkv0pzgbmf7g.jpg"
+        feature_image: "https://i.pinimg.com/736x/3a/a8/e8/3aa8e861a809ca883e3782958b3430cf.jpg"
       },
       {
         id: 3,
         english_name: "Coats and Jackets",
         category_class: "clothing",
-        featureImage: "https://media.sezane.com/image/upload/c_fill,d_placeholder_dark.png,fl_progressive:semi,h_816,q_auto:best,w_582/avhc13dzwkv0pzgbmf7g.jpg"
+        feature_image: "https://i.pinimg.com/736x/dc/f0/07/dcf007079f016f2345fad3cc608cc85a.jpg"
       },
       {
         id: 4,
         english_name: "Dresses",
         category_class: "clothing",
-        featureImage: "https://media.sezane.com/image/upload/c_fill,d_placeholder_dark.png,fl_progressive:semi,h_816,q_auto:best,w_582/avhc13dzwkv0pzgbmf7g.jpg"
+        feature_image: "https://i.pinimg.com/736x/35/6f/43/356f4302e725cf6a6ec445ac583e77ab.jpg"
       },
       {
         id: 5,
-        english_name: "Facemasks",
+        english_name: "Hair Accessories and Hats",
         category_class: "accessories",
-        featureImage: "https://media.sezane.com/image/upload/c_fill,d_placeholder_dark.png,fl_progressive:semi,h_816,q_auto:best,w_582/avhc13dzwkv0pzgbmf7g.jpg"
+        feature_image: "https://i.pinimg.com/736x/06/4c/a6/064ca6ee7b2fe11e6fca058f4ee48af4.jpg"
       },
       {
         id: 6,
-        english_name: "Hair Accessories and Hats",
-        category_class: "accessories",
-        featureImage: "https://media.sezane.com/image/upload/c_fill,d_placeholder_dark.png,fl_progressive:semi,h_816,q_auto:best,w_582/avhc13dzwkv0pzgbmf7g.jpg"
+        english_name: "Jeans",
+        category_class: "clothing",
+        feature_image: "https://i.pinimg.com/736x/07/d3/99/07d399f6a96a0557401f934fbe647983.jpg"
       },
       {
         id: 7,
-        english_name: "Jeans",
+        english_name: "Jumpsuits",
         category_class: "clothing",
-        featureImage: "https://media.sezane.com/image/upload/c_fill,d_placeholder_dark.png,fl_progressive:semi,h_816,q_auto:best,w_582/avhc13dzwkv0pzgbmf7g.jpg"
+        feature_image: "https://i.pinimg.com/236x/6b/a2/58/6ba258e9451a0337b317a718cbd81003.jpg"
       },
       {
         id: 8,
-        english_name: "Jumpsuits",
+        english_name: "Lingerie",
         category_class: "clothing",
-        featureImage: "https://media.sezane.com/image/upload/c_fill,d_placeholder_dark.png,fl_progressive:semi,h_816,q_auto:best,w_582/avhc13dzwkv0pzgbmf7g.jpg"
+        feature_image: "https://i.pinimg.com/736x/b7/4e/0c/b74e0cc5a7a5255f890cda74d40edeff.jpg"
       },
       {
         id: 9,
-        english_name: "Lingerie",
+        english_name: "Pants",
         category_class: "clothing",
-        featureImage: "https://media.sezane.com/image/upload/c_fill,d_placeholder_dark.png,fl_progressive:semi,h_816,q_auto:best,w_582/avhc13dzwkv0pzgbmf7g.jpg"
+        feature_image: "https://i.pinimg.com/736x/c0/3b/56/c03b56af1124a3b14e96f3913b640091.jpg"
       },
       {
         id: 10,
-        english_name: "Pants",
-        category_class: "clothing",
-        featureImage: "https://media.sezane.com/image/upload/c_fill,d_placeholder_dark.png,fl_progressive:semi,h_816,q_auto:best,w_582/avhc13dzwkv0pzgbmf7g.jpg"
+        english_name: "Shoes",
+        category_class: "shoes",
+        feature_image: "https://i.pinimg.com/736x/44/e5/a6/44e5a683056837fb1552a383f215b944.jpg"
       },
       {
         id: 11,
-        english_name: "Shoes",
-        category_class: "shoes",
-        featureImage: "https://media.sezane.com/image/upload/c_fill,d_placeholder_dark.png,fl_progressive:semi,h_816,q_auto:best,w_582/avhc13dzwkv0pzgbmf7g.jpg"
+        english_name: "Skirts",
+        category_class: "clothing",
+        feature_image: "https://i.pinimg.com/736x/8c/3d/6a/8c3d6abd5d97ce036615f9eb4b7bcdb4.jpg"
       },
       {
         id: 12,
-        english_name: "Skirts",
+        english_name: "Socks and Tights",
         category_class: "clothing",
-        featureImage: "https://media.sezane.com/image/upload/c_fill,d_placeholder_dark.png,fl_progressive:semi,h_816,q_auto:best,w_582/avhc13dzwkv0pzgbmf7g.jpg"
+        feature_image: "https://i.pinimg.com/736x/45/c7/b2/45c7b2a3bff5b2c38c4768fa19f1db15.jpg"
       },
       {
         id: 13,
-        english_name: "Socks and Tights",
+        english_name: "Sweaters",
         category_class: "clothing",
-        featureImage: "https://media.sezane.com/image/upload/c_fill,d_placeholder_dark.png,fl_progressive:semi,h_816,q_auto:best,w_582/avhc13dzwkv0pzgbmf7g.jpg"
+        feature_image: "https://i.pinimg.com/736x/a2/49/10/a249104b1dd61691353ede9b5b594f78.jpg"
       },
       {
         id: 14,
-        english_name: "Sweaters",
+        english_name: "Swimwear",
         category_class: "clothing",
-        featureImage: "https://media.sezane.com/image/upload/c_fill,d_placeholder_dark.png,fl_progressive:semi,h_816,q_auto:best,w_582/avhc13dzwkv0pzgbmf7g.jpg"
+        feature_image: "https://i.pinimg.com/736x/06/06/e4/0606e4ce8e2a6a4e86697bb86ec350c7.jpg"
       },
       {
         id: 15,
-        english_name: "Swimwear",
-        category_class: "clothing",
-        featureImage: "https://media.sezane.com/image/upload/c_fill,d_placeholder_dark.png,fl_progressive:semi,h_816,q_auto:best,w_582/avhc13dzwkv0pzgbmf7g.jpg"
-      },
-      {
-        id: 16,
         english_name: "Tops",
         category_class: "clothing",
-        featureImage: "https://media.sezane.com/image/upload/c_fill,d_placeholder_dark.png,fl_progressive:semi,h_816,q_auto:best,w_582/avhc13dzwkv0pzgbmf7g.jpg"
+        feature_image: "https://i.pinimg.com/736x/e2/c0/1e/e2c01ee8872d4d88df4b1633d477f96f.jpg"
       }
     ],
 

@@ -53,10 +53,12 @@ const App = () => {
         if (response.ok) {
           setCatsError(null)
 
+          console.log('hello from getCats, response.ok function')
+
           return response.json()
         } else {
           // If an API error occurs, use data.placeholder.categories data and create an API error message.
-          setCatsError('There was a problem fetching the categories.  Status code: ' + response.status)
+          setCatsError("There was a problem fetching the categories.  Status code: " + response.status)
 
           return data.placeholder.categories
         }
@@ -68,6 +70,7 @@ const App = () => {
         return data.placeholder.categories
       })
       .then(responseJson => {
+        console.log("responseJson ", responseJson)
         const formattedCats = responseJson.map(category => ({
           id: category.id,
           text: category.english_name,

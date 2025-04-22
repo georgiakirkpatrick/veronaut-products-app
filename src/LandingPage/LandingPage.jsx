@@ -53,6 +53,9 @@ const LandingPage = ({
     }
   ))
 
+  console.log("catArray ", catArray)
+
+
   return (
     <section className='LandingPage'>
       <div className='LandingPage__hero'>
