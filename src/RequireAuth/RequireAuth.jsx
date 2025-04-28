@@ -4,6 +4,7 @@ import config from '../config'
 import TokenService from '../services/token-service'
 
 const RequireAuth = ({
+  apiError = false,
   children = <div />
 }) => {
   const location = useLocation()
@@ -12,7 +13,12 @@ const RequireAuth = ({
   const hasToken = TokenService.getAuthToken(config.TOKEN_KEY)
 
   useEffect(() => {
-    if (!hasToken) {
+    if (apiError) {
+      navigate('/api-error', {
+        replace: true,
+        state: { referrer: location.pathname}
+      })
+    } else if (!hasToken && !apiError) {
       navigate('/login', {
         replace: true,
         state: { referrer: location.pathname}

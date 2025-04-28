@@ -4,6 +4,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Account from './Account/Account'
 import AllCategories from './AllCategories/AllCategories'
+import ErrorPageApi from './ErrorPageApi/ErrorPageApi'
 import Footer from './Footer/Footer'
 import ForgotPassword from './ForgotPassword/ForgotPassword'
 import Header from './Header/Header'
@@ -24,6 +25,7 @@ import './App.css'
 library.add(fab)
 
 const App = () => {
+  const [apiError, setApiError] = useState(false)
   const [brandArray, setBrandArray] = useState([])
   const [brandId, setBrandId] = useState(0)
   const [brandError, setBrandError] = useState(null)
@@ -36,6 +38,7 @@ const App = () => {
   const [factError, setFactError] = useState(null)
   const [prodArray, setProdArray] = useState([])
   const [prodError, setProdError] = useState(null)
+
 
   const getRequestParams = {
     method: 'GET',
@@ -53,12 +56,11 @@ const App = () => {
         if (response.ok) {
           setCatsError(null)
 
-          console.log('hello from getCats, response.ok function')
-
           return response.json()
         } else {
           // If an API error occurs, use data.placeholder.categories data and create an API error message.
           setCatsError("There was a problem fetching the categories.  Status code: " + response.status)
+          setApiError(true)
 
           return data.placeholder.categories
         }
@@ -67,10 +69,11 @@ const App = () => {
       err => {
         // If the frontend is unable to connect to the API, use data.placeholder.categories data and reveal the category error message.
         setCatsError("There was a problem communicating with the server.  Error message: " + err)
+        setApiError(true)
+
         return data.placeholder.categories
       })
       .then(responseJson => {
-        console.log("responseJson ", responseJson)
         const formattedCats = responseJson.map(category => ({
           id: category.id,
           text: category.english_name,
@@ -202,6 +205,16 @@ const App = () => {
     getCerts()
     getFacts()
 
+    if (brandError === null || catsError === null || certError === null || factError === null || prodError === null ) {
+      setApiError(false)
+      console.log('apiError', apiError)
+
+    } else {
+      setApiError(true)
+      console.log('apiError', apiError)
+    }
+      // ? setApiError(true)
+      // : setApiError(false)
   }, [])
 
   const appDisplay = (
@@ -213,7 +226,7 @@ const App = () => {
           <Routes>
             <Route path='/about' element={
               <>
-                <Header catArray={catArray} background='light' />
+                <Header apiError={apiError} catArray={catArray} background='light' />
                 <PrincipleList 
                   principles={data.verbage.principles} 
                 />
@@ -222,16 +235,16 @@ const App = () => {
             } />
             
             <Route path='/account' element={
-              <RequireAuth>
-                <Header catArray={catArray} background='light' />
+              <RequireAuth apiError={apiError}>
+                <Header apiError={apiError} catArray={catArray} background='light' />
                 <Account />
                 <Footer />
               </RequireAuth> }
             />
               
             <Route path='/add-product' element={
-              <RequireAuth>
-                <Header catArray={catArray} background='light' />
+              <RequireAuth apiError={apiError}>
+                <Header apiError={apiError} catArray={catArray} background='light' />
                 <NewProductForm
                   brandArray={brandArray}
                   brandId={brandId}
@@ -248,7 +261,7 @@ const App = () => {
             <Route path='/all-categories' 
               element={(
                 <>
-                  <Header catArray={catArray} background='light' />
+                  <Header apiError={apiError} catArray={catArray} background='light' />
                   <AllCategories
                     catArray={catArray}
                   />
@@ -260,7 +273,7 @@ const App = () => {
             <Route path='/category/:categoryId/:slug' 
               element={(
                 <>
-                  <Header catArray={catArray} background='light' />
+                  <Header apiError={apiError} catArray={catArray} background='light' />
                   <ProductListPage
                     catArray={catArray}
                     prodArray={prodArray}
@@ -275,23 +288,23 @@ const App = () => {
             <Route path='/create-account' 
               element={(
                 <>
-                  <Header catArray={catArray} background='light' />
-                  <NewAccount />
+                  <Header apiError={apiError} catArray={catArray} background='light' />
+                  <NewAccount apiError={apiError} />
                 </>
               )} 
             />
 
             <Route path='/forgot-password' 
               element={(
-                <ForgotPassword />
+                <ForgotPassword apiError={apiError} />
               )} 
             />
 
             <Route path='/login' 
               element={(
                 <>
-                  <Header catArray={catArray} background='light' />
-                  <Login />
+                  <Header apiError={apiError} catArray={catArray} background='light' />
+                  <Login  apiError={apiError} />
                 </>
               )} 
             />
@@ -299,7 +312,7 @@ const App = () => {
             <Route path='/principles' 
               element={(
                 <>
-                  <Header catArray={catArray} background='light' />
+                  <Header apiError={apiError} catArray={catArray} background='light' />
                   <PrincipleList 
                     principles={data.verbage.principles}
                   />
@@ -311,8 +324,9 @@ const App = () => {
             <Route path='/product/:productId/:slug' 
               element={(
                 <>
-                  <Header catArray={catArray} background='light' />
+                  <Header apiError={apiError} catArray={catArray} background='light' />
                   <ProductDetail
+                    apiError={apiError}
                     factArray={factArray}
                     certArray={certArray}
                     prodArray={prodArray}
@@ -324,10 +338,20 @@ const App = () => {
               )} 
             />
 
+            <Route path='/api-error'
+              element={(
+                <>
+                  <Header apiError={apiError} catArray={catArray} background='light' />
+                  <ErrorPageApi />
+                  <Footer />
+                </>
+              )}
+            />  
+
             <Route path='/' exact 
               element={(
                 <>
-                  <Header catArray={catArray} background='dark' />
+                  <Header apiError={apiError} catArray={catArray} background='dark' />
                   <LandingPage
                     catArray={catArray}
                     principles={data.verbage.principles}
@@ -340,7 +364,7 @@ const App = () => {
             <Route 
               element={(
                 <>
-                  <Header catArray={catArray} background='light' />
+                  <Header apiError={apiError} catArray={catArray} background='light' />
                   <NotFoundPage />
                   <Footer />
                 </>
